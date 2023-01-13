@@ -46,6 +46,6 @@ Executar o arquivo `index.html` dentro do `dev_template`
 
 ## 📝 Licença
 
-Esse projeto está sob licença Apache, versão 2.0. Veja o arquivo [Apache 2.0](LICENSE.md) para mais detalhes.
+Esse projeto está sob licença Apache, versão 2.0. Veja o arquivo [Apache 2.0](LICENSE) para mais detalhes.
 
 [⬆ Voltar ao topo](#nome-do-projeto)<br>
