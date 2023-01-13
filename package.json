@@ -1,0 +1,19 @@
+{
+  "name": "@mercadopago/sdk-react",
+  "version": "0.0.0",
+  "description": "Mercado Pago SDK React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mercadopago/sdk-react.git"
+  },
+  "author": "Mercado Pago (https://www.mercadopago.com.br/developers/pt)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/mercadopago/sdk-react/issues"
+  },
+  "homepage": "https://github.com/mercadopago/sdk-react#readme"
+}
