@@ -2,7 +2,7 @@
   "name": "@mercadopago/sdk-react",
   "version": "0.0.0",
   "description": "Mercado Pago SDK React",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "start": "webpack serve --config ./config/webpack/webpack.dev.js",
     "build-rollup": "rollup -c ./config/rollup/rollup.config.js",
