@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack serve --config ./config/webpack/webpack.dev.js",
     "build-rollup": "rollup -c ./config/rollup/rollup.config.js",
-    "build-webpack": "webpack --config ./config/webpack/webpack.config.js",
+    "build-webpack": "webpack --config ./config/webpack/webpack.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,11 +19,13 @@
     "url": "https://github.com/mercadopago/sdk-react/issues"
   },
   "homepage": "https://github.com/mercadopago/sdk-react#readme",
-  "dependencies": {
+  "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "@rollup/plugin-commonjs": "^11.0.1",
     "@rollup/plugin-node-resolve": "^7.0.0",
     "@rollup/plugin-terser": "^0.3.0",
@@ -39,6 +41,7 @@
     "html-webpack-plugin": "^5.5.0",
     "prettier": "2.8.3",
     "rollup": "^1.29.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
     "ts-loader": "^9.4.2",
     "tslib": "^2.4.1",
     "typescript": "^4.9.4",
