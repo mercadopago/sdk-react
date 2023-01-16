@@ -1,1 +1,3 @@
-export default "MercadoPagoSDKReact";
+import BricksPayment from './bricks/payment';
+
+export { BricksPayment };

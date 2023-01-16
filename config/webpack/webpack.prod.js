@@ -16,9 +16,9 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js'],
   },
   output: {
-    library:{
-        name: 'MercadoPagoSDKReact',
-        type: 'umd',
+    library: {
+      name: 'MercadoPagoSDKReact',
+      type: 'umd',
     },
     filename: 'index-webpack.js',
     path: path.resolve(__dirname, '../../dist'),
