@@ -1,3 +1,11 @@
+export type BricksBuilderType = {
+  create: (param: string, param2: string, settings: {}) => void;
+};
+
+export type InstanceMercadoPagoType = {
+  bricks: () => BricksBuilderType;
+};
+
 export type PaymentType = {
   onSubmit?: () => void;
   onReady?: () => void;

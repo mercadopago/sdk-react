@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { ClassUseMercadoPago } from '../../mercadoPago/useMercadoPago';
 import { onErrorINIT, onReadyINIT, onSubmitINIT } from '../util/common/initial';
-import { PaymentType } from './type';
+import { BricksBuilderType, InstanceMercadoPagoType, PaymentType } from './type';
 
 const BricksPayment = ({
   config,
@@ -10,9 +10,11 @@ const BricksPayment = ({
   onError = onErrorINIT,
 }: PaymentType) => {
   useEffect(() => {
-    ClassUseMercadoPago.getPromiseMercadoPago()?.then((instanceMercadoPago: any) => {
+    const initPaymentBrick = async () => {
+      const instanceMercadoPago =
+        (await ClassUseMercadoPago.getPromiseMercadoPago()) as InstanceMercadoPagoType;
       const bricksBuilder = instanceMercadoPago.bricks();
-      const renderPaymentBrick = async (bricksBuilder: any) => {
+      const renderPaymentBrick = async (bricksBuilder: BricksBuilderType) => {
         const settings = {
           ...config,
           callbacks: {
@@ -28,7 +30,8 @@ const BricksPayment = ({
         );
       };
       renderPaymentBrick(bricksBuilder);
-    });
+    };
+    initPaymentBrick();
   }, [config, onReady, onError, onSubmit]);
 
   return <div id="paymentBrick_container"></div>;
