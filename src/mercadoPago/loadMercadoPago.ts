@@ -37,7 +37,7 @@ const injectScript = () => {
 };
 
 let LoadPromise: null | Promise<unknown> = null;
-const loadMercadoPago = (publicKey: string) => {
+const loadMercadoPago = () => {
   // Ensure that we only attempt to load Stripe.js at most once
   if (LoadPromise !== null) {
     return LoadPromise;
@@ -53,7 +53,7 @@ const loadMercadoPago = (publicKey: string) => {
 
     if (window.MercadoPago) {
       console.warn(EXISTING_SCRIPT_MESSAGE);
-      resolve(new window.MercadoPago(publicKey));
+      resolve('MercadoPago ready!');
       return;
     }
 
@@ -68,7 +68,7 @@ const loadMercadoPago = (publicKey: string) => {
 
       script.addEventListener('load', function () {
         if (window.MercadoPago) {
-          resolve(new window.MercadoPago(publicKey));
+          resolve('MercadoPago ready!');
         } else {
           reject(new Error('MercadoPago.js not available'));
         }

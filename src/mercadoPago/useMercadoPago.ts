@@ -2,10 +2,17 @@ import { loadMercadoPago } from './loadMercadoPago';
 
 export class ClassUseMercadoPago {
   static publicKey = '';
+  static instanceMercadoPago: any = '';
 
-  static getPromiseMercadoPago() {
+  static async init() {
     if (this.publicKey) {
-      return loadMercadoPago(this.publicKey);
+      if (this.instanceMercadoPago) {
+        return ClassUseMercadoPago.instanceMercadoPago;
+      } else {
+        await loadMercadoPago();
+        ClassUseMercadoPago.instanceMercadoPago = new window.MercadoPago(this.publicKey);
+        return ClassUseMercadoPago.instanceMercadoPago;
+      }
     } else {
       console.error('Expected the PUBLIC_KEY to render the MercadoPago SDK React');
     }

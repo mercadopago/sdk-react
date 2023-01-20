@@ -11,8 +11,7 @@ const BricksPayment = ({
 }: PaymentType) => {
   useEffect(() => {
     const initPaymentBrick = async () => {
-      const instanceMercadoPago =
-        (await ClassUseMercadoPago.getPromiseMercadoPago()) as InstanceMercadoPagoType;
+      const instanceMercadoPago = (await ClassUseMercadoPago.init()) as InstanceMercadoPagoType;
       const bricksBuilder = instanceMercadoPago.bricks();
       const renderPaymentBrick = async (bricksBuilder: BricksBuilderType) => {
         const settings = {
