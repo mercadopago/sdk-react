@@ -7,7 +7,7 @@ export type InstanceMercadoPagoType = {
 };
 
 export type PaymentType = {
-  onSubmit: () => void;
+  onSubmit?: () => void;
   onReady?: () => void;
   onError?: (param: Error) => void;
   config: {

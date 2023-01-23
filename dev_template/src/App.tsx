@@ -18,7 +18,12 @@ const App = () => {
 
   return (
     <div className="App">
-      <Payment config={config} onSubmit={() => console.log('Brick Ready!')} />
+      <Payment
+        config={config}
+        onSubmit={() => console.log('Brick Ready!')}
+        onError={() => console.log('Brick Ready!')}
+        onReady={() => console.log('Brick Ready!')}
+      />
     </div>
   );
 };
