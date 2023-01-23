@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { MercadoPagoInstance } from '../../mercadoPago/useMercadoPago';
-import { onErrorINIT, onReadyINIT, onSubmitINIT } from '../util/common/initial';
+import { onErrorDefault, onReadyDefault, onSubmitDefault } from '../util/common/initial';
 import { BricksBuilderType, InstanceMercadoPagoType, PaymentType } from './type';
 
 const BrickPayment = ({
   config,
-  onSubmit = onSubmitINIT,
-  onReady = onReadyINIT,
-  onError = onErrorINIT,
+  onSubmit = onSubmitDefault,
+  onReady = onReadyDefault,
+  onError = onErrorDefault,
 }: PaymentType) => {
   useEffect(() => {
     const initPaymentBrick = async () => {

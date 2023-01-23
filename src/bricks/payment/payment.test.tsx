@@ -14,5 +14,5 @@ const config = {
 };
 
 test('renders the Payment Brick', () => {
-  render(<Payment config={config} />);
+  render(<Payment config={config} onSubmit={() => console.log('teste')} />);
 });

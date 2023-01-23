@@ -18,7 +18,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Payment config={config} />
+      <Payment config={config} onSubmit={() => console.log('Brick Ready!')} />
     </div>
   );
 };

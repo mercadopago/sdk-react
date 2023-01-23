@@ -1,7 +1,7 @@
-const onSubmitINIT = () => {};
-const onReadyINIT = () => {};
-const onErrorINIT = (error: Error) => {
+const onSubmitDefault = () => {};
+const onReadyDefault = () => {};
+const onErrorDefault = (error: Error) => {
   console.error(error);
 };
 
-export { onErrorINIT, onReadyINIT, onSubmitINIT };
+export { onErrorDefault, onReadyDefault, onSubmitDefault };

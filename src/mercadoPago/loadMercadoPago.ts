@@ -1,3 +1,4 @@
+const SDK_MERCADOPAGO_ID = 'MercadoPago-SDK-Javascript';
 const SDK_MERCADOPAGO_URL = 'https://sdk.mercadopago.com/js/v2';
 const SDK_MERCADOPAGO_URL_REGEX = /^https:\/\/sdk\.mercadopago\.com\/js\/v2\/?(\?.*)?$/;
 const EXISTING_SCRIPT_MESSAGE =
@@ -24,6 +25,7 @@ const findScript = () => {
 const injectScript = () => {
   var script = document.createElement('script');
   script.src = SDK_MERCADOPAGO_URL;
+  script.id = SDK_MERCADOPAGO_ID;
   var headOrBody = document.head || document.body;
 
   if (!headOrBody) {
@@ -34,6 +36,11 @@ const injectScript = () => {
 
   headOrBody.appendChild(script);
   return script;
+};
+
+const removeScript = () => {
+  var script = document.getElementById(SDK_MERCADOPAGO_ID);
+  if (script) script?.parentNode?.removeChild(script);
 };
 
 let LoadPromise: null | Promise<unknown> = null;
@@ -70,13 +77,16 @@ const loadMercadoPago = () => {
         if (window.MercadoPago) {
           resolve('MercadoPago.js ready!');
         } else {
+          removeScript();
           reject(new Error('MercadoPago.js not available'));
         }
       });
       script.addEventListener('error', function () {
+        removeScript();
         reject(new Error('Failed to load MercadoPago.js'));
       });
     } catch (error) {
+      removeScript();
       reject(error);
       return;
     }
