@@ -1,8 +1,15 @@
-node_modules
+# FOLDERS
 .vscode
+node_modules
 config
 dev_template
+coverage
+
+# FILES
 tsconfig.json
+tsconfig.prod.json
+jest.config.ts
+.babelrc
 .prettierignore
 .prettier.json
 .eslintrc.json
