@@ -3,7 +3,7 @@ import { MercadoPagoInstance } from '../../mercadoPago/useMercadoPago';
 import { onErrorINIT, onReadyINIT, onSubmitINIT } from '../util/common/initial';
 import { BricksBuilderType, InstanceMercadoPagoType, PaymentType } from './type';
 
-const BricksPayment = ({
+const BrickPayment = ({
   config,
   onSubmit = onSubmitINIT,
   onReady = onReadyINIT,
@@ -36,4 +36,4 @@ const BricksPayment = ({
   return <div id="paymentBrick_container"></div>;
 };
 
-export default BricksPayment;
+export default BrickPayment;

@@ -1,3 +1,3 @@
-import BricksPayment from './bricks/payment';
+import BrickPayment from './bricks/payment';
 
-export { BricksPayment };
+export { BrickPayment };
