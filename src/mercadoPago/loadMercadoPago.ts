@@ -53,7 +53,7 @@ const loadMercadoPago = () => {
 
     if (window.MercadoPago) {
       console.warn(EXISTING_SCRIPT_MESSAGE);
-      resolve('MercadoPago ready!');
+      resolve('MercadoPago.js ready!');
       return;
     }
 
@@ -68,7 +68,7 @@ const loadMercadoPago = () => {
 
       script.addEventListener('load', function () {
         if (window.MercadoPago) {
-          resolve('MercadoPago ready!');
+          resolve('MercadoPago.js ready!');
         } else {
           reject(new Error('MercadoPago.js not available'));
         }

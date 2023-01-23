@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ClassUseMercadoPago } from '../../mercadoPago/useMercadoPago';
+import { MercadoPagoInstance } from '../../mercadoPago/useMercadoPago';
 import { onErrorINIT, onReadyINIT, onSubmitINIT } from '../util/common/initial';
 import { BricksBuilderType, InstanceMercadoPagoType, PaymentType } from './type';
 
@@ -11,7 +11,7 @@ const BricksPayment = ({
 }: PaymentType) => {
   useEffect(() => {
     const initPaymentBrick = async () => {
-      const instanceMercadoPago = (await ClassUseMercadoPago.init()) as InstanceMercadoPagoType;
+      const instanceMercadoPago = (await MercadoPagoInstance.init()) as InstanceMercadoPagoType;
       const bricksBuilder = instanceMercadoPago.bricks();
       const renderPaymentBrick = async (bricksBuilder: BricksBuilderType) => {
         const settings = {
