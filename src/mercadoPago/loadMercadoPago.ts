@@ -62,7 +62,7 @@ const loadMercadoPago = () => {
 
       if (script) {
         console.warn(EXISTING_SCRIPT_MESSAGE);
-      } else if (!script) {
+      } else {
         script = injectScript();
       }
 

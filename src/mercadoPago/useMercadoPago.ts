@@ -6,13 +6,11 @@ export class MercadoPagoInstance {
 
   static async init() {
     if (this.publicKey) {
-      if (this.instanceMercadoPago) {
-        return MercadoPagoInstance.instanceMercadoPago;
-      } else {
+      if (!this.instanceMercadoPago) {
         await loadMercadoPago();
-        MercadoPagoInstance.instanceMercadoPago = new window.MercadoPago(this.publicKey);
-        return MercadoPagoInstance.instanceMercadoPago;
+        this.instanceMercadoPago = new window.MercadoPago(this.publicKey);
       }
+      return this.instanceMercadoPago;
     } else {
       console.error('Expected the PUBLIC_KEY to render the MercadoPago SDK React');
     }
