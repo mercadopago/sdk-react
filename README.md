@@ -14,7 +14,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
-- Você tenha instalado a versão `14.18.0` do `node`
+- Você tenha instalado a versão `14.18.0` do `node` ou superior
 
 ## 🚀 Desenvolvendo na MercadoPago SDK React
 
