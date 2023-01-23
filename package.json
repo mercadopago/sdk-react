@@ -1,6 +1,6 @@
 {
-  "name": "@mercadopagoteste/sdk-react-alpha",
-  "version": "0.0.14",
+  "name": "@mercadopago/sdk-react",
+  "version": "0.0.0",
   "description": "Mercado Pago SDK React",
   "main": "dist/index.js",
   "scripts": {
