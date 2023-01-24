@@ -1,0 +1,5 @@
+.husky
+build
+dist
+coverage
+node_modules

@@ -1,0 +1,4 @@
+{
+  "exclude": ["dev_template"],
+  "extends": "./tsconfig.json"
+}
