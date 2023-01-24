@@ -1,7 +1,7 @@
-import { loadMercadoPago } from './loadMercadoPago';
+import { loadMercadoPago } from '../loadMercadoPago';
 
 export class MercadoPagoInstance {
-  static publicKey = '';
+  static publicKey: string | null = null;
   static instanceMercadoPago: any = '';
 
   static async init() {

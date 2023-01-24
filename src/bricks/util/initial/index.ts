@@ -1,6 +1,8 @@
+import { IBrickError } from '../types/common';
+
 const onSubmitDefault = () => {};
 const onReadyDefault = () => {};
-const onErrorDefault = (error: Error) => {
+const onErrorDefault = (error: IBrickError) => {
   console.error(error);
 };
 

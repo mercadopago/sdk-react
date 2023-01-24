@@ -1,28 +1,16 @@
-import React from 'react';
-import Payment from '../../src/bricks/payment';
+import React, { useState } from 'react';
+import Wallet from '../../src/bricks/wallet';
+
 import useMercadoPago from '../../src/mercadoPago/useMercadoPago';
 
 useMercadoPago('TEST-f4563544-ce69-40c3-b88e-6e7d1bd93a83');
 
 const App = () => {
-  const config = {
-    initialization: {
-      amount: 100, // valor total a ser pago
-    },
-    customization: {
-      paymentMethods: {
-        bankTransfer: ['pix'],
-      },
-    },
-  };
-
   return (
     <div className="App">
-      <Payment
-        config={config}
-        onSubmit={() => console.log('Brick Ready!')}
-        onError={() => console.log('Brick Ready!')}
-        onReady={() => console.log('Brick Ready!')}
+      <Wallet
+        initialization={{ preferenceId: '207446753-3bfd1c27-1199-40bd-9cef-29bfcaa00bf1' }}
+        customization={{ visual: { buttonBackground: 'blue' } }}
       />
     </div>
   );
