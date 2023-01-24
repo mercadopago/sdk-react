@@ -1,14 +1,19 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import Payment from './index';
 
 const config = {
   initialization: {
-    amount: 100, // valor total a ser pago
+    amount: 100,
   },
   customization: {
     paymentMethods: {
+      atm: 'all',
+      ticket: 'all',
       bankTransfer: ['pix'],
+      creditCard: 'all',
+      debitCard: 'all',
+      mercadoPago: 'all',
     },
   },
 };

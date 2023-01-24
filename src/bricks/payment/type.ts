@@ -13,15 +13,17 @@ export type PaymentType = {
   config: {
     initialization: {
       amount: number;
+      payer?: IPaymentBrickPayer;
+      preferenceId?: string;
     };
     customization: {
       paymentMethods: {
-        bankTransfer: string[];
-        ticket: string | string[];
-        atm: string | string[];
-        creditCard: string | string[];
-        debitCard: string | string[];
-        mercadoPago: string | string[];
+        atm?: string | string[];
+        ticket?: string | string[];
+        bankTransfer?: string | string[];
+        creditCard?: string | string[];
+        debitCard?: string | string[];
+        mercadoPago?: string | string[];
       };
     };
   };
