@@ -8,9 +8,9 @@ const config = {
   },
   customization: {
     paymentMethods: {
-      atm: 'all',
-      ticket: 'all',
       bankTransfer: ['pix'],
+      ticket: 'all',
+      atm: 'all',
       creditCard: 'all',
       debitCard: 'all',
       mercadoPago: 'all',
@@ -19,5 +19,12 @@ const config = {
 };
 
 test('renders the Payment Brick', () => {
-  render(<Payment config={config} onSubmit={() => console.log('teste')} />);
+  render(
+    <Payment
+      config={config}
+      onSubmit={async (param) => {
+        console.log(param);
+      }}
+    />,
+  );
 });

@@ -25,8 +25,10 @@ const App = () => {
     <div className="App">
       <Payment
         config={config}
-        onSubmit={() => console.log('Brick Ready!')}
-        onError={() => console.log('Brick Ready!')}
+        onSubmit={async (param) => {
+          console.log(param);
+        }}
+        onError={(param) => console.log(param)}
         onReady={() => console.log('Brick Ready!')}
       />
     </div>

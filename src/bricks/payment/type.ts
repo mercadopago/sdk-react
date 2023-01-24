@@ -7,9 +7,9 @@ export type InstanceMercadoPagoType = {
 };
 
 export type PaymentType = {
-  onSubmit?: () => void;
+  onSubmit?: (param: IPaymentFormData, param2?: IAdditionalData) => Promise<void>;
   onReady?: () => void;
-  onError?: (param: Error) => void;
+  onError?: (param: IBrickError) => void;
   config: {
     initialization: {
       amount: number;

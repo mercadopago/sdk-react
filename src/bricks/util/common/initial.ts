@@ -1,6 +1,6 @@
-const onSubmitDefault = () => {};
+const onSubmitDefault = async () => {};
 const onReadyDefault = () => {};
-const onErrorDefault = (error: Error) => {
+const onErrorDefault = (error: IBrickError) => {
   console.error(error);
 };
 
