@@ -17,6 +17,11 @@ export type PaymentType = {
     customization: {
       paymentMethods: {
         bankTransfer: string[];
+        ticket: string | string[];
+        atm: string | string[];
+        creditCard: string | string[];
+        debitCard: string | string[];
+        mercadoPago: string | string[];
       };
     };
   };

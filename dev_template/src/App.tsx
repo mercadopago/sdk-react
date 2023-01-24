@@ -12,6 +12,11 @@ const App = () => {
     customization: {
       paymentMethods: {
         bankTransfer: ['pix'],
+        ticket: "all",
+        atm: "all",
+        creditCard: "all",
+        debitCard: "all",
+        mercadoPago: "all",
       },
     },
   };
