@@ -5,11 +5,15 @@ type TgenericRenderBrick = {
   settings: any;
   name: string;
   divId: string;
-  controller: unknown;
+  controller: string;
 };
 export const initBrick = async ({ settings, name, divId, controller }: TgenericRenderBrick) => {
   const instanceMercadoPago = (await MercadoPagoInstance.init()) as InstanceMercadoPagoType;
   const bricksBuilder = instanceMercadoPago.bricks();
 
-  controller = await bricksBuilder.create(name, divId, settings);
+  (window as { [key: string]: any })[controller] = await bricksBuilder.create(
+    name,
+    divId,
+    settings,
+  );
 };

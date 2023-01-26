@@ -24,7 +24,7 @@ describe('Test renderBrick', () => {
       settings: {},
       name: 'brickTest',
       divId: 'brickTest_container',
-      controller: window.brickTestController,
+      controller: 'brickTestController',
     };
 
     await initBrick(WalletBrickConfig);

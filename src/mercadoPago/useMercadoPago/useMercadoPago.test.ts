@@ -1,16 +1,6 @@
 import useMercadoPago, { MercadoPagoInstance } from '.';
 import * as addScriptMercadoPago from '../loadMercadoPago';
 
-export {};
-
-declare global {
-  interface Window {
-    MercadoPago: any;
-    paymentBrickController: any;
-    walletBrickController: any;
-  }
-}
-
 describe('Test useMercadoPago', () => {
   beforeEach(() => {
     jest

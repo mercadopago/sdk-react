@@ -43,11 +43,14 @@ const Wallet = ({
       },
       name: 'wallet',
       divId: 'walletBrick_container',
-      controller: window.walletBrickController,
+      controller: 'walletBrickController',
     };
-    initBrick(WalletBrickConfig);
-  }, [customization, initialization, onReady, onError, onSubmit]);
 
+    initBrick(WalletBrickConfig);
+    return () => {
+      window.walletBrickController?.unmount();
+    };
+  }, [customization, initialization, onReady, onError, onSubmit]);
   return <div id="walletBrick_container"></div>;
 };
 
