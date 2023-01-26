@@ -19,7 +19,7 @@ interface IAddress {
 interface IPaymentFormData {
   paymentType: TPaymentBrickPaymentType;
   selectedPaymentMethod: TPaymentBrickPaymentType;
-  formData: TicketFormData;
+  formData: ITicketFormData;
 }
 
 type TPaymentBrickPaymentType =
@@ -31,7 +31,7 @@ type TPaymentBrickPaymentType =
   | 'wallet_purchase'
   | 'onboarding_credits';
 
-interface TicketFormData {
+interface ITicketFormData {
   transaction_amount: number;
   payment_method_id: string;
   payer: IPayerAPI;
