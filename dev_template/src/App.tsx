@@ -26,7 +26,7 @@ const App = () => {
   return (
     <div className="App">
       <Wallet
-        initialization={{ preferenceId: '207446753-3bfd1c27-1199-40bd-9cef-29bfcaa00bf1' }}
+        initialization={{ preferenceId: 'YOUR_PREFERENCE_ID' }}
         customization={{ visual: { buttonBackground: 'black' } }}
       />
       <Payment
