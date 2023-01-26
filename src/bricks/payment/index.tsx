@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { MercadoPagoInstance } from '../../mercadoPago/useMercadoPago';
-import { onErrorDefault, onReadyDefault, onSubmitDefault } from '../util/common/initial';
+import { onErrorDefault, onReadyDefault, onSubmitDefault } from '../util/initial';
 import { BricksBuilderType, InstanceMercadoPagoType, PaymentType } from './type';
 
 const BrickPayment = ({
