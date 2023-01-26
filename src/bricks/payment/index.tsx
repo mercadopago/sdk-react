@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { MercadoPagoInstance } from '../../mercadoPago/useMercadoPago';
 import { onErrorDefault, onReadyDefault, onSubmitDefault } from '../util/initial';
-import { BricksBuilderType, InstanceMercadoPagoType, PaymentType } from './type';
+import { initBrick } from '../util/renderBrick';
+import { PaymentType } from './type';
 
 const BrickPayment = ({
   config,
@@ -10,27 +10,24 @@ const BrickPayment = ({
   onError = onErrorDefault,
 }: PaymentType) => {
   useEffect(() => {
-    const initPaymentBrick = async () => {
-      const instanceMercadoPago = (await MercadoPagoInstance.init()) as InstanceMercadoPagoType;
-      const bricksBuilder = instanceMercadoPago.bricks();
-      const renderPaymentBrick = async (bricksBuilder: BricksBuilderType) => {
-        const settings = {
-          ...config,
-          callbacks: {
-            onReady: onReady,
-            onSubmit: onSubmit,
-            onError: onError,
-          },
-        };
-        window.paymentBrickController = await bricksBuilder.create(
-          'payment',
-          'paymentBrick_container',
-          settings,
-        );
-      };
-      renderPaymentBrick(bricksBuilder);
+    const PaymentBrickController = {
+      settings: {
+        ...config,
+        callbacks: {
+          onReady: onReady,
+          onSubmit: onSubmit,
+          onError: onError,
+        },
+      },
+      name: 'payment',
+      divId: 'paymentBrick_container',
+      controller: 'paymentBrickController',
     };
-    initPaymentBrick();
+
+    initBrick(PaymentBrickController);
+    return () => {
+      window.paymentBrickController?.unmount();
+    };
   }, [config, onReady, onError, onSubmit]);
 
   return <div id="paymentBrick_container"></div>;
