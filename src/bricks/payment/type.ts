@@ -88,9 +88,3 @@ interface IPayerAddressAPI {
 interface IAdditionalData {
   bin: string;
 }
-
-interface IBrickError {
-  type: 'non_critical' | 'critical';
-  cause: string;
-  message: string;
-}
