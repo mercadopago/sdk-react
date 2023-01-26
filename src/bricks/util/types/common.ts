@@ -1,10 +1,15 @@
+export interface IPayerIdentification {
+  type: string;
+  number: string;
+}
+
 export interface IBrickError {
   type: 'non_critical' | 'critical';
   cause: string;
   message: string;
 }
 
-interface IBrickCallbacks {
+export interface IBrickCallbacks {
   /**
    *  Callback called when Brick is ready. Here you can hide loadings from your site, for example.
    */
