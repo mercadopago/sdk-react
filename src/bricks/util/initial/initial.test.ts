@@ -15,10 +15,10 @@ describe('Test default functions', () => {
 
     logSpy.mockRestore();
   });
-  test('Should onSubmitDefault is called', () => {
+  test('Should onSubmitDefault be called', () => {
     expect(onSubmitDefault()).toBe(undefined);
   });
-  test('Should onReadyDefault is called', () => {
+  test('Should onReadyDefault be called', () => {
     expect(onReadyDefault()).toBe(undefined);
   });
 });

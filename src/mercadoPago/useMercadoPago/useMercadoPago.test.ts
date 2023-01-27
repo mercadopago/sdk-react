@@ -16,7 +16,7 @@ describe('Test useMercadoPago', () => {
     expect(MercadoPagoInstance.publicKey).toBe(PUBLIC_KEY);
   });
 
-  test('should show console.erro if the public key is not set', () => {
+  test('should show console.error if the public key is not set', () => {
     const logSpy = jest.spyOn(global.console, 'error').mockImplementation(() => {});
 
     MercadoPagoInstance.init();

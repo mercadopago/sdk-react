@@ -1,13 +1,13 @@
 import { MercadoPagoInstance } from '../../../mercadoPago/useMercadoPago';
 import { InstanceMercadoPagoType } from '../types/common';
 
-type TgenericRenderBrick = {
+type TGenericRenderBrick = {
   settings: any;
   name: string;
   divId: string;
   controller: string;
 };
-export const initBrick = async ({ settings, name, divId, controller }: TgenericRenderBrick) => {
+export const initBrick = async ({ settings, name, divId, controller }: TGenericRenderBrick) => {
   const instanceMercadoPago = (await MercadoPagoInstance.init()) as InstanceMercadoPagoType;
   const bricksBuilder = instanceMercadoPago.bricks();
 
