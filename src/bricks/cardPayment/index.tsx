@@ -3,7 +3,7 @@ import { onErrorDefault, onReadyDefault, onSubmitDefault } from '../util/initial
 import { initBrick } from '../util/renderBrick';
 import { CardPaymentType } from './type';
 
-const BrickPayment = ({
+const BrickCardPayment = ({
   config,
   onSubmit = onSubmitDefault,
   onReady = onReadyDefault,
@@ -19,11 +19,10 @@ const BrickPayment = ({
           onError: onError,
         },
       },
-      name: 'payment',
-      divId: 'paymentBrick_container',
-      controller: 'paymentBrickController',
+      name: 'cardPayment',
+      divId: 'carPaymentBrick_container',
+      controller: 'cardPaymentBrickController',
     };
-
     initBrick(CardPaymentBrickController);
     return () => {
       window.cardPaymentBrickController?.unmount();
@@ -33,4 +32,4 @@ const BrickPayment = ({
   return <div id="carPaymentBrick_container"></div>;
 };
 
-export default BrickPayment;
+export default BrickCardPayment;
