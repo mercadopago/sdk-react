@@ -12,23 +12,26 @@ export type CardPaymentType = {
   onSubmit?: (param: ICardPaymentFormData, param2?: IAdditionalData) => Promise<void>;
   onReady?: () => void;
   onError?: (param: IBrickError) => void;
-  config: {
-    initialization: {
-      amount: number;
-      payer?: ICardPaymentBrickPayer;
-    };
-    customization?: {
-      paymentMethods?: {
-        minInstallments?: number;
-        maxInstallments?: number;
-        types?: {
-          excluded: string[];
-        };
+  initialization: {
+    amount: number;
+    payer?: ICardPaymentBrickPayer;
+  };
+  customization?: {
+    paymentMethods?: {
+      minInstallments?: number;
+      maxInstallments?: number;
+      types?: {
+        excluded: string[];
       };
     };
+    visual?: {};
   };
 };
 
+interface ICardPaymentBrickPayer {
+  email?: string;
+  identification?: IPayerIdentification;
+}
 interface ICardPaymentFormData {
   token: string;
   issuer_id: string;
@@ -36,11 +39,8 @@ interface ICardPaymentFormData {
   transaction_amount: number;
   installments: number;
   payer: ICardPaymentBrickPayer;
-}
-
-interface ICardPaymentBrickPayer {
-  email?: string;
-  identification?: IPayerIdentification;
+  payment_method_option_id?: string;
+  processing_mode?: string;
 }
 
 interface IAdditionalData {

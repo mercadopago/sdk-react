@@ -4,15 +4,17 @@ import { initBrick } from '../util/renderBrick';
 import { CardPaymentType } from './type';
 
 const BrickCardPayment = ({
-  config,
   onSubmit = onSubmitDefault,
   onReady = onReadyDefault,
   onError = onErrorDefault,
+  initialization,
+  customization,
 }: CardPaymentType) => {
   useEffect(() => {
     const CardPaymentBrickController = {
       settings: {
-        ...config,
+        initialization,
+        customization,
         callbacks: {
           onReady: onReady,
           onSubmit: onSubmit,
@@ -20,16 +22,16 @@ const BrickCardPayment = ({
         },
       },
       name: 'cardPayment',
-      divId: 'carPaymentBrick_container',
+      divId: 'cardPaymentBrick_container',
       controller: 'cardPaymentBrickController',
     };
     initBrick(CardPaymentBrickController);
     return () => {
       window.cardPaymentBrickController?.unmount();
     };
-  }, [config, onReady, onError, onSubmit]);
+  }, [initialization, onReady, onError, onSubmit]);
 
-  return <div id="carPaymentBrick_container"></div>;
+  return <div id="cardPaymentBrick_container"></div>;
 };
 
 export default BrickCardPayment;

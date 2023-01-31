@@ -2,16 +2,10 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import Payment from './index';
 
-const config = {
-  initialization: {
-    amount: 100,
-  },
-};
-
-test('renders the Payment Brick', () => {
+test('renders the Payment Brick with minimun config', () => {
   render(
     <Payment
-      config={config}
+      initialization={{ amount: 100 }}
       onSubmit={async (param) => {
         console.log(param);
       }}
