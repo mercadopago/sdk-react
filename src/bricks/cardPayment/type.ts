@@ -17,7 +17,7 @@ export type CardPaymentType = {
       amount: number;
       payer?: ICardPaymentBrickPayer;
     };
-    customization: {
+    customization?: {
       paymentMethods?: {
         minInstallments?: number;
         maxInstallments?: number;

@@ -6,16 +6,6 @@ const config = {
   initialization: {
     amount: 100,
   },
-  customization: {
-    paymentMethods: {
-      bankTransfer: ['pix'],
-      ticket: 'all',
-      atm: 'all',
-      creditCard: 'all',
-      debitCard: 'all',
-      mercadoPago: 'all',
-    },
-  },
 };
 
 test('renders the Payment Brick', () => {
