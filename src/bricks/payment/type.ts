@@ -51,26 +51,34 @@ export type PaymentType = {
          * */
         atm?: string | string[];
         /**
-         * Payment by ticket.
+         * Payment by printed ticket.
          *
          * @tutorial {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/payment-brick/configure-integration/other-payment-methods/brasil Consult ticket use} documentation.
          * */
         ticket?: string | string[];
         /**
-         * to do.
-         */
+         * Payment by Pix, an instant electronic payment method offered by the Central Bank of Brazil to individuals and legal entities.
+         *
+         * @tutorial {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/payment-brick/configure-integration/pix Consult bankTransfer use} documentation.
+         * */
         bankTransfer?: string | string[];
         /**
-         * to do.
-         */
+         * Payment by creditCard.
+         *
+         * @tutorial {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/payment-brick/configure-integration/cards Consult creditCard use} documentation.
+         * */
         creditCard?: string | string[];
         /**
-         * to do.
-         */
+         * Payment by debitCard.
+         *
+         * @tutorial {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/payment-brick/configure-integration/cards Consult debitCard use} documentation.
+         * */
         debitCard?: string | string[];
         /**
-         * to do.
-         */
+         * Payment with Mercado Pago Wallet and Installments without card.
+         *
+         * @tutorial {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/payment-brick/configure-integration/wallet-credits Consult mercadoPago use} documentation.
+         * */
         mercadoPago?: string | string[];
       };
     };
