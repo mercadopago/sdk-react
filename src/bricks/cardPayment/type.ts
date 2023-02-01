@@ -74,9 +74,10 @@ export type TCardPayment = {
        */
       types?: {
         /**
-         * Non-Optional. String[]. Receives which payment method types won`t be shown
+         * Optional. String[]. Receives which payment method types won`t be shown
          */
-        excluded: string[];
+        excluded?: string[];
+        included?: string[];
       };
     };
     /**
