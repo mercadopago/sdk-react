@@ -63,7 +63,7 @@ const CardPayment = ({
     return () => {
       window.cardPaymentBrickController?.unmount();
     };
-  }, [initialization, onReady, onError, onSubmit]);
+  }, [initialization, customization, onBinChange, onReady, onError, onSubmit]);
 
   return <div id="cardPaymentBrick_container"></div>;
 };
