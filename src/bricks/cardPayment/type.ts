@@ -8,7 +8,7 @@ export type InstanceMercadoPagoType = {
   bricks: () => BricksBuilderType;
 };
 
-export type CardPaymentType = {
+export type TCardPayment = {
   onSubmit?: (param: ICardPaymentFormData, param2?: IAdditionalData) => Promise<void>;
   onReady?: () => void;
   onError?: (param: IBrickError) => void;

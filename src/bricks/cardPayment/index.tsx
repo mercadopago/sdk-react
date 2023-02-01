@@ -1,17 +1,43 @@
 import React, { useEffect } from 'react';
 import { onErrorDefault, onReadyDefault, onSubmitDefault } from '../util/initial';
 import { initBrick } from '../util/renderBrick';
-import { CardPaymentType } from './type';
+import { TCardPayment } from './type';
 
-const BrickCardPayment = ({
-  onSubmit = onSubmitDefault,
+/**
+ * Card Payment Brick allows you to offer payments with credit and debit card at yout checkout.
+ *
+ * Usage:
+ *
+ * ```ts
+ * import CardPayment, {useMercadoPago} from '@mercadopago/sdk-react'
+ *
+ * useMercadoPago('YOUR_PUBLIC_KEY')
+ *
+ * const Example = () => {
+ *   return(
+ *      <CardPayment
+ *       initialization={{amount: AMOUNT}} // AMOUNT is the value from the purchase, its the minium data to initialize CardPayment brick
+ *       onSubmit={} // Optional: Receives a function that send the payment to backend and, through it, to MercadoPago
+ *       onError={} // Optional: Receives a function that deal with errors
+ *       onReady={} // Optional: Receives a function to execute after brick rendered
+ *       />
+ *  )
+ * }
+ * export default Example
+ * ```
+ *
+ * @tutorial {@link https://www.mercadopago.com.br/developers/pt/docs/checkout-bricks/card-payment-brick/introduction Card Payment Brick documentation} for more information.
+ */
+
+const CardPayment = ({
   onReady = onReadyDefault,
   onError = onErrorDefault,
+  onSubmit = onSubmitDefault,
   initialization,
   customization,
-}: CardPaymentType) => {
+}: TCardPayment) => {
   useEffect(() => {
-    const CardPaymentBrickController = {
+    const CardPaymentBrickConfig = {
       settings: {
         initialization,
         customization,
@@ -25,7 +51,7 @@ const BrickCardPayment = ({
       divId: 'cardPaymentBrick_container',
       controller: 'cardPaymentBrickController',
     };
-    initBrick(CardPaymentBrickController);
+    initBrick(CardPaymentBrickConfig);
     return () => {
       window.cardPaymentBrickController?.unmount();
     };
@@ -34,4 +60,4 @@ const BrickCardPayment = ({
   return <div id="cardPaymentBrick_container"></div>;
 };
 
-export default BrickCardPayment;
+export default CardPayment;
