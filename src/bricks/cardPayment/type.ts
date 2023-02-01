@@ -19,7 +19,7 @@ export type TCardPayment = {
   /**
    * Optional. Function. Receives function to be executed just after brick rendered
    *
-   * @see {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/card-payment-brick/configure-integration#bookmark_render_brick Configure the integration # Render Brick} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/configure-integration#bookmark_render_brick Configure the integration # Render Brick} documentation.
    */
   onReady?: () => void;
   /**
