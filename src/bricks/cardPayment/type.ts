@@ -85,7 +85,7 @@ export type TCardPayment = {
      * @see {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/hide-element Hide title and flags} documentation.
      * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/change-texts Change texts} documentation.
      * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/set-theme Set theme} documentation.
-     * @see {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/additional-content/modify-css-variables Modify CSS variables} documentation.
+     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/modify-css-variables Modify CSS variables} documentation.
      */
     visual?: object;
   };
