@@ -28,7 +28,7 @@ import { PaymentType } from './type';
  * export default Example
  * ```
  *
- * @tutorial {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/payment-brick/introduction Payment Brick documentation} for more information.
+ * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/introduction Payment Brick documentation} for more information.
  */
 const BrickPayment = ({
   config,
