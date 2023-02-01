@@ -9,7 +9,7 @@ export type InstanceMercadoPagoType = {
 };
 
 export type TCardPayment = {
-  onSubmit?: (param: ICardPaymentFormData, param2?: IAdditionalData) => Promise<void>;
+  onSubmit: (param: ICardPaymentFormData, param2?: IAdditionalData) => Promise<void>;
   onReady?: () => void;
   onError?: (param: IBrickError) => void;
   initialization: {

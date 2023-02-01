@@ -17,7 +17,7 @@ import { TCardPayment } from './type';
  *   return(
  *      <CardPayment
  *       initialization={{amount: AMOUNT}} // AMOUNT is the value from the purchase, its the minium data to initialize CardPayment brick
- *       onSubmit={} // Optional: Receives a function that send the payment to backend and, through it, to MercadoPago
+ *       onSubmit={} // Receives a function that send the payment to backend and, through it, to MercadoPago
  *       onError={} // Optional: Receives a function that deal with errors
  *       onReady={} // Optional: Receives a function to execute after brick rendered
  *       />
