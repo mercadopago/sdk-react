@@ -56,7 +56,7 @@ export type TCardPayment = {
     /**
      * Optional. Object. Receives information about installments and payment method types
      *
-     * @see {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/configure-installments Configure Installments} documentation.
+     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/configure-installments Configure Installments} documentation.
      */
     paymentMethods?: {
       /**
