@@ -24,7 +24,7 @@ const App = () => {
   //   },
   // };
 
-  const inicialization = {
+  const initialization = {
     amount: 100,
   };
 
@@ -51,7 +51,7 @@ const App = () => {
         onReady={() => console.log('Brick Ready!')}
       /> */}
       <Card
-        initialization={inicialization}
+        initialization={initialization}
         customization={customization}
         onSubmit={async (param) => {
           console.log(param);
