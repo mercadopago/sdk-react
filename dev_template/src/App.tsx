@@ -24,14 +24,14 @@ const App = () => {
   //   },
   // };
 
-  const inicializationCardPayment = {
+  const inicialization = {
     amount: 100,
   };
 
-  const customizationCardPayment = {
+  const customization = {
     visual: {
       style: {
-        theme: 'dark',
+        theme: 'default',
       },
     },
   };
@@ -51,8 +51,8 @@ const App = () => {
         onReady={() => console.log('Brick Ready!')}
       /> */}
       <Card
-        initialization={inicializationCardPayment}
-        customization={customizationCardPayment}
+        initialization={inicialization}
+        customization={customization}
         onSubmit={async (param) => {
           console.log(param);
         }}
