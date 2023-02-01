@@ -1,7 +1,7 @@
 import { IBrickError, IPayerIdentification } from '../util/types/common';
 
 export type BricksBuilderType = {
-  create: (param: string, param2: string, settings: {}) => void;
+  create: (param: string, param2: string, settings: object) => void;
 };
 
 export type InstanceMercadoPagoType = {
@@ -24,7 +24,7 @@ export type CardPaymentType = {
         excluded: string[];
       };
     };
-    visual?: {};
+    visual?: object;
   };
 };
 
