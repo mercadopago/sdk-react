@@ -70,7 +70,7 @@ export type TCardPayment = {
       /**
        * Optional. Object. Receives excluded attribute
        *
-       * @see {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/configure-payment-methods Configure accepted payment methods} documentation.
+       * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/configure-payment-methods Configure accepted payment methods} documentation.
        */
       types?: {
         /**
