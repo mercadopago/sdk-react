@@ -1,5 +1,10 @@
 import React, { useEffect } from 'react';
-import { onErrorDefault, onReadyDefault, onSubmitDefault } from '../util/initial';
+import {
+  onErrorDefault,
+  onReadyDefault,
+  onSubmitDefault,
+  onBinChangeDefault,
+} from '../util/initial';
 import { initBrick } from '../util/renderBrick';
 import { TCardPayment } from './type';
 
@@ -20,6 +25,7 @@ import { TCardPayment } from './type';
  *       onSubmit={} // Receives a function that send the payment to backend and, through it, to MercadoPago
  *       onError={} // Optional: Receives a function that deal with errors
  *       onReady={} // Optional: Receives a function to execute after brick rendered
+ *       onBinChange={} // Optional: Returns the Card BIN when the card number changes
  *       />
  *  )
  * }
@@ -33,6 +39,7 @@ const CardPayment = ({
   onReady = onReadyDefault,
   onError = onErrorDefault,
   onSubmit = onSubmitDefault,
+  onBinChange = onBinChangeDefault,
   initialization,
   customization,
 }: TCardPayment) => {
@@ -45,6 +52,7 @@ const CardPayment = ({
           onReady: onReady,
           onSubmit: onSubmit,
           onError: onError,
+          onBinChange: onBinChange,
         },
       },
       name: 'cardPayment',

@@ -29,6 +29,12 @@ export type TCardPayment = {
    */
   onError?: (param: IBrickError) => void;
   /**
+   * Optional. Function. It is used to get the bin of the card being inserted into the Brick. This callback is called on the fly whenever the card bin is updated
+   *
+   * @see {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/payment-brick/additional-customization/additional-callbacks Additional callbacks} documentation.
+   */
+  onBinChange?: (param: string) => void;
+  /**
    * Non-optional. Object. At minimun receive the amount atribute.
    */
   initialization: {
