@@ -13,7 +13,7 @@ export type TCardPayment = {
    * Non-optional. Function. Receives function to send the payment to backend
    *
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/configure-integration#bookmark_render_brick Configure the integration # Render Brick} documentation.
-   * @see {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/additional-data Additional data} documentatio to understand the second param.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/additional-data Additional data} documentatio to understand the second param.
    */
   onSubmit: (param: ICardPaymentFormData, param2?: IAdditionalData) => Promise<void>;
   /**
