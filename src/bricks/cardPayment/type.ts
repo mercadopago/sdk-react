@@ -45,7 +45,7 @@ export type TCardPayment = {
     /**
      * Optional. Object. Receives information from payer and fill up the correspondent fields
      *
-     * @see {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/initialize-data-on-the-bricks Initialize data on the Brick} documentation.
+     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/initialize-data-on-the-bricks Initialize data on the Brick} documentation.
      */
     payer?: ICardPaymentBrickPayer;
   };
