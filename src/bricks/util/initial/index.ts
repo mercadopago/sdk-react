@@ -6,4 +6,10 @@ const onErrorDefault = (error: IBrickError) => {
   console.error(error);
 };
 
-export { onErrorDefault, onReadyDefault, onSubmitDefault };
+const onBinChangeDefault = (bin: string) => {
+  {
+    console.log(bin);
+  }
+};
+
+export { onErrorDefault, onReadyDefault, onSubmitDefault, onBinChangeDefault };
