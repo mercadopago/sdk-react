@@ -19,7 +19,7 @@ export interface IBrickCallbacks {
    *
    * @param error - A {@link IBrickError} objects
    *
-   * @tutorial {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/additional-content/possible-errors Possible errors} documentation.
+   * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/possible-errors Possible errors} documentation.
    */
   onError?: (error: IBrickError) => void;
   /**

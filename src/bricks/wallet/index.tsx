@@ -21,7 +21,7 @@ import { initBrick } from '../util/renderBrick';
  * export default Example
  * ```
  *
- * @tutorial {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/wallet-brick/introduction Wallet Brick documentation} for more information.
+ * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/introduction Wallet Brick documentation} for more information.
  */
 const Wallet = ({
   onReady = onReadyDefault,
