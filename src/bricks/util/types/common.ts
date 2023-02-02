@@ -29,11 +29,3 @@ export interface IBrickCallbacks {
 }
 
 export interface IBrickSettings extends IBrickCallbacks {}
-
-export type BricksBuilderType = {
-  create: (param: string, param2: string, settings: {}) => void;
-};
-
-export type InstanceMercadoPagoType = {
-  bricks: () => BricksBuilderType;
-};

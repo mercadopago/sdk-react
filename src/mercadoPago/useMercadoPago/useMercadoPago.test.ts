@@ -7,7 +7,7 @@ describe('Test useMercadoPago', () => {
       .spyOn(addScriptMercadoPago, 'loadMercadoPago')
       .mockImplementation(() => Promise.resolve({}));
     MercadoPagoInstance.publicKey = null;
-    MercadoPagoInstance.instanceMercadoPago = '';
+    MercadoPagoInstance.instanceMercadoPago = undefined;
   });
 
   test('should set the publicKey instance', () => {
@@ -30,7 +30,7 @@ describe('Test useMercadoPago', () => {
     const PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
     const mockMercadoPagoBrick = jest.fn();
     const mock = jest.fn().mockImplementation(() => {
-      return { brick: mockMercadoPagoBrick };
+      return { bricks: mockMercadoPagoBrick };
     });
     window.MercadoPago = mock;
 
@@ -38,9 +38,9 @@ describe('Test useMercadoPago', () => {
     await MercadoPagoInstance.init();
 
     expect(MercadoPagoInstance.publicKey).toBe(PUBLIC_KEY);
-    expect(MercadoPagoInstance.instanceMercadoPago.brick).toBe(mockMercadoPagoBrick);
+    expect(MercadoPagoInstance.instanceMercadoPago?.bricks).toBe(mockMercadoPagoBrick);
 
     await MercadoPagoInstance.init();
-    expect(MercadoPagoInstance.instanceMercadoPago.brick).toBe(mockMercadoPagoBrick);
+    expect(MercadoPagoInstance.instanceMercadoPago?.bricks).toBe(mockMercadoPagoBrick);
   });
 });
