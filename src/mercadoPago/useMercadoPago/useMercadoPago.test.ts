@@ -7,7 +7,7 @@ describe('Test useMercadoPago', () => {
       .spyOn(addScriptMercadoPago, 'loadMercadoPago')
       .mockImplementation(() => Promise.resolve({}));
     MercadoPagoInstance.publicKey = null;
-    MercadoPagoInstance.instanceMercadoPago = '';
+    MercadoPagoInstance.instanceMercadoPago = undefined;
   });
 
   test('should set the publicKey instance', () => {
@@ -38,9 +38,9 @@ describe('Test useMercadoPago', () => {
     await MercadoPagoInstance.init();
 
     expect(MercadoPagoInstance.publicKey).toBe(PUBLIC_KEY);
-    expect(MercadoPagoInstance.instanceMercadoPago.brick).toBe(mockMercadoPagoBrick);
+    expect(MercadoPagoInstance.instanceMercadoPago?.bricks).toBe(mockMercadoPagoBrick);
 
     await MercadoPagoInstance.init();
-    expect(MercadoPagoInstance.instanceMercadoPago.brick).toBe(mockMercadoPagoBrick);
+    expect(MercadoPagoInstance.instanceMercadoPago?.bricks).toBe(mockMercadoPagoBrick);
   });
 });
