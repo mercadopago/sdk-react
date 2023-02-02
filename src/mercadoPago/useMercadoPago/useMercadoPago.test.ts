@@ -30,7 +30,7 @@ describe('Test useMercadoPago', () => {
     const PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
     const mockMercadoPagoBrick = jest.fn();
     const mock = jest.fn().mockImplementation(() => {
-      return { brick: mockMercadoPagoBrick };
+      return { bricks: mockMercadoPagoBrick };
     });
     window.MercadoPago = mock;
 
