@@ -1,11 +1,11 @@
 import React from 'react';
-import Wallet from '../../src/bricks/wallet';
+import Wallet from '../../../src/bricks/wallet';
 
-import useMercadoPago from '../../src/mercadoPago/useMercadoPago';
+import useMercadoPago from '../../../src/mercadoPago/useMercadoPago';
 
 useMercadoPago('TEST-f4563544-ce69-40c3-b88e-6e7d1bd93a83');
 
-const ExampleCustomizationWalletBrick = () => {
+const ExampleOnSubmitWalletBrick = () => {
   function onSubmit() {
     // callback called when clicking Wallet Brick
     // this is possible because the brick is a button
@@ -46,4 +46,4 @@ const ExampleCustomizationWalletBrick = () => {
   return <Wallet onSubmit={() => onSubmit()} />;
 };
 
-export default ExampleCustomizationWalletBrick;
+export default ExampleOnSubmitWalletBrick;
