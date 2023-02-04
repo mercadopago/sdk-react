@@ -25,7 +25,6 @@ export interface IBrickCallbacks {
 }
 
 export interface IBrickBinCallback {
-  //todo
   /**
    * Bin of the card entered by the user.
    *
