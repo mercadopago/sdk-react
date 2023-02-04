@@ -8,18 +8,19 @@ describe('Test Payment Brick Component', () => {
     MercadoPagoInstance.publicKey = 'PUBLIC_KEY';
     const element = await render(
       <BrickPayment
-        config={{
-          initialization: { amount: 100 },
-          customization: {
-            paymentMethods: {
-              bankTransfer: ['pix'],
-              ticket: 'all',
-              atm: 'all',
-              creditCard: 'all',
-              debitCard: 'all',
-              mercadoPago: 'all',
-            },
+        initialization={{ amount: 100 }}
+        customization={{
+          paymentMethods: {
+            bankTransfer: ['pix'],
+            ticket: 'all',
+            atm: 'all',
+            creditCard: 'all',
+            debitCard: 'all',
+            mercadoPago: 'all',
           },
+        }}
+        onSubmit={async (param) => {
+          console.log(param);
         }}
       />,
     );
