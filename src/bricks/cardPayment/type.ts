@@ -15,7 +15,7 @@ export type TCardPayment = {
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/configure-integration#bookmark_render_brick Configure the integration # Render Brick} documentation.
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/additional-data Additional data} documentatio to understand the second param.
    */
-  onSubmit: (param: ICardPaymentFormData, param2?: IAdditionalData) => Promise<void>;
+  onSubmit: (param: ICardPaymentFormData<ICardPaymentBrickPayer>, param2?: IAdditionalData) => Promise<void>;
   /**
    * Optional. Function. Receives function to be executed just after brick rendered
    *
@@ -76,8 +76,8 @@ export type TCardPayment = {
         /**
          * Optional. String[]. Receives which payment method types won`t be shown
          */
-        excluded?: string[];
-        included?: string[];
+        excluded?: TCardPaymentBrickPaymentType[];
+        included?: TCardPaymentBrickPaymentType[];
       };
     };
     /**
@@ -92,11 +92,12 @@ export type TCardPayment = {
   };
 };
 
-interface ICardPaymentBrickPayer {
+export interface ICardPaymentBrickPayer {
   email?: string;
   identification?: IPayerIdentification;
 }
-interface ICardPaymentFormData {
+
+export interface ICardPaymentFormData<ICardPaymentBrickPayer> {
   token: string;
   issuer_id: string;
   payment_method_id: string;
@@ -107,6 +108,13 @@ interface ICardPaymentFormData {
   processing_mode?: string;
 }
 
-interface IAdditionalData {
+export interface IAdditionalData {
   bin: string;
+}
+
+type TCardPaymentBrickPaymentType = 'credit_card' | 'debit_card'
+
+export interface ICardPaymentBrickVisual {
+  hidePaymentButton?: boolean;
+  hideFormTitle?: boolean;
 }
