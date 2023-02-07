@@ -8,24 +8,19 @@ import useMercadoPago from '../../src/mercadoPago/useMercadoPago';
 useMercadoPago('TEST-f4563544-ce69-40c3-b88e-6e7d1bd93a83');
 
 const App = () => {
-  // const configPayment = {
-  //   initialization: {
-  //     amount: 100,
-  //   },
-  //   customization: {
-  //     paymentMethods: {
-  //       atm: 'all',
-  //       ticket: 'all',
-  //       bankTransfer: ['pix'],
-  //       creditCard: 'all',
-  //       debitCard: 'all',
-  //       mercadoPago: 'all',
-  //     },
-  //   },
-  // };
-
   const initialization = {
     amount: 100,
+  };
+
+  const paymentCustomization = {
+    paymentMethods: {
+      atm: 'all',
+      ticket: 'all',
+      bankTransfer: ['pix'],
+      creditCard: 'all',
+      debitCard: 'all',
+      mercadoPago: 'all',
+    },
   };
 
   const customization = {
@@ -38,18 +33,19 @@ const App = () => {
 
   return (
     <div className="App">
-      {/* <Wallet
+      <Wallet
         initialization={{ preferenceId: 'YOUR_PREFERENCE_ID' }}
         customization={{ visual: { buttonBackground: 'black' } }}
       />
       <Payment
-        config={configPayment}
+        initialization={initialization}
+        customization={paymentCustomization}
         onSubmit={async (param) => {
           console.log(param);
         }}
         onError={(param) => console.log(param)}
         onReady={() => console.log('Brick Ready!')}
-      /> */}
+      />
       <Card
         initialization={initialization}
         customization={customization}

@@ -4,7 +4,7 @@ import { initBrick } from '../util/renderBrick';
 import { TPaymentType } from './type';
 
 /**
- * Payment Brick allows you to add several payment methods to your store with just one Brick, allowing you to save card data for future purchases.
+ * Payment Brick allows you to add several payment methods to a store and save card data for future purchases with just one Brick.
  *
  * Usage:
  *
@@ -16,12 +16,13 @@ import { TPaymentType } from './type';
  * const Example = () => {
  *   return(
  *    <Payment
-        config={
-          initialization: {amount: 100}, customization: {paymentMethods: {}}
+        initialization: {amount: 100}, 
+        customization: {paymentMethods: {},
+        callbacks: {
+          onSubmit={async () => {}}
+          onError={() => {}}
+          onReady={() => {}}
         }
-        onSubmit={async () => {}}
-        onError={() => {}}
-        onReady={() => {}}
       />
  *   )
  * }
