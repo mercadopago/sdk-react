@@ -1,34 +1,62 @@
 import React, { useEffect } from 'react';
-import { onErrorDefault, onReadyDefault, onSubmitDefault } from '../util/initial';
+import { onBinChangeDefault, onErrorDefault, onReadyDefault, onSubmitDefault } from '../util/initial';
 import { initBrick } from '../util/renderBrick';
-import { PaymentType } from './type';
+import { TPaymentType } from './type';
 
+/**
+ * Payment Brick allows you to add several payment methods to a store and save card data for future purchases with just one Brick.
+ *
+ * Usage:
+ *
+ * ```ts
+ * import Payment, {useMercadoPago} from '@mercadopago/sdk-react'
+ *
+ * useMercadoPago('YOUR_PUBLIC_KEY')
+ *
+ * const Example = () => {
+ *   return(
+ *    <Payment
+        initialization: {amount: 100}, 
+        callbacks: {
+          onSubmit={async () => {}}
+        }
+      />
+ *   )
+ * }
+ * export default Example
+ * ```
+ *
+ * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/introduction Payment Brick documentation} for more information.
+ */
 const BrickPayment = ({
-  config,
-  onSubmit = onSubmitDefault,
   onReady = onReadyDefault,
   onError = onErrorDefault,
-}: PaymentType) => {
+  onSubmit = onSubmitDefault,
+  onBinChange = onBinChangeDefault,
+  initialization,
+  customization, 
+}: TPaymentType) => {
   useEffect(() => {
     const PaymentBrickController = {
       settings: {
-        ...config,
+        initialization,
+        customization, 
         callbacks: {
-          onReady: onReady,
-          onSubmit: onSubmit,
-          onError: onError,
+          onReady,
+          onError,
+          onSubmit,
+          onBinChange
         },
       },
       name: 'payment',
       divId: 'paymentBrick_container',
       controller: 'paymentBrickController',
     };
-
     initBrick(PaymentBrickController);
     return () => {
       window.paymentBrickController?.unmount();
     };
-  }, [config, onReady, onError, onSubmit]);
+  }, [initialization, customization, onReady, onError, onSubmit, onBinChange]);
 
   return <div id="paymentBrick_container"></div>;
 };

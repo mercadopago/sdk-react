@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/mercadopago/sdk-react.git"
   },
-  "author": "Mercado Pago (https://www.mercadopago.com.br/developers/pt)",
+  "author": "Mercado Pago (https://www.mercadopago.com/developers/en)",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/mercadopago/sdk-react/issues"
