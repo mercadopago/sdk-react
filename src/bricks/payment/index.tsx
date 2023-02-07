@@ -17,11 +17,8 @@ import { TPaymentType } from './type';
  *   return(
  *    <Payment
         initialization: {amount: 100}, 
-        customization: {paymentMethods: {},
         callbacks: {
           onSubmit={async () => {}}
-          onError={() => {}}
-          onReady={() => {}}
         }
       />
  *   )
