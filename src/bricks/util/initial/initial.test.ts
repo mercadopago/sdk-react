@@ -15,8 +15,8 @@ describe('Test default functions', () => {
 
     logSpy.mockRestore();
   });
-  test('Should onSubmitDefault be called', async () => {
-    await expect(onSubmitDefault()).resolves.toBeUndefined();
+  test('Should onSubmitDefault be called', () => {
+    expect(onSubmitDefault()).resolves.toBe({});
   });
   test('Should onReadyDefault be called', () => {
     expect(onReadyDefault()).toBe(undefined);
