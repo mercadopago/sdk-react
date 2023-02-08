@@ -25,7 +25,7 @@ export type TPaymentType = {
   onError?: (param: IBrickError) => void;
   onBinChange?: (param: string) => void;
   /**
-   * An object containing initialization options.
+   * Object containing initialization options.
    *
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/code-example/all-payment-methods Data customization} documentation.
    */
