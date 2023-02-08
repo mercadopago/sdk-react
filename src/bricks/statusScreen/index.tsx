@@ -34,7 +34,7 @@ const StatusScreen = ({
   onReady = onReadyDefault,
   onError = onErrorDefault,
   customization,
-  initialization,
+  initialization
 }: IStatusScreenBrickSettings) => {
   useEffect(() => {
     const StatusScreenBrickConfig = {
