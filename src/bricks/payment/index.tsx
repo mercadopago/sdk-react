@@ -16,10 +16,8 @@ import { TPaymentType } from './type';
  * const Example = () => {
  *   return(
  *    <Payment
-        initialization: {amount: 100}, 
-        callbacks: {
-          onSubmit={async () => {}}
-        }
+        initialization:{{ amount: AMOUNT }}, 
+        onSubmit={async () => {}}
       />
  *   )
  * }
