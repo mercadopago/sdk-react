@@ -1,0 +1,53 @@
+# Status Screen Brick
+
+## Content
+
+1. [Intro](#intro)
+2. [How it works](#how-it-works)
+3. [How to use](#how-to-use)
+4. [Screenshots](#screenshots)
+5. [External Links](#external-links)
+
+---
+
+## Intro
+
+Status Screen Brick allows you to show the buyer the status of a purchase made with any payment method provided by Checkout Bricks. With this Brick it is possible to view the purchase summary, as well know the current payment status and view the details of payment tickets.
+
+---
+
+## How it works
+
+This is like a wrapper for the brick. It breaks the main characterists - initialization, customizations and callbacks - in _props_ for the component. In this way it possible have a minimum impact if the bricks change and take advantage of the already existent documantation.
+
+---
+
+## How to use
+
+```ts
+import StatusScreen, { useMercadoPago } from '@mercadopago/sdk-react';
+
+useMercadoPago('YOUR_PUBLIC_KEY');
+
+const Example = () => {
+  return (
+    <StatusScreen 
+      initialization={{ preferenceId: '<PREFERENCE_ID>'}} // PREFERENCE_ID generated in backend
+      onReady={() => {}} // Callback called when Brick is ready
+      onError={() => {}} // Callback called for all Brick error cases
+    /> 
+  );
+};
+
+export default Example;
+```
+
+---
+
+## Screenshots
+
+---
+
+## External Links
+
+[Status Screen Brick official documentation](https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/status-screen-brick/introduction)

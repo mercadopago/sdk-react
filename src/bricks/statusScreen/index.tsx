@@ -16,11 +16,9 @@ import { initBrick } from '../util/renderBrick';
 //  * const Example = () => {
 //  *   return(
 //  *     <StatusScreen 
-//  *       initialization={{ preferenceId: '<PREFERENCE_ID>'}} 
-//  *       callbacks: {
-//  *         onReady={() => {}}
-//  *         onError={() => {}}
-//  *       }
+//  *       initialization={{ preferenceId: '<PREFERENCE_ID>'}} // PREFERENCE_ID generated in backend
+//  *       onReady={() => {}} // Callback called when Brick is ready
+//  *       onError={() => {}} // Callback called for all Brick error cases
 //  *     /> 
 //  *   )
 //  * }
