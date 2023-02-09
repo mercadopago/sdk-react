@@ -16,8 +16,8 @@ import { TPaymentType } from './type';
  * const Example = () => {
  *   return(
  *    <Payment
-        initialization:{{ amount: AMOUNT }}, 
-        onSubmit={async () => {}}
+        initialization:{{ amount: AMOUNT }}, // AMOUNT is the value from the purchase, its the minium data to initialize CardPayment brick
+        onSubmit={async () => {}} // Callback called when clicking on the data submission button
       />
  *   )
  * }
