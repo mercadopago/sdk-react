@@ -2,43 +2,43 @@ import { IBrickSettings } from '../util/types/common';
 
 export interface IWalletBrickVisual {
   /**
-   * Customizing the button background. Default: 'default'. Options: default, black, blue, white.
+   * Optional. Customizing the button background. Default: 'default'. Options: default, black, blue, white.
    *
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/additional-customization/modify-appearance Visual customization} documentation.
    */
   buttonBackground?: 'default' | 'black' | 'blue' | 'white';
   /**
-   * Customizing the button height. Default: '48px'. Minimum: 48px. Maximum: free choice.
+   * Optional. Customizing the button height. Default: '48px'. Minimum: 48px. Maximum: free choice.
    *
    *  @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/additional-customization/modify-appearance Visual customization} documentation.
    */
   buttonHeight?: string;
   /**
-   * Customizing the button border-radius. Default: 6px.
+   * Optional. Customizing the button border-radius. Default: 6px.
    *
    *  @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/additional-customization/modify-appearance Visual customization} documentation.
    */
   borderRadius?: string;
   /**
-   * Customizing the button vertical padding. Default: grey. Options grey or white.
+   * Optional. Customizing the button vertical padding. Default: grey. Options grey or white.
    *
    *  @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/additional-customization/modify-appearance Visual customization} documentation.
    */
   valuePropColor?: 'grey' | 'white';
   /**
-   * Customizing the button vertical padding. Default: '16px'. Minimum: 16px. Maximum: free choice.
+   * Optional. Customizing the button vertical padding. Default: '16px'. Minimum: 16px. Maximum: free choice.
    *
    *  @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/additional-customization/modify-appearance Visual customization} documentation.
    */
   verticalPadding?: string;
   /**
-   * Customizing the butto horizontal padding. Default: '0px'. Minimum: 0px. Maximum: free choice.
+   * Optional. Customizing the butto horizontal padding. Default: '0px'. Minimum: 0px. Maximum: free choice.
    *
    *  @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/additional-customization/modify-appearance Visual customization} documentation.
    */
   horizontalPadding?: string;
   /**
-   * Property that allows hiding the value proposition text (below the button). Default: false.
+   * Optional. Property that allows hiding the value proposition text (below the button). Default: false.
    *
    *  @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/additional-customization/modify-appearance Visual customization} documentation.
    */
@@ -47,13 +47,13 @@ export interface IWalletBrickVisual {
 
 export interface IWalletBrickTexts {
   /**
-   * Initial text of Wallet Brick that will be concatenated with `with Mercado Pago`. Default: 'pay'
+   * Optional. Initial text of Wallet Brick that will be concatenated with `with Mercado Pago`. Default: 'pay'
    *
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/additional-customization/modify-texts Texts customization} documentation.
    */
   action?: 'pay' | 'buy';
   /**
-   * Text that will be rendered below the Wallet button
+   * Optional. Text that will be rendered below the Wallet button
    *
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/additional-customization/modify-texts Texts customization} documentation.
    */
@@ -62,14 +62,14 @@ export interface IWalletBrickTexts {
 
 export interface IWalletBrickCustomization {
   /**
-   * Wallet Brick offers two reading levels: the call to action (button) and the value proposition.
+   * Optional. Wallet Brick offers two reading levels: the call to action (button) and the value proposition.
    * In both cases, the text can be customized according to the options provided by Mercado Pago.
    *
    * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/additional-customization/modify-texts Texts customization} documentation.
    */
   texts?: IWalletBrickTexts;
   /**
-   * Wallet Brick offers some levels of visual customization:
+   * Optional. Wallet Brick offers some levels of visual customization:
    * {buttonBackground, buttonHeight, borderRadius, valuePropColor, verticalPadding, horizontalPadding}
    *
    * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/additional-customization/modify-appearance Visual customization} documentation.
@@ -79,11 +79,11 @@ export interface IWalletBrickCustomization {
 
 export interface PreferenceOnSubmit extends IBrickSettings {
   /**
-   * An object containing initialization options.
+   * Optional. An object containing initialization options.
    */
   initialization?: never;
   /**
-   * An object containing customization options.
+   * Optional. An object containing customization options.
    */
   customization?: IWalletBrickCustomization;
   onSubmit: () => Promise<unknown>;
@@ -91,18 +91,18 @@ export interface PreferenceOnSubmit extends IBrickSettings {
 
 export interface PreferenceOnInitialization extends IBrickSettings {
   /**
-   * An object containing initialization options.
+   * Non-optional. An object containing initialization options.
    */
   initialization: {
     /**
-     * Autogenerated unique ID that identifies the preference. For example 036151801-2484cd71-7140-4c51-985a-d4cfcf133baf
+     * Non-optional. Autogenerated unique ID that identifies the preference. For example 036151801-2484cd71-7140-4c51-985a-d4cfcf133baf
      *
      * @tutorial {@link https://www.mercadopago.com/developers/en/reference/preferences/_checkout_preferences/post Create preference} documentation.
      * */
     preferenceId: string;
   };
   /**
-   * An object containing customization options.
+   * Optional. An object containing customization options.
    */
   customization?: IWalletBrickCustomization;
   onSubmit?: never;

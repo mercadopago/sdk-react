@@ -1,4 +1,4 @@
-# Card Payment Brick
+# Payment Brick
 
 ## Content
 
@@ -12,7 +12,7 @@
 
 ## Intro
 
-Card Payment Brick is a component for your checkout made by MercadoPago. This implementation intents to help React developers to use this brick even faster then using the JS SDK directly.
+Payment Brick is a modular and customizable solution that allows you to add several payment methods to your store with just one Brick, allowing you to save card data for future purchases. By using Payment Brick, you will have different payment methods at your disposal and you will be able to choose which ones to enable for your site.
 
 ---
 
@@ -25,22 +25,22 @@ This is like a wrapper for the brick. It breaks the main characterists - initial
 ## How to use
 
 ```ts
-import CardPayment, { useMercadoPago } from '@mercadopago/sdk-react';
+import Payment, { useMercadoPago } from '@mercadopago/sdk-react';
 
 useMercadoPago('YOUR_PUBLIC_KEY');
 
 const Example = () => {
   return (
-    <CardPayment
+    <Payment
       initialization={{ amount: AMOUNT }}
-      onSubmit={}
+      customization={{ paymentMethods: ['PAYMENT_METHODS'] }}
+      onSubmit={async () => {}}
     />
   );
 };
 
 export default Example;
 ```
-
 ---
 
 ## Screenshots
@@ -49,4 +49,4 @@ export default Example;
 
 ## External Links
 
-[Card Payment Brick official documentation](https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/introduction)
+[Payment Brick official documentation](https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/introduction)

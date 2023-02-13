@@ -1,4 +1,4 @@
-# Card Payment Brick
+# Status Screen Brick
 
 ## Content
 
@@ -12,7 +12,7 @@
 
 ## Intro
 
-Card Payment Brick is a component for your checkout made by MercadoPago. This implementation intents to help React developers to use this brick even faster then using the JS SDK directly.
+Status Screen Brick allows you to show the buyer the status of a purchase made with any payment method provided by Checkout Bricks. With this Brick it is possible to view the purchase summary, as well know the current payment status and view the details of payment tickets.
 
 ---
 
@@ -25,16 +25,17 @@ This is like a wrapper for the brick. It breaks the main characterists - initial
 ## How to use
 
 ```ts
-import CardPayment, { useMercadoPago } from '@mercadopago/sdk-react';
+import StatusScreen, { useMercadoPago } from '@mercadopago/sdk-react';
 
 useMercadoPago('YOUR_PUBLIC_KEY');
 
 const Example = () => {
   return (
-    <CardPayment
-      initialization={{ amount: AMOUNT }}
-      onSubmit={}
-    />
+    <StatusScreen 
+      initialization={{ preferenceId: '<PREFERENCE_ID>'}}
+      onReady={() => {}}
+      onError={() => {}}
+    /> 
   );
 };
 
@@ -49,4 +50,4 @@ export default Example;
 
 ## External Links
 
-[Card Payment Brick official documentation](https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/introduction)
+[Status Screen Brick official documentation](https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/status-screen-brick/introduction)
