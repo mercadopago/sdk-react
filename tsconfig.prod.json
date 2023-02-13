@@ -1,4 +1,7 @@
 {
-  "exclude": ["dev_template"],
-  "extends": "./tsconfig.json"
+  "exclude": ["dev_template", "jest.config.ts", "examples", "src/**/*.test.tsx"],
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "./src"
+  }
 }
