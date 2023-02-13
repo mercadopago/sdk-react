@@ -1,5 +1,5 @@
 import useMercadoPago, { MercadoPagoInstance } from '.';
-import * as addScriptMercadoPago from '../loadMercadoPago';
+import * as addScriptMercadoPago from '@mercadopago/sdk-js';
 
 describe('Test useMercadoPago', () => {
   beforeEach(() => {
