@@ -1501,10 +1501,10 @@
   resolved "https://registry.yarnpkg.com/@mdx-js/util/-/util-1.6.22.tgz#219dfd89ae5b97a8801f015323ffa4b62f45718b"
   integrity sha512-H1rQc1ZOHANWBvPcW+JpGwr+juXSxM8Q8YCkm3GhZd8REu1fHR3z99CErO1p9pkcfcxZnMdIZdIsXkOHY0NilA==
 
-"@mercadopago/sdk-js@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@mercadopago/sdk-js/-/sdk-js-0.0.1.tgz#95619090421d243b5351c63cfbfe004d172c3d95"
-  integrity sha512-gle1Eq8Eo/lpIB7k4CVIVN8RiHhXJVD6i2/pYCR0QSCaFybWXPhOIFSS/gzqtADy348rCLt3Yw3izy0kIRoTAQ==
+"@mercadopago/sdk-js@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@mercadopago/sdk-js/-/sdk-js-0.0.2.tgz#59c4ef1ccf5ea3b22731a916c269436e1b3e6049"
+  integrity sha512-d29DyM00f250lbXCtUm5f4UHM4ro6/0Sm3nuIJK7cFckX8orZfs2oXIBW4GwSHRSiVjPBdge6qj2yhsCCyySgw==
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"

@@ -52,6 +52,6 @@
     "webpack": "^5.75.0"
   },
   "dependencies": {
-    "@mercadopago/sdk-js": "^0.0.1"
+    "@mercadopago/sdk-js": "^0.0.2"
   }
 }
