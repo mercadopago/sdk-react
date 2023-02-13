@@ -1,4 +1,4 @@
-import { loadMercadoPago } from '../loadMercadoPago';
+import { loadMercadoPago } from '@mercadopago/sdk-js';
 import { TInstanceMercadoPago, TOptions } from './type';
 
 export class MercadoPagoInstance {
