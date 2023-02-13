@@ -18,7 +18,7 @@ Status Screen Brick allows you to show the buyer the status of a purchase made w
 
 ## How it works
 
-This is like a wrapper for the brick. It breaks the main characterists - initialization, customizations and callbacks - in _props_ for the component. In this way it possible have a minimum impact if the bricks change and take advantage of the already existent documantation.
+This is like a wrapper for the brick. It breaks the main characterists - initialization, customizations and callbacks - in _props_ for the component. In this way it possible have a minimum impact if the bricks change and take advantage of the already existent documentation.
 
 ---
 
