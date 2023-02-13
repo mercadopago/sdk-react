@@ -32,9 +32,9 @@ useMercadoPago('YOUR_PUBLIC_KEY');
 const Example = () => {
   return (
     <StatusScreen 
-      initialization={{ preferenceId: '<PREFERENCE_ID>'}} // PREFERENCE_ID generated in backend
-      onReady={() => {}} // Callback called when Brick is ready
-      onError={() => {}} // Callback called for all Brick error cases
+      initialization={{ preferenceId: '<PREFERENCE_ID>'}}
+      onReady={() => {}}
+      onError={() => {}}
     /> 
   );
 };

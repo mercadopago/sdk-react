@@ -32,7 +32,7 @@ useMercadoPago('YOUR_PUBLIC_KEY');
 const Example = () => {
   return (
     <Wallet 
-      initialization={{ preferenceId: '<PREFERENCE_ID>'}} // PREFERENCE_ID generated in backend
+      initialization={{ preferenceId: '<PREFERENCE_ID>'}}
     />
   );
 };

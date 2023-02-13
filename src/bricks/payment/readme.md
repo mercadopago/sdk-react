@@ -32,9 +32,9 @@ useMercadoPago('YOUR_PUBLIC_KEY');
 const Example = () => {
   return (
     <Payment
-      initialization={{ amount: AMOUNT }} // AMOUNT is the value from the purchase, its the minium data to initialize CardPayment brick
+      initialization={{ amount: AMOUNT }}
       customization={{ paymentMethods: ['PAYMENT_METHODS'] }}
-      onSubmit={async () => {}} // Receives a function that send the payment to backend and, through it, to MercadoPago
+      onSubmit={async () => {}}
     />
   );
 };
