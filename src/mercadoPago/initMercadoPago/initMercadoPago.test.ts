@@ -1,7 +1,7 @@
-import useMercadoPago, { MercadoPagoInstance } from '.';
+import initMercadoPago, { MercadoPagoInstance } from '.';
 import * as addScriptMercadoPago from '@mercadopago/sdk-js';
 
-describe('Test useMercadoPago', () => {
+describe('Test initMercadoPago', () => {
   beforeEach(() => {
     jest
       .spyOn(addScriptMercadoPago, 'loadMercadoPago')
@@ -12,7 +12,7 @@ describe('Test useMercadoPago', () => {
 
   test('should set the publicKey instance', () => {
     const PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
-    useMercadoPago(PUBLIC_KEY);
+    initMercadoPago(PUBLIC_KEY);
     expect(MercadoPagoInstance.publicKey).toBe(PUBLIC_KEY);
   });
 
@@ -34,7 +34,7 @@ describe('Test useMercadoPago', () => {
     });
     window.MercadoPago = mock;
 
-    useMercadoPago(PUBLIC_KEY);
+    initMercadoPago(PUBLIC_KEY);
     await MercadoPagoInstance.init();
 
     expect(MercadoPagoInstance.publicKey).toBe(PUBLIC_KEY);

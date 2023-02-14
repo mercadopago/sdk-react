@@ -25,17 +25,12 @@ This is like a wrapper for the brick. It breaks the main characterists - initial
 ## How to use
 
 ```ts
-import CardPayment, { useMercadoPago } from '@mercadopago/sdk-react';
+import CardPayment, { initMercadoPago } from '@mercadopago/sdk-react';
 
-useMercadoPago('YOUR_PUBLIC_KEY');
+initMercadoPago('YOUR_PUBLIC_KEY');
 
 const Example = () => {
-  return (
-    <CardPayment
-      initialization={{ amount: AMOUNT }}
-      onSubmit={}
-    />
-  );
+  return <CardPayment initialization={{ amount: AMOUNT }} onSubmit={} />;
 };
 
 export default Example;

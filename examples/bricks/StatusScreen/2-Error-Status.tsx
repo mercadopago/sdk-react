@@ -1,21 +1,16 @@
 import React from 'react';
 import StatusScreen from '../../../src/bricks/statusScreen';
 
-import useMercadoPago from '../../../src/mercadoPago/useMercadoPago';
+import initMercadoPago from '../../../src/mercadoPago/initMercadoPago';
 
-useMercadoPago('TEST-2b00e5a0-b421-4588-b9cb-846a553d760e', { locale: 'pt-BR' });
+initMercadoPago('TEST-2b00e5a0-b421-4588-b9cb-846a553d760e', { locale: 'pt-BR' });
 
 const App = () => {
   const initialization = {
-    paymentId: '1307907697'
+    paymentId: '1307907697',
   };
 
-  return (
-    <StatusScreen
-      initialization={initialization}
-      onError={(error)=> (console.error(error))}
-    />
-  );
+  return <StatusScreen initialization={initialization} onError={(error) => console.error(error)} />;
 };
 
 export default App;

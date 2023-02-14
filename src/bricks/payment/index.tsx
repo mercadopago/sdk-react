@@ -1,5 +1,10 @@
 import React, { useEffect } from 'react';
-import { onBinChangeDefault, onErrorDefault, onReadyDefault, onSubmitDefault } from '../util/initial';
+import {
+  onBinChangeDefault,
+  onErrorDefault,
+  onReadyDefault,
+  onSubmitDefault,
+} from '../util/initial';
 import { initBrick } from '../util/renderBrick';
 import { TPaymentType } from './type';
 
@@ -9,9 +14,9 @@ import { TPaymentType } from './type';
  * Usage:
  *
  * ```ts
- * import Payment, {useMercadoPago} from '@mercadopago/sdk-react'
+ * import Payment, {initMercadoPago} from '@mercadopago/sdk-react'
  *
- * useMercadoPago('YOUR_PUBLIC_KEY')
+ * initMercadoPago('YOUR_PUBLIC_KEY')
  *
  * const Example = () => {
  *   return(
@@ -32,18 +37,18 @@ const BrickPayment = ({
   onSubmit = onSubmitDefault,
   onBinChange = onBinChangeDefault,
   initialization,
-  customization, 
+  customization,
 }: TPaymentType) => {
   useEffect(() => {
     const PaymentBrickController = {
       settings: {
         initialization,
-        customization, 
+        customization,
         callbacks: {
           onReady,
           onError,
           onSubmit,
-          onBinChange
+          onBinChange,
         },
       },
       name: 'payment',
