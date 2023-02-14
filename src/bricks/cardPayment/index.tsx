@@ -14,9 +14,9 @@ import { TCardPayment } from './type';
  * Usage:
  *
  * ```ts
- * import CardPayment, {useMercadoPago} from '@mercadopago/sdk-react'
+ * import CardPayment, {initMercadoPago} from '@mercadopago/sdk-react'
  *
- * useMercadoPago('YOUR_PUBLIC_KEY')
+ * initMercadoPago('YOUR_PUBLIC_KEY')
  *
  * const Example = () => {
  *   return(

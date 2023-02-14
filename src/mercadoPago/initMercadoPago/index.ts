@@ -23,9 +23,9 @@ export class MercadoPagoInstance {
  * @param publicKey string
  * @param options TOptions
  */
-const useMercadoPago = (publicKey: string, options?: TOptions) => {
+const initMercadoPago = (publicKey: string, options?: TOptions) => {
   MercadoPagoInstance.publicKey = publicKey;
   MercadoPagoInstance.options = options || {};
 };
 
-export default useMercadoPago;
+export default initMercadoPago;

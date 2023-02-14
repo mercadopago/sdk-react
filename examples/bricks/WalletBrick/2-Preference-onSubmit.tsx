@@ -1,9 +1,9 @@
 import React from 'react';
 import Wallet from '../../../src/bricks/wallet';
 
-import useMercadoPago from '../../../src/mercadoPago/useMercadoPago';
+import initMercadoPago from '../../../src/mercadoPago/initMercadoPago';
 
-useMercadoPago('TEST-f4563544-ce69-40c3-b88e-6e7d1bd93a83');
+initMercadoPago('TEST-f4563544-ce69-40c3-b88e-6e7d1bd93a83');
 
 const ExampleOnSubmitWalletBrick = () => {
   function onSubmit() {

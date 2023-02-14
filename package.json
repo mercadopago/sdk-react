@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/mercadopago/sdk-react#readme",
   "peerDependencies": {
+    "@mercadopago/sdk-js": "^0.0.2",
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
@@ -28,6 +29,7 @@
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.18.6",
+    "@mercadopago/sdk-js": "^0.0.2",
     "@storybook/builder-webpack5": "^6.5.16",
     "@storybook/manager-webpack5": "^6.5.16",
     "@storybook/react": "^6.5.16",
@@ -51,8 +53,5 @@
     "tslib": "^2.4.1",
     "typescript": "^4.9.4",
     "webpack": "^5.75.0"
-  },
-  "dependencies": {
-    "@mercadopago/sdk-js": "^0.0.2"
   }
 }

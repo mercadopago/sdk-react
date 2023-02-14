@@ -25,17 +25,17 @@ This is like a wrapper for the brick. It breaks the main characterists - initial
 ## How to use
 
 ```ts
-import StatusScreen, { useMercadoPago } from '@mercadopago/sdk-react';
+import StatusScreen, { initMercadoPago } from '@mercadopago/sdk-react';
 
-useMercadoPago('YOUR_PUBLIC_KEY');
+initMercadoPago('YOUR_PUBLIC_KEY');
 
 const Example = () => {
   return (
-    <StatusScreen 
-      initialization={{ preferenceId: '<PREFERENCE_ID>'}}
+    <StatusScreen
+      initialization={{ preferenceId: '<PREFERENCE_ID>' }}
       onReady={() => {}}
       onError={() => {}}
-    /> 
+    />
   );
 };
 

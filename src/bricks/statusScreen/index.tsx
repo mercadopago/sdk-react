@@ -9,17 +9,17 @@ import { initBrick } from '../util/renderBrick';
 //  * Usage:
 //  *
 //  * ```ts
-//  * import StatusScreen, {useMercadoPago} from '@mercadopago/sdk-react'
+//  * import StatusScreen, {initMercadoPago} from '@mercadopago/sdk-react'
 //  *
-//  * useMercadoPago('YOUR_PUBLIC_KEY')
+//  * initMercadoPago('YOUR_PUBLIC_KEY')
 //  *
 //  * const Example = () => {
 //  *   return(
-//  *     <StatusScreen 
+//  *     <StatusScreen
 //  *       initialization={{ preferenceId: '<PREFERENCE_ID>'}} // PREFERENCE_ID generated in backend
 //  *       onReady={() => {}} // Callback called when Brick is ready
 //  *       onError={() => {}} // Callback called for all Brick error cases
-//  *     /> 
+//  *     />
 //  *   )
 //  * }
 //  * export default Example
@@ -32,7 +32,7 @@ const StatusScreen = ({
   onReady = onReadyDefault,
   onError = onErrorDefault,
   customization,
-  initialization
+  initialization,
 }: IStatusScreenBrickSettings) => {
   useEffect(() => {
     const StatusScreenBrickConfig = {
@@ -41,7 +41,7 @@ const StatusScreen = ({
         customization,
         callbacks: {
           onReady,
-          onError
+          onError,
         },
       },
       name: 'statusScreen',

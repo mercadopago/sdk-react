@@ -1,6 +1,6 @@
 import { create } from 'domain';
 import { initBrick } from '.';
-import useMercadoPago, { MercadoPagoInstance } from '../../../mercadoPago/useMercadoPago';
+import initMercadoPago, { MercadoPagoInstance } from '../../../mercadoPago/initMercadoPago';
 
 declare global {
   interface Window {
