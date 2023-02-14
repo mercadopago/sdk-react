@@ -1,4 +1,4 @@
-import { MercadoPagoInstance } from '../../../mercadoPago/useMercadoPago';
+import { MercadoPagoInstance } from '../../../mercadoPago/initMercadoPago';
 
 type TGenericRenderBrick = {
   settings: any;

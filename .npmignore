@@ -4,6 +4,8 @@ node_modules
 config
 examples
 coverage
+.storybook
+src
 
 # FILES
 tsconfig.json

@@ -9,9 +9,9 @@ import { initBrick } from '../util/renderBrick';
  * Usage:
  *
  * ```ts
- * import Wallet, {useMercadoPago} from '@mercadopago/sdk-react'
+ * import Wallet, {initMercadoPago} from '@mercadopago/sdk-react'
  *
- * useMercadoPago('YOUR_PUBLIC_KEY')
+ * initMercadoPago('YOUR_PUBLIC_KEY')
  *
  * const Example = () => {
  *   return(

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import WalletBrick from './index';
-import { MercadoPagoInstance } from '../../mercadoPago/useMercadoPago';
+import { MercadoPagoInstance } from '../../mercadoPago/initMercadoPago';
 
 describe('Test Wallet Brick Component', () => {
   test('should found the id of Wallet Brick div', async () => {
