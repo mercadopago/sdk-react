@@ -10,7 +10,10 @@ Mercado Pago's Official React SDK.
 4. [Installation](#installation)
 5. [Initializing](#initializing)
 6. [Render Brick](#render-brick)
-    1. [Example Card Payment Brick](#example-card-paymentbrick)
+    1. [Example Card Payment Brick](#example-card-payment-brick)
+    2. [Example Payment Brick](#example-payment-brick)
+    3. [Example Status Screen Brick](#example-status-screen-brick)
+    4. [Example Wallet Brick](#example-wallet-brick)
 7. [License](#license)
 
 <br />
@@ -69,7 +72,7 @@ import Card from '../../../src/bricks/cardPayment';
 const App = () => {
   return (
     <Card
-      initialization={{ amount: 100 }}
+      initialization={{ amount: AMOUNT }}
       onSubmit={async (param) => {
         console.log(param);
       }}
@@ -81,17 +84,54 @@ export default App;
 <br/>
 
 ### Example Payment Brick
-wip
+Use Payment component inside your functional React:
+```
+import Payment from '../../../src/bricks/payment';
 
+const App = () => {
+  return (
+    <Payment
+      initialization={{
+        amount: AMOUNT,
+        preferenceId: 'YOUR_PREFERENCE_ID',
+      }}
+      customization={customization}
+      onSubmit={async (param) => {
+        console.log(param);
+      }}
+    />
+  );
+};
+export default App;
+```
 <br/>
 
 ### Example Status Screen Brick
-wip
+Use StatusScreen component inside your functional React:
+```
+import StatusScreen from '../../../src/bricks/statusScreen';
 
+const App = () => {
+  return <StatusScreen initialization={{paymentId: 'YOUR_PAYMENT_ID'}}
+};
+export default App;
+```
 <br/>
 
 ### Example Wallet Brick
-wip
+Use Wallet component inside your functional React:
+```
+import Wallet from '../../../src/bricks/wallet';
+
+const App = () => {
+  return (
+    <Wallet
+      initialization={{ preferenceId: 'YOUR_PREFERENCE_ID' }}
+      customization={customization}
+    />
+  );};
+export default App;
+```
 
 <br/>
 
