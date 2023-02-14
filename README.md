@@ -61,13 +61,15 @@ import initMercadoPago from '@mercadopago/sdk-react/mercadoPago/initMercadoPago'
 initMercadoPago('YOUR_PUBLIC_KEY');
 ```
 
+<br/>
+
 ## Render Brick
 Each brick needs a component.
 
 ### Example Card Payment Brick
 Use CardPayment component inside your functional React:
 ```
-import Card from '../../../src/bricks/cardPayment';
+import Card from '@mercadopago/sdk-react/bricks/cardPayment';
 
 const App = () => {
   return (
@@ -81,12 +83,13 @@ const App = () => {
 };
 export default App;
 ```
+
 <br/>
 
 ### Example Payment Brick
 Use Payment component inside your functional React:
 ```
-import Payment from '../../../src/bricks/payment';
+import Payment from '@mercadopago/sdk-react/bricks/payment';
 
 const App = () => {
   return (
@@ -104,24 +107,26 @@ const App = () => {
 };
 export default App;
 ```
+
 <br/>
 
 ### Example Status Screen Brick
 Use StatusScreen component inside your functional React:
 ```
-import StatusScreen from '../../../src/bricks/statusScreen';
+import StatusScreen from '@mercadopago/sdk-react/bricks/statusScreen';
 
 const App = () => {
   return <StatusScreen initialization={{paymentId: 'YOUR_PAYMENT_ID'}}
 };
 export default App;
 ```
+
 <br/>
 
 ### Example Wallet Brick
 Use Wallet component inside your functional React:
 ```
-import Wallet from '../../../src/bricks/wallet';
+import Wallet from '@mercadopago/sdk-react/bricks/wallet';
 
 const App = () => {
   return (
@@ -137,4 +142,3 @@ export default App;
 
 ## License
 This project is under Apache license, version 2.0. See [Apache 2.0](LICENSE) file for more details.
-
