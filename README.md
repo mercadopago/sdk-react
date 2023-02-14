@@ -8,7 +8,7 @@ Mercado Pago's Official React SDK.
 2. [Prerequisites](#prerequisites)
 3. [Run SDK project](#run-sdk-project)
 4. [Installation](#installation)
-5. [Initializing](#initializing)
+5. [Initialization](#initialization)
 6. [Render Brick](#render-brick)
     1. [Example Card Payment Brick](#example-card-payment-brick)
     2. [Example Payment Brick](#example-payment-brick)
@@ -43,7 +43,7 @@ Execute project build:
 npm build
 ```
 
-Execute `npm run start` to initialize storybook
+Execute `npm run start` to initialize storybook.
 
 <br/>
 
@@ -64,7 +64,7 @@ initMercadoPago('YOUR_PUBLIC_KEY');
 <br/>
 
 ## Render Brick
-Each brick needs a component.
+Each brick needs a component, such as:
 
 ### Example Card Payment Brick
 Use CardPayment component inside your functional React:
