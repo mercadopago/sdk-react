@@ -1,12 +1,13 @@
 {
   "name": "@mercadopago/sdk-react",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Mercado Pago SDK React",
   "main": "dist/index.js",
   "scripts": {
     "start": "start-storybook -p 6006",
-    "build": "rm -rf ./dist && tsc -b ./tsconfig.prod.json",
-    "test": "jest --c ./jest.config.ts"
+    "build": "rm -rf ./dist && tsc -b ./tsconfig.prod.json && cp package.json ./dist && cp LICENSE ./dist && cp README.md ./dist",
+    "test": "jest --c ./jest.config.ts",
+    "publish": "cd dist && npm publish --access public"
   },
   "repository": {
     "type": "git",
