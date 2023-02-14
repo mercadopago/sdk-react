@@ -10,7 +10,7 @@ Mercado Pago's Official React SDK.
 4. [Installation](#installation)
 5. [Initializing](#initializing)
 6. [Render Brick](#render-brick)
-    a. [Example - Card Payment Brick](#example-card-paymentbrick)
+    1. [Example - Card Payment Brick](#example-card-paymentbrick)
 7. [License](#license)
 
 <br />
@@ -50,7 +50,7 @@ First, install SDK MercadoPago React:
 
 <br/>
 
-## Initializing
+## Initialization
 Start the instance of MercadoPago:
 ```
 import initMercadoPago from '@mercadopago/sdk-react/mercadoPago/initMercadoPago';
@@ -60,8 +60,6 @@ initMercadoPago('YOUR_PUBLIC_KEY');
 
 ## Render Brick
 Each brick needs a component.
-
-<br/>
 
 ### Example - Card Payment Brick
 Use CardPayment component inside your functional React:
