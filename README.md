@@ -1,51 +1,44 @@
-# MercadoPago SDK React
+# React SDK MercadoPago
+Mercado Pago's Official React SDK.
 
-> Descrição sobre o projeto.
+<br />
 
-### Ajustes e melhorias
+# Table of Contents
+1. [About](#about)
+2. [Prerequisites](#prerequisites)
+3. [Use in a project](#use-in-a-project)
+4. [License](#license)
 
-O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
+<br />
 
-- [x] Criar o build do projeto
-- [x] Testar a aplicação se está sendo importando o script
-- [ ] Criar testes unitários
+## About
+This is a wrapper that allows integrate [Checkout Bricks](https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/landing) easily inside React projects. 
 
-## 💻 Pré-requisitos
+<br />
 
-Antes de começar, verifique se você atendeu aos seguintes requisitos:
+## Prerequisites
+Before starts verify if you have installed Node version `14.18.0` or superior.
 
-- Você tenha instalado a versão `14.18.0` do `node` ou superior
+<br/>
 
-## 🚀 Desenvolvendo na MercadoPago SDK React
+## Use in a project
+To use Mercado Pago React SDK, follow the steps:
 
-Para instalar o MercadoPago React, siga estas etapas:
-
-macOS:
-
-```
-git clone github...sdk-js
-```
-
-## ☕ Usando o projeto
-
-Para usar MercadoPago SDK React, siga estas etapas:
-
-Instalar o projeto:
+Install project:
 
 ```
 npm i
 ```
 
-Executar o build do projeto:
+Execute project build:
 
 ```
 npm build
 ```
 
-Executar o arquivo `index.html` dentro do `dev_template`
+Executar file `index.html` inside `dev_template`
 
-## 📝 Licença
+<br/>
 
-Esse projeto está sob licença Apache, versão 2.0. Veja o arquivo [Apache 2.0](LICENSE) para mais detalhes.
-
-[⬆ Voltar ao topo](#nome-do-projeto)<br>
+## License
+This project is under Apache license, version 2.0. See [Apache 2.0](LICENSE)file for more details.
