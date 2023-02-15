@@ -6,14 +6,14 @@ Mercado Pago's Official React SDK.
 # Table of Contents
 1. [About](#about)
 2. [Prerequisites](#prerequisites)
-3. [Run SDK project](#run-sdk-project)
-4. [Installation](#installation)
-5. [Initialization](#initialization)
-6. [Render Brick](#render-brick)
+3. [Installation](#installation)
+4. [Initialization](#initialization)
+5. [Render Brick](#render-brick)
     1. [Example Card Payment Brick](#example-card-payment-brick)
     2. [Example Payment Brick](#example-payment-brick)
     3. [Example Status Screen Brick](#example-status-screen-brick)
     4. [Example Wallet Brick](#example-wallet-brick)
+6. [Run SDK project](#run-sdk-project)
 7. [License](#license)
 
 <br />
@@ -25,25 +25,6 @@ This is a wrapper that allows integrate [Checkout Bricks](https://www.mercadopag
 
 ## Prerequisites
 Before starts verify if you have installed Node version `14.18.0` or superior.
-
-<br/>
-
-## Run SDK project
-To use Mercado Pago React SDK, follow the steps:
-
-Install project:
-
-```
-npm i
-```
-
-Execute project build:
-
-```
-npm build
-```
-
-Execute `npm run start` to initialize storybook.
 
 <br/>
 
@@ -137,6 +118,25 @@ const App = () => {
   );};
 export default App;
 ```
+
+<br/>
+
+## Run SDK project
+To use Mercado Pago React SDK, follow the steps:
+
+Install project:
+
+```
+npm i
+```
+
+Execute project build:
+
+```
+npm build
+```
+
+Execute `npm run start` to initialize storybook.
 
 <br/>
 
