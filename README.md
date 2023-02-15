@@ -1,51 +1,144 @@
-# MercadoPago SDK React
+# React SDK MercadoPago
+Mercado Pago's Official React SDK.
 
-> Descrição sobre o projeto.
+<br />
 
-### Ajustes e melhorias
+# Table of Contents
+1. [About](#about)
+2. [Prerequisites](#prerequisites)
+3. [Run SDK project](#run-sdk-project)
+4. [Installation](#installation)
+5. [Initialization](#initialization)
+6. [Render Brick](#render-brick)
+    1. [Example Card Payment Brick](#example-card-payment-brick)
+    2. [Example Payment Brick](#example-payment-brick)
+    3. [Example Status Screen Brick](#example-status-screen-brick)
+    4. [Example Wallet Brick](#example-wallet-brick)
+7. [License](#license)
 
-O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
+<br />
 
-- [x] Criar o build do projeto
-- [x] Testar a aplicação se está sendo importando o script
-- [ ] Criar testes unitários
+## About
+This is a wrapper that allows integrate [Checkout Bricks](https://www.mercadopago.com/developers/en/docs/checkout-bricks/landing) easily inside React projects. 
 
-## 💻 Pré-requisitos
+<br />
 
-Antes de começar, verifique se você atendeu aos seguintes requisitos:
+## Prerequisites
+Before starts verify if you have installed Node version `14.18.0` or superior.
 
-- Você tenha instalado a versão `14.18.0` do `node` ou superior
+<br/>
 
-## 🚀 Desenvolvendo na MercadoPago SDK React
+## Run SDK project
+To use Mercado Pago React SDK, follow the steps:
 
-Para instalar o MercadoPago React, siga estas etapas:
-
-macOS:
-
-```
-git clone github...sdk-js
-```
-
-## ☕ Usando o projeto
-
-Para usar MercadoPago SDK React, siga estas etapas:
-
-Instalar o projeto:
+Install project:
 
 ```
 npm i
 ```
 
-Executar o build do projeto:
+Execute project build:
 
 ```
 npm build
 ```
 
-Executar o arquivo `index.html` dentro do `dev_template`
+Execute `npm run start` to initialize storybook.
 
-## 📝 Licença
+<br/>
 
-Esse projeto está sob licença Apache, versão 2.0. Veja o arquivo [Apache 2.0](LICENSE) para mais detalhes.
+## Installation
+First, install SDK MercadoPago React:
+`npm install @mercadopago/sdk-react`
 
-[⬆ Voltar ao topo](#nome-do-projeto)<br>
+<br/>
+
+## Initialization
+Start the instance of MercadoPago:
+```
+import initMercadoPago from '@mercadopago/sdk-react/mercadoPago/initMercadoPago';
+
+initMercadoPago('YOUR_PUBLIC_KEY');
+```
+
+<br/>
+
+## Render Brick
+Each brick needs a component, such as:
+
+### Example Card Payment Brick
+Use CardPayment component inside your functional React:
+```
+import Card from '@mercadopago/sdk-react/bricks/cardPayment';
+
+const App = () => {
+  return (
+    <Card
+      initialization={{ amount: AMOUNT }}
+      onSubmit={async (param) => {
+        console.log(param);
+      }}
+    />
+  );
+};
+export default App;
+```
+
+<br/>
+
+### Example Payment Brick
+Use Payment component inside your functional React:
+```
+import Payment from '@mercadopago/sdk-react/bricks/payment';
+
+const App = () => {
+  return (
+    <Payment
+      initialization={{
+        amount: AMOUNT,
+        preferenceId: 'YOUR_PREFERENCE_ID',
+      }}
+      customization={customization}
+      onSubmit={async (param) => {
+        console.log(param);
+      }}
+    />
+  );
+};
+export default App;
+```
+
+<br/>
+
+### Example Status Screen Brick
+Use StatusScreen component inside your functional React:
+```
+import StatusScreen from '@mercadopago/sdk-react/bricks/statusScreen';
+
+const App = () => {
+  return <StatusScreen initialization={{paymentId: 'YOUR_PAYMENT_ID'}}
+};
+export default App;
+```
+
+<br/>
+
+### Example Wallet Brick
+Use Wallet component inside your functional React:
+```
+import Wallet from '@mercadopago/sdk-react/bricks/wallet';
+
+const App = () => {
+  return (
+    <Wallet
+      initialization={{ preferenceId: 'YOUR_PREFERENCE_ID' }}
+      customization={customization}
+    />
+  );};
+export default App;
+```
+
+<br/>
+
+## License
+This project is under Apache license, version 2.0. See [Apache 2.0](LICENSE) file for more details.
