@@ -2,7 +2,7 @@
 
 Mercado Pago's Official React SDK.
 
-[![NPM Version](https://img.shields.io/npm/v/mercadopago.svg)](https://www.npmjs.com/package/@mercadopago/sdk-react
+[![NPM Version](https://img.shields.io/npm/v/mercadopago.svg)](https://www.npmjs.com/package/@mercadopago/sdk-react)
 [![Downloads](https://img.shields.io/npm/dt/@mercadopago/sdk-react)](https://www.npmjs.com/package/@mercadopago/sdk-react)
 
 <br />
