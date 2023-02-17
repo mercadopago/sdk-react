@@ -3,6 +3,12 @@
   "version": "0.0.1",
   "description": "Mercado Pago SDK React",
   "main": "dist/index.js",
+  "keywords": [
+    "React",
+    "MarcadoPago",
+    "Bricks",
+    "Checkout"
+  ],
   "scripts": {
     "start": "start-storybook -p 6006",
     "build": "rm -rf ./dist && tsc -b ./tsconfig.prod.json && cp package.json ./dist && cp LICENSE ./dist && cp README.md ./dist",
