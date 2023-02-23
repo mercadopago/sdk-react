@@ -47,7 +47,7 @@ First, install SDK MercadoPago React:
 Start the instance of MercadoPago:
 
 ```
-import initMercadoPago from '@mercadopago/sdk-react/mercadoPago/initMercadoPago';
+import initMercadoPago from '@mercadopago/sdk-react';
 
 initMercadoPago('YOUR_PUBLIC_KEY');
 ```
@@ -63,7 +63,7 @@ Each brick needs a component, such as:
 Use CardPayment component inside your functional React:
 
 ```
-import Card from '@mercadopago/sdk-react/bricks/cardPayment';
+import Card from '@mercadopago/sdk-react';
 
 const App = () => {
   return (
@@ -85,7 +85,7 @@ export default App;
 Use Payment component inside your functional React:
 
 ```
-import Payment from '@mercadopago/sdk-react/bricks/payment';
+import Payment from '@mercadopago/sdk-react';
 
 const App = () => {
   return (
@@ -111,7 +111,7 @@ export default App;
 Use StatusScreen component inside your functional React:
 
 ```
-import StatusScreen from '@mercadopago/sdk-react/bricks/statusScreen';
+import StatusScreen from '@mercadopago/sdk-react';
 
 const App = () => {
   return <StatusScreen initialization={{paymentId: 'YOUR_PAYMENT_ID'}}
@@ -126,7 +126,7 @@ export default App;
 Use Wallet component inside your functional React:
 
 ```
-import Wallet from '@mercadopago/sdk-react/bricks/wallet';
+import Wallet from '@mercadopago/sdk-react';
 
 const App = () => {
   return (
