@@ -33,12 +33,14 @@ const StatusScreen = ({
   onError = onErrorDefault,
   customization,
   initialization,
+  locale,
 }: IStatusScreenBrickSettings) => {
   useEffect(() => {
     const StatusScreenBrickConfig = {
       settings: {
         initialization,
         customization,
+        locale,
         callbacks: {
           onReady,
           onError,

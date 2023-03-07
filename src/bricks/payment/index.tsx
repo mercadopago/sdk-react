@@ -38,12 +38,14 @@ const BrickPayment = ({
   onBinChange = onBinChangeDefault,
   initialization,
   customization,
+  locale,
 }: TPaymentType) => {
   useEffect(() => {
     const PaymentBrickController = {
       settings: {
         initialization,
         customization,
+        locale,
         callbacks: {
           onReady,
           onError,

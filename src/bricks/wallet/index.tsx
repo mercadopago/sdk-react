@@ -29,12 +29,14 @@ const Wallet = ({
   onSubmit = onSubmitDefault as () => Promise<unknown>,
   customization,
   initialization,
+  locale,
 }: TWallet) => {
   useEffect(() => {
     const WalletBrickConfig = {
       settings: {
         initialization,
         customization,
+        locale,
         callbacks: {
           onReady: onReady,
           onSubmit: onSubmit,

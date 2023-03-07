@@ -75,6 +75,31 @@ export interface IWalletBrickCustomization {
    * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/additional-customization/modify-appearance Visual customization} documentation.
    */
   visual?: IWalletBrickVisual;
+  /**
+   * Optional. Wallet Brick offers three posible option for redirection:
+   * {self (default), blank, modal}
+   *
+   * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/additional-customization/redirect-mode Redirect mode customization} documentation.
+   */
+  redirectMode?: 'self' | 'blank' | 'modal';
+  /**
+   * Optional. Wallet Brick offers some customization over the Checkout Experience.
+   *
+   */
+  checkout?: IWalletBrickCheckoutCustomization;
+}
+
+interface IWalletBrickCheckoutCustomization {
+  /**
+   * Optional. Wallet Brick offers two optional customizable theme variables that recieve hexadecimal values:
+   * {elementsColor, headerColor}
+   *
+   * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/additional-customization/checkout-theme Checkout Theme customization} documentation.
+   */
+  theme?: {
+    elementsColor?: string;
+    headerColor?: string;
+  };
 }
 
 export interface PreferenceOnSubmit extends IBrickSettings {
@@ -87,6 +112,13 @@ export interface PreferenceOnSubmit extends IBrickSettings {
    */
   customization?: IWalletBrickCustomization;
   onSubmit: () => Promise<unknown>;
+  /**
+   * Optional. Language selection for the Brick, options are:
+   * {pt, es, es-AR, es-MX, es-UY, es-PE, es-CL, es-CO, en}
+   *
+   * @tutorial {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/additional-content/select-language Bricks language customization} documentation.
+   */
+  locale?: string;
 }
 
 export interface PreferenceOnInitialization extends IBrickSettings {
@@ -106,6 +138,13 @@ export interface PreferenceOnInitialization extends IBrickSettings {
    */
   customization?: IWalletBrickCustomization;
   onSubmit?: never;
+  /**
+   * Optional. Language selection for the Brick, options are:
+   * {pt, es, es-AR, es-MX, es-UY, es-PE, es-CL, es-CO, en}
+   *
+   * @tutorial {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/additional-content/select-language Bricks language customization} documentation.
+   */
+  locale?: string;
 }
 
 export type TWallet = PreferenceOnInitialization | PreferenceOnSubmit;

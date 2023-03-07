@@ -39,6 +39,7 @@ const CardPayment = ({
   onBinChange = onBinChangeDefault,
   initialization,
   customization,
+  locale,
 }: TCardPayment) => {
   useEffect(() => {
     const CardPaymentBrickConfig = {
@@ -51,6 +52,7 @@ const CardPayment = ({
           onError,
           onBinChange,
         },
+        locale,
       },
       name: 'cardPayment',
       divId: 'cardPaymentBrick_container',
