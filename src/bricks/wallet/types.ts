@@ -76,13 +76,6 @@ export interface IWalletBrickCustomization {
    */
   visual?: IWalletBrickVisual;
   /**
-   * Optional. Wallet Brick offers three posible option for redirection:
-   * {self (default), blank, modal}
-   *
-   * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/additional-customization/redirect-mode Redirect mode customization} documentation.
-   */
-  redirectMode?: 'self' | 'blank' | 'modal';
-  /**
    * Optional. Wallet Brick offers some customization over the Checkout Experience.
    *
    */
@@ -106,7 +99,15 @@ export interface PreferenceOnSubmit extends IBrickSettings {
   /**
    * Optional. An object containing initialization options.
    */
-  initialization?: never;
+  initialization?: {
+    /**
+     * Optional. Wallet Brick offers three posible option for redirection:
+     * {self (default), blank, modal}
+     *
+     * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/additional-customization/redirect-mode Redirect mode customization} documentation.
+     */
+    redirectMode?: 'self' | 'blank' | 'modal';
+  };
   /**
    * Optional. An object containing customization options.
    */
@@ -132,6 +133,13 @@ export interface PreferenceOnInitialization extends IBrickSettings {
      * @tutorial {@link https://www.mercadopago.com/developers/en/reference/preferences/_checkout_preferences/post Create preference} documentation.
      * */
     preferenceId: string;
+    /**
+     * Optional. Wallet Brick offers three posible option for redirection:
+     * {self (default), blank, modal}
+     *
+     * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/additional-customization/redirect-mode Redirect mode customization} documentation.
+     */
+    redirectMode?: 'self' | 'blank' | 'modal';
   };
   /**
    * Optional. An object containing customization options.
