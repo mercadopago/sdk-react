@@ -16,4 +16,4 @@ const ExampleRedirectModeModalOnWalletBrick = () => {
   );
 };
 
-export default ExampleRedirectModeModalonWalletBrick;
+export default ExampleRedirectModeModalOnWalletBrick;
