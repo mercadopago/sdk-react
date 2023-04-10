@@ -5,7 +5,7 @@ import initMercadoPago from '../../../src/mercadoPago/initMercadoPago';
 
 initMercadoPago('TEST-e06664f9-d9e8-4eb1-9648-978abae52d90');
 
-const ExampleRedirectModeModalonWalletBrick = () => {
+const ExampleRedirectModeModalOnWalletBrick = () => {
   return (
     <Wallet
       initialization={{
