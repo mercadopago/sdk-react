@@ -5,7 +5,7 @@ import initMercadoPago from '../../../src/mercadoPago/initMercadoPago';
 
 initMercadoPago('TEST-e06664f9-d9e8-4eb1-9648-978abae52d90');
 
-const ExampleVisualCustomizationWalletBrick = () => {
+const ExampleRedirectModeModalonWalletBrick = () => {
   return (
     <Wallet
       initialization={{
@@ -16,4 +16,4 @@ const ExampleVisualCustomizationWalletBrick = () => {
   );
 };
 
-export default ExampleVisualCustomizationWalletBrick;
+export default ExampleRedirectModeModalonWalletBrick;
