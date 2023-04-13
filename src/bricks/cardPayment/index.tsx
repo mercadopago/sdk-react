@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { DEBOUNCE_TIME_RENDER } from '../util/constants';
 import {
   onErrorDefault,
   onReadyDefault,
@@ -41,6 +42,8 @@ const CardPayment = ({
   customization,
 }: TCardPayment) => {
   useEffect(() => {
+    // CardPayment uses a debounce to prevent unnecessary reRenders.
+    let timer: ReturnType<typeof setTimeout>;
     const CardPaymentBrickConfig = {
       settings: {
         initialization,
@@ -56,8 +59,12 @@ const CardPayment = ({
       divId: 'cardPaymentBrick_container',
       controller: 'cardPaymentBrickController',
     };
-    initBrick(CardPaymentBrickConfig);
+    timer = setTimeout(() => {
+      initBrick(CardPaymentBrickConfig);
+    }, DEBOUNCE_TIME_RENDER);
+
     return () => {
+      clearTimeout(timer);
       window.cardPaymentBrickController?.unmount();
     };
   }, [initialization, customization, onBinChange, onReady, onError, onSubmit]);
