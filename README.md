@@ -154,7 +154,7 @@ Return all the document types based on the `public_key`
 
 ```javascript
 import { getIdentificationTypes } from '@mercadopago/sdk-react';
-const identificationTypes = await getIdentificationTypes()
+const identificationTypes = await getIdentificationTypes();
 ```
 
 ### getPaymentMethods
@@ -163,7 +163,7 @@ Returns a payment methods list
 
 ```javascript
 import { getPaymentMethods } from '@mercadopago/sdk-react';
-const paymentMethods = await getPaymentMethods({ bin: '41111111' })
+const paymentMethods = await getPaymentMethods({ bin: '41111111' });
 ```
 
 ### getIssuers
@@ -172,7 +172,7 @@ Returns a issuers list
 
 ```javascript
 import { getIssuers } from '@mercadopago/sdk-react';
-const issuers = await getIssuers({ paymentMethodId: 'visa', bin: '411111111' })
+const issuers = await getIssuers({ paymentMethodId: 'visa', bin: '411111111' });
 ```
 
 ### getInstallments
@@ -186,7 +186,7 @@ const installments = await getInstallments({
   locale: 'pt-BR',
   bin: '41111111',
   processingMode: 'aggregator'
-})
+});
 ```
 
 ### createCardToken
@@ -203,7 +203,7 @@ const cardToken = await createCardToken({
     securityCode: '123',
     identificationType: 'CPF',
     identificationNumber: '12345678912',
-})
+});
 ```
 
 ## Run SDK project
