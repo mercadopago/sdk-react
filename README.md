@@ -18,8 +18,14 @@ Mercado Pago's Official React SDK.
    2. [Example Payment Brick](#example-payment-brick)
    3. [Example Status Screen Brick](#example-status-screen-brick)
    4. [Example Wallet Brick](#example-wallet-brick)
-6. [Run SDK project](#run-sdk-project)
-7. [License](#license)
+6. [Core methods](#core-methods)
+  1. [getIdentificationTypes](#getIdentificationTypes)
+  2. [getPaymentMethods](#getPaymentMethods)
+  3. [getIssuers](#getIssuers)
+  4. [getInstallments](#getInstallments)
+  5. [createCardToken](#createCardToken)
+7. [Run SDK project](#run-sdk-project)
+8. [License](#license)
 
 <br />
 
@@ -137,6 +143,63 @@ export default App;
 ```
 
 <br/>
+
+## Core Methods
+
+For a full explanation of each function parameters and return, check the [SDK-JS documentation of the Core Methods](https://github.com/AleFossati/sdk-js/blob/main/API/core-methods.md)
+
+### getIdentificationTypes
+
+Return all the document types based on the `public_key`
+
+```javascript
+const identificationTypes = await getIdentificationTypes()
+```
+
+### getPaymentMethods
+
+Returns a payment methods list
+
+```javascript
+const paymentMethods = await getPaymentMethods({ bin: '41111111' })
+```
+
+### getIssuers
+
+Returns a issuers list
+
+```javascript
+const issuers = await getIssuers({ paymentMethodId: 'visa', bin: '411111111' })
+```
+
+### getInstallments
+
+Returns all installments available
+
+```javascript
+const installments = await getInstallments({
+  amount: '1000',
+  locale: 'pt-BR',
+  bin: '41111111',
+  processingMode: 'aggregator'
+})
+```
+
+### createCardToken
+
+Return a token card
+
+```javascript
+const cardToken = await createCardToken({
+    cardNumber: '5031433215406351' ,
+    cardholderName: 'APRO',
+    cardExpirationMonth: '11',
+    cardExpirationYear: '2025',
+    securityCode: '123',
+    identificationType: 'CPF',
+    identificationNumber: '12345678912',
+})
+```
 
 ## Run SDK project
 
