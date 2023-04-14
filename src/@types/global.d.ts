@@ -8,12 +8,13 @@ declare global {
     };
     cardPaymentBrickController: {
       unmount: () => void;
+      getFormData: () => Promise<void>;
     };
     walletBrickController: {
       unmount: () => void;
     };
     statusScreenBrickController: {
       unmount: () => void;
-    }
+    };
   }
 }
