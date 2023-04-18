@@ -1,19 +1,8 @@
-export type TProcessingMode = "gateway" | "aggregator";
+import type { Issuer, PayerCost, TProcessingMode } from "../util/types";
 
 export type TPaymentMethodsParams = {
   bin: string;
   processingMode?: TProcessingMode
-}
-
-export interface PayerCost {
-  installment_rate: number;
-  discount_rate: number;
-  min_allowed_amount: number;
-  labels: string[];
-  installments: number;
-  reimbursement_rate?: unknown;
-  max_allowed_amount: number;
-  payment_method_option_id: string;
 }
 
 export interface FinancingDeals {
@@ -22,12 +11,6 @@ export interface FinancingDeals {
   expiration_date?: unknown;
   start_date?: unknown;
   status: string;
-}
-
-export interface Issuer {
-  default: boolean;
-  name: string;
-  id: number;
 }
 
 export interface TSecurityCode {

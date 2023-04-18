@@ -1,4 +1,5 @@
 import type { IdentificationType } from "../../coreMethods/getIdentificationTypes/types";
+import type { TInstallments, TInstallmentsParams } from "../../coreMethods/getInstallments/types";
 import type { TIssuers, TIssuersParams } from "../../coreMethods/getIssuers/types";
 import type { TPaymentMethods, TPaymentMethodsParams } from "../../coreMethods/getPaymentMethods/types";
 
@@ -29,4 +30,5 @@ export type TInstanceMercadoPago = {
   getIdentificationTypes: () => Promise<IdentificationType[]>;
   getPaymentMethods: (paymentMethodsParams: TPaymentMethodsParams) => Promise<TPaymentMethods>;
   getIssuers: (issuersParams: TIssuersParams) => Promise<TIssuers[]>;
+  getInstallments: (installmentsParams: TInstallmentsParams) => Promise<TInstallments[]>;
 };
