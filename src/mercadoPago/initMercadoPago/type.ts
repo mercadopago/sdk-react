@@ -1,3 +1,5 @@
+import type { TPaymentMethods, TPaymentMethodsParams } from "../../coreMethods/getPaymentMethods/types";
+
 export type TOptions = {
   /**
    * Set the locale
@@ -34,4 +36,5 @@ export type IdentificationType = {
 export type TInstanceMercadoPago = {
   bricks: () => BricksBuilderType;
   getIdentificationTypes: () => Promise<IdentificationType[]>;
+  getPaymentMethods: (paymentMethodsParams: TPaymentMethodsParams) => Promise<TPaymentMethods>
 };
