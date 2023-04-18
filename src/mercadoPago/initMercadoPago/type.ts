@@ -1,3 +1,4 @@
+import type { TCardToken, TCardTokenParams } from "../../coreMethods/createCardToken/types";
 import type { IdentificationType } from "../../coreMethods/getIdentificationTypes/types";
 import type { TInstallments, TInstallmentsParams } from "../../coreMethods/getInstallments/types";
 import type { TIssuers, TIssuersParams } from "../../coreMethods/getIssuers/types";
@@ -31,4 +32,5 @@ export type TInstanceMercadoPago = {
   getPaymentMethods: (paymentMethodsParams: TPaymentMethodsParams) => Promise<TPaymentMethods>;
   getIssuers: (issuersParams: TIssuersParams) => Promise<TIssuers[]>;
   getInstallments: (installmentsParams: TInstallmentsParams) => Promise<TInstallments[]>;
+  createCardToken: (cardTokenParams: TCardTokenParams) => Promise<TCardToken>;
 };
