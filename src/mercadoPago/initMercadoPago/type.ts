@@ -1,4 +1,5 @@
 import type { IdentificationType } from "../../coreMethods/getIdentificationTypes/types";
+import type { TIssuers, TIssuersParams } from "../../coreMethods/getIssuers/types";
 import type { TPaymentMethods, TPaymentMethodsParams } from "../../coreMethods/getPaymentMethods/types";
 
 export type TOptions = {
@@ -26,5 +27,6 @@ export type BricksBuilderType = {
 export type TInstanceMercadoPago = {
   bricks: () => BricksBuilderType;
   getIdentificationTypes: () => Promise<IdentificationType[]>;
-  getPaymentMethods: (paymentMethodsParams: TPaymentMethodsParams) => Promise<TPaymentMethods>
+  getPaymentMethods: (paymentMethodsParams: TPaymentMethodsParams) => Promise<TPaymentMethods>;
+  getIssuers: (issuersParams: TIssuersParams) => Promise<TIssuers[]>;
 };
