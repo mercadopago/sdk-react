@@ -20,6 +20,18 @@ export type BricksBuilderType = {
   create: (param: string, param2: string, settings: {}) => void;
 };
 
+// #############
+// CORE METHODS
+// #############
+export type IdentificationType = {
+  id: string,
+  name: string,
+  type: string,
+  min_length: number,
+  max_length: number
+}
+
 export type TInstanceMercadoPago = {
   bricks: () => BricksBuilderType;
+  getIdentificationTypes: () => Promise<IdentificationType[]>;
 };
