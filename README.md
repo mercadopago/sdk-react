@@ -144,72 +144,25 @@ export default App;
 
 <br/>
 
-## Core Methods
+## Secure Fields
 
-For a full explanation of each function parameters and return, check the [SDK-JS documentation of the Core Methods](https://github.com/mercadopago/sdk-js/blob/main/API/core-methods.md)
-
-### getIdentificationTypes
-
-Return all the document types based on the `public_key`
-
-```javascript
-import { getIdentificationTypes } from '@mercadopago/sdk-react';
-const identificationTypes = await getIdentificationTypes();
-```
-
-### getPaymentMethods
-
-Returns a payment methods list
-
-```javascript
-import { getPaymentMethods } from '@mercadopago/sdk-react';
-const paymentMethods = await getPaymentMethods({ bin: '41111111' });
-```
-
-### getIssuers
-
-Returns a issuers list
-
-```javascript
-import { getIssuers } from '@mercadopago/sdk-react';
-const issuers = await getIssuers({ paymentMethodId: 'visa', bin: '411111111' });
-```
-
-### getInstallments
-
-Returns all installments available
-
-```javascript
-import { getInstallments } from '@mercadopago/sdk-react';
-const installments = await getInstallments({
-  amount: '1000',
-  locale: 'pt-BR',
-  bin: '41111111',
-  processingMode: 'aggregator',
-});
-```
+Secure Fields are input components that allow you to collect credit and debit card information safely.
+The Secure Fields module also provides a method to get the card token safely without the need to store the card data.
 
 ### createCardToken
 
 Return a token card
 
 ```javascript
-import { createCardToken } from '@mercadopago/sdk-react/coreMethods';
+import { createCardToken } from '@mercadopago/sdk-react';
 const cardToken = await createCardToken({
-  cardNumber: '<CREDIT_CARD_NUMBER>',
   cardholderName: 'APRO',
-  cardExpirationMonth: '11',
-  cardExpirationYear: '2025',
-  securityCode: '123',
   identificationType: 'CPF',
   identificationNumber: '12345678912',
 });
 ```
 
-## Secure Fields
-
-Secure Fields are input components that allow you to collect credit and debit card information safely.
-
+<br/>
 ### CardNumber
 
 ```jsx
@@ -274,6 +227,69 @@ export default App;
 ```
 
 <br/>
+
+## Core Methods
+
+For a full explanation of each function parameters and return, check the [SDK-JS documentation of the Core Methods](https://github.com/mercadopago/sdk-js/blob/main/API/core-methods.md)
+
+### getIdentificationTypes
+
+Return all the document types based on the `public_key`
+
+```javascript
+import { getIdentificationTypes } from '@mercadopago/sdk-react';
+const identificationTypes = await getIdentificationTypes();
+```
+
+### getPaymentMethods
+
+Returns a payment methods list
+
+```javascript
+import { getPaymentMethods } from '@mercadopago/sdk-react';
+const paymentMethods = await getPaymentMethods({ bin: '41111111' });
+```
+
+### getIssuers
+
+Returns a issuers list
+
+```javascript
+import { getIssuers } from '@mercadopago/sdk-react';
+const issuers = await getIssuers({ paymentMethodId: 'visa', bin: '411111111' });
+```
+
+### getInstallments
+
+Returns all installments available
+
+```javascript
+import { getInstallments } from '@mercadopago/sdk-react';
+const installments = await getInstallments({
+  amount: '1000',
+  locale: 'pt-BR',
+  bin: '41111111',
+  processingMode: 'aggregator',
+});
+```
+
+### createCardToken
+
+Return a token card
+
+```javascript
+import { createCardToken } from '@mercadopago/sdk-react/coreMethods';
+const cardToken = await createCardToken({
+  cardNumber: '<CREDIT_CARD_NUMBER>',
+  cardholderName: 'APRO',
+  cardExpirationMonth: '11',
+  cardExpirationYear: '2025',
+  securityCode: '123',
+  identificationType: 'CPF',
+  identificationNumber: '12345678912',
+});
+```
+
 ## Run SDK project
 
 To use Mercado Pago React SDK, follow the steps:
@@ -293,7 +309,6 @@ npm build
 Execute `npm run start` to initialize storybook.
 
 <br/>
-
 ## License
 
 This project is under Apache license, version 2.0. See [Apache 2.0](LICENSE) file for more details.
