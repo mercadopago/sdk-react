@@ -13,18 +13,18 @@ Mercado Pago's Official React SDK.
 2. [Prerequisites](#prerequisites)
 3. [Installation](#installation)
 4. [Initialization](#initialization)
-5. [Checkout BricksBricks](#checkout-bricks)
+5. [Checkout Bricks](#checkout-bricks)
    1. [Card Payment Brick](#card-payment-brick)
    2. [Payment Brick](#payment-brick)
    3. [Status Screen Brick](#status-screen-brick)
    4. [Wallet Brick](#wallet-brick)
 6. [Secure Fields](#secure-fields)
    1. [Create Card Token](#createcardtoken-1)
-   2. [Card Number](#cardnumber)
-   3. [Security Code](#securitycode)
-   4. [Expiration Date](#expirationdate)
-   5. [Expiration Month](#expirationmonth)
-   6. [Expiration Year](#expirationyear)
+   2. [Card Number](#card-number)
+   3. [Security Code](#security-code)
+   4. [Expiration Date](#expiration-date)
+   5. [Expiration Month](#expiration-month)
+   6. [Expiration Year](#expiration-year)
 7. [Core methods](#core-methods)
    1. [getIdentificationTypes](#getIdentificationTypes)
    2. [getPaymentMethods](#getPaymentMethods)
@@ -172,7 +172,7 @@ const cardToken = await createCardToken({
 
 <br/>
 
-### CardNumber
+### Card Number
 
 ```jsx
 import { CardNumber } from '@mercadopago/sdk-react';
@@ -185,7 +185,7 @@ export default App;
 
 <br/>
 
-### SecurityCode
+### Security Code
 
 ```jsx
 import { SecurityCode } from '@mercadopago/sdk-react';
@@ -198,7 +198,7 @@ export default App;
 
 <br/>
 
-### ExpirationDate
+### Expiration Date
 
 ```jsx
 import { ExpirationDate } from '@mercadopago/sdk-react';
@@ -211,7 +211,7 @@ export default App;
 
 <br/>
 
-### ExpirationMonth
+### Expiration Month
 
 ```jsx
 import { ExpirationMonth } from '@mercadopago/sdk-react';
@@ -224,7 +224,7 @@ export default App;
 
 <br/>
 
-### ExpirationYear
+### Expiration Year
 
 ```jsx
 import { ExpirationYear } from '@mercadopago/sdk-react';
