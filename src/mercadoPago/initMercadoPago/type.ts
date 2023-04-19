@@ -1,5 +1,5 @@
-import type { TFieldsCardTokenParams } from "../../coreMethods/cardToken/type";
-import type { TCardTokenParams } from "../../coreMethods/createCardToken/types";
+import type { TFieldsCardTokenParams } from "../../coreMethods/createCardToken/types";
+import type { TCardTokenParams } from "../../coreMethods/cardToken/types";
 import type { IdentificationType } from "../../coreMethods/getIdentificationTypes/types";
 import type { TInstallments, TInstallmentsParams } from "../../coreMethods/getInstallments/types";
 import type { TIssuers, TIssuersParams } from "../../coreMethods/getIssuers/types";
