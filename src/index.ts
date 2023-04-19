@@ -5,4 +5,19 @@ import Payment from './bricks/payment';
 import StatusScreen from './bricks/statusScreen';
 import Wallet from './bricks/wallet';
 
-export { initMercadoPago, CardPayment, Payment, StatusScreen, Wallet };
+import getIdentificationTypes from './coreMethods/getIdentificationTypes';
+import getPaymentMethods from './coreMethods/getPaymentMethods';
+import getInstallments from './coreMethods/getInstallments';
+import getIssuers from './coreMethods/getIssuers';
+
+export {
+  initMercadoPago,
+  CardPayment,
+  Payment,
+  StatusScreen,
+  Wallet,
+  getIdentificationTypes,
+  getPaymentMethods,
+  getInstallments,
+  getIssuers,
+};
