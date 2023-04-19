@@ -19,13 +19,13 @@ Mercado Pago's Official React SDK.
    3. [Example Status Screen Brick](#example-status-screen-brick)
    4. [Example Wallet Brick](#example-wallet-brick)
 6. [Core methods](#core-methods)
-  1. [getIdentificationTypes](#getIdentificationTypes)
-  2. [getPaymentMethods](#getPaymentMethods)
-  3. [getIssuers](#getIssuers)
-  4. [getInstallments](#getInstallments)
-  5. [createCardToken](#createCardToken)
-7. [Run SDK project](#run-sdk-project)
-8. [License](#license)
+7. [getIdentificationTypes](#getIdentificationTypes)
+8. [getPaymentMethods](#getPaymentMethods)
+9. [getIssuers](#getIssuers)
+10. [getInstallments](#getInstallments)
+11. [createCardToken](#createCardToken)
+12. [Run SDK project](#run-sdk-project)
+13. [License](#license)
 
 <br />
 
@@ -185,7 +185,7 @@ const installments = await getInstallments({
   amount: '1000',
   locale: 'pt-BR',
   bin: '41111111',
-  processingMode: 'aggregator'
+  processingMode: 'aggregator',
 });
 ```
 
@@ -194,18 +194,86 @@ const installments = await getInstallments({
 Return a token card
 
 ```javascript
-import { createCardToken } from '@mercadopago/sdk-react';
+import { createCardToken } from '@mercadopago/sdk-react/coreMethods';
 const cardToken = await createCardToken({
-    cardNumber: '5031433215406351' ,
-    cardholderName: 'APRO',
-    cardExpirationMonth: '11',
-    cardExpirationYear: '2025',
-    securityCode: '123',
-    identificationType: 'CPF',
-    identificationNumber: '12345678912',
+  cardNumber: '<CREDIT_CARD_NUMBER>',
+  cardholderName: 'APRO',
+  cardExpirationMonth: '11',
+  cardExpirationYear: '2025',
+  securityCode: '123',
+  identificationType: 'CPF',
+  identificationNumber: '12345678912',
 });
 ```
 
+## Secure Fields
+
+Secure Fields are input components that allow you to collect credit and debit card information safely.
+
+### CardNumber
+
+```jsx
+import { CardNumber } from '@mercadopago/sdk-react';
+
+const App = () => {
+  return <CardNumber />;
+};
+export default App;
+```
+
+<br/>
+
+### SecurityCode
+
+```jsx
+import { SecurityCode } from '@mercadopago/sdk-react';
+
+const App = () => {
+  return <SecurityCode />;
+};
+export default App;
+```
+
+<br/>
+
+### ExpirationDate
+
+```jsx
+import { ExpirationDate } from '@mercadopago/sdk-react';
+
+const App = () => {
+  return <ExpirationDate />;
+};
+export default App;
+```
+
+<br/>
+
+### ExpirationMonth
+
+```jsx
+import { ExpirationMonth } from '@mercadopago/sdk-react';
+
+const App = () => {
+  return <ExpirationMonth />;
+};
+export default App;
+```
+
+<br/>
+
+### ExpirationYear
+
+```jsx
+import { ExpirationYear } from '@mercadopago/sdk-react';
+
+const App = () => {
+  return <ExpirationYear />;
+};
+export default App;
+```
+
+<br/>
 ## Run SDK project
 
 To use Mercado Pago React SDK, follow the steps:
