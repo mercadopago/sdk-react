@@ -13,19 +13,26 @@ Mercado Pago's Official React SDK.
 2. [Prerequisites](#prerequisites)
 3. [Installation](#installation)
 4. [Initialization](#initialization)
-5. [Render Brick](#render-brick)
-   1. [Example Card Payment Brick](#example-card-payment-brick)
-   2. [Example Payment Brick](#example-payment-brick)
-   3. [Example Status Screen Brick](#example-status-screen-brick)
-   4. [Example Wallet Brick](#example-wallet-brick)
-6. [Core methods](#core-methods)
-7. [getIdentificationTypes](#getIdentificationTypes)
-8. [getPaymentMethods](#getPaymentMethods)
-9. [getIssuers](#getIssuers)
-10. [getInstallments](#getInstallments)
-11. [createCardToken](#createCardToken)
-12. [Run SDK project](#run-sdk-project)
-13. [License](#license)
+5. [Checkout BricksBricks](#checkout-bricks)
+   1. [Card Payment Brick](#card-payment-brick)
+   2. [Payment Brick](#payment-brick)
+   3. [Status Screen Brick](#status-screen-brick)
+   4. [Wallet Brick](#wallet-brick)
+6. [Secure Fields](#secure-fields)
+   1. [Create Card Token](#createcardtoken-1)
+   2. [Card Number](#cardnumber)
+   3. [Security Code](#securitycode)
+   4. [Expiration Date](#expirationdate)
+   5. [Expiration Month](#expirationmonth)
+   6. [Expiration Year](#expirationyear)
+7. [Core methods](#core-methods)
+   1. [getIdentificationTypes](#getIdentificationTypes)
+   2. [getPaymentMethods](#getPaymentMethods)
+   3. [getIssuers](#getIssuers)
+   4. [getInstallments](#getInstallments)
+   5. [createCardToken](#createCardToken)
+8. [Run SDK project](#run-sdk-project)
+9. [License](#license)
 
 <br />
 
@@ -60,11 +67,12 @@ initMercadoPago('YOUR_PUBLIC_KEY');
 
 <br/>
 
-## Render Brick
+## Checkout Bricks
 
-Each brick needs a component, such as:
+Checkout Bricks are modular checkout components.
+Below are examples of Brick implementations, for more information check the Examples folder.
 
-### Example Card Payment Brick
+### Card Payment Brick
 
 Use CardPayment component inside your functional React:
 
@@ -86,7 +94,7 @@ export default App;
 
 <br/>
 
-### Example Payment Brick
+### Payment Brick
 
 Use Payment component inside your functional React:
 
@@ -112,7 +120,7 @@ export default App;
 
 <br/>
 
-### Example Status Screen Brick
+### Status Screen Brick
 
 Use StatusScreen component inside your functional React:
 
@@ -127,7 +135,7 @@ export default App;
 
 <br/>
 
-### Example Wallet Brick
+### Wallet Brick
 
 Use Wallet component inside your functional React:
 
@@ -163,6 +171,7 @@ const cardToken = await createCardToken({
 ```
 
 <br/>
+
 ### CardNumber
 
 ```jsx
