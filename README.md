@@ -150,6 +150,9 @@ For a full explanation of each function parameters and return, check the [SDK-JS
 
 ### getIdentificationTypes
 
+> **Note**
+> It's mandatory to have previously done the [Initialization step](#initialization)
+
 Return all the document types based on the `public_key`
 
 ```javascript
@@ -158,6 +161,9 @@ const identificationTypes = await getIdentificationTypes();
 ```
 
 ### getPaymentMethods
+
+> **Note**
+> It's mandatory to have previously done the [Initialization step](#initialization)
 
 Returns a payment methods list
 
@@ -168,6 +174,9 @@ const paymentMethods = await getPaymentMethods({ bin: '41111111' });
 
 ### getIssuers
 
+> **Note**
+> It's mandatory to have previously done the [Initialization step](#initialization)
+
 Returns a issuers list
 
 ```javascript
@@ -176,6 +185,9 @@ const issuers = await getIssuers({ paymentMethodId: 'visa', bin: '411111111' });
 ```
 
 ### getInstallments
+
+> **Note**
+> It's mandatory to have previously done the [Initialization step](#initialization)
 
 Returns all installments available
 
@@ -190,6 +202,9 @@ const installments = await getInstallments({
 ```
 
 ### createCardToken
+
+> **Note**
+> It's mandatory to have previously done the [Initialization step](#initialization)
 
 Return a token card
 
