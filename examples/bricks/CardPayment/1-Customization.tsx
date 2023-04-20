@@ -19,14 +19,26 @@ const App = () => {
     },
   };
 
+  function createPayment() {
+    window.cardPaymentBrickController
+      .getFormData()
+      .then((cardFormData) => {
+        console.log('cardFormData received, creating payment...', cardFormData);
+      })
+      .catch((error) => {});
+  }
+
   return (
-    <Card
-      initialization={{ amount: 100 }}
-      customization={customization}
-      onSubmit={async (param) => {
-        console.log(param);
-      }}
-    />
+    <>
+      <Card
+        initialization={{ amount: 100 }}
+        customization={customization}
+        onSubmit={async (param) => {
+          console.log(param);
+        }}
+      />
+      <button onClick={() => createPayment()}>Custom Button</button>
+    </>
   );
 };
 

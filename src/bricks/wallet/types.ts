@@ -101,12 +101,11 @@ export interface PreferenceOnSubmit extends IBrickSettings {
    */
   initialization?: {
     /**
-     * Optional. Wallet Brick offers three posible option for redirection:
-     * {self (default), blank, modal}
+     * Optional. The opening scheme allows you to define how the checkout will open for the user. For example modal. Default 'self'
      *
-     * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/additional-customization/redirect-mode Redirect mode customization} documentation.
-     */
-    redirectMode?: 'self' | 'blank' | 'modal';
+     * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/additional-customization/opening-mode#editor_2 Redirect Mode} documentation.
+     * */
+    redirectMode?: 'modal' | 'blank' | 'self';
   };
   /**
    * Optional. An object containing customization options.
@@ -134,12 +133,11 @@ export interface PreferenceOnInitialization extends IBrickSettings {
      * */
     preferenceId: string;
     /**
-     * Optional. Wallet Brick offers three posible option for redirection:
-     * {self (default), blank, modal}
+     * Optional. The opening scheme allows you to define how the checkout will open for the user. For example modal. Default 'self'
      *
-     * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/additional-customization/redirect-mode Redirect mode customization} documentation.
-     */
-    redirectMode?: 'self' | 'blank' | 'modal';
+     * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/additional-customization/opening-mode#editor_2 Redirect Mode} documentation.
+     * */
+    redirectMode?: 'modal' | 'blank' | 'self';
   };
   /**
    * Optional. An object containing customization options.

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { onErrorDefault, onReadyDefault } from '../util/initial';
 import { IStatusScreenBrickSettings } from './types';
 import { initBrick } from '../util/renderBrick';
+import { DEBOUNCE_TIME_RENDER } from '../util/constants';
 
 // /**
 //  * Status Screen Brick allows you to show buyer the status of a purchase made with any payment method provided by Checkout Bricks.
@@ -36,6 +37,8 @@ const StatusScreen = ({
   locale,
 }: IStatusScreenBrickSettings) => {
   useEffect(() => {
+    // CardPayment uses a debounce to prevent unnecessary reRenders.
+    let timer: ReturnType<typeof setTimeout>;
     const StatusScreenBrickConfig = {
       settings: {
         initialization,
@@ -50,8 +53,12 @@ const StatusScreen = ({
       divId: 'statusScreenBrick_container',
       controller: 'statusScreenBrickController',
     };
-    initBrick(StatusScreenBrickConfig);
+    timer = setTimeout(() => {
+      initBrick(StatusScreenBrickConfig);
+    }, DEBOUNCE_TIME_RENDER);
+
     return () => {
+      clearTimeout(timer);
       window.statusScreenBrickController?.unmount();
     };
   }, [initialization, customization, onReady, onError]);

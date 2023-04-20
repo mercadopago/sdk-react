@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { onErrorDefault, onReadyDefault, onSubmitDefault } from '../util/initial';
 import { TWallet } from './types';
 import { initBrick } from '../util/renderBrick';
+import { DEBOUNCE_TIME_RENDER } from '../util/constants';
 
 /**
  * Wallet Brick allows you to offer payments from your Mercado Pago account at any stage of the purchase process.
@@ -32,6 +33,8 @@ const Wallet = ({
   locale,
 }: TWallet) => {
   useEffect(() => {
+    // CardPayment uses a debounce to prevent unnecessary reRenders.
+    let timer: ReturnType<typeof setTimeout>;
     const WalletBrickConfig = {
       settings: {
         initialization,
@@ -48,8 +51,12 @@ const Wallet = ({
       controller: 'walletBrickController',
     };
 
-    initBrick(WalletBrickConfig);
+    timer = setTimeout(() => {
+      initBrick(WalletBrickConfig);
+    }, DEBOUNCE_TIME_RENDER);
+
     return () => {
+      clearTimeout(timer);
       window.walletBrickController?.unmount();
     };
   }, [customization, initialization, onReady, onError, onSubmit]);

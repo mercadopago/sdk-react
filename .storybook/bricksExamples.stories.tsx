@@ -6,7 +6,11 @@ const ExampleComponent = ({ file }) => {
 
   useEffect(() => {
     import(`../examples/${file}`).then(({ default: App }) => {
-      setComponent(<App />);
+      setComponent(
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>,
+      );
     });
   }, []);
   return component;

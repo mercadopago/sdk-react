@@ -1,6 +1,6 @@
 {
   "name": "@mercadopago/sdk-react",
-  "version": "0.0.3",
+  "version": "0.0.7",
   "description": "Mercado Pago SDK React",
   "main": "index.js",
   "keywords": [
@@ -58,6 +58,6 @@
     "ts-node": "^10.9.1",
     "tslib": "^2.4.1",
     "typescript": "^4.9.4",
-    "webpack": "^5.75.0"
+    "webpack": "^5.76.0"
   }
 }
