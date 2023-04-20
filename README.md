@@ -82,7 +82,7 @@ import { CardPayment } from '@mercadopago/sdk-react';
 const App = () => {
   return (
     <CardPayment
-      initialization={{ amount: AMOUNT }}
+      initialization={{ amount: '<AMOUNT>' }}
       onSubmit={async (param) => {
         console.log(param);
       }}
@@ -105,10 +105,9 @@ const App = () => {
   return (
     <Payment
       initialization={{
-        amount: AMOUNT,
-        preferenceId: 'YOUR_PREFERENCE_ID',
+        amount: '<AMOUNT>',
+        preferenceId: '<YOUR_PREFERENCE_ID>',
       }}
-      customization={customization}
       onSubmit={async (param) => {
         console.log(param);
       }}
@@ -143,9 +142,7 @@ Use Wallet component inside your functional React:
 import { Wallet } from '@mercadopago/sdk-react';
 
 const App = () => {
-  return (
-    <Wallet initialization={{ preferenceId: 'YOUR_PREFERENCE_ID' }} customization={customization} />
-  );
+  return <Wallet initialization={{ preferenceId: 'YOUR_PREFERENCE_ID' }} />;
 };
 export default App;
 ```
@@ -154,7 +151,7 @@ export default App;
 
 ## Secure Fields
 
-Secure Fields are input components that allow you to collect credit and debit card information safely.
+Secure Fields are input components that allow you to collect credit and debit card information safely, and allow you to get the PCI SAQ A certification.
 The Secure Fields module also provides a method to get the card token safely without the need to store the card data.
 
 ### createCardToken
@@ -164,9 +161,9 @@ Return a token card
 ```javascript
 import { createCardToken } from '@mercadopago/sdk-react';
 const cardToken = await createCardToken({
-  cardholderName: 'APRO',
-  identificationType: 'CPF',
-  identificationNumber: '12345678912',
+  cardholderName: '<CARDHOLDER_NAME>',
+  identificationType: '<BUYER_IDENTIFICATION_TYPE>',
+  identificationNumber: '<BUYER_IDENTIFICATION_NUMBER>',
 });
 ```
 
@@ -256,7 +253,7 @@ Returns a payment methods list
 
 ```javascript
 import { getPaymentMethods } from '@mercadopago/sdk-react';
-const paymentMethods = await getPaymentMethods({ bin: '41111111' });
+const paymentMethods = await getPaymentMethods({ bin: '<CARD_BIN>' });
 ```
 
 ### getIssuers
@@ -265,7 +262,10 @@ Returns a issuers list
 
 ```javascript
 import { getIssuers } from '@mercadopago/sdk-react';
-const issuers = await getIssuers({ paymentMethodId: 'visa', bin: '411111111' });
+const issuers = await getIssuers({
+  paymentMethodId: '<CARD_PAYMENT_METHOD_ID>',
+  bin: '<CARD_BIN>',
+});
 ```
 
 ### getInstallments
@@ -275,10 +275,9 @@ Returns all installments available
 ```javascript
 import { getInstallments } from '@mercadopago/sdk-react';
 const installments = await getInstallments({
-  amount: '1000',
-  locale: 'pt-BR',
-  bin: '41111111',
-  processingMode: 'aggregator',
+  amount: '<AMOUNT>',
+  locale: '<LOCALE>',
+  bin: '<CARD_BIN>',
 });
 ```
 
@@ -290,12 +289,12 @@ Return a token card
 import { createCardToken } from '@mercadopago/sdk-react/coreMethods';
 const cardToken = await createCardToken({
   cardNumber: '<CREDIT_CARD_NUMBER>',
-  cardholderName: 'APRO',
-  cardExpirationMonth: '11',
-  cardExpirationYear: '2025',
-  securityCode: '123',
-  identificationType: 'CPF',
-  identificationNumber: '12345678912',
+  cardholderName: '<CARDHOLDER_NAME>',
+  cardExpirationMonth: '<CARD_EXPIRATION_MONTH>',
+  cardExpirationYear: '<CARD_EXPIRATION_YEAR>',
+  securityCode: '<CARD_SECURITY_CODE>',
+  identificationType: '<BUYER_IDENTIFICATION_TYPE>',
+  identificationNumber: '<BUYER_IDENTIFICATION_NUMBER>',
 });
 ```
 
