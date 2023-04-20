@@ -11,6 +11,7 @@ export type TOptions = {
    * Enable/disable tracking of generic usage metrics
    */
   trackingDisabled?: boolean;
+  siteId?: string;
 };
 
 // #############
