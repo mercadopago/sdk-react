@@ -9,6 +9,7 @@ import getIdentificationTypes from './coreMethods/getIdentificationTypes';
 import getPaymentMethods from './coreMethods/getPaymentMethods';
 import getInstallments from './coreMethods/getInstallments';
 import getIssuers from './coreMethods/getIssuers';
+import createCardToken from './coreMethods/createCardToken';
 
 export {
   initMercadoPago,
@@ -20,4 +21,5 @@ export {
   getPaymentMethods,
   getInstallments,
   getIssuers,
+  createCardToken,
 };
