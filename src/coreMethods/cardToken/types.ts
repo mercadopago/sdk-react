@@ -8,3 +8,10 @@ export type TCardTokenParams = {
   cardExpirationYear?: string
   cardId?: string
 }
+
+export type TCardTokenUpdateParams = {
+  securityCode?: string;
+  cardExpirationMonth?: string;
+  cardExpirationYear?: string;
+  token?: string;
+};
