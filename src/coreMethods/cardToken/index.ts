@@ -7,7 +7,7 @@ import { TCardTokenParams } from "./types";
  * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/core-methods.md#mp-instancecreatecardtokencardtokenparams method documentation}.
  */
 const createCardToken = async (cardTokenParams: TCardTokenParams) => {
-  const instanceMercadoPago = await MercadoPagoInstance.init();
+  const instanceMercadoPago = await MercadoPagoInstance.getInstance();
   return instanceMercadoPago?.createCardToken(cardTokenParams);
 };
 

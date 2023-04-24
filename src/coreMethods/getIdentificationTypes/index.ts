@@ -7,7 +7,7 @@ import { MercadoPagoInstance } from "../../mercadoPago/initMercadoPago";
  * @see {@link https://www.mercadopago.com/developers/en/reference/identification_types/_identification_types/get response documentation}.
  */
 const getIdentificationTypes = async () => {
-  const instanceMercadoPago = await MercadoPagoInstance.init();
+  const instanceMercadoPago = await MercadoPagoInstance.getInstance();
   return instanceMercadoPago?.getIdentificationTypes();
 };
 
