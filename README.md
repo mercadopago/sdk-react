@@ -82,7 +82,7 @@ import { CardPayment } from '@mercadopago/sdk-react';
 const App = () => {
   return (
     <CardPayment
-      initialization={{ amount: '<AMOUNT>' }}
+      initialization={{ amount: AMOUNT }}
       onSubmit={async (param) => {
         console.log(param);
       }}
@@ -105,7 +105,7 @@ const App = () => {
   return (
     <Payment
       initialization={{
-        amount: '<AMOUNT>',
+        amount: AMOUNT,
         preferenceId: '<YOUR_PREFERENCE_ID>',
       }}
       onSubmit={async (param) => {
@@ -275,7 +275,7 @@ Returns all installments available
 ```javascript
 import { getInstallments } from '@mercadopago/sdk-react';
 const installments = await getInstallments({
-  amount: '<AMOUNT>',
+  amount: AMOUNT,
   locale: '<LOCALE>',
   bin: '<CARD_BIN>',
 });
