@@ -38,5 +38,6 @@ export type TInstanceMercadoPago = {
   updateCardToken: (paymentMethodsParams: TCardTokenUpdateParams) => Promise<TCardToken>;
   fields: {
     createCardToken: (fieldsCardTokenParams: TFieldsCardTokenParams) => Promise<TCardToken>;
+    updateCardToken: (token: string) => Promise<TCardToken>;
   };
 };

@@ -2,7 +2,7 @@ import { MercadoPagoInstance } from "../../mercadoPago/initMercadoPago";
 import { TFieldsCardTokenParams } from "./types";
 
 /**
- * Token creation method.
+ * Secure Fields token creation method.
  * 
  * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/fields.md#mp-instancefieldscreatecardtokennonpcidata method documentation}.
  */
