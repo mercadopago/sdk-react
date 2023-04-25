@@ -5,6 +5,7 @@ import type { TInstallments, TInstallmentsParams } from "../../coreMethods/getIn
 import type { TIssuers, TIssuersParams } from "../../coreMethods/getIssuers/types";
 import type { TPaymentMethods, TPaymentMethodsParams } from "../../coreMethods/getPaymentMethods/types";
 import type { TCardToken } from "../../coreMethods/util/types";
+import type { FieldName, IField, TFieldsOptions } from "../../secureFields/util/types";
 
 export type TOptions = {
   /**
@@ -39,5 +40,6 @@ export type TInstanceMercadoPago = {
   fields: {
     createCardToken: (fieldsCardTokenParams: TFieldsCardTokenParams) => Promise<TCardToken>;
     updateCardToken: (token: string) => Promise<TCardToken>;
+    create: <T extends FieldName>(field: T, options?: TFieldsOptions<T>) => IField;
   };
 };
