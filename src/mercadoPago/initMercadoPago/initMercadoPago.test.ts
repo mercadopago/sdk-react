@@ -19,7 +19,7 @@ describe('Test initMercadoPago', () => {
   test('should show console.error if the public key is not set', () => {
     const logSpy = jest.spyOn(global.console, 'error').mockImplementation(() => {});
 
-    MercadoPagoInstance.init();
+    MercadoPagoInstance.getInstance();
 
     expect(logSpy).toHaveBeenCalledTimes(1);
 
@@ -35,12 +35,12 @@ describe('Test initMercadoPago', () => {
     window.MercadoPago = mock;
 
     initMercadoPago(PUBLIC_KEY);
-    await MercadoPagoInstance.init();
+    await MercadoPagoInstance.getInstance();
 
     expect(MercadoPagoInstance.publicKey).toBe(PUBLIC_KEY);
     expect(MercadoPagoInstance.instanceMercadoPago?.bricks).toBe(mockMercadoPagoBrick);
 
-    await MercadoPagoInstance.init();
+    await MercadoPagoInstance.getInstance();
     expect(MercadoPagoInstance.instanceMercadoPago?.bricks).toBe(mockMercadoPagoBrick);
   });
 });

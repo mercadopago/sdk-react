@@ -8,7 +8,7 @@ import type { TPaymentMethodsParams } from "./types";
  * @see {@link https://www.mercadopago.com/developers/en/reference/payment_methods/_payment_methods/get response documentation}.
  */
 const getPaymentMethods = async (paymentMethodsParams: TPaymentMethodsParams) => {
-  const instanceMercadoPago = await MercadoPagoInstance.init();
+  const instanceMercadoPago = await MercadoPagoInstance.getInstance();
   return instanceMercadoPago?.getPaymentMethods(paymentMethodsParams);
 };
 

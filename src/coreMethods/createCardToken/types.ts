@@ -1,10 +1,7 @@
-export type TCardTokenParams = {
-  cardNumber?: string;
-  cardholderName?: string
-  identificationType?: string
-  identificationNumber?: string
-  securityCode?: string
-  cardExpirationMonth?: string
-  cardExpirationYear?: string
-  cardId?: string
-}
+
+export type TFieldsCardTokenParams = {
+  cardId?: string;
+  cardholderName?: string;
+  identificationType?: string;
+  identificationNumber?: string;
+};

@@ -1,9 +1,14 @@
 import { MercadoPagoInstance } from "../../mercadoPago/initMercadoPago";
-import type { TCardTokenParams } from "./types";
+import { TFieldsCardTokenParams } from "./types";
 
-const createCardToken = async (cardTokenParams: TCardTokenParams) => {
-  const instanceMercadoPago = await MercadoPagoInstance.init();
-  return instanceMercadoPago?.createCardToken(cardTokenParams);
+/**
+ * Secure Fields token creation method.
+ * 
+ * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/fields.md#mp-instancefieldscreatecardtokennonpcidata method documentation}.
+ */
+const createCardToken = async (cardTokenParams: TFieldsCardTokenParams) => {
+  const instanceMercadoPago = await MercadoPagoInstance.getInstance();
+  return instanceMercadoPago?.fields.createCardToken(cardTokenParams);
 };
 
 export default createCardToken;

@@ -6,7 +6,7 @@ export class MercadoPagoInstance {
   static options: TOptions = {};
   static instanceMercadoPago?: TInstanceMercadoPago = undefined;
 
-  static async init() {
+  static async getInstance() {
     if (this.publicKey) {
       if (!this.instanceMercadoPago) {
         await loadMercadoPago();

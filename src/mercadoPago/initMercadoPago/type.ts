@@ -1,10 +1,11 @@
-import type { TFieldsCardTokenParams } from "../../coreMethods/cardToken/type";
-import type { TCardTokenParams } from "../../coreMethods/createCardToken/types";
+import type { TFieldsCardTokenParams } from "../../coreMethods/createCardToken/types";
+import type { TCardTokenParams, TCardTokenUpdateParams } from "../../coreMethods/cardToken/types";
 import type { IdentificationType } from "../../coreMethods/getIdentificationTypes/types";
 import type { TInstallments, TInstallmentsParams } from "../../coreMethods/getInstallments/types";
 import type { TIssuers, TIssuersParams } from "../../coreMethods/getIssuers/types";
 import type { TPaymentMethods, TPaymentMethodsParams } from "../../coreMethods/getPaymentMethods/types";
 import type { TCardToken } from "../../coreMethods/util/types";
+import type { FieldName, IField, TFieldsOptions } from "../../secureFields/util/types";
 
 export type TOptions = {
   /**
@@ -35,7 +36,10 @@ export type TInstanceMercadoPago = {
   getIssuers: (issuersParams: TIssuersParams) => Promise<TIssuers[]>;
   getInstallments: (installmentsParams: TInstallmentsParams) => Promise<TInstallments[]>;
   createCardToken: (cardTokenParams: TCardTokenParams) => Promise<TCardToken>;
+  updateCardToken: (paymentMethodsParams: TCardTokenUpdateParams) => Promise<TCardToken>;
   fields: {
     createCardToken: (fieldsCardTokenParams: TFieldsCardTokenParams) => Promise<TCardToken>;
+    updateCardToken: (token: string) => Promise<TCardToken>;
+    create: <T extends FieldName>(field: T, options?: TFieldsOptions<T>) => IField;
   };
 };

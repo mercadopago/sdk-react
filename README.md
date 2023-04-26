@@ -236,6 +236,9 @@ export default App;
 
 ## Core Methods
 
+> **Note**
+> It's mandatory to have previously done the [Initialization step](#initialization)
+
 For a full explanation of each function parameters and return, check the [SDK-JS documentation of the Core Methods](https://github.com/mercadopago/sdk-js/blob/main/API/core-methods.md)
 
 ### getIdentificationTypes
