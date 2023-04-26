@@ -14,7 +14,6 @@ export type TOptions = {
   /**
    * Used to inform how bricks are being implemented
    */
-  //! We wanna expose this? That variable will send to if the implementation is in react
   frontEndStack?: string;
 };
 
