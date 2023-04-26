@@ -43,7 +43,7 @@ export type TCardPayment = {
    *
    * @tutorial {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/additional-content/select-language Bricks language customization} documentation.
    */
-  locale?: string;
+  locale?: 'es-AR' | 'es-CL' | 'es-CO' | 'es-MX' | 'es-VE' | 'es-UY' | 'es-PE' | 'pt-BR' | 'en-US';
   /**
    * Non-optional. Object. At minimun receive the amount atribute.
    */
