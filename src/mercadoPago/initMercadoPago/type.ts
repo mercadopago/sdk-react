@@ -11,6 +11,11 @@ export type TOptions = {
    * Enable/disable tracking of generic usage metrics
    */
   trackingDisabled?: boolean;
+  /**
+   * Used to inform how bricks are being implemented
+   */
+  //! We wanna expose this? That variable will send to if the implementation is in react
+  frontEndStack?: string;
 };
 
 // #############
