@@ -113,6 +113,14 @@ export type DefaultArg = {
   field: string;
 };
 
+export interface ErrorArg extends DefaultArg {
+  error: string;
+}
+
+export interface BinChangeArg<FieldName> extends DefaultArg {
+  bin?: FieldName extends 'cardNumber' ? string : never;
+}
+
 export type InvalidType = 'invalid_type';
 export type InvalidLength = 'invalid_length';
 export type InvalidValue = 'invalid_value';
@@ -144,11 +152,11 @@ export type CallbackArgs<EventName, FieldName> =
   EventName extends 'ready'          ? DefaultArg :
   EventName extends 'change'         ? DefaultArg :
   EventName extends 'validityChange' ? ValidityChangeArg<FieldName> :
-  EventName extends 'error'          ? number :
+  EventName extends 'error'          ? ErrorArg :
   // TODO: 'paste' arg
-  EventName extends 'paste'          ? number :
-  EventName extends 'binChange'      ? number :
-  never;
+  // EventName extends 'paste'          ? number :
+  EventName extends 'binChange'      ? BinChangeArg<FieldName> :
+  DefaultArg;
 
 export interface IField {
   /** 
