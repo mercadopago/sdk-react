@@ -55,6 +55,13 @@ export type TPaymentType = {
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/configure-integration/other-payment-methods/brasil Data customization} documentation.
    */
   customization: IPaymentBrickCustomization;
+  /**
+   * Optional. Language selection for the Brick, options are:
+   * {pt, es, es-AR, es-MX, es-UY, es-PE, es-CL, es-CO, en}
+   *
+   * @tutorial {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/additional-content/select-language Bricks language customization} documentation.
+   */
+  locale?: string;
 };
 
 interface IPaymentFormData {
@@ -76,8 +83,8 @@ interface IPaymentFormData {
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/payment-submission/other-payment-methods/brasil Returned data} documentation.
    */
   formData: ICardPaymentFormData<ICardPaymentBrickPayer> &
-    ICardPaymentFormData<ISavedCardPayer> &
-    TicketFormData;
+  ICardPaymentFormData<ISavedCardPayer> &
+  TicketFormData;
   /**
    * Optional. Bin of the card entered by the user.
    *
@@ -151,7 +158,7 @@ type TPaymentBrickVisual = IPaymentBrickBaseVisual & IPaymentBrickVisual;
  */
 interface IPaymentBrickBaseVisual
   extends IBrickVisual<IPaymentBrickCustomizableTexts, IPaymentBrickStyle>,
-    ICardPaymentBrickVisual {}
+  ICardPaymentBrickVisual { }
 
 interface IPaymentBrickVisual {
   /**
@@ -339,7 +346,7 @@ interface IPaymentBrickCustomizableTexts {
   addressComplement?: { label?: string };
 }
 
-interface IPaymentBrickStyle extends IBrickStyle<IPaymentBrickCustomVariables> {}
+interface IPaymentBrickStyle extends IBrickStyle<IPaymentBrickCustomVariables> { }
 
 interface IPaymentBrickCustomVariables extends IBrickCustomVariables {
   /**

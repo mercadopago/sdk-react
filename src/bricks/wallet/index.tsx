@@ -30,6 +30,7 @@ const Wallet = ({
   onSubmit = onSubmitDefault as () => Promise<unknown>,
   customization,
   initialization,
+  locale,
 }: TWallet) => {
   useEffect(() => {
     // CardPayment uses a debounce to prevent unnecessary reRenders.
@@ -38,6 +39,7 @@ const Wallet = ({
       settings: {
         initialization,
         customization,
+        locale,
         callbacks: {
           onReady: onReady,
           onSubmit: onSubmit,

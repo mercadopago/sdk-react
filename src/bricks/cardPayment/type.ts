@@ -38,6 +38,13 @@ export type TCardPayment = {
    */
   onBinChange?: (param: string) => void;
   /**
+   * Optional. Language selection for the Brick, options are:
+   * {pt, es, es-AR, es-MX, es-UY, es-PE, es-CL, es-CO, en}
+   *
+   * @tutorial {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/additional-content/select-language Bricks language customization} documentation.
+   */
+  locale?: 'es-AR' | 'es-CL' | 'es-CO' | 'es-MX' | 'es-VE' | 'es-UY' | 'es-PE' | 'pt-BR' | 'en-US';
+  /**
    * Non-optional. Object. At minimun receive the amount atribute.
    */
   initialization: {
