@@ -117,8 +117,8 @@ export interface ErrorArg extends DefaultArg {
   error: string;
 }
 
-export interface BinChangeArg<FieldName> extends DefaultArg {
-  bin?: FieldName extends 'cardNumber' ? string : never;
+export interface BinChangeArg extends DefaultArg {
+  bin?: string;
 }
 
 export type InvalidType = 'invalid_type';
@@ -155,7 +155,7 @@ export type CallbackArgs<EventName, FieldName> =
   EventName extends 'error'          ? ErrorArg :
   // TODO: 'paste' arg
   // EventName extends 'paste'          ? number :
-  EventName extends 'binChange'      ? BinChangeArg<FieldName> :
+  EventName extends 'binChange'      ? BinChangeArg :
   DefaultArg;
 
 export interface IField {
@@ -183,4 +183,13 @@ export interface IField {
   update: (properties: FieldsUpdatableProperties) => void;
   focus: () => void;
   blur: () => void;
+}
+
+export interface BaseEvents {
+  onBlur?: (arg: DefaultArg) => void;
+  onFocus?: (arg: DefaultArg) => void;
+  onReady?: (arg: DefaultArg) => void;
+  onChange?: (arg: DefaultArg) => void;
+  onError?: (arg: ErrorArg) => void;
+  onValidityChange?: (arg: ValidityChangeArg<FieldName>) => void;
 }

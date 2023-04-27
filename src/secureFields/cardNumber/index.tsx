@@ -1,14 +1,20 @@
 import React, { useEffect } from 'react';
-import { MercadoPagoInstance } from '../../mercadoPago/initMercadoPago';
+import type { TCardNumberParams } from './types';
+import type { IField } from '../util/types';
+import { initSecureField } from '../util';
 
-const initSecureField = async () => {
-  const instanceMercadoPago = await MercadoPagoInstance.getInstance();
-  const cardNumberInstance = instanceMercadoPago?.fields.create('cardNumber')
-  cardNumberInstance?.mount('cardNumberSecureField_container');
-};
+let cardNumberInstance: IField | undefined = undefined;
 
-const CardNumber = () => {
-  initSecureField();
+const CardNumber = (params: TCardNumberParams) => {
+
+  useEffect(() => {
+    initSecureField('cardNumber', params)
+      .then((instance) => {
+        cardNumberInstance = instance;
+      })
+
+
+  });
 
   return <div id="cardNumberSecureField_container"></div>;
 };
