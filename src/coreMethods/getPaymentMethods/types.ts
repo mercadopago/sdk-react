@@ -15,7 +15,6 @@ export interface FinancingDeals {
 
 export interface TSecurityCode {
   mode: string;
-  card_location: string;
   length: number;
 }
 
