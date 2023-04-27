@@ -1,3 +1,9 @@
+import type { CardNumberUpdatableSettings, ICardNumberOptions } from "../cardNumber/types";
+import type { IExpirationDateOptions } from "../expirationDate/types";
+import type { IExpirationMonthOptions } from "../expirationMonth/types";
+import type { IExpirationYearOptions } from "../expirationYear/types";
+import type { ISecurityCodeOptions, SecurityCodeUpdatableSettings } from "../securityCode/types";
+
 export type IFieldStyle = {
   color?: string;
   "font-family"?: string;
@@ -72,14 +78,6 @@ export interface IDateYearFieldsOptions extends TBaseFieldsOptions {
   mode?: 'short' | 'full'
 }
 
-export interface ICardNumberOptions extends TBaseFieldsOptions {
-  enableLuhnValidation?: boolean;  
-}
-export interface ISecurityCodeOptions extends TBaseFieldsOptions {}
-export interface IExpirationDateOptions extends IDateYearFieldsOptions {}
-export interface IExpirationYearOptions extends IDateYearFieldsOptions {}
-export interface IExpirationMonthOptions extends TBaseFieldsOptions {}
-
 export type FieldName =
   | 'cardNumber'
   | 'securityCode'
@@ -95,29 +93,85 @@ export type TFieldsOptions<T> =
   T extends 'expirationDate'  ? IExpirationDateOptions  :
   never;
 
-export type IFieldEvent = 'blur' | 'focus' | 'change' | 'ready' | 'validityChange' | 'error' | 'binChange' | 'paste';
-
-export type SecurityCode = {
-  mode: string;
-  card_location: string;
-  length: number;
-};
-
-export type CardNumber = {
-  length: number;
-  validation: string;
-};
+export type IFieldEvent = 
+  | 'blur' 
+  | 'focus'
+  | 'change'
+  | 'ready'
+  | 'validityChange'
+  | 'error'
+  | 'binChange'
+  | 'paste';
 
 export type FieldsUpdatableProperties = {
   style?: IFieldStyle;
   placeholder?: string;
-  settings?: SecurityCode | CardNumber;
+  settings?: SecurityCodeUpdatableSettings | CardNumberUpdatableSettings;
 };
 
+export type DefaultArg = {
+  field: string;
+};
+
+export type InvalidType = 'invalid_type';
+export type InvalidLength = 'invalid_length';
+export type InvalidValue = 'invalid_value';
+
+export type CardNumberCause = InvalidType | InvalidLength;
+export type SecurityCodeCause = CardNumberCause;
+export type ExpirationMonthCause = InvalidType | InvalidValue;
+export type ExpirationYearCause = ExpirationMonthCause | CardNumberCause;
+export type ExpirationDateCause = ExpirationYearCause;
+
+export type ErrorMessage<FieldName> = {
+  message: string;
+  cause:
+    FieldName extends 'cardNumber'      ? CardNumberCause     :
+    FieldName extends 'securityCode'    ? SecurityCodeCause   :
+    FieldName extends 'expirationMonth' ? ExpirationDateCause :
+    FieldName extends 'expirationYear'  ? ExpirationYearCause :
+    FieldName extends 'expirationDate'  ? ExpirationDateCause :
+    never;
+}
+
+export interface ValidityChangeArg<FieldName> extends DefaultArg {
+  errorMessages: ErrorMessage<FieldName>[];
+}
+
+export type CallbackArgs<EventName, FieldName> =
+  EventName extends 'blur'           ? DefaultArg :
+  EventName extends 'focus'          ? DefaultArg :
+  EventName extends 'ready'          ? DefaultArg :
+  EventName extends 'change'         ? DefaultArg :
+  EventName extends 'validityChange' ? ValidityChangeArg<FieldName> :
+  EventName extends 'error'          ? number :
+  // TODO: 'paste' arg
+  EventName extends 'paste'          ? number :
+  EventName extends 'binChange'      ? number :
+  never;
+
 export interface IField {
+  /** 
+   * Field mounting method
+   * 
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/fields.md#field-instancemountcontainer mount} 
+   */
   mount: (container: string) => void;
+  /** 
+   * Field unmounting method 
+   * 
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/fields.md#field-instanceunmount unmount} documentation 
+   */
   unmount: () => void;
-  on: (event: IFieldEvent, callback: (args) => void) => void;
+  /** 
+   * Method to add event listeners to field
+   * 
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/fields.md#field-instanceonevent-callback on} documentation 
+   */
+  on: <EventName extends IFieldEvent>(
+    event: EventName,
+    callback: (args: CallbackArgs<EventName, FieldName>) => void,
+  ) => void;
   update: (properties: FieldsUpdatableProperties) => void;
   focus: () => void;
   blur: () => void;
