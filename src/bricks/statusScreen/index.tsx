@@ -34,6 +34,7 @@ const StatusScreen = ({
   onError = onErrorDefault,
   customization,
   initialization,
+  locale,
 }: IStatusScreenBrickSettings) => {
   useEffect(() => {
     // CardPayment uses a debounce to prevent unnecessary reRenders.
@@ -42,6 +43,7 @@ const StatusScreen = ({
       settings: {
         initialization,
         customization,
+        locale,
         callbacks: {
           onReady,
           onError,

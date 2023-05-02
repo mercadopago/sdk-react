@@ -15,6 +15,7 @@ export type TOptions = {
    * Used to inform how bricks are being implemented
    */
   frontEndStack?: string;
+  siteId?: string;
 };
 
 // #############

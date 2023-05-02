@@ -40,6 +40,7 @@ const CardPayment = ({
   onBinChange = onBinChangeDefault,
   initialization,
   customization,
+  locale,
 }: TCardPayment) => {
   useEffect(() => {
     // CardPayment uses a debounce to prevent unnecessary reRenders.
@@ -54,6 +55,7 @@ const CardPayment = ({
           onError,
           onBinChange,
         },
+        locale,
       },
       name: 'cardPayment',
       divId: 'cardPaymentBrick_container',
