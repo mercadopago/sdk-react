@@ -193,3 +193,5 @@ export interface BaseEvents {
   onError?: (arg: ErrorArg) => void;
   onValidityChange?: (arg: ValidityChangeArg<FieldName>) => void;
 }
+
+export type GenericCallback = (args: BinChangeArg | DefaultArg | ErrorArg | ValidityChangeArg<FieldName>) => void

@@ -1,6 +1,6 @@
 import { MercadoPagoInstance } from "../../mercadoPago/initMercadoPago";
-import { TCardNumberParams } from "../cardNumber/types";
-import type { FieldName, IField } from "./types";
+import type { CardNumberEvents, TCardNumberParams } from "../cardNumber/types";
+import type { FieldName, GenericCallback, IField, IFieldEvent } from "./types";
 
 const getOptions = ({
   enableLuhnValidation,
@@ -16,11 +16,32 @@ const getOptions = ({
     group,
     style,
   }
-}
+};
 
-const registerEvents = (cardNumberInstance: IField, params: TCardNumberParams) => {
-  
-}
+const secureFieldEvents = [
+  'onValidityChange',
+  'onBinChange',
+  'onChange',
+  'onError',
+  'onFocus',
+  'onReady',
+  'onBlur',
+];
+
+const uncapitalizeFirstLetter = (str: string) => str.charAt(0).toLowerCase() + str.slice(1);
+
+const registerEvents = (secureFieldInstance: IField, params: TCardNumberParams) => {
+  const keys = Object.keys(params);
+  for (const key of keys) {
+    if (secureFieldEvents.includes(key)) {
+      const eventName = key.slice(2);
+      const event = uncapitalizeFirstLetter(eventName) as IFieldEvent;
+
+      const callback = params[key as keyof CardNumberEvents] as GenericCallback;
+      secureFieldInstance.on(event, callback);
+    }
+  }
+};
 
 export const initSecureField = async (fieldName: FieldName, params: TCardNumberParams) => {
   const options = getOptions(params);
