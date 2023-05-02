@@ -8,13 +8,10 @@ let cardNumberInstance: IField | undefined = undefined;
 const CardNumber = (params: TCardNumberParams) => {
 
   useEffect(() => {
-    initSecureField('cardNumber', params)
-      .then((instance) => {
-        cardNumberInstance = instance;
-      })
+    initSecureField('cardNumber', params).then(instance => cardNumberInstance = instance);
 
-
-  });
+    return () => cardNumberInstance?.unmount();
+  }, []);
 
   return <div id="cardNumberSecureField_container"></div>;
 };
