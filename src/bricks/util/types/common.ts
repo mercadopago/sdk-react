@@ -64,7 +64,7 @@ export type BricksBuilderType = {
   /**
    * Method to create bricks.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/additional-data additional data customization} documentation.
+   * @see {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/common-initialization Common initialization} documentation.
    */
   create: (param: string, param2: string, settings: {}) => void;
 };
@@ -73,7 +73,7 @@ export type InstanceMercadoPagoType = {
   /**
    * Specify bricks at Mercado Pago type instance .
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/additional-data additional data customization} documentation.
+   * @see {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/common-initialization Common initialization} documentation.
    */
   bricks: () => BricksBuilderType;
 };
@@ -82,7 +82,7 @@ export interface IBrickStyle<CustomVariablesType> {
   /**
    * Defines theme for Brick. Possible values: default, dark, flat, bootstrap.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/set-theme Customization} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/set-theme General Customization # Set Theme} documentation.
    */
   theme?: 'default' | 'dark' | 'flat' | 'bootstrap';
   /**
