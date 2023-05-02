@@ -82,7 +82,7 @@ export interface IBrickStyle<CustomVariablesType> {
   /**
    * Defines theme for Brick. Possible values: default, dark, flat, bootstrap.
    *
-   * @see {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/additional-content/set-theme Customization} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/set-theme Customization} documentation.
    */
   theme?: 'default' | 'dark' | 'flat' | 'bootstrap';
   /**

@@ -26,7 +26,7 @@ import { DEBOUNCE_TIME_RENDER } from '../util/constants';
 //  * export default Example
 //  * ```
 //  *
-//  * @tutorial {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/status-screen-brick/introduction Status Screen Brick documentation} for more information.
+//  * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/status-screen-brick/introduction Status Screen Brick documentation} for more information.
 //  */
 
 const StatusScreen = ({

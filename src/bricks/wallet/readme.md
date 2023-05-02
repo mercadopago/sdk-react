@@ -44,4 +44,4 @@ export default Example;
 
 ## External Links
 
-[Wallet Brick official documentation](https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/wallet-brick/introduction)
+[Wallet Brick official documentation](https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/introduction)

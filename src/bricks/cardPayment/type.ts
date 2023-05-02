@@ -12,8 +12,8 @@ export type TCardPayment = {
   /**
    * Non-optional. Function. Receives function to send the payment to backend
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/configure-integration#bookmark_render_brick Configure the integration # Render Brick} documentation.
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/additional-data Additional data} documentatio to understand the second param.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/default-rendering Card Payment # Default rendering} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/additional-data Card Payment # Additional Settings # Additional data} documentatio to understand the second param.
    */
   onSubmit: (
     param: ICardPaymentFormData<ICardPaymentBrickPayer>,
@@ -22,26 +22,26 @@ export type TCardPayment = {
   /**
    * Optional. Function. Receives function to be executed just after brick rendered
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/configure-integration#bookmark_render_brick Configure the integration # Render Brick} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/default-rendering Card Payment # Default rendering} documentation.
    */
   onReady?: () => void;
   /**
    * Optional. Function. Receives function to be executed if an error occurs
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/configure-integration#bookmark_render_brick Configure the integration # Render Brick} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/default-rendering Card Payment # Default rendering} documentation.
    */
   onError?: (param: IBrickError) => void;
   /**
    * Optional. Function. It is used to get the bin of the card being inserted into the Brick. This callback is called on the fly whenever the card bin is updated
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/additional-callbacks Additional callbacks} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/additional-callbacks Card Payment # Additional Settings # Additional callbacks} documentation.
    */
   onBinChange?: (param: string) => void;
   /**
    * Optional. Language selection for the Brick, options are:
    * {pt, es, es-AR, es-MX, es-UY, es-PE, es-CL, es-CO, en}
    *
-   * @tutorial {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/additional-content/select-language Bricks language customization} documentation.
+   * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/select-language Bricks language customization} documentation.
    */
   locale?: 'es-AR' | 'es-CL' | 'es-CO' | 'es-MX' | 'es-VE' | 'es-UY' | 'es-PE' | 'pt-BR' | 'en-US';
   /**
@@ -55,7 +55,7 @@ export type TCardPayment = {
     /**
      * Optional. Object. Receives information from payer and fill up the correspondent fields
      *
-     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/initialize-data-on-the-bricks Initialize data on the Brick} documentation.
+     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/initialize-data-on-the-bricks Card Payment # Additional Settings # Initialize data on the Brick} documentation.
      */
     payer?: ICardPaymentBrickPayer;
   };
@@ -66,7 +66,7 @@ export type TCardPayment = {
     /**
      * Optional. Object. Receives information about installments and payment method types
      *
-     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/configure-installments Configure Installments} documentation.
+     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/configure-installments Card Payment # Additional Settings # Configure Installments} documentation.
      */
     paymentMethods?: {
       /**
@@ -80,7 +80,7 @@ export type TCardPayment = {
       /**
        * Optional. Object. Receives excluded attribute
        *
-       * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/configure-payment-methods Configure accepted payment methods} documentation.
+       * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/configure-payment-methods Card Payment # Additional Settings # Configure accepted payment methods} documentation.
        */
       types?: {
         /**
@@ -93,10 +93,10 @@ export type TCardPayment = {
     /**
      * Optional. Object. Receives information about visual attributes, such as themes
      *
-     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/hide-element Hide title and flags} documentation.
-     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/change-texts Change texts} documentation.
-     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/set-theme Set theme} documentation.
-     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/modify-css-variables Modify CSS variables} documentation.
+     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/hide-element Card Payment # Additional Settings # Hide title and flags} documentation.
+     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/change-texts Card Payment # Additional Settings # Change texts} documentation.
+     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/set-theme General Customization # Set theme} documentation.
+     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/modify-css-variables General Customization # Modify CSS variables} documentation.
      */
     visual?: object;
   };
@@ -172,7 +172,7 @@ export interface IAdditionalData {
   /**
    * Bin of the card entered by the user.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/additional-data additional data customization} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/additional-data Card Payment # Additional Settings # Additional data customization} documentation.
    */
   bin: string;
 }
@@ -180,7 +180,7 @@ export interface IAdditionalData {
 /**
  * Card payment types
  *
- * @see {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/card-payment-brick/introduction additional data customization} documentation.
+ * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/introduction additional data customization} documentation.
  */
 type TCardPaymentBrickPaymentType = 'credit_card' | 'debit_card';
 
