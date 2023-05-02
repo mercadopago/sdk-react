@@ -27,19 +27,19 @@ export type TPaymentType = {
   /**
    * Non-optional. Object containing initialization options.
    *
-   * @see {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/payment-brick/default-rendering Payment Brick # Default rendering} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/default-rendering Payment Brick # Default rendering} documentation.
    */
   initialization: {
     /**
      * Non-optional. Total amount to be paid by all means of payment with exception of Mercado Pago Wallet, which has its processing value determined in backend through the "preferenceId".
      *
-     * @see {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/payment-brick/default-rendering Payment Brick # Default rendering} documentation.
+     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/default-rendering Payment Brick # Default rendering} documentation.
      */
     amount: number;
     /**
      * Optional. Payer data that can start already filled in.
      *
-     * @see {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/payment-brick/default-rendering Payment Brick # Default rendering} documentation.
+     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/default-rendering Payment Brick # Default rendering} documentation.
      */
     payer?: IPaymentBrickPayer;
     /**
@@ -52,7 +52,7 @@ export type TPaymentType = {
   /**
    * Non-optional. An object containing customization brick options.
    *
-   * @see {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/payment-brick/default-rendering Payment Brick # Default rendering} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/default-rendering Payment Brick # Default rendering} documentation.
    */
   customization: IPaymentBrickCustomization;
   /**

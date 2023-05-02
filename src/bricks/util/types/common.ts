@@ -64,7 +64,7 @@ export type BricksBuilderType = {
   /**
    * Method to create bricks.
    *
-   * @see {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/common-initialization Common initialization} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/common-initialization Common initialization} documentation.
    */
   create: (param: string, param2: string, settings: {}) => void;
 };
@@ -73,7 +73,7 @@ export type InstanceMercadoPagoType = {
   /**
    * Specify bricks at Mercado Pago type instance .
    *
-   * @see {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/common-initialization Common initialization} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/common-initialization Common initialization} documentation.
    */
   bricks: () => BricksBuilderType;
 };
