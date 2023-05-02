@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import type { TCardNumberParams } from './types';
 import type { IField } from '../util/types';
 import { initSecureField } from '../util';
@@ -7,9 +7,15 @@ import { DEBOUNCE_TIME_RENDER } from '../../bricks/util/constants';
 let cardNumberInstance: IField | undefined = undefined;
 
 const CardNumber = (params: TCardNumberParams) => {
+  const { placeholder, length,  } = params;
+
+  useMemo(() => {
+    placeholder && cardNumberInstance?.update({ placeholder })
+    length && cardNumberInstance?.update({ settings: { length } })
+  }, [ placeholder, length ]);
 
   useEffect(() => {
-    // CardPayment uses a debounce to prevent unnecessary reRenders.
+    // SecureField uses a debounce to prevent unnecessary reRenders.
     let timer: ReturnType<typeof setTimeout>;
 
     timer = setTimeout(() => {

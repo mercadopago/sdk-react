@@ -1,12 +1,13 @@
-import type { BaseEvents, BinChangeArg, DefaultArg, TBaseFieldsOptions, ValidityChangeArg } from "../util/types";
+import type { BaseEvents, BinChangeArg, TBaseFieldsOptions, ValidityChangeArg } from "../util/types";
 
 export interface ICardNumberOptions extends TBaseFieldsOptions {
-  enableLuhnValidation?: boolean;  
+  enableLuhnValidation?: boolean;
+  length?: number;
 }
 
 export type CardNumberUpdatableSettings = {
-  length: number;
-  validation: string;
+  length?: number;
+  validation?: string;
 };
 
 export interface CardNumberEvents extends BaseEvents {
