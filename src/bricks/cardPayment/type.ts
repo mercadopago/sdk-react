@@ -41,7 +41,7 @@ export type TCardPayment = {
    * Optional. Language selection for the Brick, options are:
    * {pt, es, es-AR, es-MX, es-UY, es-PE, es-CL, es-CO, en}
    *
-   * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/select-language Bricks language customization} documentation.
+   * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/select-language General Customization # Select Language} documentation.
    */
   locale?: 'es-AR' | 'es-CL' | 'es-CO' | 'es-MX' | 'es-VE' | 'es-UY' | 'es-PE' | 'pt-BR' | 'en-US';
   /**
@@ -93,7 +93,7 @@ export type TCardPayment = {
     /**
      * Optional. Object. Receives information about visual attributes, such as themes
      *
-     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/hide-element Card Payment # Additional Settings # Hide title and flags} documentation.
+     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/hide-element Card Payment # Additional Settings # Hide Elements} documentation.
      * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/change-texts Card Payment # Additional Settings # Change texts} documentation.
      * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/set-theme General Customization # Set theme} documentation.
      * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/modify-css-variables General Customization # Modify CSS variables} documentation.
@@ -180,7 +180,7 @@ export interface IAdditionalData {
 /**
  * Card payment types
  *
- * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/introduction additional data customization} documentation.
+ * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/configure-payment-methods Card Payment # Additional Settings # Configure accepted payment methods} documentation.
  */
 type TCardPaymentBrickPaymentType = 'credit_card' | 'debit_card';
 
