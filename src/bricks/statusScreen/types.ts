@@ -12,20 +12,20 @@ export interface IStatusScreenBrickSettings extends IStatusScreenBrickCallbacks 
   /**
    * Non-optional. Object containing initialization options.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/status-screen-brick/configure-integration Data customization} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/status-screen-brick/default-rendering Status Screen # Default rendering} documentation.
    */
   initialization: IStatusScreenBrickInitialization;
   /**
    * Optional. Customizations object is used to load Brick under different conditions.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/status-screen-brick/configure-integration Data customization} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/status-screen-brick/default-rendering Status Screen # Default rendering} documentation.
    */
   customization?: IStatusScreenBrickCustomization;
   /**
    * Optional. Language selection for the Brick, options are:
    * {pt, es, es-AR, es-MX, es-UY, es-PE, es-CL, es-CO, en}
    *
-   * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/select-language Bricks language customization} documentation.
+   * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/select-language General Customization # Select Language} documentation.
    */
   locale?: 'es-AR' | 'es-CL' | 'es-CO' | 'es-MX' | 'es-VE' | 'es-UY' | 'es-PE' | 'pt-BR' | 'en-US';
 }
