@@ -3,13 +3,15 @@ import type { TCardNumberParams } from './types';
 import type { IField } from '../util/types';
 import { initSecureField } from '../util';
 import { DEBOUNCE_TIME_RENDER } from '../../bricks/util/constants';
+import getInitializationDependencies from './getInitializationDependencies';
 
 let cardNumberInstance: IField | undefined = undefined;
 
 const CardNumber = (params: TCardNumberParams) => {
-  const { placeholder, length,  } = params;
+  const { placeholder, length } = params;
+  const initializationDependencies = getInitializationDependencies(params);
 
-  useMemo(() => {
+  useEffect(() => {
     placeholder && cardNumberInstance?.update({ placeholder })
     length && cardNumberInstance?.update({ settings: { length } })
   }, [ placeholder, length ]);
@@ -27,7 +29,7 @@ const CardNumber = (params: TCardNumberParams) => {
       cardNumberInstance?.unmount();
       cardNumberInstance = undefined;
     }
-  }, []);
+  }, initializationDependencies);
 
   return <div id="cardNumberSecureField_container"></div>;
 };
