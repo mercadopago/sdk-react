@@ -87,7 +87,7 @@ interface IWalletBrickCheckoutCustomization {
    * Optional. Wallet Brick offers two optional customizable theme variables that receive hexadecimal values:
    * {elementsColor, headerColor}
    *
-   * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/additional-customization/checkout-theme Checkout Theme customization} documentation.
+   * @tutorial {@link https://www.mercadopago.com.br/developers/pt/docs/checkout-pro/checkout-customization/user-interface/color-style Checkout Theme customization} documentation.
    */
   theme?: {
     elementsColor?: string;
