@@ -30,13 +30,13 @@ const secureFieldEvents = [
 
 const uncapitalizeFirstLetter = (str: string) => str.charAt(0).toLowerCase() + str.slice(1);
 
+const formatEventName = (eventName: string) => uncapitalizeFirstLetter(eventName.slice(2)) as IFieldEvent;
+
 const registerEvents = (secureFieldInstance: IField, params: TCardNumberParams) => {
   const keys = Object.keys(params);
   for (const key of keys) {
     if (secureFieldEvents.includes(key)) {
-      const eventName = key.slice(2);
-      const event = uncapitalizeFirstLetter(eventName) as IFieldEvent;
-
+      const event = formatEventName(key);
       const callback = params[key as keyof CardNumberEvents] as GenericCallback;
       secureFieldInstance.on(event, callback);
     }

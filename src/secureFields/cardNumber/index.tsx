@@ -8,13 +8,7 @@ import getInitializationDependencies from './getInitializationDependencies';
 let cardNumberInstance: IField | undefined = undefined;
 
 const CardNumber = (params: TCardNumberParams) => {
-  const { placeholder, length } = params;
   const initializationDependencies = getInitializationDependencies(params);
-
-  useEffect(() => {
-    placeholder && cardNumberInstance?.update({ placeholder })
-    length && cardNumberInstance?.update({ settings: { length } })
-  }, [ placeholder, length ]);
 
   useEffect(() => {
     // SecureField uses a debounce to prevent unnecessary reRenders.
