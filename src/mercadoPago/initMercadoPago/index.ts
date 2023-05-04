@@ -38,15 +38,16 @@ function checkOptionObject(oldOption: TOptions, newOption: TOptions): boolean {
  * @param options TOptions
  */
 const initMercadoPago = (publicKey: string, options?: TOptions) => {
+  const injectFrontEndOption = { ...options, frontEndStack: 'react' };
+
   MercadoPagoInstance.publicKey =
     publicKey !== MercadoPagoInstance.publicKey ? publicKey : MercadoPagoInstance.publicKey;
-  if (options) {
-    MercadoPagoInstance.options = !checkOptionObject(MercadoPagoInstance.options, options)
-      ? options
-      : MercadoPagoInstance.options;
-  } else {
-    MercadoPagoInstance.options = {};
-  }
+  MercadoPagoInstance.options = !checkOptionObject(
+    MercadoPagoInstance.options,
+    injectFrontEndOption,
+  )
+    ? injectFrontEndOption
+    : MercadoPagoInstance.options;
 };
 
 export default initMercadoPago;

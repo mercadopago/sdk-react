@@ -31,10 +31,10 @@ describe('Test initMercadoPago', () => {
     const OTHER_PUBLIC_KEY = 'YOUR_NEW_PUBLIC_KEY';
     initMercadoPago(PUBLIC_KEY, { locale: 'pt-BR' });
     expect(MercadoPagoInstance.publicKey).toBe(PUBLIC_KEY);
-    expect(MercadoPagoInstance.options).toStrictEqual({ locale: 'pt-BR' });
+    expect(MercadoPagoInstance.options).toStrictEqual({ frontEndStack: 'react', locale: 'pt-BR' });
     initMercadoPago(OTHER_PUBLIC_KEY, { locale: 'es-CL' });
     expect(MercadoPagoInstance.publicKey).toBe(OTHER_PUBLIC_KEY);
-    expect(MercadoPagoInstance.options).toStrictEqual({ locale: 'es-CL' });
+    expect(MercadoPagoInstance.options).toStrictEqual({ frontEndStack: 'react', locale: 'es-CL' });
   });
 
   test('should return a instance MercadoPago', async () => {
