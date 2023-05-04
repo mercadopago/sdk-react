@@ -27,19 +27,19 @@ export type TPaymentType = {
   /**
    * Non-optional. Object containing initialization options.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/code-example/all-payment-methods Data customization} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/default-rendering Payment Brick # Default rendering} documentation.
    */
   initialization: {
     /**
      * Non-optional. Total amount to be paid by all means of payment with exception of Mercado Pago Wallet, which has its processing value determined in backend through the "preferenceId".
      *
-     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/code-example/all-payment-methods Data customization} documentation.
+     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/default-rendering Payment Brick # Default rendering} documentation.
      */
     amount: number;
     /**
      * Optional. Payer data that can start already filled in.
      *
-     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Data customization} documentation.
+     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payment Brick # Additional settings # Initialize data on the bricks} documentation.
      */
     payer?: IPaymentBrickPayer;
     /**
@@ -52,14 +52,14 @@ export type TPaymentType = {
   /**
    * Non-optional. An object containing customization brick options.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/configure-integration/other-payment-methods/brasil Data customization} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/default-rendering Payment Brick # Default rendering} documentation.
    */
   customization: IPaymentBrickCustomization;
   /**
    * Optional. Language selection for the Brick, options are:
    * {pt, es, es-AR, es-MX, es-UY, es-PE, es-CL, es-CO, en}
    *
-   * @tutorial {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/additional-content/select-language Bricks language customization} documentation.
+   * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/select-language General Customizations # Select Language} documentation.
    */
   locale?: string;
 };
@@ -83,12 +83,12 @@ interface IPaymentFormData {
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/payment-submission/other-payment-methods/brasil Returned data} documentation.
    */
   formData: ICardPaymentFormData<ICardPaymentBrickPayer> &
-  ICardPaymentFormData<ISavedCardPayer> &
-  TicketFormData;
+    ICardPaymentFormData<ISavedCardPayer> &
+    TicketFormData;
   /**
    * Optional. Bin of the card entered by the user.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/additional-data Data customization} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/additional-data Payment Brick # Additional Settings # Data customization} documentation.
    */
   additionalData?: IAdditionalData;
 }
@@ -97,13 +97,13 @@ interface ISavedCardPayer {
   /**
    * Non-optional. Saved cards type.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/configure-integration/cards#bookmark_include_saved_cards Data customization} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/customers-cards Payment Brick # Additional Settings # Include Saved Cards} documentation.
    */
   type: string;
   /**
    * Non-optional. Saved cards id.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/configure-integration/cards#bookmark_include_saved_cards Data customization} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/customers-cards Payment Brick # Additional Settings # Include Saved Cards} documentation.
    */
   id: string;
 }
@@ -158,7 +158,7 @@ type TPaymentBrickVisual = IPaymentBrickBaseVisual & IPaymentBrickVisual;
  */
 interface IPaymentBrickBaseVisual
   extends IBrickVisual<IPaymentBrickCustomizableTexts, IPaymentBrickStyle>,
-  ICardPaymentBrickVisual { }
+    ICardPaymentBrickVisual {}
 
 interface IPaymentBrickVisual {
   /**
@@ -226,7 +226,7 @@ interface IPaymentBrickVisual {
 /**
  * Non-optional. Configuration of which payment methods will be accepted
  *
- * @see {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/payment-brick/configure-integration/other-payment-methods/brasil Customizable data} documentation.
+ * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/manage-payment-methods Payment # Additional Settings # Manage Payment Methods} documentation.
  */
 type TPaymentBrickPaymentMethods = IPaymentBrickPaymentMethods &
   (
@@ -346,7 +346,7 @@ interface IPaymentBrickCustomizableTexts {
   addressComplement?: { label?: string };
 }
 
-interface IPaymentBrickStyle extends IBrickStyle<IPaymentBrickCustomVariables> { }
+interface IPaymentBrickStyle extends IBrickStyle<IPaymentBrickCustomVariables> {}
 
 interface IPaymentBrickCustomVariables extends IBrickCustomVariables {
   /**
@@ -438,10 +438,10 @@ interface IAddress {
 /**
  *  Non-optional. Payment types.
  *
- * @see {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/payment-brick/configure-integration/cards Cards type documentation}
- * @see {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/payment-brick/configure-integration/wallet-credits Mercado Pago Wallet and Installments without card documentation},
- * @see {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/payment-brick/configure-integration/pix Pix documentation}
- * @see {@link https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/payment-brick/configure-integration/other-payment-methods/brasil Other payment methods documentation}.
+ * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/payment-submission/cards Cards type documentation}
+ * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/payment-submission/wallet-credits Mercado Pago Wallet and Installments without card documentation},
+ * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/payment-submission/pix Pix documentation}
+ * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/payment-submission/other-payment-methods/brasil Other payment methods documentation}.
  */
 type TPaymentBrickPaymentType =
   | 'atm'
