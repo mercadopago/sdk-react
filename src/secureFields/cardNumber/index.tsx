@@ -1,9 +1,8 @@
 import React, { useEffect, useMemo } from 'react';
 import type { TCardNumberParams } from './types';
 import type { IField } from '../util/types';
-import { initSecureField } from '../util';
+import { getInitializationDependencies, initSecureField } from '../util';
 import { DEBOUNCE_TIME_RENDER } from '../../bricks/util/constants';
-import getInitializationDependencies from './getInitializationDependencies';
 
 let cardNumberInstance: IField | undefined = undefined;
 

@@ -2,6 +2,39 @@ import { MercadoPagoInstance } from "../../mercadoPago/initMercadoPago";
 import type { CardNumberEvents, TCardNumberParams } from "../cardNumber/types";
 import type { FieldName, GenericCallback, IField, IFieldEvent } from "./types";
 
+export const getInitializationDependencies = (params: TCardNumberParams): any => {
+  // The following props are commented to avoid re-render 
+  const {
+    enableLuhnValidation,
+    // placeholder,
+    customFonts,
+    // length,
+    group,
+    style,
+    onValidityChange,
+    onBinChange,
+    onChange,
+    onError,
+    onFocus,
+    onReady,
+    onBlur,
+  } = params;
+
+  return [
+    enableLuhnValidation,
+    customFonts,
+    style,
+    group,
+    onValidityChange,
+    onBinChange,
+    onChange,
+    onError,
+    onFocus,
+    onReady,
+    onBlur,
+  ];
+};
+
 const getOptions = ({
   enableLuhnValidation,
   customFonts,
