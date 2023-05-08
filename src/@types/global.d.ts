@@ -21,5 +21,6 @@ declare global {
     cardNumberInstance: IField | undefined;
     securityCodeInstance: IField | undefined;
     expirationMonthInstance: IField | undefined;
+    expirationYearInstance: IField | undefined;
   }
 }

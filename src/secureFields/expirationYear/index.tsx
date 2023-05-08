@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { getInitializationDependencies, initSecureField } from '../util';
 import { DEBOUNCE_TIME_RENDER } from '../../bricks/util/constants';
-import type { TExpirationMonthParams } from "./types";
+import { TExpirationYearParams } from "./types";
 
-const ExpirationMonth = (params: TExpirationMonthParams) => {
+const ExpirationYear = (params: TExpirationYearParams) => {
   const initializationDependencies = getInitializationDependencies(params, ['placeholder']);
 
   useEffect(() => {
@@ -11,18 +11,18 @@ const ExpirationMonth = (params: TExpirationMonthParams) => {
     let timer: ReturnType<typeof setTimeout>;
 
     timer = setTimeout(() => {
-      initSecureField('expirationMonth', params)
-        .then(instance => window.expirationMonthInstance = instance);
+      initSecureField('expirationYear', params)
+        .then(instance => window.expirationYearInstance = instance);
     }, DEBOUNCE_TIME_RENDER);
 
     return () => {
       clearTimeout(timer);
-      window.expirationMonthInstance?.unmount();
-      window.expirationMonthInstance = undefined;
+      window.expirationYearInstance?.unmount();
+      window.expirationYearInstance = undefined;
     }
   }, initializationDependencies);
 
-  return <div id="expirationMonthSecureField_container"></div>;
+  return <div id="expirationYearSecureField_container"></div>;
 };
 
-export default ExpirationMonth;
+export default ExpirationYear;

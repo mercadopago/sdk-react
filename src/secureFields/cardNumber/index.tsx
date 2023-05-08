@@ -4,7 +4,7 @@ import { getInitializationDependencies, initSecureField } from '../util';
 import { DEBOUNCE_TIME_RENDER } from '../../bricks/util/constants';
 
 const CardNumber = (params: TCardNumberParams) => {
-  const initializationDependencies = getInitializationDependencies(params);
+  const initializationDependencies = getInitializationDependencies(params, ['placeholder', 'length']);
 
   useEffect(() => {
     // SecureField uses a debounce to prevent unnecessary reRenders.

@@ -1,39 +1,15 @@
 import { MercadoPagoInstance } from "../../mercadoPago/initMercadoPago";
 import type { FieldName, GenericCallback, GenericEvent, IField, IFieldEvent } from "./types";
 
-export const getInitializationDependencies = (params: any): any => {
-  // The following props are commented to avoid re-render 
-  const {
-    enableLuhnValidation,
-    // placeholder,
-    customFonts,
-    // length,
-    // mode,
-    group,
-    style,
-    onValidityChange,
-    onBinChange,
-    onChange,
-    onError,
-    onFocus,
-    onReady,
-    onBlur,
-  } = params;
-
-  return [
-    enableLuhnValidation,
-    customFonts,
-    style,
-    group,
-    onValidityChange,
-    onBinChange,
-    onChange,
-    onError,
-    onFocus,
-    onReady,
-    onBlur,
-  ];
-};
+export const getInitializationDependencies = (params: any, keysToExclude: string[]): any => {
+  const dependencies = [];
+  const entries = Object.entries(params);  
+  for (const [key, value] of entries) {
+    const shouldAdd = !keysToExclude.includes(key);
+    shouldAdd && dependencies.push(value);
+  }
+  return dependencies;
+}
 
 const getOptions = ({
   enableLuhnValidation,
