@@ -1,3 +1,5 @@
+import { IField } from "../secureFields/util/types";
+
 export {};
 
 declare global {
@@ -16,5 +18,6 @@ declare global {
     statusScreenBrickController: {
       unmount: () => void;
     };
+    cardNumberInstance: IField | undefined;
   }
 }
