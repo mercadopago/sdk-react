@@ -11,6 +11,7 @@ const App = () => {
       placeholder='Expiration Year'
       style={{ fontFamily: "monospace" }}
       onReady={() => console.log('Expiration year ready!!')}
+      mode='short'
     />
   );
 };

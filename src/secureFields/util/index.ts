@@ -17,6 +17,7 @@ const getOptions = ({
   placeholder,
   group,
   style,
+  mode,
 }: any): any => {
   return {
     enableLuhnValidation,
@@ -24,6 +25,7 @@ const getOptions = ({
     placeholder,
     group,
     style,
+    mode,
   }
 };
 
