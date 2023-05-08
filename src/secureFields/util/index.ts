@@ -1,14 +1,14 @@
 import { MercadoPagoInstance } from "../../mercadoPago/initMercadoPago";
-import type { CardNumberEvents, TCardNumberParams } from "../cardNumber/types";
-import type { FieldName, GenericCallback, IField, IFieldEvent } from "./types";
+import type { FieldName, GenericCallback, GenericEvent, IField, IFieldEvent } from "./types";
 
-export const getInitializationDependencies = (params: TCardNumberParams): any => {
+export const getInitializationDependencies = (params: any): any => {
   // The following props are commented to avoid re-render 
   const {
     enableLuhnValidation,
     // placeholder,
     customFonts,
     // length,
+    // mode,
     group,
     style,
     onValidityChange,
@@ -41,7 +41,7 @@ const getOptions = ({
   placeholder,
   group,
   style,
-}: TCardNumberParams): object => {
+}: any): any => {
   return {
     enableLuhnValidation,
     customFonts,
@@ -65,18 +65,18 @@ const uncapitalizeFirstLetter = (str: string) => str.charAt(0).toLowerCase() + s
 
 const formatEventName = (eventName: string) => uncapitalizeFirstLetter(eventName.slice(2)) as IFieldEvent;
 
-const registerEvents = (secureFieldInstance: IField, params: TCardNumberParams) => {
+const registerEvents = (secureFieldInstance: IField, params: any) => {
   const keys = Object.keys(params);
   for (const key of keys) {
     if (secureFieldEvents.includes(key)) {
       const event = formatEventName(key);
-      const callback = params[key as keyof CardNumberEvents] as GenericCallback;
+      const callback = params[key as keyof GenericEvent] as GenericCallback;
       secureFieldInstance.on(event, callback);
     }
   }
 };
 
-export const initSecureField = async (fieldName: FieldName, params: TCardNumberParams) => {
+export const initSecureField = async (fieldName: FieldName, params: any) => {
   const options = getOptions(params);
   const instanceMercadoPago = await MercadoPagoInstance.getInstance();
   const secureFieldInstance = instanceMercadoPago?.fields.create(fieldName, options)

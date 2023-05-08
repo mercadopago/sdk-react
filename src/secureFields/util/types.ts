@@ -1,8 +1,8 @@
-import type { CardNumberUpdatableSettings, ICardNumberOptions } from "../cardNumber/types";
+import type { CardNumberEvents, CardNumberUpdatableSettings, ICardNumberOptions } from "../cardNumber/types";
 import type { IExpirationDateOptions } from "../expirationDate/types";
 import type { IExpirationMonthOptions } from "../expirationMonth/types";
 import type { IExpirationYearOptions } from "../expirationYear/types";
-import type { ISecurityCodeOptions, SecurityCodeUpdatableSettings } from "../securityCode/types";
+import type { ISecurityCodeOptions, SecurityCodeEvents, SecurityCodeUpdatableSettings } from "../securityCode/types";
 
 export type IFieldStyle = {
   color?: string;
@@ -195,3 +195,4 @@ export interface BaseEvents {
 }
 
 export type GenericCallback = (args: BinChangeArg | DefaultArg | ErrorArg | ValidityChangeArg<FieldName>) => void
+export type GenericEvent = CardNumberEvents | SecurityCodeEvents;

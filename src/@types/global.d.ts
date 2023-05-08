@@ -19,5 +19,6 @@ declare global {
       unmount: () => void;
     };
     cardNumberInstance: IField | undefined;
+    securityCodeInstance: IField | undefined;
   }
 }
