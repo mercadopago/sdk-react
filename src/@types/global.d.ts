@@ -22,5 +22,6 @@ declare global {
     securityCodeInstance: IField | undefined;
     expirationMonthInstance: IField | undefined;
     expirationYearInstance: IField | undefined;
+    expirationDateInstance: IField | undefined;
   }
 }

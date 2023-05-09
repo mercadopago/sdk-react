@@ -194,5 +194,7 @@ export interface BaseEvents {
   onValidityChange?: (arg: ValidityChangeArg<FieldName>) => void;
 }
 
+export type ExpirationYearMode = 'short' | 'full';
+
 export type GenericCallback = (args: BinChangeArg | DefaultArg | ErrorArg | ValidityChangeArg<FieldName>) => void
 export type GenericEvent = CardNumberEvents | SecurityCodeEvents;

@@ -1,7 +1,7 @@
-import type { BaseEvents, IDateYearFieldsOptions, ValidityChangeArg } from "../util/types";
+import type { BaseEvents, ExpirationYearMode, IDateYearFieldsOptions, ValidityChangeArg } from "../util/types";
 
 export interface IExpirationYearOptions extends IDateYearFieldsOptions {
-  mode?: 'short' | 'full';
+  mode?: ExpirationYearMode;
 }
 
 export interface ExpirationYearEvents extends BaseEvents {
