@@ -110,6 +110,7 @@ export type FieldsUpdatableProperties = {
 };
 
 export type DefaultArg = {
+  /** Field name where the event happened */
   field: string;
 };
 
@@ -118,6 +119,7 @@ export interface ErrorArg extends DefaultArg {
 }
 
 export interface BinChangeArg extends DefaultArg {
+  /** First four to six digits of the payment card */
   bin?: string;
 }
 
@@ -132,7 +134,9 @@ export type ExpirationYearCause = ExpirationMonthCause | CardNumberCause;
 export type ExpirationDateCause = ExpirationYearCause;
 
 export type ErrorMessage<FieldName> = {
+  /** Detailed error message */
   message: string;
+  /** Error cause */
   cause:
     FieldName extends 'cardNumber'      ? CardNumberCause     :
     FieldName extends 'securityCode'    ? SecurityCodeCause   :
