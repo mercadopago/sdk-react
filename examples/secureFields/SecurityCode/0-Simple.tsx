@@ -9,7 +9,7 @@ const App = () => {
   return (
     <SecurityCode
       placeholder='Security Code'
-      style={{ fontFamily: "monospace" }}
+      style={{ fontFamily: "sans-serif" }}
       onReady={() => console.log('Security code ready!!')}
     />
   );

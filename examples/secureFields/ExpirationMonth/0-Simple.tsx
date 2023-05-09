@@ -9,7 +9,7 @@ const App = () => {
   return (
     <ExpirationMonth
       placeholder='Expiration Month'
-      style={{ fontFamily: "monospace" }}
+      style={{ fontFamily: "sans-serif" }}
       onReady={() => console.log('Expiration month ready!!')}
     />
   );

@@ -9,8 +9,9 @@ const App = () => {
   return (
     <ExpirationDate
       placeholder='Expiration Date'
-      style={{ fontFamily: "monospace" }}
+      style={{ fontFamily: "sans-serif" }}
       onReady={() => console.log('Expiration date ready!!')}
+      mode='full'
     />
   );
 };
