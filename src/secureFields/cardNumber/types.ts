@@ -12,6 +12,8 @@ export type CardNumberUpdatableSettings = {
 
 export interface CardNumberEvents extends BaseEvents {
   onValidityChange?: (arg: ValidityChangeArg<'cardNumber'>) => void;
+
+  /** Triggered when bin state changes from invalid to valid or from valid to invalid. It returns the bin when valid or null when invalid */
   onBinChange?: (arg: BinChangeArg) => void;
 }
 

@@ -75,7 +75,7 @@ export interface IDateYearFieldsOptions extends TBaseFieldsOptions {
    * 
    * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/fields.md#year-mode Year mode}.
    * */
-  mode?: 'short' | 'full'
+  mode?: ExpirationYearMode;
 }
 
 export type FieldName =
@@ -181,16 +181,29 @@ export interface IField {
     callback: (args: CallbackArgs<EventName, FieldName>) => void,
   ) => void;
   update: (properties: FieldsUpdatableProperties) => void;
+  /** Set focus on the input */
   focus: () => void;
+  /** Blur the input */
   blur: () => void;
 }
 
 export interface BaseEvents {
+  /** Triggered when blur event occurs */
   onBlur?: (arg: DefaultArg) => void;
+
+  /** Triggered when focus event occurs */
   onFocus?: (arg: DefaultArg) => void;
+
+  /** Triggered when field has been initialized */
   onReady?: (arg: DefaultArg) => void;
+
+  /** Triggered when field value changes */
   onChange?: (arg: DefaultArg) => void;
+
+  /** Triggered when error event occurs */
   onError?: (arg: ErrorArg) => void;
+
+  /** Triggered when field validation occurs */
   onValidityChange?: (arg: ValidityChangeArg<FieldName>) => void;
 }
 
