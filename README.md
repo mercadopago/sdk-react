@@ -38,7 +38,7 @@ Mercado Pago's Official React SDK.
 
 ## About
 
-This is a wrapper that allows integrate [Checkout Bricks](https://www.mercadopago.com/developers/en/docs/checkout-bricks/landing) easily inside React projects.
+This is a wrapper that allows integrate [Checkout Bricks](https://www.mercadopago.com/developers/en/docs/checkout-bricks/landing), [Secure Fields](https://github.com/mercadopago/sdk-js/blob/main/API/fields.md) and [Core Methods](https://github.com/mercadopago/sdk-js/blob/main/API/core-methods.md) easily inside React projects.
 
 <br />
 
@@ -160,21 +160,6 @@ The Secure Fields module also provides a method to get the card token safely wit
 > **Note**
 > It's mandatory to have previously done the [Initialization step](#initialization)
 
-### createCardToken
-
-Return a token card
-
-```javascript
-import { createCardToken } from '@mercadopago/sdk-react';
-const cardToken = await createCardToken({
-  cardholderName: '<CARDHOLDER_NAME>',
-  identificationType: '<BUYER_IDENTIFICATION_TYPE>',
-  identificationNumber: '<BUYER_IDENTIFICATION_NUMBER>',
-});
-```
-
-<br/>
-
 ### Card Number
 
 ```jsx
@@ -240,12 +225,27 @@ export default App;
 
 <br/>
 
+### createCardToken
+
+Return a token card
+
+```javascript
+import { createCardToken } from '@mercadopago/sdk-react';
+const cardToken = await createCardToken({
+  cardholderName: '<CARDHOLDER_NAME>',
+  identificationType: '<BUYER_IDENTIFICATION_TYPE>',
+  identificationNumber: '<BUYER_IDENTIFICATION_NUMBER>',
+});
+```
+
+<br/>
+
 ## Core Methods
+
+For a full explanation of each function parameters and return, check the [SDK-JS documentation of the Core Methods](https://github.com/mercadopago/sdk-js/blob/main/API/core-methods.md)
 
 > **Note**
 > It's mandatory to have previously done the [Initialization step](#initialization)
-
-For a full explanation of each function parameters and return, check the [SDK-JS documentation of the Core Methods](https://github.com/mercadopago/sdk-js/blob/main/API/core-methods.md)
 
 ### getIdentificationTypes
 
@@ -284,7 +284,7 @@ Returns all installments available
 ```javascript
 import { getInstallments } from '@mercadopago/sdk-react';
 const installments = await getInstallments({
-  amount: AMOUNT,
+  amount: <AMOUNT>,
   locale: '<LOCALE>',
   bin: '<CARD_BIN>',
 });
