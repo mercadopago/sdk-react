@@ -1,18 +1,18 @@
-import type { Issuer, PayerCost, TProcessingMode } from "../util/types";
+import type { Issuer, PayerCost, ProcessingMode } from "../util/types";
 
-export type TInstallmentsParams = {
+export type InstallmentsParams = {
   locale?: string;
   amount: string;
   bin: string;
   paymentMethodId?: string,
   payment_method_id?: string,
-  processingMode?: TProcessingMode;
-  processing_mode?: TProcessingMode;
+  processingMode?: ProcessingMode;
+  processing_mode?: ProcessingMode;
   paymentTypeId?: string;
   payment_type_id?: string;
 }
 
-export type TInstallments = {
+export type Installments = {
   payment_method_id: string;
   payment_type_id: string;
   issuer: Issuer;

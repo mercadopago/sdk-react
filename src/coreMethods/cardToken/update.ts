@@ -1,8 +1,8 @@
 import { MercadoPagoInstance } from "../../mercadoPago/initMercadoPago";
-import type { TCardTokenUpdateParams } from "./types";
+import type { CardTokenUpdateParams } from "./types";
 
 /** Token update method. */
-const updateCardToken = async (paymentMethodsParams: TCardTokenUpdateParams) => {
+const updateCardToken = async (paymentMethodsParams: CardTokenUpdateParams) => {
   const instanceMercadoPago = await MercadoPagoInstance.getInstance();
   return instanceMercadoPago?.updateCardToken(paymentMethodsParams);
 };

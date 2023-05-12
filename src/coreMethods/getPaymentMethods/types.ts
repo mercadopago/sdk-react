@@ -1,8 +1,8 @@
-import type { Issuer, PayerCost, TProcessingMode } from "../util/types";
+import type { Issuer, PayerCost, ProcessingMode } from "../util/types";
 
-export type TPaymentMethodsParams = {
+export type PaymentMethodsParams = {
   bin: string;
-  processingMode?: TProcessingMode
+  processingMode?: ProcessingMode
 }
 
 export interface FinancingDeals {
@@ -13,12 +13,12 @@ export interface FinancingDeals {
   status: string;
 }
 
-export interface TSecurityCode {
+export interface SecurityCode {
   mode: string;
   length: number;
 }
 
-export interface TCardNumber {
+export interface CardNumber {
   length: number;
   validation: string;
 }
@@ -30,8 +30,8 @@ export interface Bin {
 }
 
 export interface Setting {
-  security_code: TSecurityCode;
-  card_number: TCardNumber;
+  security_code: SecurityCode;
+  card_number: CardNumber;
   bin: Bin;
 }
 
@@ -68,7 +68,7 @@ export interface Paging {
   offset: number;
 }
 
-export type TPaymentMethods = {
+export type PaymentMethods = {
   paging: Paging;
   results: Result[];
 }

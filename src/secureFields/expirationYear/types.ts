@@ -1,9 +1,9 @@
-import type { BaseEvents, IDateYearFieldsOptions, ValidityChangeArg } from "../util/types";
+import type { BaseEvents, DateYearFieldsOptions, ValidityChangeArg } from "../util/types";
 
-export interface IExpirationYearOptions extends IDateYearFieldsOptions {}
+export interface ExpirationYearOptions extends DateYearFieldsOptions {}
 
 export interface ExpirationYearEvents extends BaseEvents {
   onValidityChange?: (arg: ValidityChangeArg<'expirationYear'>) => void;
 }
 
-export interface TExpirationYearParams extends ExpirationYearEvents, IExpirationYearOptions {}
+export interface ExpirationYearParams extends ExpirationYearEvents, ExpirationYearOptions {}

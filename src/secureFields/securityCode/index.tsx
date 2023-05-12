@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { getInitializationDependencies, initSecureField } from '../util';
 import { DEBOUNCE_TIME_RENDER } from '../../bricks/util/constants';
-import type { TSecurityCodeParams } from './types';
+import type { SecurityCodeParams } from './types';
 
-const SecurityCode = (params: TSecurityCodeParams) => {
+const SecurityCode = (params: SecurityCodeParams) => {
   const initializationDependencies = getInitializationDependencies(
     params,
     ['placeholder', 'length', 'mode'],

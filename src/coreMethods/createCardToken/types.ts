@@ -1,5 +1,4 @@
-
-export type TFieldsCardTokenParams = {
+export type FieldsCardTokenParams = {
   cardId?: string;
   cardholderName?: string;
   identificationType?: string;

@@ -1,6 +1,6 @@
-import type { BaseEvents, BinChangeArg, TBaseFieldsOptions, ValidityChangeArg } from "../util/types";
+import type { BaseEvents, BinChangeArg, BaseFieldsOptions, ValidityChangeArg } from "../util/types";
 
-export interface ICardNumberOptions extends TBaseFieldsOptions {
+export interface CardNumberOptions extends BaseFieldsOptions {
   enableLuhnValidation?: boolean;
   length?: number;
 }
@@ -17,4 +17,4 @@ export interface CardNumberEvents extends BaseEvents {
   onBinChange?: (arg: BinChangeArg) => void;
 }
 
-export interface TCardNumberParams extends CardNumberEvents, ICardNumberOptions {}
+export interface CardNumberParams extends CardNumberEvents, CardNumberOptions {}

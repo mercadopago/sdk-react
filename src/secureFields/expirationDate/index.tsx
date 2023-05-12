@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { getInitializationDependencies, initSecureField } from '../util';
 import { DEBOUNCE_TIME_RENDER } from '../../bricks/util/constants';
-import type { TExpirationDateParams } from "./types";
+import type { ExpirationDateParams } from "./types";
 
-const ExpirationDate = (params: TExpirationDateParams) => {
+const ExpirationDate = (params: ExpirationDateParams) => {
   const initializationDependencies = getInitializationDependencies(params, ['placeholder']);
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-export type TProcessingMode = "gateway" | "aggregator";
+export type ProcessingMode = "gateway" | "aggregator";
 
 export interface Issuer {
   default: boolean;
@@ -27,7 +27,7 @@ export type Cardholder = {
   name: string;
 }
 
-export type TCardToken = {
+export type CardToken = {
   id: string;
   public_key: string;
   card_id?: unknown;

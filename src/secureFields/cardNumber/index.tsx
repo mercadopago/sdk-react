@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import type { TCardNumberParams } from './types';
+import type { CardNumberParams } from './types';
 import { getInitializationDependencies, initSecureField } from '../util';
 import { DEBOUNCE_TIME_RENDER } from '../../bricks/util/constants';
 
-const CardNumber = (params: TCardNumberParams) => {
+const CardNumber = (params: CardNumberParams) => {
   const initializationDependencies = getInitializationDependencies(params, ['placeholder', 'length']);
 
   useEffect(() => {

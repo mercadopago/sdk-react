@@ -1,9 +1,9 @@
-import type { BaseEvents, TBaseFieldsOptions, ValidityChangeArg } from "../util/types";
+import type { BaseEvents, BaseFieldsOptions, ValidityChangeArg } from "../util/types";
 
-export interface IExpirationMonthOptions extends TBaseFieldsOptions {}
+export interface ExpirationMonthOptions extends BaseFieldsOptions {}
 
 export interface ExpirationMonthEvents extends BaseEvents {
   onValidityChange?: (arg: ValidityChangeArg<'expirationMonth'>) => void;
 }
 
-export interface TExpirationMonthParams extends ExpirationMonthEvents, IExpirationMonthOptions {}
+export interface ExpirationMonthParams extends ExpirationMonthEvents, ExpirationMonthOptions {}

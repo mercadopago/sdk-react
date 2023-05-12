@@ -1,5 +1,5 @@
 import { MercadoPagoInstance } from "../../mercadoPago/initMercadoPago";
-import type { FieldName, GenericCallback, GenericEvent, IField, IFieldEvent } from "./types";
+import type { FieldName, GenericCallback, GenericEvent, Field, FieldEvent } from "./types";
 
 export const getInitializationDependencies = (params: any, keysToExclude: string[]): any => {
   const dependencies = [];
@@ -41,9 +41,9 @@ const secureFieldEvents = [
 
 const uncapitalizeFirstLetter = (str: string) => str.charAt(0).toLowerCase() + str.slice(1);
 
-const formatEventName = (eventName: string) => uncapitalizeFirstLetter(eventName.slice(2)) as IFieldEvent;
+const formatEventName = (eventName: string) => uncapitalizeFirstLetter(eventName.slice(2)) as FieldEvent;
 
-const registerEvents = (secureFieldInstance: IField, params: any) => {
+const registerEvents = (secureFieldInstance: Field, params: any) => {
   const keys = Object.keys(params);
   for (const key of keys) {
     if (secureFieldEvents.includes(key)) {

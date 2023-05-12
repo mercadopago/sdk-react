@@ -1,10 +1,10 @@
-import type { CardNumberEvents, CardNumberUpdatableSettings, ICardNumberOptions } from "../cardNumber/types";
-import type { IExpirationDateOptions } from "../expirationDate/types";
-import type { IExpirationMonthOptions } from "../expirationMonth/types";
-import type { IExpirationYearOptions } from "../expirationYear/types";
-import type { ISecurityCodeOptions, SecurityCodeEvents, SecurityCodeUpdatableSettings } from "../securityCode/types";
+import type { CardNumberEvents, CardNumberUpdatableSettings, CardNumberOptions } from "../cardNumber/types";
+import type { ExpirationDateOptions } from "../expirationDate/types";
+import type { ExpirationMonthOptions } from "../expirationMonth/types";
+import type { ExpirationYearOptions } from "../expirationYear/types";
+import type { SecurityCodeOptions, SecurityCodeEvents, SecurityCodeUpdatableSettings } from "../securityCode/types";
 
-export type IFieldStyle = {
+export type FieldStyle = {
   color?: string;
   "font-family"?: string;
   fontFamily?: string;
@@ -42,12 +42,12 @@ export type IFieldStyle = {
   width?: string;
 };
 
-export type ICustomFonts = {
+export type CustomFonts = {
   /** URL from where to load the custom font */
   src: string;
 };
 
-export type TBaseFieldsOptions = {
+export type BaseFieldsOptions = {
   /**
    * Defines input placeholder.	
    *
@@ -59,17 +59,17 @@ export type TBaseFieldsOptions = {
    *
    * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/fields.md#style Style}.
    */
-  style?: IFieldStyle;
+  style?: FieldStyle;
   /**
    * Custom Fonts is an array with src attribute defining an url from where to load a custom font.
    *
    * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/fields.md#custom-fonts Custom Fonts}.
    */
-  customFonts?: ICustomFonts[];
+  customFonts?: CustomFonts[];
   group?: string;
 };
 
-export interface IDateYearFieldsOptions extends TBaseFieldsOptions {
+export interface DateYearFieldsOptions extends BaseFieldsOptions {
   /** 
    * For 'short' year must have two digits, for 'full' year must have four digits.
    * 
@@ -85,15 +85,15 @@ export type FieldName =
   | 'expirationYear'
   | 'expirationDate';
 
-export type TFieldsOptions<T> =
-  T extends 'cardNumber'      ? ICardNumberOptions      : 
-  T extends 'securityCode'    ? ISecurityCodeOptions    :
-  T extends 'expirationMonth' ? IExpirationMonthOptions :
-  T extends 'expirationYear'  ? IExpirationYearOptions  :
-  T extends 'expirationDate'  ? IExpirationDateOptions  :
+export type FieldsOptions<T> =
+  T extends 'cardNumber'      ? CardNumberOptions      : 
+  T extends 'securityCode'    ? SecurityCodeOptions    :
+  T extends 'expirationMonth' ? ExpirationMonthOptions :
+  T extends 'expirationYear'  ? ExpirationYearOptions  :
+  T extends 'expirationDate'  ? ExpirationDateOptions  :
   never;
 
-export type IFieldEvent = 
+export type FieldEvent = 
   | 'blur' 
   | 'focus'
   | 'change'
@@ -104,7 +104,7 @@ export type IFieldEvent =
   | 'paste';
 
 export type FieldsUpdatableProperties = {
-  style?: IFieldStyle;
+  style?: FieldStyle;
   placeholder?: string;
   settings?: SecurityCodeUpdatableSettings | CardNumberUpdatableSettings;
 };
@@ -162,7 +162,7 @@ export type CallbackArgs<EventName, FieldName> =
   EventName extends 'binChange'      ? BinChangeArg :
   DefaultArg;
 
-export interface IField {
+export interface Field {
   /** 
    * Field mounting method
    * 
@@ -180,7 +180,7 @@ export interface IField {
    * 
    * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/fields.md#field-instanceonevent-callback on} documentation 
    */
-  on: <EventName extends IFieldEvent>(
+  on: <EventName extends FieldEvent>(
     event: EventName,
     callback: (args: CallbackArgs<EventName, FieldName>) => void,
   ) => void;

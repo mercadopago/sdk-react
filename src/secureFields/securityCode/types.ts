@@ -1,8 +1,8 @@
-import type { BaseEvents, TBaseFieldsOptions, ValidityChangeArg } from "../util/types";
+import type { BaseEvents, BaseFieldsOptions, ValidityChangeArg } from "../util/types";
 
 export type SecurityCodeMode = 'mandatory' | 'optional';
 
-export interface ISecurityCodeOptions extends TBaseFieldsOptions {
+export interface SecurityCodeOptions extends BaseFieldsOptions {
   mode?: SecurityCodeMode
   length?: number;
 }
@@ -16,4 +16,4 @@ export interface SecurityCodeEvents extends BaseEvents {
   onValidityChange?: (arg: ValidityChangeArg<'securityCode'>) => void;
 }
 
-export interface TSecurityCodeParams extends SecurityCodeEvents, ISecurityCodeOptions {}
+export interface SecurityCodeParams extends SecurityCodeEvents, SecurityCodeOptions {}
