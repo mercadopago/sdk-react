@@ -188,6 +188,8 @@ export default App;
 
 ### Expiration Date
 
+> Note: Expiration Date cannot coexist with Expiration Month or Expiration Year
+
 ```jsx
 import { ExpirationDate } from '@mercadopago/sdk-react';
 

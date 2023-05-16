@@ -5,6 +5,11 @@ import ExpirationDate from '../../../src/secureFields/expirationDate';
 
 initMercadoPago('TEST-f4563544-ce69-40c3-b88e-6e7d1bd93a83', { locale: 'pt-BR' });
 
+/**
+ * IMPORTANT
+ * Expiration Date cannot coexist with Expiration Month or Expiration Year
+ */
+
 const App = () => {
   return (
     <ExpirationDate
