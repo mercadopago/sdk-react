@@ -23,6 +23,8 @@ const App = () => {
       placeholder={text}
       style={{ fontFamily: 'Sigmar' }}
       customFonts={[{src: 'https://fonts.googleapis.com/css2?family=Sigmar'}]}
+      onReady={(event) => console.log('Card number ready!!', event)}
+      onError={(error) => console.log(error)}
     />
   );
 };

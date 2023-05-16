@@ -10,7 +10,8 @@ const App = () => {
     <SecurityCode
       placeholder='Security Code'
       style={{ fontFamily: "sans-serif" }}
-      onReady={() => console.log('Security code ready!!')}
+      onReady={(event) => console.log('Security code ready!!', event)}
+      onError={(error) => console.log(error)}
     />
   );
 };

@@ -10,7 +10,8 @@ const App = () => {
     <CardNumber 
       placeholder='Card Number'
       style={{ fontFamily: "sans-serif" }}
-      onReady={() => console.log('Card number ready!!')}
+      onReady={(event) => console.log('Card number ready!!', event)}
+      onError={(error) => console.log(error)}
     />
   );
 };

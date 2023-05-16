@@ -10,7 +10,8 @@ const App = () => {
     <ExpirationMonth
       placeholder='Expiration Month'
       style={{ fontFamily: "sans-serif" }}
-      onReady={() => console.log('Expiration month ready!!')}
+      onReady={(event) => console.log('Expiration month ready!!', event)}
+      onError={(error) => console.log(error)}
     />
   );
 };
