@@ -1,5 +1,5 @@
 module.exports = {
-  stories: ['./bricksExamples.stories.tsx'],
+  stories: ['./examples.stories.tsx'],
   framework: '@storybook/react',
   core: {
     builder: '@storybook/builder-webpack5',

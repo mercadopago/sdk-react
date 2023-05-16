@@ -12,6 +12,12 @@ import getIssuers from './coreMethods/getIssuers';
 import createCardToken from './coreMethods/createCardToken';
 import updateCardToken from './coreMethods/updateCardToken';
 
+import CardNumber from './secureFields/cardNumber';
+import SecurityCode from './secureFields/securityCode';
+import ExpirationDate from './secureFields/expirationDate';
+import ExpirationMonth from './secureFields/expirationMonth';
+import ExpirationYear from './secureFields/expirationYear';
+
 export {
   initMercadoPago,
   CardPayment,
@@ -24,4 +30,9 @@ export {
   getIssuers,
   createCardToken,
   updateCardToken,
+  CardNumber,
+  SecurityCode,
+  ExpirationDate,
+  ExpirationMonth,
+  ExpirationYear,
 };

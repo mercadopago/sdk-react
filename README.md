@@ -13,25 +13,32 @@ Mercado Pago's Official React SDK.
 2. [Prerequisites](#prerequisites)
 3. [Installation](#installation)
 4. [Initialization](#initialization)
-5. [Render Brick](#render-brick)
-    1. [Example Card Payment Brick](#example-card-payment-brick)
-    2. [Example Payment Brick](#example-payment-brick)
-    3. [Example Status Screen Brick](#example-status-screen-brick)
-    4. [Example Wallet Brick](#example-wallet-brick)
-6. [Core methods](#core-methods)
-    1. [getIdentificationTypes](#getIdentificationTypes)
-    2. [getPaymentMethods](#getPaymentMethods)
-    3. [getIssuers](#getIssuers)
-    4. [getInstallments](#getInstallments)
-    5. [createCardToken](#createCardToken)
-7. [Run SDK project](#run-sdk-project)
-8. [License](#license)
+5. [Checkout Bricks](#checkout-bricks)
+   1. [Card Payment Brick](#card-payment-brick)
+   2. [Payment Brick](#payment-brick)
+   3. [Status Screen Brick](#status-screen-brick)
+   4. [Wallet Brick](#wallet-brick)
+6. [Secure Fields](#secure-fields)
+   1. [Create Card Token](#createcardtoken-1)
+   2. [Card Number](#card-number)
+   3. [Security Code](#security-code)
+   4. [Expiration Date](#expiration-date)
+   5. [Expiration Month](#expiration-month)
+   6. [Expiration Year](#expiration-year)
+7. [Core methods](#core-methods)
+   1. [getIdentificationTypes](#getIdentificationTypes)
+   2. [getPaymentMethods](#getPaymentMethods)
+   3. [getIssuers](#getIssuers)
+   4. [getInstallments](#getInstallments)
+   5. [createCardToken](#createCardToken)
+8. [Run SDK project](#run-sdk-project)
+9. [License](#license)
 
 <br />
 
 ## About
 
-This is a wrapper that allows integrate [Checkout Bricks](https://www.mercadopago.com/developers/en/docs/checkout-bricks/landing) easily inside React projects.
+This is a wrapper that allows integrate [Checkout Bricks](https://www.mercadopago.com/developers/en/docs/checkout-bricks/landing), [Secure Fields](https://github.com/mercadopago/sdk-js/blob/main/API/fields.md) and [Core Methods](https://github.com/mercadopago/sdk-js/blob/main/API/core-methods.md) easily inside React projects.
 
 <br />
 
@@ -60,11 +67,15 @@ initMercadoPago('YOUR_PUBLIC_KEY');
 
 <br/>
 
-## Render Brick
+## Checkout Bricks
 
-Each brick needs a component, such as:
+Checkout Bricks are modular checkout components.
+Below are examples of Brick implementations, for more information check the Examples folder.
 
-### Example Card Payment Brick
+> **Note**
+> It's mandatory to have previously done the [Initialization step](#initialization)
+
+### Card Payment Brick
 
 Use CardPayment component inside your functional React:
 
@@ -86,7 +97,7 @@ export default App;
 
 <br/>
 
-### Example Payment Brick
+### Payment Brick
 
 Use Payment component inside your functional React:
 
@@ -98,9 +109,8 @@ const App = () => {
     <Payment
       initialization={{
         amount: AMOUNT,
-        preferenceId: 'YOUR_PREFERENCE_ID',
+        preferenceId: '<YOUR_PREFERENCE_ID>',
       }}
-      customization={customization}
       onSubmit={async (param) => {
         console.log(param);
       }}
@@ -112,7 +122,7 @@ export default App;
 
 <br/>
 
-### Example Status Screen Brick
+### Status Screen Brick
 
 Use StatusScreen component inside your functional React:
 
@@ -120,14 +130,14 @@ Use StatusScreen component inside your functional React:
 import {StatusScreen} from '@mercadopago/sdk-react';
 
 const App = () => {
-  return <StatusScreen initialization={{paymentId: 'YOUR_PAYMENT_ID'}}
+  return <StatusScreen initialization={{paymentId: 'YOUR_PAYMENT_ID'}} />
 };
 export default App;
 ```
 
 <br/>
 
-### Example Wallet Brick
+### Wallet Brick
 
 Use Wallet component inside your functional React:
 
@@ -135,21 +145,107 @@ Use Wallet component inside your functional React:
 import { Wallet } from '@mercadopago/sdk-react';
 
 const App = () => {
-  return (
-    <Wallet initialization={{ preferenceId: 'YOUR_PREFERENCE_ID' }} customization={customization} />
-  );
+  return <Wallet initialization={{ preferenceId: 'YOUR_PREFERENCE_ID' }} />;
 };
 export default App;
 ```
 
 <br/>
 
-## Core Methods
+## Secure Fields
+
+Secure Fields are input components that allow you to collect credit and debit card information safely, and allow you to get the PCI SAQ A certification.
+The Secure Fields module also provides a method to get the card token safely without the need to store the card data.
 
 > **Note**
 > It's mandatory to have previously done the [Initialization step](#initialization)
 
+### Card Number
+
+```jsx
+import { CardNumber } from '@mercadopago/sdk-react';
+
+const App = () => {
+  return <CardNumber placeholder='Card number'/>;
+};
+export default App;
+```
+
+<br/>
+
+### Security Code
+
+```jsx
+import { SecurityCode } from '@mercadopago/sdk-react';
+
+const App = () => {
+  return <SecurityCode placeholder='Security code'/>;
+};
+export default App;
+```
+
+<br/>
+
+### Expiration Date
+
+```jsx
+import { ExpirationDate } from '@mercadopago/sdk-react';
+
+const App = () => {
+  return <ExpirationDate placeholder='Expiration date'/>;
+};
+export default App;
+```
+
+<br/>
+
+### Expiration Month
+
+```jsx
+import { ExpirationMonth } from '@mercadopago/sdk-react';
+
+const App = () => {
+  return <ExpirationMonth placeholder='Expiration month'/>;
+};
+export default App;
+```
+
+<br/>
+
+### Expiration Year
+
+```jsx
+import { ExpirationYear } from '@mercadopago/sdk-react';
+
+const App = () => {
+  return <ExpirationYear placeholder='Expiration year'/>;
+};
+export default App;
+```
+
+<br/>
+
+### createCardToken
+
+Return a token card
+
+```javascript
+import { createCardToken } from '@mercadopago/sdk-react';
+const cardToken = await createCardToken({
+  cardholderName: '<CARDHOLDER_NAME>',
+  identificationType: '<BUYER_IDENTIFICATION_TYPE>',
+  identificationNumber: '<BUYER_IDENTIFICATION_NUMBER>',
+});
+```
+
+<br/>
+
+## Core Methods
+
 For a full explanation of each function parameters and return, check the [SDK-JS documentation of the Core Methods](https://github.com/mercadopago/sdk-js/blob/main/API/core-methods.md)
+
+> **Note**
+> It's mandatory to have previously done the [Initialization step](#initialization)
 
 ### getIdentificationTypes
 
@@ -166,7 +262,7 @@ Returns a payment methods list
 
 ```javascript
 import { getPaymentMethods } from '@mercadopago/sdk-react';
-const paymentMethods = await getPaymentMethods({ bin: '41111111' });
+const paymentMethods = await getPaymentMethods({ bin: '<CARD_BIN>' });
 ```
 
 ### getIssuers
@@ -175,7 +271,10 @@ Returns a issuers list
 
 ```javascript
 import { getIssuers } from '@mercadopago/sdk-react';
-const issuers = await getIssuers({ paymentMethodId: 'visa', bin: '411111111' });
+const issuers = await getIssuers({
+  paymentMethodId: '<CARD_PAYMENT_METHOD_ID>',
+  bin: '<CARD_BIN>',
+});
 ```
 
 ### getInstallments
@@ -185,10 +284,9 @@ Returns all installments available
 ```javascript
 import { getInstallments } from '@mercadopago/sdk-react';
 const installments = await getInstallments({
-  amount: '1000',
-  locale: 'pt-BR',
-  bin: '41111111',
-  processingMode: 'aggregator'
+  amount: <AMOUNT>,
+  locale: '<LOCALE>',
+  bin: '<CARD_BIN>',
 });
 ```
 
@@ -197,15 +295,15 @@ const installments = await getInstallments({
 Return a token card
 
 ```javascript
-import { createCardToken } from '@mercadopago/sdk-react';
+import { createCardToken } from '@mercadopago/sdk-react/coreMethods';
 const cardToken = await createCardToken({
-    cardNumber: '5031433215406351' ,
-    cardholderName: 'APRO',
-    cardExpirationMonth: '11',
-    cardExpirationYear: '2025',
-    securityCode: '123',
-    identificationType: 'CPF',
-    identificationNumber: '12345678912',
+  cardNumber: '<CREDIT_CARD_NUMBER>',
+  cardholderName: '<CARDHOLDER_NAME>',
+  cardExpirationMonth: '<CARD_EXPIRATION_MONTH>',
+  cardExpirationYear: '<CARD_EXPIRATION_YEAR>',
+  securityCode: '<CARD_SECURITY_CODE>',
+  identificationType: '<BUYER_IDENTIFICATION_TYPE>',
+  identificationNumber: '<BUYER_IDENTIFICATION_NUMBER>',
 });
 ```
 

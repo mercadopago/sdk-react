@@ -1,4 +1,4 @@
-export type TCardTokenParams = {
+export type CardTokenParams = {
   cardNumber?: string;
   cardholderName?: string
   identificationType?: string
@@ -9,7 +9,7 @@ export type TCardTokenParams = {
   cardId?: string
 }
 
-export type TCardTokenUpdateParams = {
+export type CardTokenUpdateParams = {
   securityCode?: string;
   cardExpirationMonth?: string;
   cardExpirationYear?: string;

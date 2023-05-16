@@ -1,10 +1,11 @@
-import type { TFieldsCardTokenParams } from "../../coreMethods/createCardToken/types";
-import type { TCardTokenParams, TCardTokenUpdateParams } from "../../coreMethods/cardToken/types";
+import type { FieldsCardTokenParams } from "../../coreMethods/createCardToken/types";
+import type { CardTokenParams, CardTokenUpdateParams } from "../../coreMethods/cardToken/types";
 import type { IdentificationType } from "../../coreMethods/getIdentificationTypes/types";
-import type { TInstallments, TInstallmentsParams } from "../../coreMethods/getInstallments/types";
-import type { TIssuers, TIssuersParams } from "../../coreMethods/getIssuers/types";
-import type { TPaymentMethods, TPaymentMethodsParams } from "../../coreMethods/getPaymentMethods/types";
-import type { TCardToken } from "../../coreMethods/util/types";
+import type { Installments, InstallmentsParams } from "../../coreMethods/getInstallments/types";
+import type { Issuers, IssuersParams } from "../../coreMethods/getIssuers/types";
+import type { PaymentMethods, PaymentMethodsParams } from "../../coreMethods/getPaymentMethods/types";
+import type { CardToken } from "../../coreMethods/util/types";
+import type { FieldName, Field, FieldsOptions } from "../../secureFields/util/types";
 
 export type TOptions = {
   /**
@@ -31,13 +32,14 @@ export type BricksBuilderType = {
 export type TInstanceMercadoPago = {
   bricks: () => BricksBuilderType;
   getIdentificationTypes: () => Promise<IdentificationType[]>;
-  getPaymentMethods: (paymentMethodsParams: TPaymentMethodsParams) => Promise<TPaymentMethods>;
-  getIssuers: (issuersParams: TIssuersParams) => Promise<TIssuers[]>;
-  getInstallments: (installmentsParams: TInstallmentsParams) => Promise<TInstallments[]>;
-  createCardToken: (cardTokenParams: TCardTokenParams) => Promise<TCardToken>;
-  updateCardToken: (paymentMethodsParams: TCardTokenUpdateParams) => Promise<TCardToken>;
+  getPaymentMethods: (paymentMethodsParams: PaymentMethodsParams) => Promise<PaymentMethods>;
+  getIssuers: (issuersParams: IssuersParams) => Promise<Issuers[]>;
+  getInstallments: (installmentsParams: InstallmentsParams) => Promise<Installments[]>;
+  createCardToken: (cardTokenParams: CardTokenParams) => Promise<CardToken>;
+  updateCardToken: (paymentMethodsParams: CardTokenUpdateParams) => Promise<CardToken>;
   fields: {
-    createCardToken: (fieldsCardTokenParams: TFieldsCardTokenParams) => Promise<TCardToken>;
-    updateCardToken: (token: string) => Promise<TCardToken>;
+    createCardToken: (fieldsCardTokenParams: FieldsCardTokenParams) => Promise<CardToken>;
+    updateCardToken: (token: string) => Promise<CardToken>;
+    create: <T extends FieldName>(field: T, options?: FieldsOptions<T>) => Field;
   };
 };
