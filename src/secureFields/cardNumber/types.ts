@@ -1,13 +1,17 @@
 import type { BaseEvents, BinChangeArg, BaseFieldsOptions, ValidityChangeArg } from "../util/types";
 
 export interface CardNumberOptions extends BaseFieldsOptions {
+  /** Defines whether the card number will be validated by Luhn validation */
   enableLuhnValidation?: boolean;
+  /** Number of digits allowed by the input */
   length?: number;
 }
 
 export type CardNumberUpdatableSettings = {
+  /** Number of digits allowed by the input */
   length?: number;
-  validation?: string;
+  /** Indicates whether the card numbers are standardized numbers or not */
+  validation?: 'standard' | 'none';
 };
 
 export interface CardNumberEvents extends BaseEvents {
