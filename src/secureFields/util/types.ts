@@ -66,7 +66,6 @@ export type BaseFieldsOptions = {
    * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/fields.md#custom-fonts Custom Fonts}.
    */
   customFonts?: CustomFonts[];
-  group?: string;
 };
 
 export interface DateYearFieldsOptions extends BaseFieldsOptions {
