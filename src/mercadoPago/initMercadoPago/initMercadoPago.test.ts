@@ -26,6 +26,17 @@ describe('Test initMercadoPago', () => {
     logSpy.mockRestore();
   });
 
+  test('should change public key and options', () => {
+    const PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+    const OTHER_PUBLIC_KEY = 'YOUR_NEW_PUBLIC_KEY';
+    initMercadoPago(PUBLIC_KEY, { locale: 'pt-BR' });
+    expect(MercadoPagoInstance.publicKey).toBe(PUBLIC_KEY);
+    expect(MercadoPagoInstance.options).toStrictEqual({ frontEndStack: 'react', locale: 'pt-BR' });
+    initMercadoPago(OTHER_PUBLIC_KEY, { locale: 'es-CL' });
+    expect(MercadoPagoInstance.publicKey).toBe(OTHER_PUBLIC_KEY);
+    expect(MercadoPagoInstance.options).toStrictEqual({ frontEndStack: 'react', locale: 'es-CL' });
+  });
+
   test('should return a instance MercadoPago', async () => {
     const PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
     const mockMercadoPagoBrick = jest.fn();

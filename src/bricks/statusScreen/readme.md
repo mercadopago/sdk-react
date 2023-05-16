@@ -50,4 +50,4 @@ export default Example;
 
 ## External Links
 
-[Status Screen Brick official documentation](https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/status-screen-brick/introduction)
+[Status Screen Brick official documentation](https://www.mercadopago.com/developers/en/docs/checkout-bricks/status-screen-brick/introduction)

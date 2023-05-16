@@ -20,6 +20,11 @@ export type TOptions = {
    * Enable/disable tracking of generic usage metrics
    */
   trackingDisabled?: boolean;
+  /**
+   * Used to inform how bricks are being implemented
+   */
+  frontEndStack?: string;
+  siteId?: string;
 };
 
 // #############
