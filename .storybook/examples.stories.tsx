@@ -22,9 +22,10 @@ const addExamplePage = (directory, file, stories) => {
 };
 
 require
-  .context('../examples/bricks', true)
+  .context('../examples', true)
   .keys()
   .forEach((key) => {
-    const splitKeys = key.split('/');
-    addExamplePage(`bricks/${splitKeys[1]}`, splitKeys[2], storiesOf(splitKeys[1], module));
+    const [_, folder, innerFolder, file] = key.split('/');
+    const path = `${folder}/${innerFolder}`;
+    addExamplePage(path, file, storiesOf(path, module));
   });

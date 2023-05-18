@@ -1,3 +1,5 @@
+import { Field } from "../secureFields/util/types";
+
 export {};
 
 declare global {
@@ -16,5 +18,10 @@ declare global {
     statusScreenBrickController: {
       unmount: () => void;
     };
+    cardNumberInstance: Field | undefined;
+    securityCodeInstance: Field | undefined;
+    expirationMonthInstance: Field | undefined;
+    expirationYearInstance: Field | undefined;
+    expirationDateInstance: Field | undefined;
   }
 }
