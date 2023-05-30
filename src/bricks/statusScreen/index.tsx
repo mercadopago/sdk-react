@@ -53,10 +53,6 @@ const StatusScreen = ({
       divId: 'statusScreenBrick_container',
       controller: 'statusScreenBrickController',
     };
-    console.log(
-      '🚀 ~ file: index.tsx:56 ~ useEffect ~ StatusScreenBrickConfig.settings.initialization:',
-      StatusScreenBrickConfig.settings.initialization,
-    );
     timer = setTimeout(() => {
       initBrick(StatusScreenBrickConfig);
     }, DEBOUNCE_TIME_RENDER);
