@@ -37,6 +37,12 @@ interface IStatusScreenBrickInitialization {
    * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/status-screen.md#initialization Data inicialization} documentation.
    */
   paymentId: string;
+  /**
+   * Optional. The addtional info necessary to 3DS authentication challenge.
+   *
+   * @see {@link}
+   */
+  additionalInfo?: IStatusScreenBrickAdditionalInfo;
 }
 
 interface IStatusScreenBrickCallbacks extends IBrickCallbacks {}
@@ -133,4 +139,20 @@ interface IStatusScreenBrickCustomVariables extends IBrickCustomVariables {
    * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Customization} documentation.
    */
   fontSizeExtraExtraLarge?: string;
+}
+
+interface IStatusScreenBrickAdditionalInfo {
+  /**
+   * Optional. The External Resource URL sent by MercadoPago to the iFrame Challenge.
+   *
+   * @see {@link  Additional Info} documentation.
+   */
+  externalResourceUrl?: string;
+
+  /**
+   * Optional. The Challenge Request Identificator sent by MercadoPago.
+   *
+   * @see {@link  Additional Info} documentation.
+   */
+  creq?: string;
 }
