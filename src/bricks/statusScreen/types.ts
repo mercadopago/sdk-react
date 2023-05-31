@@ -147,12 +147,12 @@ interface IStatusScreenBrickAdditionalInfo {
    *
    * @see {@link  Additional Info} documentation.
    */
-  externalResourceUrl?: string;
+  externalResourceUrl: string;
 
   /**
    * Optional. The Challenge Request Identificator sent by MercadoPago.
    *
    * @see {@link  Additional Info} documentation.
    */
-  creq?: string;
+  creq: string;
 }
