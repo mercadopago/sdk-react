@@ -9,8 +9,8 @@ import getIdentificationTypes from './coreMethods/getIdentificationTypes';
 import getPaymentMethods from './coreMethods/getPaymentMethods';
 import getInstallments from './coreMethods/getInstallments';
 import getIssuers from './coreMethods/getIssuers';
-import createCardToken from './coreMethods/createCardToken';
-import updateCardToken from './coreMethods/updateCardToken';
+import createCardToken from './secureFields/createCardToken';
+import updateCardToken from './secureFields/updateCardToken';
 
 import CardNumber from './secureFields/cardNumber';
 import SecurityCode from './secureFields/securityCode';

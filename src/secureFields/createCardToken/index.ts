@@ -1,9 +1,9 @@
-import { MercadoPagoInstance } from "../../mercadoPago/initMercadoPago";
-import { FieldsCardTokenParams } from "./types";
+import { MercadoPagoInstance } from '../../mercadoPago/initMercadoPago';
+import { FieldsCardTokenParams } from './types';
 
 /**
  * Secure Fields token creation method.
- * 
+ *
  * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/fields.md#mp-instancefieldscreatecardtokennonpcidata method documentation}.
  */
 const createCardToken = async (cardTokenParams: FieldsCardTokenParams) => {

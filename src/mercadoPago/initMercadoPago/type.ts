@@ -1,11 +1,14 @@
-import type { FieldsCardTokenParams } from "../../coreMethods/createCardToken/types";
-import type { CardTokenParams, CardTokenUpdateParams } from "../../coreMethods/cardToken/types";
-import type { IdentificationType } from "../../coreMethods/getIdentificationTypes/types";
-import type { Installments, InstallmentsParams } from "../../coreMethods/getInstallments/types";
-import type { Issuers, IssuersParams } from "../../coreMethods/getIssuers/types";
-import type { PaymentMethods, PaymentMethodsParams } from "../../coreMethods/getPaymentMethods/types";
-import type { CardToken } from "../../coreMethods/util/types";
-import type { FieldName, Field, FieldsOptions } from "../../secureFields/util/types";
+import type { FieldsCardTokenParams } from '../../secureFields/createCardToken/types';
+import type { CardTokenParams, CardTokenUpdateParams } from '../../coreMethods/cardToken/types';
+import type { IdentificationType } from '../../coreMethods/getIdentificationTypes/types';
+import type { Installments, InstallmentsParams } from '../../coreMethods/getInstallments/types';
+import type { Issuers, IssuersParams } from '../../coreMethods/getIssuers/types';
+import type {
+  PaymentMethods,
+  PaymentMethodsParams,
+} from '../../coreMethods/getPaymentMethods/types';
+import type { CardToken } from '../../coreMethods/util/types';
+import type { FieldName, Field, FieldsOptions } from '../../secureFields/util/types';
 
 export type TOptions = {
   /**
