@@ -357,6 +357,8 @@ interface IPaymentBrickCustomVariables extends IBrickCustomVariables {
   secondaryColor?: string;
 }
 
+type EntityType = 'individual' | 'association';
+
 interface IPaymentBrickPayer extends ICardPaymentBrickPayer {
   /**
    * Optional. Payer first name that can start already filled in.
@@ -370,6 +372,12 @@ interface IPaymentBrickPayer extends ICardPaymentBrickPayer {
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
    */
   lastName?: string;
+  /**
+   * Optional. Payer entity type, useful only for PSE payment method (Colombia).
+   *
+   * @see {@link }.
+   */
+  entityType?: EntityType;
   /**
    * Optional. Payer data that can start already filled in.
    *
@@ -483,6 +491,12 @@ interface IPayerAPI {
    * @see {@link https://www.mercadopago.com/developers/en/reference/payments/_payments/post Payer data} documentation.
    */
   address: IPayerAddressAPI;
+  /**
+   *  Optional. Entity type is returned only for PSE payment method (Colombia).
+   *
+   * @see {@link }.
+   */
+  entity_type?: EntityType;
 }
 
 interface IPayerAddressAPI {
