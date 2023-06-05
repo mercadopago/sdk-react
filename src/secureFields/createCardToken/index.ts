@@ -8,7 +8,6 @@ import { FieldsCardTokenParams } from './types';
  */
 const createCardToken = async (cardTokenParams: FieldsCardTokenParams) => {
   const instanceMercadoPago = await MercadoPagoInstance.getInstance();
-  console.log(instanceMercadoPago, instanceMercadoPago?.fields);
   return instanceMercadoPago?.fields.createCardToken(cardTokenParams);
 };
 
