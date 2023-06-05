@@ -108,6 +108,15 @@ interface ISavedCardPayer {
   id: string;
 }
 
+interface TransactionDetails {
+  /**
+   * Non-option. Financial institution.
+   *
+   * @see {@link }.
+   */
+  financial_institution: string;
+}
+
 interface TicketFormData {
   /**
    * Non-optional. Ticket transaction amount.
@@ -127,6 +136,12 @@ interface TicketFormData {
    * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Data customization} documentation.
    */
   payer: IPayerAPI;
+  /**
+   * Optional. Transaction details is returned for PSE payment method only (Colombia)
+   *
+   * @see {@link }.
+   */
+  transaction_details?: TransactionDetails
 }
 
 interface IPaymentBrickCustomization {
@@ -492,7 +507,7 @@ interface IPayerAPI {
    */
   address: IPayerAddressAPI;
   /**
-   *  Optional. Entity type is returned only for PSE payment method (Colombia).
+   *  Optional. Entity type is returned for PSE payment method only (Colombia).
    *
    * @see {@link }.
    */
