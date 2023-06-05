@@ -30,6 +30,21 @@ export interface IStatusScreenBrickSettings extends IStatusScreenBrickCallbacks 
   locale?: 'es-AR' | 'es-CL' | 'es-CO' | 'es-MX' | 'es-VE' | 'es-UY' | 'es-PE' | 'pt-BR' | 'en-US';
 }
 
+interface AdditionalData {
+  /**
+   * Non-optional. Challenge URL to redirect the buyer.
+   *
+   * @see {@link }.
+   */
+  externalResourceUrl: string;
+  /**
+   * Non-optional. Challenge request ID.
+   *
+   * @see {@link }.
+   */
+  creq: string;
+}
+
 interface IStatusScreenBrickInitialization {
   /**
    * Non-optional. The ID of the payment generated via Mercado Pago.
@@ -37,6 +52,12 @@ interface IStatusScreenBrickInitialization {
    * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/status-screen.md#initialization Data inicialization} documentation.
    */
   paymentId: string;
+  /**
+   * Optional. Three DS information.
+   *
+   * @see {@link }.
+   */
+  additionalData?: AdditionalData;
 }
 
 interface IStatusScreenBrickCallbacks extends IBrickCallbacks {}
