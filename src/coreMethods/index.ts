@@ -3,7 +3,7 @@ import getPaymentMethods from './getPaymentMethods';
 import getInstallments from './getInstallments';
 import getIssuers from './getIssuers';
 import createCardToken from './cardToken/create';
-import updateCardToken from './cardToken/create';
+import updateCardToken from './cardToken/update';
 
 export {
   getIdentificationTypes,
