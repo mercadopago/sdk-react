@@ -117,6 +117,17 @@ interface TransactionDetails {
   financial_institution: string;
 }
 
+interface Metadata {
+  /**
+   * Optional. Payment point is useful to show the buyer where to pay.
+   */
+  payment_point?: string;
+  /**
+   * Optional. Payment mode is useful to show the buyer where and how to pay.
+   */
+  payment_mode?: string;
+}
+
 interface TicketFormData {
   /**
    * Non-optional. Ticket transaction amount.
@@ -142,6 +153,10 @@ interface TicketFormData {
    * @see {@link }.
    */
   transaction_details?: TransactionDetails
+  /**
+   * Optional. Payment useful metadata.
+   */
+  metadata?: Metadata;
 }
 
 interface IPaymentBrickCustomization {
