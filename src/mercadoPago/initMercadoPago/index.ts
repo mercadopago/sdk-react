@@ -13,7 +13,9 @@ export class MercadoPagoInstance {
         await loadMercadoPago();
         this.loadedInstanceMercadoPago = true;
       }
-      this.instanceMercadoPago = new window.MercadoPago(this.publicKey, this.options);
+      if (!this.instanceMercadoPago) {
+        this.instanceMercadoPago = new window.MercadoPago(this.publicKey, this.options);
+      }
       return this.instanceMercadoPago;
     } else {
       console.error('Expected the PUBLIC_KEY to render the MercadoPago SDK React');
