@@ -14,4 +14,4 @@ const ExampleValuePropCustomizationWalletBrick = () => {
   );
 };
 
-export default ExampleVisualCustomizationWalletBrick;
+export default ExampleValuePropCustomizationWalletBrick;
