@@ -57,7 +57,13 @@ export interface IWalletBrickTexts {
    *
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/additional-customization/change-texts Wallet Brick# Additional Settings # Change Texts} documentation.
    */
-  valueProp?: 'practicality' | 'convenience' | 'security_details' | 'security_safety';
+  valueProp?:
+    | 'practicality'
+    | 'convenience'
+    | 'security_details'
+    | 'security_safety'
+    | 'credits'
+    | 'smart';
 }
 
 export interface IWalletBrickCustomization {
