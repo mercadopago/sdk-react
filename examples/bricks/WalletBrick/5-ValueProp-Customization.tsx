@@ -9,7 +9,7 @@ const ExampleValuePropCustomizationWalletBrick = () => {
   return (
     <Wallet
       initialization={{ preferenceId: 'YOUR_PREFERENCE_ID' }}
-      customization={{ texts: { action: 'buy', valueProp: 'smart' } }}
+      customization={{ texts: { action: 'buy', valueProp: 'smart_option' } }}
     />
   );
 };
