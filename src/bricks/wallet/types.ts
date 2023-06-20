@@ -55,9 +55,18 @@ export interface IWalletBrickTexts {
   /**
    * Optional. Text that will be rendered below the Wallet button
    *
+   * Note: 'convenience' is DEPRECATED. Use 'convenience_all' instead.
+   *
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/additional-customization/change-texts Wallet Brick# Additional Settings # Change Texts} documentation.
    */
-  valueProp?: 'practicality' | 'convenience' | 'security_details' | 'security_safety';
+  valueProp?:
+    | 'practicality'
+    | 'convenience'
+    | 'convenience_all'
+    | 'security_details'
+    | 'security_safety'
+    | 'convenience_credits'
+    | 'smart_option';
 }
 
 export interface IWalletBrickCustomization {
