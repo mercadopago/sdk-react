@@ -31,17 +31,9 @@ export interface IStatusScreenBrickSettings extends IStatusScreenBrickCallbacks 
 }
 
 interface AdditionalData {
-  /**
-   * Non-optional. Challenge URL to redirect the buyer.
-   *
-   * @see {@link }.
-   */
+  /** Non-optional. Challenge URL to redirect the buyer. */
   externalResourceUrl: string;
-  /**
-   * Non-optional. Challenge request ID.
-   *
-   * @see {@link }.
-   */
+  /** Non-optional. Challenge request ID. */
   creq: string;
 }
 
@@ -55,7 +47,7 @@ interface IStatusScreenBrickInitialization {
   /**
    * Optional. Three DS information.
    *
-   * @see {@link }.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/status-screen.md#initialization Data initialization} documentation.
    */
   additionalData?: AdditionalData;
 }
