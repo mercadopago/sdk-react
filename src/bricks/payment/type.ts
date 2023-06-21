@@ -108,6 +108,22 @@ interface ISavedCardPayer {
   id: string;
 }
 
+interface TransactionDetails {
+  /** Non-option. Financial institution */
+  financial_institution: string;
+}
+
+interface Metadata {
+  /**
+   * Optional. Payment point is useful to show the buyer where to pay.
+   */
+  payment_point?: string;
+  /**
+   * Optional. Payment mode is useful to show the buyer where and how to pay.
+   */
+  payment_mode?: string;
+}
+
 interface TicketFormData {
   /**
    * Non-optional. Ticket transaction amount.
@@ -127,6 +143,16 @@ interface TicketFormData {
    * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Data customization} documentation.
    */
   payer: IPayerAPI;
+  /**
+   * Optional. Transaction details is returned for PSE payment method only (Colombia)
+   *
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md} documentation.
+   */
+  transaction_details?: TransactionDetails
+  /**
+   * Optional. Payment useful metadata.
+   */
+  metadata?: Metadata;
 }
 
 interface IPaymentBrickCustomization {
@@ -357,6 +383,8 @@ interface IPaymentBrickCustomVariables extends IBrickCustomVariables {
   secondaryColor?: string;
 }
 
+type EntityType = 'individual' | 'association';
+
 interface IPaymentBrickPayer extends ICardPaymentBrickPayer {
   /**
    * Optional. Payer first name that can start already filled in.
@@ -370,6 +398,12 @@ interface IPaymentBrickPayer extends ICardPaymentBrickPayer {
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
    */
   lastName?: string;
+  /**
+   * Optional. Payer entity type, useful only for PSE payment method (Colombia).
+   *
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
+   */
+  entityType?: EntityType;
   /**
    * Optional. Payer data that can start already filled in.
    *
@@ -483,6 +517,12 @@ interface IPayerAPI {
    * @see {@link https://www.mercadopago.com/developers/en/reference/payments/_payments/post Payer data} documentation.
    */
   address: IPayerAddressAPI;
+  /**
+   *  Optional. Entity type is returned for PSE payment method only (Colombia).
+   *
+   * @see {@link https://www.mercadopago.com/developers/en/reference/payments/_payments/post Payer data} documentation.
+   */
+  entity_type?: EntityType;
 }
 
 interface IPayerAddressAPI {
