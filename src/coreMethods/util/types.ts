@@ -15,6 +15,9 @@ export interface PayerCost {
   reimbursement_rate?: unknown;
   max_allowed_amount: number;
   payment_method_option_id: string;
+  installment_amount: number;
+  recommended_message: string;
+  total_amount: number;
 }
 
 export type Identification = {
