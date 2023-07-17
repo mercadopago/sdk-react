@@ -13,7 +13,9 @@ export class MercadoPagoInstance {
         await loadMercadoPago();
         this.loadedInstanceMercadoPago = true;
       }
-      this.instanceMercadoPago = new window.MercadoPago(this.publicKey, this.options);
+      if (!this.instanceMercadoPago) {
+        this.instanceMercadoPago = new window.MercadoPago(this.publicKey, this.options);
+      }
       return this.instanceMercadoPago;
     } else {
       console.error('Expected the PUBLIC_KEY to render the MercadoPago SDK React');
@@ -21,7 +23,7 @@ export class MercadoPagoInstance {
   }
 }
 
-function checkOptionObject(oldOption: TOptions, newOption: TOptions): boolean {
+function isOptionsObjectUnchanged(oldOption: TOptions, newOption: TOptions): boolean {
   const checkOptionObject =
     Object.keys(oldOption).length === Object.keys(newOption).length &&
     (Object.keys(oldOption) as (keyof typeof oldOption)[]).every((key) => {
@@ -40,14 +42,15 @@ function checkOptionObject(oldOption: TOptions, newOption: TOptions): boolean {
 const initMercadoPago = (publicKey: string, options?: TOptions) => {
   const injectFrontEndOption = { ...options, frontEndStack: 'react' };
 
-  MercadoPagoInstance.publicKey =
-    publicKey !== MercadoPagoInstance.publicKey ? publicKey : MercadoPagoInstance.publicKey;
-  MercadoPagoInstance.options = !checkOptionObject(
+  const didOptionsChange = !isOptionsObjectUnchanged(
     MercadoPagoInstance.options,
     injectFrontEndOption,
-  )
-    ? injectFrontEndOption
-    : MercadoPagoInstance.options;
+  );
+  if (publicKey !== MercadoPagoInstance.publicKey || didOptionsChange) {
+    MercadoPagoInstance.publicKey = publicKey;
+    MercadoPagoInstance.options = injectFrontEndOption;
+    MercadoPagoInstance.instanceMercadoPago = undefined;
+  }
 };
 
 export default initMercadoPago;

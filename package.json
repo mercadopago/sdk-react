@@ -1,6 +1,6 @@
 {
   "name": "@mercadopago/sdk-react",
-  "version": "0.0.10",
+  "version": "0.0.12",
   "description": "Mercado Pago SDK React",
   "main": "index.js",
   "keywords": [
@@ -29,7 +29,7 @@
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "@mercadopago/sdk-js": "^0.0.2"
+    "@mercadopago/sdk-js": "^0.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",

@@ -1,9 +1,9 @@
-import getIdentificationTypes from "./getIdentificationTypes";
-import getPaymentMethods from "./getPaymentMethods";
-import getInstallments from "./getInstallments";
-import getIssuers from "./getIssuers";
-import createCardToken from "./createCardToken";
-import updateCardToken from "./updateCardToken";
+import getIdentificationTypes from './getIdentificationTypes';
+import getPaymentMethods from './getPaymentMethods';
+import getInstallments from './getInstallments';
+import getIssuers from './getIssuers';
+import createCardToken from './cardToken/create';
+import updateCardToken from './cardToken/update';
 
 export {
   getIdentificationTypes,
@@ -12,4 +12,4 @@ export {
   getIssuers,
   createCardToken,
   updateCardToken,
-}
+};

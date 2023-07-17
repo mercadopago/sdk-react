@@ -30,17 +30,24 @@ export interface IStatusScreenBrickSettings extends IStatusScreenBrickCallbacks 
   locale?: 'es-AR' | 'es-CL' | 'es-CO' | 'es-MX' | 'es-VE' | 'es-UY' | 'es-PE' | 'pt-BR' | 'en-US';
 }
 
+interface AdditionalData {
+  /** Non-optional. Challenge URL to redirect the buyer. */
+  externalResourceUrl: string;
+  /** Non-optional. Challenge request ID. */
+  creq: string;
+}
+
 interface IStatusScreenBrickInitialization {
   /**
    * Non-optional. The ID of the payment generated via Mercado Pago.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/status-screen.md#initialization Data inicialization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/status-screen.md#initialization Data initialization} documentation.
    */
   paymentId: string;
   /**
    * Optional. The addtional info necessary to 3DS authentication challenge.
    *
-   * @see {@link}
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/status-screen.md#initialization Data initialization} documentation.
    */
   additionalInfo?: IStatusScreenBrickAdditionalInfo;
 }
