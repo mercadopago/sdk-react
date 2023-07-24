@@ -1,6 +1,6 @@
 {
   "name": "@mercadopago/sdk-react",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Mercado Pago SDK React",
   "main": "index.js",
   "keywords": [
