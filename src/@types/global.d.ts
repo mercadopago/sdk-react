@@ -7,6 +7,7 @@ declare global {
     MercadoPago: any;
     paymentBrickController: {
       unmount: () => void;
+      update: (updateValues: { amount: number }) => boolean;
     };
     cardPaymentBrickController: {
       unmount: () => void;

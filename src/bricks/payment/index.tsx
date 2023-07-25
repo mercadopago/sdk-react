@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { memo, useEffect } from 'react';
 import { DEBOUNCE_TIME_RENDER } from '../util/constants';
 import {
   onBinChangeDefault,
@@ -8,6 +8,7 @@ import {
 } from '../util/initial';
 import { initBrick } from '../util/renderBrick';
 import { TPaymentType } from './type';
+import { checkOnlyAmountIsDifferent } from '../util/amount/amount';
 
 /**
  * Payment Brick allows you to add several payment methods to a store and save card data for future purchases with just one Brick.
@@ -32,7 +33,7 @@ import { TPaymentType } from './type';
  *
  * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/introduction Payment Brick documentation} for more information.
  */
-const BrickPayment = ({
+const PaymentBrick = ({
   onReady = onReadyDefault,
   onError = onErrorDefault,
   onSubmit = onSubmitDefault,
@@ -73,4 +74,22 @@ const BrickPayment = ({
   return <div id="paymentBrick_container"></div>;
 };
 
-export default BrickPayment;
+const memoizedPayment = memo(PaymentBrick, (prevProps: TPaymentType, nextProps: TPaymentType) => {
+  if (JSON.stringify(prevProps) !== JSON.stringify(nextProps)) {
+    const result = checkOnlyAmountIsDifferent(prevProps, nextProps);
+    if (result) {
+      if (window.paymentBrickController) {
+        window.paymentBrickController.update({ amount: nextProps.initialization.amount });
+      } else {
+        console.warn(
+          '[Checkout Bricks] Payment Brick is not initialized yet, please try again after a few seconds.',
+        );
+      }
+      return true;
+    }
+    return false;
+  }
+  return true;
+});
+
+export default memoizedPayment;
