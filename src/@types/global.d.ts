@@ -1,4 +1,4 @@
-import { Field } from "../secureFields/util/types";
+import { Field } from '../secureFields/util/types';
 
 export {};
 
@@ -11,6 +11,7 @@ declare global {
     cardPaymentBrickController: {
       unmount: () => void;
       getFormData: () => Promise<void>;
+      update: (updateValues: { amount: number }) => boolean;
     };
     walletBrickController: {
       unmount: () => void;
