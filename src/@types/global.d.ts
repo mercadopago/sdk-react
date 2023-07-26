@@ -1,3 +1,4 @@
+import { UpdateValues } from '../bricks/util/types/common';
 import { Field } from '../secureFields/util/types';
 
 export {};
@@ -7,12 +8,12 @@ declare global {
     MercadoPago: any;
     paymentBrickController: {
       unmount: () => void;
-      update: (updateValues: { amount: number }) => boolean;
+      update: (updateValues: UpdateValues) => boolean;
     };
     cardPaymentBrickController: {
       unmount: () => void;
       getFormData: () => Promise<void>;
-      update: (updateValues: { amount: number }) => boolean;
+      update: (updateValues: UpdateValues) => boolean;
     };
     walletBrickController: {
       unmount: () => void;

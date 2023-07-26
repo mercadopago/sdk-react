@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { DEBOUNCE_TIME_RENDER } from '../util/constants';
 import {
   onBinChangeDefault,
@@ -8,7 +8,7 @@ import {
 } from '../util/initial';
 import { initBrick } from '../util/renderBrick';
 import { TPaymentType } from './type';
-import { checkOnlyAmountIsDifferent } from '../util/amount/amount';
+import { UpdateValues } from '../util/types/common';
 
 /**
  * Payment Brick allows you to add several payment methods to a store and save card data for future purchases with just one Brick.
@@ -33,7 +33,7 @@ import { checkOnlyAmountIsDifferent } from '../util/amount/amount';
  *
  * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/introduction Payment Brick documentation} for more information.
  */
-const PaymentBrick = ({
+const Payment = ({
   onReady = onReadyDefault,
   onError = onErrorDefault,
   onSubmit = onSubmitDefault,
@@ -43,7 +43,7 @@ const PaymentBrick = ({
   locale,
 }: TPaymentType) => {
   useEffect(() => {
-    // CardPayment uses a debounce to prevent unnecessary reRenders.
+    // Payment uses a debounce to prevent unnecessary reRenders.
     let timer: ReturnType<typeof setTimeout>;
     const PaymentBrickController = {
       settings: {
@@ -74,22 +74,18 @@ const PaymentBrick = ({
   return <div id="paymentBrick_container"></div>;
 };
 
-const memoizedPayment = memo(PaymentBrick, (prevProps: TPaymentType, nextProps: TPaymentType) => {
-  if (JSON.stringify(prevProps) !== JSON.stringify(nextProps)) {
-    const result = checkOnlyAmountIsDifferent(prevProps, nextProps);
-    if (result) {
-      if (window.paymentBrickController) {
-        window.paymentBrickController.update({ amount: nextProps.initialization.amount });
-      } else {
-        console.warn(
-          '[Checkout Bricks] Payment Brick is not initialized yet, please try again after a few seconds.',
-        );
-      }
-      return true;
+const usePaymentBrick = () => {
+  const update = (data: UpdateValues) => {
+    if (window.paymentBrickController) {
+      window.paymentBrickController.update({ amount: data.amount });
+    } else {
+      console.warn(
+        '[Checkout Bricks] Payment Brick is not initialized yet, please try again after a few seconds.',
+      );
     }
-    return false;
-  }
-  return true;
-});
+  };
+  return { update };
+};
 
-export default memoizedPayment;
+export default Payment;
+export { usePaymentBrick };

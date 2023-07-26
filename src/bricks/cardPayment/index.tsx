@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { DEBOUNCE_TIME_RENDER } from '../util/constants';
 import {
   onErrorDefault,
@@ -8,7 +8,7 @@ import {
 } from '../util/initial';
 import { initBrick } from '../util/renderBrick';
 import { TCardPayment } from './type';
-import { checkOnlyAmountIsDifferent } from '../util/amount/amount';
+import { UpdateValues } from '../util/types/common';
 
 /**
  * Card Payment Brick allows you to offer payments with credit and debit card at yout checkout.
@@ -75,25 +75,18 @@ const CardPayment = ({
   return <div id="cardPaymentBrick_container"></div>;
 };
 
-const memoizedCardPayment = memo(
-  CardPayment,
-  (prevProps: TCardPayment, nextProps: TCardPayment) => {
-    if (JSON.stringify(prevProps) !== JSON.stringify(nextProps)) {
-      const result = checkOnlyAmountIsDifferent(prevProps, nextProps);
-      if (result) {
-        if (window.cardPaymentBrickController) {
-          window.cardPaymentBrickController.update({ amount: nextProps.initialization.amount });
-        } else {
-          console.warn(
-            '[Checkout Bricks] Card Payment Brick is not initialized yet, please try again after a few seconds.',
-          );
-        }
-        return true;
-      }
-      return false;
+const useCardPaymentBrick = () => {
+  const update = (data: UpdateValues) => {
+    if (window.cardPaymentBrickController) {
+      window.cardPaymentBrickController.update({ amount: data.amount });
+    } else {
+      console.warn(
+        '[Checkout Bricks] Card Payment Brick is not initialized yet, please try again after a few seconds.',
+      );
     }
-    return true;
-  },
-);
+  };
+  return { update };
+};
 
-export default memoizedCardPayment;
+export default CardPayment;
+export { useCardPaymentBrick };
