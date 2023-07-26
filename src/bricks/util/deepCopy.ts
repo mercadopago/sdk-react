@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export function deepCopy<T>(value: T): T {
-  if (typeof value !== 'object' || value === null) {
+  if (typeof value !== 'object' || value == null) {
     return value;
   }
   if (Array.isArray(value)) {
