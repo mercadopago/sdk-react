@@ -76,9 +76,9 @@ const CardPayment = ({
 };
 
 const useCardPaymentBrick = () => {
-  const update = (data: UpdateValues) => {
+  const update = (updateValues: UpdateValues) => {
     if (window.cardPaymentBrickController) {
-      window.cardPaymentBrickController.update({ amount: data.amount });
+      window.cardPaymentBrickController.update(updateValues);
     } else {
       console.warn(
         '[Checkout Bricks] Card Payment Brick is not initialized yet, please try again after a few seconds.',

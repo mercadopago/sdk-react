@@ -75,9 +75,9 @@ const Payment = ({
 };
 
 const usePaymentBrick = () => {
-  const update = (data: UpdateValues) => {
+  const update = (updateValues: UpdateValues) => {
     if (window.paymentBrickController) {
-      window.paymentBrickController.update({ amount: data.amount });
+      window.paymentBrickController.update(updateValues);
     } else {
       console.warn(
         '[Checkout Bricks] Payment Brick is not initialized yet, please try again after a few seconds.',
