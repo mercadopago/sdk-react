@@ -8,6 +8,7 @@ import {
 } from '../util/initial';
 import { initBrick } from '../util/renderBrick';
 import { TPaymentType } from './type';
+import { UpdateValues } from '../util/types/common';
 
 /**
  * Payment Brick allows you to add several payment methods to a store and save card data for future purchases with just one Brick.
@@ -32,7 +33,7 @@ import { TPaymentType } from './type';
  *
  * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/introduction Payment Brick documentation} for more information.
  */
-const BrickPayment = ({
+const Payment = ({
   onReady = onReadyDefault,
   onError = onErrorDefault,
   onSubmit = onSubmitDefault,
@@ -42,7 +43,7 @@ const BrickPayment = ({
   locale,
 }: TPaymentType) => {
   useEffect(() => {
-    // CardPayment uses a debounce to prevent unnecessary reRenders.
+    // Payment uses a debounce to prevent unnecessary reRenders.
     let timer: ReturnType<typeof setTimeout>;
     const PaymentBrickController = {
       settings: {
@@ -73,4 +74,18 @@ const BrickPayment = ({
   return <div id="paymentBrick_container"></div>;
 };
 
-export default BrickPayment;
+const usePaymentBrick = () => {
+  const update = (updateValues: UpdateValues) => {
+    if (window.paymentBrickController) {
+      window.paymentBrickController.update(updateValues);
+    } else {
+      console.warn(
+        '[Checkout Bricks] Payment Brick is not initialized yet, please try again after a few seconds.',
+      );
+    }
+  };
+  return { update };
+};
+
+export default Payment;
+export { usePaymentBrick };

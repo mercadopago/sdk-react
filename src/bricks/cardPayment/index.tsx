@@ -8,6 +8,7 @@ import {
 } from '../util/initial';
 import { initBrick } from '../util/renderBrick';
 import { TCardPayment } from './type';
+import { UpdateValues } from '../util/types/common';
 
 /**
  * Card Payment Brick allows you to offer payments with credit and debit card at yout checkout.
@@ -74,4 +75,18 @@ const CardPayment = ({
   return <div id="cardPaymentBrick_container"></div>;
 };
 
+const useCardPaymentBrick = () => {
+  const update = (updateValues: UpdateValues) => {
+    if (window.cardPaymentBrickController) {
+      window.cardPaymentBrickController.update(updateValues);
+    } else {
+      console.warn(
+        '[Checkout Bricks] Card Payment Brick is not initialized yet, please try again after a few seconds.',
+      );
+    }
+  };
+  return { update };
+};
+
 export default CardPayment;
+export { useCardPaymentBrick };

@@ -152,3 +152,7 @@ export interface IBrickCustomVariables {
   borderRadiusFull?: string;
   formPadding?: string;
 }
+
+export type UpdateValues = {
+  amount: number;
+};
