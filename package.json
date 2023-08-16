@@ -1,6 +1,6 @@
 {
   "name": "@mercadopago/sdk-react",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Mercado Pago SDK React",
   "main": "index.js",
   "keywords": [
@@ -10,7 +10,7 @@
     "Checkout"
   ],
   "scripts": {
-    "start": "start-storybook -p 6006",
+    "start": "npm run build && start-storybook -p 6006",
     "build": "rm -rf ./dist && tsc -b ./tsconfig.prod.json && cp package.json ./dist && cp LICENSE ./dist && cp README.md ./dist",
     "test": "jest --c ./jest.config.ts"
   },
