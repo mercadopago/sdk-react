@@ -4,4 +4,3 @@ build
 coverage
 .DS_Store
 ./package-lock.json
-.pre-commit-config.yaml
