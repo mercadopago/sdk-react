@@ -24,6 +24,11 @@ export type TPaymentType = {
   onReady?: () => void;
   onError?: (param: IBrickError) => void;
   onBinChange?: (param: string) => void;
+  onClickEditShippingData?: () => void;
+  onClickEditBillingData?: () => void;
+  onRenderNextStep?: (param: string) => void;
+  onRenderPreviousStep?: (param: string) => void;
+
   /**
    * Non-optional. Object containing initialization options.
    *
@@ -48,6 +53,10 @@ export type TPaymentType = {
      * @tutorial {@link https://www.mercadopago.com/developers/en/reference/preferences/_checkout_preferences/post Create preference} documentation.
      */
     preferenceId?: string;
+    items?: IReviewConfirmItems;
+    shipping?: IReviewConfirmShipping;
+    billing?: IReviewConfirmBilling;
+    discounts?: IReviewConfirmDiscounts;
   };
   /**
    * Non-optional. An object containing customization brick options.
@@ -63,6 +72,66 @@ export type TPaymentType = {
    */
   locale?: string;
 };
+interface IReviewConfirmItems {
+  totalItemsAmount: number;
+  itemsList: IListItems[];
+}
+
+interface IListItems {
+  units: number;
+  value: number;
+  name: string;
+  description?: string;
+  imageURL?: string;
+}
+
+interface IReviewConfirmShipping {
+  costs?: number;
+  shippingMode: string;
+  description?: string;
+  receiverAddress: IReceiverAddress;
+}
+
+interface IReceiverAddress {
+  streetName: string;
+  streetNumber: string;
+  neighborhood?: string;
+  city?: string;
+  federalUnit?: string;
+  zipCode: string;
+}
+
+interface IReviewConfirmBilling {
+  firstName?: string;
+  lastName?: string;
+  taxRegime?: string;
+  taxIdentificationNumber: string;
+  identification: IIidentification;
+  billingAddress: IBillingAddress;
+}
+
+interface IIidentification {
+  type: string;
+  number: string;
+}
+interface IBillingAddress {
+  streetName: string,
+  streetNumber: string,
+  neighborhood?: string,
+  city?: string,
+  federalUnit?: string,
+  zipCode: string,
+}
+interface IReviewConfirmDiscounts {
+  totalDiscountsAmount: number,
+  discountsList: IDiscountsList[],
+}
+interface IDiscountsList {
+  name: string,
+  value: number,
+}
+
+// todo: adicionar callbacks
 
 interface IPaymentFormData {
   /**
@@ -148,7 +217,7 @@ interface TicketFormData {
    *
    * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md} documentation.
    */
-  transaction_details?: TransactionDetails
+  transaction_details?: TransactionDetails;
   /**
    * Optional. Payment useful metadata.
    */
@@ -168,6 +237,18 @@ interface IPaymentBrickCustomization {
    * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Data customization} documentation.
    */
   paymentMethods: TPaymentBrickPaymentMethods;
+  /**
+   * Non-optional. Enable review and confirm feature.
+   *
+   * @see {} documentation.
+   */
+  enableReviewStep: boolean;
+  /**
+   * Optional. Object that organizes review and confirm visual elements.
+   *
+   * @see {} documentation.
+   */
+  reviewCardsOrder?: string[];
 }
 
 /**
@@ -487,6 +568,7 @@ type TPaymentBrickPaymentType =
   | 'onboarding_credits';
 
 interface IPayerAPI {
+  // todo: review e confirma tem email, mas o resto não é obrigatório
   /**
    *  Non-optional. Email of associated payer.
    *
