@@ -242,7 +242,7 @@ interface IPaymentBrickCustomization {
    *
    * @see {} documentation.
    */
-  enableReviewStep: boolean;
+  enableReviewStep?: boolean;
   /**
    * Optional. Object that organizes review and confirm visual elements.
    *
