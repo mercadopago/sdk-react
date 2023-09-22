@@ -106,8 +106,8 @@ interface IReviewConfirmBilling {
   lastName?: string;
   taxRegime?: string;
   taxIdentificationNumber: string;
-  identification: IIidentification;
-  billingAddress: IBillingAddress;
+  identification?: IIidentification;
+  billingAddress?: IBillingAddress;
 }
 
 interface IIidentification {
@@ -130,8 +130,6 @@ interface IDiscountsList {
   name: string,
   value: number,
 }
-
-// todo: adicionar callbacks
 
 interface IPaymentFormData {
   /**
@@ -568,7 +566,6 @@ type TPaymentBrickPaymentType =
   | 'onboarding_credits';
 
 interface IPayerAPI {
-  // todo: review e confirma tem email, mas o resto não é obrigatório
   /**
    *  Non-optional. Email of associated payer.
    *
