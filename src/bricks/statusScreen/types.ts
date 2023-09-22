@@ -30,14 +30,7 @@ export interface IStatusScreenBrickSettings extends IStatusScreenBrickCallbacks 
   locale?: 'es-AR' | 'es-CL' | 'es-CO' | 'es-MX' | 'es-VE' | 'es-UY' | 'es-PE' | 'pt-BR' | 'en-US';
 }
 
-interface AdditionalData {
-  /** Non-optional. Challenge URL to redirect the buyer. */
-  externalResourceUrl: string;
-  /** Non-optional. Challenge request ID. */
-  creq: string;
-}
-
-interface IStatusScreenBrickInitialization {
+export interface IStatusScreenBrickInitialization {
   /**
    * Non-optional. The ID of the payment generated via Mercado Pago.
    *
@@ -52,7 +45,7 @@ interface IStatusScreenBrickInitialization {
   additionalInfo?: IStatusScreenBrickAdditionalInfo;
 }
 
-interface IStatusScreenBrickCallbacks extends IBrickCallbacks {}
+type IStatusScreenBrickCallbacks = IBrickCallbacks;
 
 interface IStatusScreenBrickCustomization {
   /**
@@ -86,8 +79,10 @@ interface IStatusScreenBrickBackUrls {
 
 type TStatusScreenBrickVisual = IStatusScreenBrickBaseVisual & IStatusScreenBrickVisual;
 
-interface IStatusScreenBrickBaseVisual
-  extends IBrickVisual<IStatusScreenBrickCustomizableTexts, IStatusScreenBrickStyle> {}
+type IStatusScreenBrickBaseVisual = IBrickVisual<
+  IStatusScreenBrickCustomizableTexts,
+  IStatusScreenBrickStyle
+>;
 
 interface IStatusScreenBrickVisual {
   /**
@@ -131,7 +126,7 @@ interface IStatusScreenBrickCustomizableTexts {
   ctaReturnLabel?: string;
 }
 
-interface IStatusScreenBrickStyle extends IBrickStyle<IStatusScreenBrickCustomVariables> {}
+type IStatusScreenBrickStyle = IBrickStyle<IStatusScreenBrickCustomVariables>;
 
 interface IStatusScreenBrickCustomVariables extends IBrickCustomVariables {
   /**
@@ -148,16 +143,16 @@ interface IStatusScreenBrickCustomVariables extends IBrickCustomVariables {
   fontSizeExtraExtraLarge?: string;
 }
 
-interface IStatusScreenBrickAdditionalInfo {
+export interface IStatusScreenBrickAdditionalInfo {
   /**
-   * Optional. The External Resource URL sent by MercadoPago to the iFrame Challenge.
+   * Required. The External Resource URL sent by MercadoPago to the iFrame Challenge.
    *
    * @see {@link  Additional Info} documentation.
    */
-  externalResourceUrl: string;
+  externalResourceURL: string;
 
   /**
-   * Optional. The Challenge Request Identificator sent by MercadoPago.
+   * Required. The Challenge Request Identificator sent by MercadoPago.
    *
    * @see {@link  Additional Info} documentation.
    */
