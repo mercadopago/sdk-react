@@ -20,10 +20,15 @@ export type InstanceMercadoPagoType = {
 };
 
 export type TPaymentType = {
-  onSubmit: (param: IPaymentFormData, param2?: IAdditionalData) => Promise<unknown>;
+  onSubmit: (param: IPaymentFormData, param2?: IAdditionalCardFormData | null) => Promise<unknown>;
   onReady?: () => void;
   onError?: (param: IBrickError) => void;
   onBinChange?: (param: string) => void;
+  onClickEditShippingData?: () => void;
+  onClickEditBillingData?: () => void;
+  onRenderNextStep?: (currentStep: string) => void;
+  onRenderPreviousStep?: (currentStep: string) => void;
+
   /**
    * Non-optional. Object containing initialization options.
    *
@@ -48,6 +53,10 @@ export type TPaymentType = {
      * @tutorial {@link https://www.mercadopago.com/developers/en/reference/preferences/_checkout_preferences/post Create preference} documentation.
      */
     preferenceId?: string;
+    items?: IReviewConfirmItems;
+    shipping?: IReviewConfirmShipping;
+    billing?: IReviewConfirmBilling;
+    discounts?: IReviewConfirmDiscounts;
   };
   /**
    * Non-optional. An object containing customization brick options.
@@ -63,8 +72,85 @@ export type TPaymentType = {
    */
   locale?: string;
 };
+export interface IReviewConfirmItems {
+  totalItemsAmount: number;
+  itemsList: IListItems[];
+}
 
-interface IPaymentFormData {
+export interface IListItems {
+  units: number;
+  value: number;
+  name: string;
+  description?: string;
+  imageURL?: string;
+}
+
+export interface IReviewConfirmShipping {
+  costs?: number;
+  shippingMode: string;
+  description?: string;
+  receiverAddress: IDefaultAddress;
+}
+
+export interface IDefaultAddress {
+  /**
+   * Non-optional. Payer street name that can start already filled in.
+   *
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
+   */
+  streetName: string;
+  /**
+   * Non-optional. Payer street number that can start already filled in.
+   *
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
+   */
+  streetNumber: string;
+  /**
+   * Optional. Payer neighborhood that can start already filled in.
+   *
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
+   */
+  neighborhood?: string;
+
+  /**
+   * Optional. Payer city that can start already filled in.
+   *
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
+   */
+  city?: string;
+  /**
+   * Optional. Payer state address that can start already filled in.
+   *
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
+   */
+  federalUnit?: string;
+  /**
+   * Non-optional. Payer zip code that can start already filled in.
+   *
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
+   */
+  zipCode: string;
+}
+
+export interface IReviewConfirmBilling {
+  firstName?: string;
+  lastName?: string;
+  taxRegime?: string;
+  taxIdentificationNumber: string;
+  identification?: IPayerIdentification;
+  billingAddress?: IDefaultAddress;
+}
+
+export interface IReviewConfirmDiscounts {
+  totalDiscountsAmount: number;
+  discountsList: IDiscountsList[];
+}
+export interface IDiscountsList {
+  name: string;
+  value: number;
+}
+
+export interface IPaymentFormData {
   /**
    * Non-optional. Payment type returned at onSubmit.
    *
@@ -84,16 +170,17 @@ interface IPaymentFormData {
    */
   formData: ICardPaymentFormData<ICardPaymentBrickPayer> &
     ICardPaymentFormData<ISavedCardPayer> &
-    TicketFormData;
+    TicketFormData &
+    IFormDataAdditionalInfo;
   /**
    * Optional. Bin of the card entered by the user.
    *
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/additional-data Payment Brick # Additional Settings # Data customization} documentation.
    */
-  additionalData?: IAdditionalData;
+  additionalData?: IAdditionalData | IAdditionalCardFormData;
 }
 
-interface ISavedCardPayer {
+export interface ISavedCardPayer {
   /**
    * Non-optional. Saved cards type.
    *
@@ -108,12 +195,12 @@ interface ISavedCardPayer {
   id: string;
 }
 
-interface TransactionDetails {
+export interface TransactionDetails {
   /** Non-option. Financial institution */
   financial_institution: string;
 }
 
-interface Metadata {
+export interface Metadata {
   /**
    * Optional. Payment point is useful to show the buyer where to pay.
    */
@@ -124,7 +211,7 @@ interface Metadata {
   payment_mode?: string;
 }
 
-interface TicketFormData {
+export interface TicketFormData {
   /**
    * Non-optional. Ticket transaction amount.
    *
@@ -148,14 +235,42 @@ interface TicketFormData {
    *
    * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md} documentation.
    */
-  transaction_details?: TransactionDetails
+  transaction_details?: TransactionDetails;
   /**
    * Optional. Payment useful metadata.
    */
   metadata?: Metadata;
 }
 
-interface IPaymentBrickCustomization {
+export type IFormDataAdditionalInfo = {
+  additional_info?: IAdditionalInfo;
+}
+
+export interface IAdditionalInfo {
+  items: IAdditionalInfoItems[];
+  shipments: IAdditionalInfoShipments;
+}
+
+export interface IAdditionalInfoItems {
+  unit_price: number;
+  quantity: number;
+  title: string;
+  description: string;
+  picture_url: string;
+}
+
+export interface IAdditionalInfoShipments {
+  receiver_address: {
+    zip_code: string;
+    state_name: string;
+    city_name: string;
+    street_name: string;
+    street_number: number;
+    apartment: string;
+  };
+}
+
+export interface IPaymentBrickCustomization {
   /**
    * Optional. Control visual aspects of brick.
    *
@@ -168,6 +283,18 @@ interface IPaymentBrickCustomization {
    * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Data customization} documentation.
    */
   paymentMethods: TPaymentBrickPaymentMethods;
+  /**
+   * Non-optional. Enable review and confirm feature.
+   *
+   * @see {} documentation.
+   */
+  enableReviewStep?: boolean;
+  /**
+   * Optional. Object that organizes review and confirm visual elements.
+   *
+   * @see {} documentation.
+   */
+  reviewCardsOrder?: string[];
 }
 
 /**
@@ -182,11 +309,11 @@ type TPaymentBrickVisual = IPaymentBrickBaseVisual & IPaymentBrickVisual;
  *
  * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Data customization} documentation.
  */
-interface IPaymentBrickBaseVisual
+export interface IPaymentBrickBaseVisual
   extends IBrickVisual<IPaymentBrickCustomizableTexts, IPaymentBrickStyle>,
     ICardPaymentBrickVisual {}
 
-interface IPaymentBrickVisual {
+export interface IPaymentBrickVisual {
   /**
    * Optional. Hide redirection form.
    *
@@ -266,7 +393,7 @@ type TPaymentBrickPaymentMethods = IPaymentBrickPaymentMethods &
 
 type AllOrArray = 'all' | string[];
 
-interface IPaymentBrickPaymentMethods {
+export interface IPaymentBrickPaymentMethods {
   /**
    * Optional. Customizable maximum number of installments to be offered to the user.
    *
@@ -300,7 +427,7 @@ interface IPaymentBrickPaymentMethods {
   };
 }
 
-interface ILabelPlaceholder {
+export interface ILabelPlaceholder {
   /**
    * Optional. Define custom label text.
    *
@@ -315,7 +442,7 @@ interface ILabelPlaceholder {
   placeholder?: string;
 }
 
-interface IPaymentBrickCustomizableTexts {
+export interface IPaymentBrickCustomizableTexts {
   /**
    * Optional. Custom payer label or placeholder first name.
    *
@@ -372,20 +499,21 @@ interface IPaymentBrickCustomizableTexts {
   addressComplement?: { label?: string };
 }
 
-interface IPaymentBrickStyle extends IBrickStyle<IPaymentBrickCustomVariables> {}
+export interface IPaymentBrickStyle extends IBrickStyle<IPaymentBrickCustomVariables> {}
 
-interface IPaymentBrickCustomVariables extends IBrickCustomVariables {
+export interface IPaymentBrickCustomVariables extends IBrickCustomVariables {
   /**
    * Optional. Custom variable
    *
    * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Text customization} documentation.
    */
   secondaryColor?: string;
+  secondaryColorListItem?: string;
 }
 
 type EntityType = 'individual' | 'association';
 
-interface IPaymentBrickPayer extends ICardPaymentBrickPayer {
+export interface IPaymentBrickPayer extends ICardPaymentBrickPayer {
   /**
    * Optional. Payer first name that can start already filled in.
    *
@@ -424,43 +552,7 @@ interface IPaymentBrickPayer extends ICardPaymentBrickPayer {
   cardsIds?: string[];
 }
 
-interface IAddress {
-  /**
-   * Optional. Payer zip code that can start already filled in.
-   *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
-   */
-  zipCode?: string;
-  /**
-   * Optional. Payer state address that can start already filled in.
-   *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
-   */
-  federalUnit?: string;
-  /**
-   * Optional. Payer city that can start already filled in.
-   *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
-   */
-  city?: string;
-  /**
-   * Optional. Payer neighborhood that can start already filled in.
-   *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
-   */
-  neighborhood?: string;
-  /**
-   * Optional. Payer street name that can start already filled in.
-   *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
-   */
-  streetName?: string;
-  /**
-   * Optional. Payer street number that can start already filled in.
-   *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
-   */
-  streetNumber?: number;
+export interface IAddress extends Partial<IDefaultAddress> {
   /**
    * Optional. Payer complement that can start already filled in.
    *
@@ -486,7 +578,7 @@ type TPaymentBrickPaymentType =
   | 'wallet_purchase'
   | 'onboarding_credits';
 
-interface IPayerAPI {
+export interface IPayerAPI {
   /**
    *  Non-optional. Email of associated payer.
    *
@@ -525,7 +617,7 @@ interface IPayerAPI {
   entity_type?: EntityType;
 }
 
-interface IPayerAddressAPI {
+export interface IPayerAddressAPI {
   /**
    *  Non-optional. Zip code of associated payer.
    *
@@ -561,14 +653,19 @@ interface IPayerAddressAPI {
    *
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
    */
-  street_number: number;
+  street_number: string;
 }
 
-interface IAdditionalData {
+export interface IAdditionalData {
   /**
    *  Non-optional. Bin of card entered by user.
    *
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/additional-data Data customization} documentation.
    */
   bin: string;
+  lastFourDigits: string;
+}
+
+export interface IAdditionalCardFormData extends IAdditionalData {
+  cardholderName?: string;
 }
