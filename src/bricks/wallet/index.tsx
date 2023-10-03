@@ -22,7 +22,7 @@ import { DEBOUNCE_TIME_RENDER } from '../util/constants';
  * export default Example
  * ```
  *
- * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/introduction Wallet Brick documentation} for more information.
+ * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/introduction Wallet Brick documentation} for more information.
  */
 const Wallet = ({
   onReady = onReadyDefault,

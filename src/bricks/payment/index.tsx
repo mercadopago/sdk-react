@@ -35,7 +35,7 @@ import { UpdateValues } from '../util/types/common';
  * export default Example
  * ```
  *
- * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/introduction Payment Brick documentation} for more information.
+ * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/introduction Payment Brick documentation} for more information.
  */
 const Payment = ({
   onReady = onReadyDefault,

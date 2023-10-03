@@ -10,7 +10,7 @@ export interface IStatusScreenBrickSettings extends IStatusScreenBrickCallbacks 
   onReady?: () => void;
   onError?: (param: IBrickError) => void;
   /**
-   * Non-optional. Object containing initialization options.
+   * Required. Object containing initialization options.
    *
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/status-screen-brick/default-rendering Status Screen Brick # Default rendering} documentation.
    */
@@ -25,14 +25,14 @@ export interface IStatusScreenBrickSettings extends IStatusScreenBrickCallbacks 
    * Optional. Language selection for the Brick, options are:
    * {pt, es, es-AR, es-MX, es-UY, es-PE, es-CL, es-CO, en}
    *
-   * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/select-language General Customization # Select Language} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/select-language General Customization # Select Language} documentation.
    */
   locale?: 'es-AR' | 'es-CL' | 'es-CO' | 'es-MX' | 'es-VE' | 'es-UY' | 'es-PE' | 'pt-BR' | 'en-US';
 }
 
 export interface IStatusScreenBrickInitialization {
   /**
-   * Non-optional. The ID of the payment generated via Mercado Pago.
+   * Required. The ID of the payment generated via Mercado Pago.
    *
    * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/status-screen.md#initialization Data initialization} documentation.
    */
