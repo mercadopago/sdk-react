@@ -48,6 +48,12 @@ export type TPaymentType = {
      * @tutorial {@link https://www.mercadopago.com/developers/en/reference/preferences/_checkout_preferences/post Create preference} documentation.
      */
     preferenceId?: string;
+    /**
+     * Optional. This parameter enables the use of Wallet Brick in Marketplace mode
+     *
+     * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/payment-submission/wallet-credits Mercado Pago Wallet and Installments without card} documentation.
+     */
+    marketplace?: boolean;
   };
   /**
    * Non-optional. An object containing customization brick options.
@@ -148,7 +154,7 @@ interface TicketFormData {
    *
    * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md} documentation.
    */
-  transaction_details?: TransactionDetails
+  transaction_details?: TransactionDetails;
   /**
    * Optional. Payment useful metadata.
    */
