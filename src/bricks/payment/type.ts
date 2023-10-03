@@ -45,7 +45,7 @@ export type TPaymentType = {
     /**
      * Optional. Automatically unique ID generated in backend that identifies the preference. For example: 036151801-2484cd71-7140-4c51-985a-d4cfcf133baf
      *
-     * @tutorial {@link https://www.mercadopago.com/developers/en/reference/preferences/_checkout_preferences/post Create preference} documentation.
+     * @see {@link https://www.mercadopago.com/developers/en/reference/preferences/_checkout_preferences/post Create preference} documentation.
      */
     preferenceId?: string;
     /**
@@ -65,7 +65,7 @@ export type TPaymentType = {
    * Optional. Language selection for the Brick, options are:
    * {pt, es, es-AR, es-MX, es-UY, es-PE, es-CL, es-CO, en}
    *
-   * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/select-language General Customizations # Select Language} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/select-language General Customizations # Select Language} documentation.
    */
   locale?: string;
 };
