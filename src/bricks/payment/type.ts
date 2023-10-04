@@ -79,11 +79,11 @@ export type TPaymentType = {
     discounts?: IReviewConfirmDiscounts;
   };
   /**
-   * Optional. An object containing customization brick options.
+   * Required. An object containing customization brick options.
    *
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/default-rendering Payment Brick # Default rendering} documentation.
    */
-  customization?: IPaymentBrickCustomization;
+  customization: IPaymentBrickCustomization;
   /**
    * Optional. Language selection for the Brick, options are:
    * {pt, es, es-AR, es-MX, es-UY, es-PE, es-CL, es-CO, en}
