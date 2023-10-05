@@ -77,6 +77,7 @@ export type TPaymentType = {
      * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#initialization Initialization} documentation.
      */
     discounts?: IReviewConfirmDiscounts;
+    /**
      * Optional. This parameter enables the use of Wallet Brick in Marketplace mode
      *
      * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/payment-submission/wallet-credits Mercado Pago Wallet and Installments without card} documentation.
