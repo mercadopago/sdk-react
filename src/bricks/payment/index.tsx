@@ -2,8 +2,12 @@ import React, { useEffect } from 'react';
 import { DEBOUNCE_TIME_RENDER } from '../util/constants';
 import {
   onBinChangeDefault,
+  onClickEditBillingDataDefault,
+  onClickEditShippingDataDefault,
   onErrorDefault,
   onReadyDefault,
+  onRenderNextStepDefault,
+  onRenderPreviousStepDefault,
   onSubmitDefault,
 } from '../util/initial';
 import { initBrick } from '../util/renderBrick';
@@ -31,13 +35,17 @@ import { UpdateValues } from '../util/types/common';
  * export default Example
  * ```
  *
- * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/introduction Payment Brick documentation} for more information.
+ * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/introduction Payment Brick documentation} for more information.
  */
 const Payment = ({
   onReady = onReadyDefault,
   onError = onErrorDefault,
   onSubmit = onSubmitDefault,
   onBinChange = onBinChangeDefault,
+  onClickEditShippingData = onClickEditShippingDataDefault,
+  onClickEditBillingData = onClickEditBillingDataDefault,
+  onRenderNextStep = onRenderNextStepDefault,
+  onRenderPreviousStep = onRenderPreviousStepDefault,
   initialization,
   customization,
   locale,
@@ -55,6 +63,10 @@ const Payment = ({
           onError,
           onSubmit,
           onBinChange,
+          onClickEditShippingData,
+          onClickEditBillingData,
+          onRenderNextStep,
+          onRenderPreviousStep,
         },
       },
       name: 'payment',

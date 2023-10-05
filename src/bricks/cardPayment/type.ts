@@ -10,7 +10,7 @@ export type InstanceMercadoPagoType = {
 
 export type TCardPayment = {
   /**
-   * Non-optional. Function. Receives function to send the payment to backend
+   * Required. Function. Receives function to send the payment to backend
    *
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/default-rendering Card Payment Brick # Default rendering} documentation.
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/additional-data Card Payment Brick # Additional Settings # Additional data} documentatio to understand the second param.
@@ -41,15 +41,15 @@ export type TCardPayment = {
    * Optional. Language selection for the Brick, options are:
    * {pt, es, es-AR, es-MX, es-UY, es-PE, es-CL, es-CO, en}
    *
-   * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/select-language General Customization # Select Language} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/select-language General Customization # Select Language} documentation.
    */
   locale?: 'es-AR' | 'es-CL' | 'es-CO' | 'es-MX' | 'es-VE' | 'es-UY' | 'es-PE' | 'pt-BR' | 'en-US';
   /**
-   * Non-optional. Object. At minimun receive the amount atribute.
+   * Required. Object. At minimun receive the amount atribute.
    */
   initialization: {
     /**
-     * Non-optional. Number. Receives the value to be payed.
+     * Required. Number. Receives the value to be payed.
      */
     amount: number;
     /**
@@ -175,6 +175,18 @@ export interface IAdditionalData {
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/additional-data Card Payment Brick # Additional Settings # Additional data customization} documentation.
    */
   bin: string;
+  /**
+   *  Required. Last four digits of card entered by user.
+   *
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#callbacks Callbacks} documentation.
+   */
+  lastFourDigits: string;
+  /**
+   *  Optional. Cardholder name of card entered by user.
+   *
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#callbacks Callbacks} documentation.
+   */
+  cardholderName?: string;
 }
 
 /**

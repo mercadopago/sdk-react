@@ -10,7 +10,7 @@ export interface IStatusScreenBrickSettings extends IStatusScreenBrickCallbacks 
   onReady?: () => void;
   onError?: (param: IBrickError) => void;
   /**
-   * Non-optional. Object containing initialization options.
+   * Required. Object containing initialization options.
    *
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/status-screen-brick/default-rendering Status Screen Brick # Default rendering} documentation.
    */
@@ -25,14 +25,14 @@ export interface IStatusScreenBrickSettings extends IStatusScreenBrickCallbacks 
    * Optional. Language selection for the Brick, options are:
    * {pt, es, es-AR, es-MX, es-UY, es-PE, es-CL, es-CO, en}
    *
-   * @tutorial {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/select-language General Customization # Select Language} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/select-language General Customization # Select Language} documentation.
    */
   locale?: 'es-AR' | 'es-CL' | 'es-CO' | 'es-MX' | 'es-VE' | 'es-UY' | 'es-PE' | 'pt-BR' | 'en-US';
 }
 
 export interface IStatusScreenBrickInitialization {
   /**
-   * Non-optional. The ID of the payment generated via Mercado Pago.
+   * Required. The ID of the payment generated via Mercado Pago.
    *
    * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/status-screen.md#initialization Data initialization} documentation.
    */
@@ -47,7 +47,7 @@ export interface IStatusScreenBrickInitialization {
 
 type IStatusScreenBrickCallbacks = IBrickCallbacks;
 
-interface IStatusScreenBrickCustomization {
+export interface IStatusScreenBrickCustomization {
   /**
    * Optional. Controls whether the brick will show the user a button to navigate back to the seller's website. The url must be in the same domain and subdomain that the Brick is loaded on, urls in another domain will be ignored.
    *
@@ -62,7 +62,7 @@ interface IStatusScreenBrickCustomization {
   visual?: TStatusScreenBrickVisual;
 }
 
-interface IStatusScreenBrickBackUrls {
+export interface IStatusScreenBrickBackUrls {
   /**
    * Optional. Defines the url that will be shown to the user in case of error in the payment.
    *
@@ -84,7 +84,7 @@ type IStatusScreenBrickBaseVisual = IBrickVisual<
   IStatusScreenBrickStyle
 >;
 
-interface IStatusScreenBrickVisual {
+export interface IStatusScreenBrickVisual {
   /**
    * Optional. Shows the external_reference field from the Payments API.
    *
@@ -105,7 +105,7 @@ interface IStatusScreenBrickVisual {
   hideStatusDetails?: boolean;
 }
 
-interface IStatusScreenBrickCustomizableTexts {
+export interface IStatusScreenBrickCustomizableTexts {
   /**
    * Custom general error label text.
    *
@@ -128,7 +128,7 @@ interface IStatusScreenBrickCustomizableTexts {
 
 type IStatusScreenBrickStyle = IBrickStyle<IStatusScreenBrickCustomVariables>;
 
-interface IStatusScreenBrickCustomVariables extends IBrickCustomVariables {
+export interface IStatusScreenBrickCustomVariables extends IBrickCustomVariables {
   /**
    * Optional. Bricks custom variables.
    *
