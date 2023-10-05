@@ -147,6 +147,11 @@ export interface PreferenceOnInitialization extends IBrickSettings {
      * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/additional-customization/opening-mode#editor_2 Redirect Mode} documentation.
      * */
     redirectMode?: 'modal' | 'blank' | 'self';
+    /**
+     * Optional. This parameter enables the use of Wallet Brick in Marketplace mode
+     *
+     * */
+    marketplace?: boolean;
   };
   /**
    * Optional. An object containing customization options.
