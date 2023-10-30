@@ -1,7 +1,10 @@
 module.exports = {
   stories: ['./examples.stories.tsx'],
-  framework: '@storybook/react',
-  core: {
-    builder: '@storybook/builder-webpack5',
+  features: {
+    storyStoreV7: false,
+  },
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: {},
   },
 };
