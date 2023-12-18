@@ -5,24 +5,24 @@ import { DEBOUNCE_TIME_RENDER } from '../util/constants';
 import { TBrand } from './types';
 
 /**
- * Wallet Brick allows you to offer payments from your Mercado Pago account at any stage of the purchase process.
+ * Brand Brick allows you to communicate different messages related to the payment methods available via Mercado Pago in your store.
  *
  * Usage:
  *
  * ```ts
- * import Wallet, {initMercadoPago} from '@mercadopago/sdk-react'
+ * import Brand, {initMercadoPago} from '@mercadopago/sdk-react'
  *
  * initMercadoPago('YOUR_PUBLIC_KEY')
  *
  * const Example = () => {
  *   return(
- *     <Wallet initialization={{ preferenceId: '<PREFERENCE_ID>'}} /> // PREFERENCE_ID generated in backend
+ *     <Brand />
  *   )
  * }
  * export default Example
  * ```
  *
- * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/introduction Wallet Brick documentation} for more information.
+ * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/brand-brick/introduction Brand Brick documentation} for more information.
  */
 const Brand = ({
   onReady = onReadyDefault,
