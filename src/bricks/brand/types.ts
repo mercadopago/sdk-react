@@ -44,6 +44,7 @@ export interface IBrandCustomization {
 export interface IBrandText {
   /**
    * Optional. There are four value propositions available that configure the content and can allow for certain customizations.
+   * {'installments', 'payment_methods', 'security', 'payment_methods_logos', 'credits'}.
    *
    * @see {@link https://mercadopago.com.ar/developers/en/docs/checkout-bricks/brand-brick/settings/default-rendering Brick # Value prop} documentation.
    */
@@ -56,24 +57,28 @@ export interface IBrandText {
   useCustomFont?: boolean;
   /**
    * Optional. Changes the font size to one of the options provided.
+   * {'extra_small', 'small', 'medium', 'large'}.
    *
    * @see {@link https://mercadopago.com.ar/developers/en/docs/checkout-bricks/brand-brick/visual-customizations Brick # Visual customizations} documentation.
    */
   size?: BrandTextSizes;
   /**
    * Optional. Changes the font weight to one of the options provided.
+   * {'regular', 'semibold'}.
    *
    * @see {@link https://mercadopago.com.ar/developers/en/docs/checkout-bricks/brand-brick/visual-customizations Brick # Visual customizations} documentation.
    */
   fontWeight?: BrandFontWeight;
   /**
    * Optional. Changes the font color to one of the options provided. Pay attention to the color contrast with the background color and allow the user to read the text.
+   * {'primary', 'secondary', 'inverted'}.
    *
    * @see {@link https://mercadopago.com.ar/developers/en/docs/checkout-bricks/brand-brick/visual-customizations Brick # Visual customizations} documentation.
    */
   color?: BrandTextColor;
   /**
    * Optional. Changes the text alignment to one of the options provided.
+   * {'left', 'center', 'right'}.
    *
    * @see {@link https://mercadopago.com.ar/developers/en/docs/checkout-bricks/brand-brick/visual-customizations Brick # Visual customizations} documentation.
    */
@@ -104,12 +109,14 @@ export interface IBrandVisual {
   hideMercadoPagoLogo?: boolean;
   /**
    * Optional. Changes all the content alignment (text and logos, when the value prop applied have it) inside banner to one of the options provided.
+   * {'left', 'center', 'right'}.
    *
    * @see {@link https://mercadopago.com.ar/developers/en/docs/checkout-bricks/brand-brick/visual-customizations Brick # Visual customizations} documentation.
    */
   contentAlign?: BrandAlignment;
   /**
    * Optional. Changes banner background color to one of the options provided. Pay attention to the color contrast with the background color and allow the user to read the text.
+   * {'white', 'mercado_pago_primary', 'mercado_pago_secondary', 'black', 'transparent'}.
    *
    * @see {@link https://mercadopago.com.ar/developers/en/docs/checkout-bricks/brand-brick/visual-customizations Brick # Visual customizations} documentation.
    */
@@ -121,7 +128,8 @@ export interface IBrandVisual {
    */
   border?: boolean;
   /**
-   * Optional. Changes banner border color to "dark" or "light".
+   * Optional. Changes banner border color to 'dark' or 'light'.
+   * {'dark', 'light'}
    *
    * @see {@link https://mercadopago.com.ar/developers/en/docs/checkout-bricks/brand-brick/visual-customizations Brick # Visual customizations} documentation.
    */
@@ -164,12 +172,14 @@ type BrandBorderColor = 'dark' | 'light';
 export interface IBrandPaymentMethodCustomization {
   /**
    * Optional. Specify the payment methods you don't want to show.
+   * ['master', 'visa', 'amex', 'naranja', 'maestro', 'cabal', 'cencosud', 'cordobesa', 'argencard', 'diners', 'tarshop', 'cmr', 'rapipago', 'pagofacil', 'mercadopago']
    *
    * @see {@link https://mercadopago.com.ar/developers/en/docs/checkout-bricks/brand-brick/settings/payment-methods Brick # Payment methods} documentation.
    */
   excludedPaymentMethods?: TBrandPaymentMethods[];
   /**
    * Optional. Specify the payment types you don't want to show.
+   * ['credit_card', 'debit_card', 'ticket', 'account_money', 'mercado_credito'].
    *
    * @see {@link https://mercadopago.com.ar/developers/en/docs/checkout-bricks/brand-brick/settings/payment-methods Brick # Payment methods} documentation.
    */
