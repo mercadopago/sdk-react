@@ -2,11 +2,13 @@
 
 ## Content
 
-1. [Intro](#intro)
-2. [How it works](#how-it-works)
-3. [How to use](#how-to-use)
-4. [Screenshots](#screenshots)
-5. [External Links](#external-links)
+- [Status Screen Brick](#status-screen-brick)
+  - [Content](#content)
+  - [Intro](#intro)
+  - [How it works](#how-it-works)
+  - [How to use](#how-to-use)
+  - [Screenshots](#screenshots)
+  - [External Links](#external-links)
 
 ---
 
@@ -18,7 +20,7 @@ Status Screen Brick allows you to show the buyer the status of a purchase made w
 
 ## How it works
 
-This is like a wrapper for the brick. It breaks the main characterists - initialization, customizations and callbacks - in _props_ for the component. In this way it possible have a minimum impact if the bricks change and take advantage of the already existent documentation.
+This is like a wrapper for the Brick. It breaks the main characteristics - initialization, customizations and callbacks - in _props_ for the component. In this way, it is possible to minimize the impact if the Bricks change and take advantage of the already existent documentation.
 
 ---
 
