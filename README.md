@@ -9,30 +9,33 @@ Mercado Pago's Official React SDK.
 
 # Table of Contents
 
-1. [About](#about)
-2. [Prerequisites](#prerequisites)
-3. [Installation](#installation)
-4. [Initialization](#initialization)
-5. [Checkout Bricks](#checkout-bricks)
-   1. [Card Payment Brick](#card-payment-brick)
-   2. [Payment Brick](#payment-brick)
-   3. [Status Screen Brick](#status-screen-brick)
-   4. [Wallet Brick](#wallet-brick)
-6. [Secure Fields](#secure-fields)
-   1. [Create Card Token](#createcardtoken-1)
-   2. [Card Number](#card-number)
-   3. [Security Code](#security-code)
-   4. [Expiration Date](#expiration-date)
-   5. [Expiration Month](#expiration-month)
-   6. [Expiration Year](#expiration-year)
-7. [Core methods](#core-methods)
-   1. [getIdentificationTypes](#getIdentificationTypes)
-   2. [getPaymentMethods](#getPaymentMethods)
-   3. [getIssuers](#getIssuers)
-   4. [getInstallments](#getInstallments)
-   5. [createCardToken](#createCardToken)
-8. [Run SDK project](#run-sdk-project)
-9. [License](#license)
+- [React SDK MercadoPago](#react-sdk-mercadopago)
+- [Table of Contents](#table-of-contents)
+  - [About](#about)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Initialization](#initialization)
+  - [Checkout Bricks](#checkout-bricks)
+    - [Card Payment Brick](#card-payment-brick)
+    - [Payment Brick](#payment-brick)
+    - [Status Screen Brick](#status-screen-brick)
+    - [Wallet Brick](#wallet-brick)
+    - [Brand Brick](#brand-brick)
+  - [Secure Fields](#secure-fields)
+    - [Card Number](#card-number)
+    - [Security Code](#security-code)
+    - [Expiration Date](#expiration-date)
+    - [Expiration Month](#expiration-month)
+    - [Expiration Year](#expiration-year)
+    - [createCardToken](#createcardtoken)
+  - [Core Methods](#core-methods)
+    - [getIdentificationTypes](#getidentificationtypes)
+    - [getPaymentMethods](#getpaymentmethods)
+    - [getIssuers](#getissuers)
+    - [getInstallments](#getinstallments)
+    - [createCardToken](#createcardtoken-1)
+  - [Run SDK project](#run-sdk-project)
+  - [License](#license)
 
 <br />
 
@@ -127,10 +130,10 @@ export default App;
 Use StatusScreen component inside your functional React:
 
 ```jsx
-import {StatusScreen} from '@mercadopago/sdk-react';
+import { StatusScreen } from '@mercadopago/sdk-react';
 
 const App = () => {
-  return <StatusScreen initialization={{paymentId: 'YOUR_PAYMENT_ID'}} />
+  return <StatusScreen initialization={{ paymentId: 'YOUR_PAYMENT_ID' }} />;
 };
 export default App;
 ```
@@ -152,6 +155,21 @@ export default App;
 
 <br/>
 
+### Brand Brick
+
+Use Brand component inside your functional React:
+
+```jsx
+import { Brand } from '@mercadopago/sdk-react';
+
+const App = () => {
+  return <Brand />;
+};
+export default App;
+```
+
+<br/>
+
 ## Secure Fields
 
 Secure Fields are input components that allow you to collect credit and debit card information safely, and allow you to get the PCI SAQ A certification.
@@ -166,7 +184,7 @@ The Secure Fields module also provides a method to get the card token safely wit
 import { CardNumber } from '@mercadopago/sdk-react';
 
 const App = () => {
-  return <CardNumber placeholder='Card number'/>;
+  return <CardNumber placeholder="Card number" />;
 };
 export default App;
 ```
@@ -179,7 +197,7 @@ export default App;
 import { SecurityCode } from '@mercadopago/sdk-react';
 
 const App = () => {
-  return <SecurityCode placeholder='Security code'/>;
+  return <SecurityCode placeholder="Security code" />;
 };
 export default App;
 ```
@@ -194,7 +212,7 @@ export default App;
 import { ExpirationDate } from '@mercadopago/sdk-react';
 
 const App = () => {
-  return <ExpirationDate placeholder='Expiration date'/>;
+  return <ExpirationDate placeholder="Expiration date" />;
 };
 export default App;
 ```
@@ -207,7 +225,7 @@ export default App;
 import { ExpirationMonth } from '@mercadopago/sdk-react';
 
 const App = () => {
-  return <ExpirationMonth placeholder='Expiration month'/>;
+  return <ExpirationMonth placeholder="Expiration month" />;
 };
 export default App;
 ```
@@ -220,7 +238,7 @@ export default App;
 import { ExpirationYear } from '@mercadopago/sdk-react';
 
 const App = () => {
-  return <ExpirationYear placeholder='Expiration year'/>;
+  return <ExpirationYear placeholder="Expiration year" />;
 };
 export default App;
 ```
