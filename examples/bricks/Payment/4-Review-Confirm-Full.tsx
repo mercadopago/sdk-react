@@ -5,6 +5,7 @@ import initMercadoPago from '../../../src/mercadoPago/initMercadoPago';
 
 initMercadoPago('TEST-d198443d-7e9f-4e5f-a770-e5b23ae627cb', { locale: 'es-MX' });
 
+// This feature is temporarily exclusive for MLM (México) 🇲🇽
 const App = () => {
   const initialization = {
     amount: 76.98, // result of = totalItemsAmount + costs (shipping) - totalDiscountsAmount

@@ -31,6 +31,9 @@ declare global {
     statusScreenBrickController: {
       unmount: () => void;
     };
+    brandBrickController: {
+      unmount: () => void;
+    };
     cardNumberInstance: Field | undefined;
     securityCodeInstance: Field | undefined;
     expirationMonthInstance: Field | undefined;

@@ -37,7 +37,7 @@ const StatusScreen = ({
   locale,
 }: IStatusScreenBrickSettings) => {
   useEffect(() => {
-    // CardPayment uses a debounce to prevent unnecessary reRenders.
+    // Status Screen uses a debounce to prevent unnecessary reRenders.
     let timer: ReturnType<typeof setTimeout>;
     const StatusScreenBrickConfig = {
       settings: {
