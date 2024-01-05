@@ -32,19 +32,19 @@ export type TPaymentType = {
   /**
    * Required. Object containing initialization options.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/default-rendering Payment Brick # Default rendering} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/default-rendering Payment Brick} documentation.
    */
   initialization: {
     /**
      * Required. Total amount to be paid by all means of payment with exception of Mercado Pago Wallet, which has its processing value determined in backend through the "preferenceId".
      *
-     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/default-rendering Payment Brick # Default rendering} documentation.
+     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/default-rendering Payment Brick} documentation.
      */
     amount: number;
     /**
      * Optional. Payer data that can start already filled in.
      *
-     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/initialize-data-on-the-bricks Payment Brick # Additional settings # Initialize data on the bricks} documentation.
+     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/initialize-data-on-the-bricks Payment Brick} documentation.
      */
     payer?: IPaymentBrickPayer;
     /**
@@ -87,7 +87,7 @@ export type TPaymentType = {
   /**
    * Required. An object containing customization brick options.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/default-rendering Payment Brick # Default rendering} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/default-rendering Payment Brick} documentation.
    */
   customization: IPaymentBrickCustomization;
   /**
@@ -325,13 +325,13 @@ export interface ISavedCardPayer {
   /**
    * Required. Saved cards type.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/customers-cards Payment Brick # Additional Settings # Include Saved Cards} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/customers-cards Payment Brick} documentation.
    */
   type: string;
   /**
    * Required. Saved cards id.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/customers-cards Payment Brick # Additional Settings # Include Saved Cards} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/customers-cards Payment Brick} documentation.
    */
   id: string;
 }
@@ -585,7 +585,7 @@ export interface IPaymentBrickVisual {
 /**
  * Required. Configuration of which payment methods will be accepted
  *
- * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/manage-payment-methods Payment # Additional Settings # Manage Payment Methods} documentation.
+ * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/manage-payment-methods Payment} documentation.
  */
 type TPaymentBrickPaymentMethods = IPaymentBrickPaymentMethods &
   (
@@ -752,13 +752,13 @@ export interface IPaymentBrickPayer extends ICardPaymentBrickPayer {
   /**
    * Optional. Necessary payer data to display saved cards of a given buyer.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/customers-cards Payer data} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/customers-cards Payer data} documentation.
    */
   customerId?: string;
   /**
    * Optional. Necessary payer data to display saved cards of a given buyer.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/customers-cards Payer data} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/customers-cards Payer data} documentation.
    */
   cardsIds?: string[];
 }
