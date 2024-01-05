@@ -316,7 +316,7 @@ export interface IPaymentFormData {
   /**
    * Optional. Bin of the card entered by the user.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/additional-data Payment Brick # Additional Settings # Data customization} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/additional-data Payment Brick # Additional Settings # Data customization} documentation.
    */
   additionalData?: IAdditionalData | IAdditionalCardFormData;
 }
@@ -871,7 +871,7 @@ export interface IAdditionalData {
   /**
    *  Required. Bin of card entered by user.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/additional-data Data customization} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/additional-data Data customization} documentation.
    */
   bin: string;
   /**
