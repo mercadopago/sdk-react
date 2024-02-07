@@ -217,7 +217,7 @@ export interface IDefaultAddress {
    *
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/initialize-data-on-the-bricks Payer data} documentation.
    */
-  additionalInformation: string;
+  additionalInformation?: string;
 }
 
 export interface IReviewConfirmBilling {
