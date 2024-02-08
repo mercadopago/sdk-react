@@ -5,7 +5,7 @@ import initMercadoPago from '../../../src/mercadoPago/initMercadoPago';
 
 initMercadoPago('TEST-d198443d-7e9f-4e5f-a770-e5b23ae627cb', { locale: 'es-MX' });
 
-// This feature is temporarily exclusive for MLM (México) 🇲🇽
+// This feature is temporarily exclusive for MLM (México) 🇲🇽 and MLA (Argentina) 🇦🇷
 const App = () => {
   const initialization = {
     amount: 76.98, // result of = totalItemsAmount + costs (shipping) - totalDiscountsAmount
@@ -63,6 +63,7 @@ const App = () => {
         city: '<CITY>',
         federalUnit: '<FEDERAL_UNIT>',
         zipCode: '<ZIP_CODE>',
+        additionalInformation: '<ADDITIONAL_INFORMATION>',
       },
     },
     discounts: {
@@ -100,7 +101,7 @@ const App = () => {
       initialization={initialization}
       customization={{
         enableReviewStep: true,
-        reviewCardsOrder: ['payment_method', 'shipping', 'billing'],    
+        reviewCardsOrder: ['payment_method', 'shipping', 'billing'],
         paymentMethods: {
           atm: 'all',
           ticket: 'all',

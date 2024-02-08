@@ -32,19 +32,19 @@ export type TPaymentType = {
   /**
    * Required. Object containing initialization options.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/default-rendering Payment Brick # Default rendering} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/default-rendering Payment Brick} documentation.
    */
   initialization: {
     /**
      * Required. Total amount to be paid by all means of payment with exception of Mercado Pago Wallet, which has its processing value determined in backend through the "preferenceId".
      *
-     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/default-rendering Payment Brick # Default rendering} documentation.
+     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/default-rendering Payment Brick} documentation.
      */
     amount: number;
     /**
      * Optional. Payer data that can start already filled in.
      *
-     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payment Brick # Additional settings # Initialize data on the bricks} documentation.
+     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/initialize-data-on-the-bricks Payment Brick} documentation.
      */
     payer?: IPaymentBrickPayer;
     /**
@@ -87,7 +87,7 @@ export type TPaymentType = {
   /**
    * Required. An object containing customization brick options.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/default-rendering Payment Brick # Default rendering} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/default-rendering Payment Brick} documentation.
    */
   customization: IPaymentBrickCustomization;
   /**
@@ -178,40 +178,46 @@ export interface IDefaultAddress {
   /**
    * Required. Payer street name that can start already filled in.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/initialize-data-on-the-bricks Payer data} documentation.
    */
   streetName: string;
   /**
    * Required. Payer street number that can start already filled in.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/initialize-data-on-the-bricks Payer data} documentation.
    */
   streetNumber: string;
   /**
    * Optional. Payer neighborhood that can start already filled in.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/initialize-data-on-the-bricks Payer data} documentation.
    */
   neighborhood?: string;
 
   /**
    * Optional. Payer city that can start already filled in.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/initialize-data-on-the-bricks Payer data} documentation.
    */
   city?: string;
   /**
    * Optional. Payer state address that can start already filled in.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/initialize-data-on-the-bricks Payer data} documentation.
    */
   federalUnit?: string;
   /**
    * Required. Payer zip code that can start already filled in.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/initialize-data-on-the-bricks Payer data} documentation.
    */
   zipCode: string;
+  /**
+   * Optional. Note message regarding shipping address.
+   *
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/initialize-data-on-the-bricks Payer data} documentation.
+   */
+  additionalInformation?: string;
 }
 
 export interface IReviewConfirmBilling {
@@ -310,7 +316,7 @@ export interface IPaymentFormData {
   /**
    * Optional. Bin of the card entered by the user.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/additional-data Payment Brick # Additional Settings # Data customization} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/additional-data Payment Brick # Additional Settings # Data customization} documentation.
    */
   additionalData?: IAdditionalData | IAdditionalCardFormData;
 }
@@ -319,13 +325,13 @@ export interface ISavedCardPayer {
   /**
    * Required. Saved cards type.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/customers-cards Payment Brick # Additional Settings # Include Saved Cards} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/customers-cards Payment Brick} documentation.
    */
   type: string;
   /**
    * Required. Saved cards id.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/customers-cards Payment Brick # Additional Settings # Include Saved Cards} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/customers-cards Payment Brick} documentation.
    */
   id: string;
 }
@@ -579,7 +585,7 @@ export interface IPaymentBrickVisual {
 /**
  * Required. Configuration of which payment methods will be accepted
  *
- * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/manage-payment-methods Payment # Additional Settings # Manage Payment Methods} documentation.
+ * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/manage-payment-methods Payment} documentation.
  */
 type TPaymentBrickPaymentMethods = IPaymentBrickPaymentMethods &
   (
@@ -722,37 +728,37 @@ export interface IPaymentBrickPayer extends ICardPaymentBrickPayer {
   /**
    * Optional. Payer first name that can start already filled in.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/initialize-data-on-the-bricks Payer data} documentation.
    */
   firstName?: string;
   /**
    * Optional. Payer last name that can start already filled in.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/initialize-data-on-the-bricks Payer data} documentation.
    */
   lastName?: string;
   /**
    * Optional. Payer entity type, useful only for PSE payment method (Colombia).
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/initialize-data-on-the-bricks Payer data} documentation.
    */
   entityType?: EntityType;
   /**
    * Optional. Payer data that can start already filled in.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/initialize-data-on-the-bricks Payer data} documentation.
    */
   address?: IAddress;
   /**
    * Optional. Necessary payer data to display saved cards of a given buyer.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/customers-cards Payer data} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/customers-cards Payer data} documentation.
    */
   customerId?: string;
   /**
    * Optional. Necessary payer data to display saved cards of a given buyer.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/customers-cards Payer data} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/customers-cards Payer data} documentation.
    */
   cardsIds?: string[];
 }
@@ -761,7 +767,7 @@ export interface IAddress extends Partial<IDefaultAddress> {
   /**
    * Optional. Payer complement that can start already filled in.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/initialize-data-on-the-bricks Payer data} documentation.
    */
   complement?: string;
 }
@@ -826,37 +832,37 @@ export interface IPayerAddressAPI {
   /**
    *  Required. Zip code of associated payer.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/initialize-data-on-the-bricks Payer data} documentation.
    */
   zip_code: string;
   /**
    *  Required. Federal unit of associated payer.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/initialize-data-on-the-bricks Payer data} documentation.
    */
   federal_unit: string;
   /**
    *  Required. City of associated payer.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/initialize-data-on-the-bricks Payer data} documentation.
    */
   city: string;
   /**
    *  Required. Neighborhood code of associated payer.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/initialize-data-on-the-bricks Payer data} documentation.
    */
   neighborhood: string;
   /**
    *  Required. Street name code of associated payer.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/initialize-data-on-the-bricks Payer data} documentation.
    */
   street_name: string;
   /**
    *  Required. Street number code of associated payer.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/initialize-data-on-the-bricks Payer data} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/initialize-data-on-the-bricks Payer data} documentation.
    */
   street_number: string;
 }
@@ -865,7 +871,7 @@ export interface IAdditionalData {
   /**
    *  Required. Bin of card entered by user.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/additional-data Data customization} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/additional-data Data customization} documentation.
    */
   bin: string;
   /**
