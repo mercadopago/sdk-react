@@ -30,6 +30,7 @@ const Wallet = ({
   onSubmit = onSubmitDefault as () => Promise<unknown>,
   customization,
   initialization,
+  brand,
   locale,
 }: TWallet) => {
   useEffect(() => {
@@ -37,6 +38,7 @@ const Wallet = ({
     let timer: ReturnType<typeof setTimeout>;
     const WalletBrickConfig = {
       settings: {
+        brand,
         initialization,
         customization,
         locale,

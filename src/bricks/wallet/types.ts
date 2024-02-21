@@ -105,6 +105,7 @@ interface IWalletBrickCheckoutCustomization {
 }
 
 export interface PreferenceOnSubmit extends IBrickSettings {
+  brand?: string;
   /**
    * Optional. An object containing initialization options.
    */
@@ -131,6 +132,7 @@ export interface PreferenceOnSubmit extends IBrickSettings {
 }
 
 export interface PreferenceOnInitialization extends IBrickSettings {
+  brand?: string;
   /**
    * Required. An object containing initialization options.
    */
