@@ -72,7 +72,8 @@ export interface IWalletBrickTexts {
     | 'security_details'
     | 'security_safety'
     | 'convenience_credits'
-    | 'smart_option';
+    | 'smart_option'
+    | 'payment_methods_logos';
 }
 
 export interface IWalletBrickCustomization {
