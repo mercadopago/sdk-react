@@ -62,6 +62,7 @@ export interface IWalletBrickTexts {
    * Optional. Text that will be rendered below the Wallet button
    *
    * Note: 'convenience' is DEPRECATED. Use 'convenience_all' instead.
+   * Note: when using 'payment_methods_logos', logos will be rendered instead of text.
    *
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-texts Wallet Brick# Additional Settings # Change Texts} documentation.
    */
