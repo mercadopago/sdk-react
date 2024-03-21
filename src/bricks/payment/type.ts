@@ -585,7 +585,7 @@ export interface IPaymentBrickVisual {
 /**
  * Required. Configuration of which payment methods will be accepted
  *
- * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/manage-payment-methods Payment} documentation.
+ * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/manage-payment-methods Payment} documentation.
  */
 type TPaymentBrickPaymentMethods = IPaymentBrickPaymentMethods &
   (
@@ -705,7 +705,7 @@ export interface IPaymentBrickCustomizableTexts {
   addressComplement?: { label?: string };
 }
 
-export interface IPaymentBrickStyle extends IBrickStyle<IPaymentBrickCustomVariables> {}
+export type IPaymentBrickStyle = IBrickStyle<IPaymentBrickCustomVariables>;
 
 export interface IPaymentBrickCustomVariables extends IBrickCustomVariables {
   /**

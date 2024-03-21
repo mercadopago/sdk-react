@@ -22,13 +22,9 @@ import { TBrand } from './types';
  * export default Example
  * ```
  *
- * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/brand-brick/introduction Brand Brick documentation} for more information.
+ * @see {@link https://www.mercadopago.com.ar/developers/en/docs/checkout-bricks/brand-brick/introduction Brand Brick documentation} for more information.
  */
-const Brand = ({
-  onReady = onReadyDefault,
-  customization,
-  locale,
-}: TBrand) => {
+const Brand = ({ onReady = onReadyDefault, customization, locale }: TBrand) => {
   useEffect(() => {
     // Brand uses a debounce to prevent unnecessary reRenders.
     let timer: ReturnType<typeof setTimeout>;

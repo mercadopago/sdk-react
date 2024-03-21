@@ -53,7 +53,7 @@ export interface IBrickBinCallback {
   /**
    * Bin of the card entered by the user.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/additional-data additional data customization} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/additional-callbacks additional callbacks customization} documentation.
    */
   onBinChange?: (bin: string) => void;
 }
