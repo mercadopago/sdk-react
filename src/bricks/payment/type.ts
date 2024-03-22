@@ -295,19 +295,19 @@ export interface IPaymentFormData {
   /**
    * Required. Payment type returned at onSubmit.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/payment-submission/other-payment-methods/brasil Returned data} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/payment-submission/other-payment-methods Returned data} documentation.
    */
   paymentType: TPaymentBrickPaymentType;
   /**
    * Required. Selected payment method returned at onSubmit.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/payment-submission/other-payment-methods/brasil Returned data} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/payment-submission/other-payment-methods Returned data} documentation.
    */
   selectedPaymentMethod: TPaymentBrickPaymentType;
   /**
    * Required. Information returned at onSubmit.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/payment-submission/other-payment-methods/brasil Returned data} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/payment-submission/other-payment-methods Returned data} documentation.
    */
   formData: ICardPaymentFormData<ICardPaymentBrickPayer> &
     ICardPaymentFormData<ISavedCardPayer> &
@@ -778,7 +778,7 @@ export interface IAddress extends Partial<IDefaultAddress> {
  * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/payment-submission/cards Cards type documentation}
  * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/payment-submission/wallet-credits Mercado Pago Wallet and Installments without card documentation},
  * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/payment-submission/pix Pix documentation}
- * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/payment-submission/other-payment-methods/brasil Other payment methods documentation}.
+ * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/payment-submission/other-payment-methods Other payment methods documentation}.
  */
 type TPaymentBrickPaymentType =
   | 'atm'
