@@ -11,7 +11,7 @@ declare global {
       /**
        * Updates data in Payment Brick preserving the current instance.
        *
-       * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/additional-customization/update-data Payment Brick # Default rendering} documentation.
+       * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/update-data Payment Brick # Update data} documentation.
        */
       update: (updateValues: UpdateValues) => boolean;
     };
@@ -21,7 +21,7 @@ declare global {
       /**
        * Updates data in Card Payment Brick preserving the current instance.
        *
-       * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/additional-customization/update-data Payment Brick # Default rendering} documentation.
+       * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/advanced-features/update-data Payment Brick # Update data} documentation.
        */
       update: (updateValues: UpdateValues) => boolean;
     };

@@ -172,18 +172,18 @@ type BrandBorderColor = 'dark' | 'light';
 export interface IBrandPaymentMethodCustomization {
   /**
    * Optional. Specify the payment methods you don't want to show.
-   * ['master', 'visa', 'amex', 'naranja', 'maestro', 'cabal', 'cencosud', 'cordobesa', 'argencard', 'diners', 'tarshop', 'cmr', 'rapipago', 'pagofacil', 'mercadopago']
+   * ['master', 'visa', 'amex', 'naranja', 'maestro', 'cabal', 'cencosud', 'cordobesa', 'argencard', 'diners', 'tarshop', 'cmr', 'rapipago', 'pagofacil']
    *
    * @see {@link https://mercadopago.com.ar/developers/en/docs/checkout-bricks/brand-brick/settings/payment-methods Brick # Payment methods} documentation.
    */
-  excludedPaymentMethods?: TBrandPaymentMethods[];
+  excludedPaymentMethods?: TBrandExcludedPaymentMethods[];
   /**
    * Optional. Specify the payment types you don't want to show.
-   * ['credit_card', 'debit_card', 'ticket', 'account_money', 'mercado_credito'].
+   * ['credit_card', 'debit_card', 'ticket'].
    *
    * @see {@link https://mercadopago.com.ar/developers/en/docs/checkout-bricks/brand-brick/settings/payment-methods Brick # Payment methods} documentation.
    */
-  excludedPaymentTypes?: TBrandPaymentTypes[];
+  excludedPaymentTypes?: TBrandExcludedPaymentTypes[];
   /**
    * Optional. Add an installment limit.
    *
@@ -198,7 +198,7 @@ export interface IBrandPaymentMethodCustomization {
   interestFreeInstallments?: boolean;
 }
 
-type TBrandPaymentMethods =
+type TBrandExcludedPaymentMethods =
   | 'master'
   | 'visa'
   | 'amex'
@@ -212,12 +212,6 @@ type TBrandPaymentMethods =
   | 'tarshop'
   | 'cmr'
   | 'rapipago'
-  | 'pagofacil'
-  | 'mercadopago';
+  | 'pagofacil';
 
-type TBrandPaymentTypes =
-  | 'credit_card'
-  | 'debit_card'
-  | 'ticket'
-  | 'account_money'
-  | 'mercado_credito';
+type TBrandExcludedPaymentTypes = 'credit_card' | 'debit_card' | 'ticket';
