@@ -103,6 +103,12 @@ export interface IStatusScreenBrickVisual {
    * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/status-screen.md#initialization Data customization} documentation.
    */
   hideStatusDetails?: boolean;
+    /**
+   * Optional. Controls if the QR Code will be shown in the desktop view for Pix payments.
+   *
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/status-screen.md#initialization Data customization} documentation. //TODO: change link when doc is available
+   */
+  hidePixQrCode?: boolean;
 }
 
 export interface IStatusScreenBrickCustomizableTexts {
