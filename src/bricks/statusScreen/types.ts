@@ -103,6 +103,12 @@ export interface IStatusScreenBrickVisual {
    * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/status-screen.md#initialization Data customization} documentation.
    */
   hideStatusDetails?: boolean;
+  /**
+   * Optional. Controls if the QR Code for Pix is shown in the Brick (only applies in MLB).
+   *
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/status-screen.md#initialization Data customization} documentation.
+   */
+  hidePixQrCode?: boolean;
 }
 
 export interface IStatusScreenBrickCustomizableTexts {
