@@ -119,11 +119,11 @@ export interface PreferenceOnSubmit extends IBrickSettings {
    */
   initialization?: {
     /**
-     * Optional. The opening scheme allows you to define how the checkout will open for the user. For example modal. Default 'self'
+     * Optional. The opening scheme allows you to define how the checkout will open for the user. For example blank. Default 'self'
      *
      * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/advanced-features/opening-mode#editor_2 Redirect Mode} documentation.
      * */
-    redirectMode?: 'modal' | 'blank' | 'self';
+    redirectMode?: 'blank' | 'self';
   };
   /**
    * Optional. An object containing customization options.
@@ -152,11 +152,11 @@ export interface PreferenceOnInitialization extends IBrickSettings {
      * */
     preferenceId: string;
     /**
-     * Optional. The opening scheme allows you to define how the checkout will open for the user. For example modal. Default 'self'
+     * Optional. The opening scheme allows you to define how the checkout will open for the user. For example blank. Default 'self'
      *
      * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/advanced-features/opening-mode#editor_2 Redirect Mode} documentation.
      * */
-    redirectMode?: 'modal' | 'blank' | 'self';
+    redirectMode?: 'blank' | 'self';
     /**
      * Optional. This parameter enables the use of Wallet Brick in Marketplace mode
      *
