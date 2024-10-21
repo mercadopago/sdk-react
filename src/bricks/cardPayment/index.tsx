@@ -42,6 +42,7 @@ const CardPayment = ({
   initialization,
   customization,
   locale,
+  divId = 'cardPaymentBrick_container',
 }: TCardPayment) => {
   useEffect(() => {
     // CardPayment uses a debounce to prevent unnecessary reRenders.
@@ -59,7 +60,7 @@ const CardPayment = ({
         locale,
       },
       name: 'cardPayment',
-      divId: 'cardPaymentBrick_container',
+      divId,
       controller: 'cardPaymentBrickController',
     };
     timer = setTimeout(() => {
@@ -72,7 +73,7 @@ const CardPayment = ({
     };
   }, [initialization, customization, onBinChange, onReady, onError, onSubmit]);
 
-  return <div id="cardPaymentBrick_container"></div>;
+  return <div id={divId}></div>;
 };
 
 const useCardPaymentBrick = () => {
