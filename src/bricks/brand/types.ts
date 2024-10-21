@@ -18,6 +18,10 @@ export type TBrand = {
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/select-language Bricks language customization} documentation.
    */
   locale?: 'es-AR' | 'es-CL' | 'es-CO' | 'es-MX' | 'es-VE' | 'es-UY' | 'es-PE' | 'pt-BR' | 'en-US';
+  /**
+   * Optional. Container ID where the Brick will be rendered. Default: 'walletBrick_container'
+   */
+  divId?: string;
 };
 
 export interface IBrandCustomization {

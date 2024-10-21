@@ -32,6 +32,7 @@ const Wallet = ({
   initialization,
   brand,
   locale,
+  divId = 'walletBrick_container',
 }: TWallet) => {
   useEffect(() => {
     // CardPayment uses a debounce to prevent unnecessary reRenders.
@@ -49,7 +50,7 @@ const Wallet = ({
         },
       },
       name: 'wallet',
-      divId: 'walletBrick_container',
+      divId,
       controller: 'walletBrickController',
     };
 
@@ -62,7 +63,7 @@ const Wallet = ({
       window.walletBrickController?.unmount();
     };
   }, [customization, initialization, onReady, onError, onSubmit]);
-  return <div id="walletBrick_container"></div>;
+  return <div id={divId}></div>;
 };
 
 export default Wallet;

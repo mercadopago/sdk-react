@@ -10,4 +10,15 @@ describe('Test Status Screen Brick Component', () => {
 
     expect(element.container.querySelector('#statusScreenBrick_container')).toBeTruthy();
   });
+  test('should found the id of Status Screen Brick div if specified', async () => {
+    MercadoPagoInstance.publicKey = 'PUBLIC_KEY';
+    const element = await render(
+      <StatusScreen
+        divId="customStatusScreenBrick_container"
+        initialization={{ paymentId: '<PAYMENT_ID>' }}
+      />,
+    );
+
+    expect(element.container.querySelector('#customStatusScreenBrick_container')).toBeTruthy();
+  });
 });

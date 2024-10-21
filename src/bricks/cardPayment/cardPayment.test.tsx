@@ -17,4 +17,18 @@ describe('Test Card Payment Brick Component', () => {
 
     expect(element.container.querySelector('#cardPaymentBrick_container')).toBeTruthy();
   });
+  test('should found the id of Card Payment Brick div if specified', async () => {
+    MercadoPagoInstance.publicKey = 'PUBLIC_KEY';
+    const element = await render(
+      <CardPayment
+        divId="customCardPaymentBrick_container"
+        initialization={{ amount: 100 }}
+        onSubmit={async (param) => {
+          console.log(param);
+        }}
+      />,
+    );
+
+    expect(element.container.querySelector('#customCardPaymentBrick_container')).toBeTruthy();
+  });
 });
