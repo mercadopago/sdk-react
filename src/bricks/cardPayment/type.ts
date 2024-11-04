@@ -103,7 +103,7 @@ export type TCardPayment = {
   /**
    * Optional. Container ID where the Brick will be rendered. Default: 'walletBrick_container'
    */
-  divId?: string;
+  id?: string;
 };
 
 export interface ICardPaymentBrickPayer {

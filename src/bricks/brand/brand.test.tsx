@@ -35,7 +35,7 @@ describe('Test Brand Brick Component', () => {
             valueProp: 'payment_methods_logos',
           },
         }}
-        divId="customBrandBrick_container"
+        id="customBrandBrick_container"
         onReady={() => console.log('Brick is ready!')}
       />,
     );

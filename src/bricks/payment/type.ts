@@ -100,7 +100,7 @@ export type TPaymentType = {
   /**
    * Optional. Container ID where the Brick will be rendered. Default: 'walletBrick_container'
    */
-  divId?: string;
+  id?: string;
 };
 export interface IReviewConfirmItems {
   /**

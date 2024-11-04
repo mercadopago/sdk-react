@@ -17,7 +17,7 @@ describe('Test Wallet Brick Component', () => {
     const element = await render(
       <WalletBrick
         initialization={{ preferenceId: '<PREFERENCE_ID>' }}
-        divId="customWalletBrick_container"
+        id="customWalletBrick_container"
       />,
     );
 

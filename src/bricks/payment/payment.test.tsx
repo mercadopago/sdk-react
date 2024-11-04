@@ -42,7 +42,7 @@ describe('Test Payment Brick Component', () => {
             mercadoPago: 'all',
           },
         }}
-        divId="customPaymentBrick_container"
+        id="customPaymentBrick_container"
         onSubmit={async (param) => {
           console.log(param);
         }}

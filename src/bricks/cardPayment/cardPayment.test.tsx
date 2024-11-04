@@ -21,7 +21,7 @@ describe('Test Card Payment Brick Component', () => {
     MercadoPagoInstance.publicKey = 'PUBLIC_KEY';
     const element = await render(
       <CardPayment
-        divId="customCardPaymentBrick_container"
+        id="customCardPaymentBrick_container"
         initialization={{ amount: 100 }}
         onSubmit={async (param) => {
           console.log(param);

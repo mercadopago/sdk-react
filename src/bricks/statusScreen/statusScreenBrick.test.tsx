@@ -14,7 +14,7 @@ describe('Test Status Screen Brick Component', () => {
     MercadoPagoInstance.publicKey = 'PUBLIC_KEY';
     const element = await render(
       <StatusScreen
-        divId="customStatusScreenBrick_container"
+        id="customStatusScreenBrick_container"
         initialization={{ paymentId: '<PAYMENT_ID>' }}
       />,
     );

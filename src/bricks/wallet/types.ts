@@ -140,7 +140,7 @@ export interface PreferenceOnSubmit extends IBrickSettings {
   /**
    * Optional. Container ID where the Brick will be rendered. Default: 'walletBrick_container'
    */
-  divId?: string;
+  id?: string;
 }
 
 export interface PreferenceOnInitialization extends IBrickSettings {
@@ -182,7 +182,7 @@ export interface PreferenceOnInitialization extends IBrickSettings {
   /**
    * Optional. Container ID where the Brick will be rendered. Default: 'walletBrick_container'
    */
-  divId?: string;
+  id?: string;
 }
 
 export type TWallet = PreferenceOnInitialization | PreferenceOnSubmit;

@@ -28,7 +28,7 @@ const Brand = ({
   onReady = onReadyDefault,
   customization,
   locale,
-  divId = 'brandBrick_container',
+  id = 'brandBrick_container',
 }: TBrand) => {
   useEffect(() => {
     // Brand uses a debounce to prevent unnecessary reRenders.
@@ -42,7 +42,7 @@ const Brand = ({
         },
       },
       name: 'brand',
-      divId,
+      divId: id,
       controller: 'brandBrickController',
     };
 
@@ -55,7 +55,7 @@ const Brand = ({
       window.brandBrickController?.unmount();
     };
   }, [customization, onReady]);
-  return <div id={divId}></div>;
+  return <div id={id}></div>;
 };
 
 export default Brand;

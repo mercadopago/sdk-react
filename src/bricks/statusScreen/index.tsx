@@ -35,7 +35,7 @@ const StatusScreen = ({
   customization,
   initialization,
   locale,
-  divId = 'statusScreenBrick_container',
+  id = 'statusScreenBrick_container',
 }: IStatusScreenBrickSettings) => {
   useEffect(() => {
     // Status Screen uses a debounce to prevent unnecessary reRenders.
@@ -51,7 +51,7 @@ const StatusScreen = ({
         },
       },
       name: 'statusScreen',
-      divId,
+      divId: id,
       controller: 'statusScreenBrickController',
     };
     timer = setTimeout(() => {
@@ -63,7 +63,7 @@ const StatusScreen = ({
       window.statusScreenBrickController?.unmount();
     };
   }, [initialization, customization, onReady, onError]);
-  return <div id={divId}></div>;
+  return <div id={id}></div>;
 };
 
 export default StatusScreen;
