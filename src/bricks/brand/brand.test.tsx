@@ -26,4 +26,20 @@ describe('Test Brand Brick Component', () => {
 
     expect(element.container.querySelector('#brandBrick_container')).toBeTruthy();
   });
+  test('should found the id of Brand Brick div if specified', async () => {
+    MercadoPagoInstance.publicKey = 'PUBLIC_KEY';
+    const element = await render(
+      <Brand
+        customization={{
+          text: {
+            valueProp: 'payment_methods_logos',
+          },
+        }}
+        id="customBrandBrick_container"
+        onReady={() => console.log('Brick is ready!')}
+      />,
+    );
+
+    expect(element.container.querySelector('#customBrandBrick_container')).toBeTruthy();
+  });
 });

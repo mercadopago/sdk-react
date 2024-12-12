@@ -100,6 +100,10 @@ export type TCardPayment = {
      */
     visual?: object;
   };
+  /**
+   * Optional. Container ID where the Brick will be rendered. Default: 'cardPaymentBrick_container'
+   */
+  id?: string;
 };
 
 export interface ICardPaymentBrickPayer {

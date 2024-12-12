@@ -12,4 +12,15 @@ describe('Test Wallet Brick Component', () => {
 
     expect(element.container.querySelector('#walletBrick_container')).toBeTruthy();
   });
+  test('should found the id of Wallet Brick div if specified', async () => {
+    MercadoPagoInstance.publicKey = 'PUBLIC_KEY';
+    const element = await render(
+      <WalletBrick
+        initialization={{ preferenceId: '<PREFERENCE_ID>' }}
+        id="customWalletBrick_container"
+      />,
+    );
+
+    expect(element.container.querySelector('#customWalletBrick_container')).toBeTruthy();
+  });
 });

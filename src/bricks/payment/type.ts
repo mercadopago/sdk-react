@@ -97,6 +97,10 @@ export type TPaymentType = {
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/select-language General Customizations # Select Language} documentation.
    */
   locale?: string;
+  /**
+   * Optional. Container ID where the Brick will be rendered. Default: 'paymentBrick_container'
+   */
+  id?: string;
 };
 export interface IReviewConfirmItems {
   /**
