@@ -98,7 +98,7 @@ export type TPaymentType = {
    */
   locale?: string;
   /**
-   * Optional. Container ID where the Brick will be rendered. Default: 'walletBrick_container'
+   * Optional. Container ID where the Brick will be rendered. Default: 'paymentBrick_container'
    */
   id?: string;
 };

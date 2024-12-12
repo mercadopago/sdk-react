@@ -29,7 +29,7 @@ export interface IStatusScreenBrickSettings extends IStatusScreenBrickCallbacks 
    */
   locale?: 'es-AR' | 'es-CL' | 'es-CO' | 'es-MX' | 'es-VE' | 'es-UY' | 'es-PE' | 'pt-BR' | 'en-US';
   /**
-   * Optional. Container ID where the Brick will be rendered. Default: 'walletBrick_container'
+   * Optional. Container ID where the Brick will be rendered. Default: 'statusScreenBrick_container'
    */
   id?: string;
 }
