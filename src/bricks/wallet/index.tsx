@@ -36,7 +36,7 @@ const Wallet = ({
 }: TWallet) => {
   useEffect(() => {
     // CardPayment uses a debounce to prevent unnecessary reRenders.
-    let timer: ReturnType<typeof setTimeout>;
+
     const WalletBrickConfig = {
       settings: {
         brand,
@@ -50,11 +50,11 @@ const Wallet = ({
         },
       },
       name: 'wallet',
-      divId: id,
+      containerId: id,
       controller: 'walletBrickController',
     };
 
-    timer = setTimeout(() => {
+    const timer: ReturnType<typeof setTimeout> = setTimeout(() => {
       initBrick(WalletBrickConfig);
     }, DEBOUNCE_TIME_RENDER);
 

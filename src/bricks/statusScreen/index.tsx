@@ -39,7 +39,6 @@ const StatusScreen = ({
 }: IStatusScreenBrickSettings) => {
   useEffect(() => {
     // Status Screen uses a debounce to prevent unnecessary reRenders.
-    let timer: ReturnType<typeof setTimeout>;
     const StatusScreenBrickConfig = {
       settings: {
         initialization,
@@ -51,10 +50,10 @@ const StatusScreen = ({
         },
       },
       name: 'statusScreen',
-      divId: id,
+      containerId: id,
       controller: 'statusScreenBrickController',
     };
-    timer = setTimeout(() => {
+    const timer: ReturnType<typeof setTimeout> = setTimeout(() => {
       initBrick(StatusScreenBrickConfig);
     }, DEBOUNCE_TIME_RENDER);
 

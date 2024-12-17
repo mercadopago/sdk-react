@@ -1,6 +1,5 @@
-import { create } from 'domain';
 import { initBrick } from '.';
-import initMercadoPago, { MercadoPagoInstance } from '../../../mercadoPago/initMercadoPago';
+import { MercadoPagoInstance } from '../../../mercadoPago/initMercadoPago';
 
 declare global {
   interface Window {
@@ -18,12 +17,23 @@ describe('Test renderBrick', () => {
           create: mock,
         };
       },
+      getIdentificationTypes: jest.fn(),
+      getPaymentMethods: jest.fn(),
+      getIssuers: jest.fn(),
+      getInstallments: jest.fn(),
+      createCardToken: jest.fn(),
+      updateCardToken: jest.fn(),
+      fields: {
+        createCardToken: jest.fn(),
+        updateCardToken: jest.fn(),
+        create: jest.fn(),
+      },
     };
 
     const WalletBrickConfig = {
       settings: {},
       name: 'brickTest',
-      divId: 'brickTest_container',
+      containerIdcontainerId: 'brickTest_container',
       controller: 'brickTestController',
     };
 
