@@ -1,15 +1,16 @@
 import React from 'react';
 
+import { PUBLIC_KEY } from '../../constants';
 import initMercadoPago from '../../../src/mercadoPago/initMercadoPago';
 import SecurityCode from '../../../src/secureFields/securityCode';
 
-initMercadoPago('TEST-f4563544-ce69-40c3-b88e-6e7d1bd93a83', { locale: 'pt-BR' });
+initMercadoPago(PUBLIC_KEY, { locale: 'pt-BR' });
 
 const App = () => {
   return (
     <SecurityCode
-      placeholder='Security Code'
-      style={{ fontFamily: "sans-serif" }}
+      placeholder="Security Code"
+      style={{ fontFamily: 'sans-serif' }}
       onReady={(event) => console.log('Security code ready!!', event)}
       onError={(error) => console.log(error)}
     />

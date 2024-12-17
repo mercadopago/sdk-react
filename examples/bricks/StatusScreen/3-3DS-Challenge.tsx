@@ -1,10 +1,11 @@
 import React from 'react';
 import StatusScreen from '../../../src/bricks/statusScreen';
+import { PUBLIC_KEY } from '../../constants';
 
 import initMercadoPago from '../../../src/mercadoPago/initMercadoPago';
 import { IStatusScreenBrickInitialization } from '../../../src/bricks/statusScreen/types';
 
-initMercadoPago('TEST-2b00e5a0-b421-4588-b9cb-846a553d760e', { locale: 'pt-BR' });
+initMercadoPago(PUBLIC_KEY, { locale: 'pt-BR' });
 
 const App = () => {
   const initialization: IStatusScreenBrickInitialization = {

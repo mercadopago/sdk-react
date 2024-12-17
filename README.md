@@ -329,21 +329,27 @@ const cardToken = await createCardToken({
 
 ## Run SDK project
 
-To use Mercado Pago React SDK, follow the steps:
+> Replace the `<YOUR_PUBLIC_KEY>` on `examples/contants` with your public key.
 
-Install project:
+To run Mercado Pago React SDK, follow the steps:
 
-```
-npm i
-```
-
-Execute project build:
+Install project dependencies:
 
 ```
-npm build
+npm install
 ```
 
-Execute `npm run start` to initialize storybook.
+Execute project build (_optional_):
+
+```
+npm run build
+```
+
+Execute storybook:
+
+```
+npm run start
+```
 
 <br/>
 

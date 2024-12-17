@@ -2,8 +2,9 @@ import React from 'react';
 import Card, { useCardPaymentBrick } from '../../../src/bricks/cardPayment';
 
 import initMercadoPago from '../../../src/mercadoPago/initMercadoPago';
+import { PUBLIC_KEY } from '../../constants';
 
-initMercadoPago('TEST-f4563544-ce69-40c3-b88e-6e7d1bd93a83', { locale: 'pt-BR' });
+initMercadoPago(PUBLIC_KEY, { locale: 'pt-BR' });
 
 const App = () => {
   const { update } = useCardPaymentBrick();

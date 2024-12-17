@@ -32,7 +32,6 @@ const Brand = ({
 }: TBrand) => {
   useEffect(() => {
     // Brand uses a debounce to prevent unnecessary reRenders.
-    let timer: ReturnType<typeof setTimeout>;
     const BrandBrickConfig = {
       settings: {
         customization,
@@ -42,11 +41,11 @@ const Brand = ({
         },
       },
       name: 'brand',
-      divId: id,
+      containerId: id,
       controller: 'brandBrickController',
     };
 
-    timer = setTimeout(() => {
+    const timer: ReturnType<typeof setTimeout> = setTimeout(() => {
       initBrick(BrandBrickConfig);
     }, DEBOUNCE_TIME_RENDER);
 

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { IBrickError } from '../types/common';
 
 const onSubmitDefault = async () => {};

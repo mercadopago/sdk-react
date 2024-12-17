@@ -12,6 +12,7 @@ describe('Test Wallet Brick Component', () => {
 
     expect(element.container.querySelector('#walletBrick_container')).toBeTruthy();
   });
+
   test('should found the id of Wallet Brick div if specified', async () => {
     MercadoPagoInstance.publicKey = 'PUBLIC_KEY';
     const element = await render(

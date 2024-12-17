@@ -7,7 +7,9 @@ import initMercadoPago from '../../../src/mercadoPago/initMercadoPago';
 initMercadoPago(PUBLIC_KEY);
 
 const ExampleSimpleWalletBrick = () => {
-  return <Wallet initialization={{ preferenceId: 'YOUR_PREFERENCE_ID' }} />;
+  return (
+    <Wallet initialization={{ preferenceId: 'YOUR_PREFERENCE_ID' }} id="custom-container-id" />
+  );
 };
 
 export default ExampleSimpleWalletBrick;

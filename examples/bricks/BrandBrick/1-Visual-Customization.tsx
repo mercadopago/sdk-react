@@ -1,9 +1,10 @@
 import React from 'react';
 import Brand from '../../../src/bricks/brand';
+import { PUBLIC_KEY } from '../../constants';
 
 import initMercadoPago from '../../../src/mercadoPago/initMercadoPago';
 
-initMercadoPago('TEST-bfe30303-c7de-4da3-b765-c4be61b4f88b', {
+initMercadoPago(PUBLIC_KEY, {
   locale: 'es-AR',
 });
 

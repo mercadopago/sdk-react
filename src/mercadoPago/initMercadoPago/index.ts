@@ -5,7 +5,7 @@ export class MercadoPagoInstance {
   static publicKey: string | null = null;
   static options: TOptions = {};
   static instanceMercadoPago?: TInstanceMercadoPago = undefined;
-  static loadedInstanceMercadoPago: boolean = false;
+  static loadedInstanceMercadoPago = false;
 
   static async getInstance() {
     if (this.publicKey) {

@@ -1,6 +1,5 @@
-import { create } from 'domain';
 import { initBrick } from '.';
-import initMercadoPago, { MercadoPagoInstance } from '../../../mercadoPago/initMercadoPago';
+import { MercadoPagoInstance } from '../../../mercadoPago/initMercadoPago';
 
 declare global {
   interface Window {
@@ -10,24 +9,36 @@ declare global {
 
 describe('Test renderBrick', () => {
   test('should return a render Brick', async () => {
-    const mock = jest.fn();
+    const createMock = jest.fn();
     MercadoPagoInstance.publicKey = 'PUBLIC_KEY';
-    MercadoPagoInstance.instanceMercadoPago = {
+    MercadoPagoInstance.getInstance = jest.fn().mockResolvedValue({
       bricks: function () {
         return {
-          create: mock,
+          create: createMock,
         };
       },
-    };
+      getIdentificationTypes: jest.fn(),
+      getPaymentMethods: jest.fn(),
+      getIssuers: jest.fn(),
+      getInstallments: jest.fn(),
+      createCardToken: jest.fn(),
+      updateCardToken: jest.fn(),
+      fields: {
+        createCardToken: jest.fn(),
+        updateCardToken: jest.fn(),
+        create: jest.fn(),
+      },
+    });
 
     const WalletBrickConfig = {
       settings: {},
       name: 'brickTest',
-      divId: 'brickTest_container',
       controller: 'brickTestController',
+      containerId: 'brickTest_container',
     };
 
     await initBrick(WalletBrickConfig);
-    expect(mock).toBeCalledTimes(1);
+    expect(createMock).toHaveBeenCalledTimes(1);
+    expect(createMock).toHaveBeenCalledWith('brickTest', 'brickTest_container', {});
   });
 });

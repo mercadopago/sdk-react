@@ -1,9 +1,10 @@
 import React from 'react';
 import StatusScreen from '../../../src/bricks/statusScreen';
+import { PUBLIC_KEY } from '../../constants';
 
 import initMercadoPago from '../../../src/mercadoPago/initMercadoPago';
 
-initMercadoPago('TEST-f4563544-ce69-40c3-b88e-6e7d1bd93a83', { locale: 'pt-BR' });
+initMercadoPago(PUBLIC_KEY, { locale: 'pt-BR' });
 
 const App = () => {
   const initialization = {

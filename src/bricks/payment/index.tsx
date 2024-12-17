@@ -53,7 +53,6 @@ const Payment = ({
 }: TPaymentType) => {
   useEffect(() => {
     // Payment uses a debounce to prevent unnecessary reRenders.
-    let timer: ReturnType<typeof setTimeout>;
     const PaymentBrickController = {
       settings: {
         initialization,
@@ -71,10 +70,10 @@ const Payment = ({
         },
       },
       name: 'payment',
-      divId: id,
+      containerId: id,
       controller: 'paymentBrickController',
     };
-    timer = setTimeout(() => {
+    const timer: ReturnType<typeof setTimeout> = setTimeout(() => {
       initBrick(PaymentBrickController);
     }, DEBOUNCE_TIME_RENDER);
 
