@@ -6,8 +6,9 @@ import {
   ExpirationDate,
   createCardToken,
 } from '../../../src';
+import { PUBLIC_KEY } from '../../constants';
 
-initMercadoPago('TEST-f4563544-ce69-40c3-b88e-6e7d1bd93a83');
+initMercadoPago(PUBLIC_KEY);
 
 const App = () => {
   const cardToken = async () => {

@@ -1,9 +1,10 @@
 import React from 'react';
 import Payment from '../../../src/bricks/payment';
+import { PUBLIC_KEY } from '../../constants';
 
 import initMercadoPago from '../../../src/mercadoPago/initMercadoPago';
 
-initMercadoPago('TEST-d198443d-7e9f-4e5f-a770-e5b23ae627cb', { locale: 'es-MX' });
+initMercadoPago(PUBLIC_KEY, { locale: 'es-MX' });
 
 // This feature is temporarily exclusive for MLM (México) 🇲🇽 and MLA (Argentina) 🇦🇷
 const App = () => {

@@ -1,6 +1,6 @@
 {
   "name": "@mercadopago/sdk-react",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "description": "Mercado Pago SDK React",
   "main": "cjs/index.js",
   "module": "esm/index.js",
