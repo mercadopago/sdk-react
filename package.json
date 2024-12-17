@@ -2,7 +2,9 @@
   "name": "@mercadopago/sdk-react",
   "version": "0.0.19",
   "description": "Mercado Pago SDK React",
-  "main": "index.js",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "types": "esm/index.d.ts",
   "keywords": [
     "React",
     "MarcadoPago",
@@ -11,7 +13,9 @@
   ],
   "scripts": {
     "start": "npm run build && storybook dev -p 6006",
-    "build": "rm -rf ./dist && tsc -b ./tsconfig.prod.json && cp package.json ./dist && cp LICENSE ./dist && cp README.md ./dist",
+    "build": "rm -rf ./dist && npm run build:esm && npm run build:cjs && cp package.json ./dist && cp LICENSE ./dist && cp README.md ./dist",
+    "build:esm": "tsc -b ./tsconfig.prod.json",
+    "build:cjs": "tsc -b ./tsconfig.prod-cjs.json",
     "test": "jest --c ./jest.config.ts"
   },
   "repository": {
