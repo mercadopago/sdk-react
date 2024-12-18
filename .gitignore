@@ -4,3 +4,4 @@ build
 coverage
 .DS_Store
 ./package-lock.json
+/.storybook/stories
