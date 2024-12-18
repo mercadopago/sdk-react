@@ -44,14 +44,11 @@ const processDirectory = (currentDir) => {
     if (entry.isDirectory()) {
       processDirectory(fullPath);
     } else if (entry.isFile() && fullPath.includes('/bricks/')) {
-      console.log('Processing', entry, entry.name);
       const relativePath = path.relative(examplesDir, fullPath).replace(/\\/g, '/');
       const storyName = path.basename(entry.name, '.tsx').replace(/^\d+-|-/g, '');
       const storyFileName = `${relativePath.split('/')[1]}-${storyName}.stories.tsx`;
       const storyPath = path.join(storiesDir, storyFileName);
-      const storyTitle = relativePath
-        .substring(0, relativePath.lastIndexOf('/'))
-        .replace('.tsx', '');
+      const storyTitle = relativePath.substring(0, relativePath.lastIndexOf('/'));
 
       const storyContent = storyTemplate(relativePath, storyTitle, storyName);
       fs.writeFileSync(storyPath, storyContent.trim());
