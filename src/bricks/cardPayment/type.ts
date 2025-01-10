@@ -176,21 +176,27 @@ export interface IAdditionalData {
   /**
    * Bin of the card entered by the user.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/advanced-features/additional-data Card Payment Brick # Advanced features # Additional data customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/card-payment.md#brick-controllergetadditionaldata AdditionalData} documentation.
    */
   bin: string;
   /**
    *  Required. Last four digits of card entered by user.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#callbacks Callbacks} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/card-payment.md#brick-controllergetadditionaldata AdditionalData} documentation.
    */
   lastFourDigits: string;
   /**
    *  Optional. Cardholder name of card entered by user.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#callbacks Callbacks} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/card-payment.md#brick-controllergetadditionaldata AdditionalData} documentation.
    */
   cardholderName?: string;
+  /**
+   *  Optional. Payment Type Id associated with the payment method.
+   *
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/card-payment.md#brick-controllergetadditionaldata AdditionalData} documentation.
+   */
+  paymentTypeId?: string;
 }
 
 /**
