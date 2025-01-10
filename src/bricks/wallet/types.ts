@@ -4,43 +4,43 @@ export interface IWalletBrickVisual {
   /**
    * Optional. Customizing the button background. Default: 'default'. Options: default, black, blue, white.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-appearance Wallet Brick# Additional Settings # Change appearance} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-appearance Wallet Brick# Visual Customizations # Change appearance} documentation.
    */
   buttonBackground?: 'default' | 'black' | 'blue' | 'white';
   /**
    * Optional. Customizing the button height. Default: '48px'. Minimum: 48px. Maximum: free choice.
    *
-   *  @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-appearance Wallet Brick# Additional Settings # Change appearance} documentation.
+   *  @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-appearance Wallet Brick# Visual Customizations # Change appearance} documentation.
    */
   buttonHeight?: string;
   /**
    * Optional. Customizing the button border-radius. Default: 6px.
    *
-   *  @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-appearance Wallet Brick# Additional Settings # Change appearance} documentation.
+   *  @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-appearance Wallet Brick# Visual Customizations # Change appearance} documentation.
    */
   borderRadius?: string;
   /**
    * Optional. Customizing the button vertical padding. Default: grey. Options grey or white.
    *
-   *  @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-appearance Wallet Brick# Additional Settings # Change appearance} documentation.
+   *  @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-appearance Wallet Brick# Visual Customizations # Change appearance} documentation.
    */
   valuePropColor?: 'grey' | 'white';
   /**
    * Optional. Customizing the button vertical padding. Default: '16px'. Minimum: 16px. Maximum: free choice.
    *
-   *  @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-appearance Wallet Brick# Additional Settings # Change appearance} documentation.
+   *  @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-appearance Wallet Brick# Visual Customizations # Change appearance} documentation.
    */
   verticalPadding?: string;
   /**
    * Optional. Customizing the butto horizontal padding. Default: '0px'. Minimum: 0px. Maximum: free choice.
    *
-   *  @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-appearance Wallet Brick# Additional Settings # Change appearance} documentation.
+   *  @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-appearance Wallet Brick# Visual Customizations # Change appearance} documentation.
    */
   horizontalPadding?: string;
   /**
    * Optional. Property that allows hiding the value proposition text (below the button). Default: false.
    *
-   *  @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-appearance Wallet Brick# Additional Settings # Change appearance} documentation.
+   *  @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-appearance Wallet Brick# Visual Customizations # Change appearance} documentation.
    */
   hideValueProp?: boolean;
 }
@@ -49,7 +49,7 @@ export interface IWalletBrickTexts {
   /**
    * Optional. Call to action verb. Default: 'pay'
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-texts Wallet Brick# Additional Settings # Change Texts} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-texts Wallet Brick# Visual Customizations # Change Texts} documentation.
    */
   action?: 'pay' | 'buy';
   /**
@@ -64,7 +64,7 @@ export interface IWalletBrickTexts {
    * Note: 'convenience' is DEPRECATED. Use 'convenience_all' instead.
    * Note: when using 'payment_methods_logos', logos will be rendered instead of text.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-texts Wallet Brick# Additional Settings # Change Texts} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-texts Wallet Brick# Visual Customizations # Change Texts} documentation.
    */
   valueProp?:
     | 'practicality'
@@ -82,14 +82,14 @@ export interface IWalletBrickCustomization {
    * Optional. Wallet Brick offers two reading levels: the call to action (button) and the value proposition.
    * In both cases, the text can be customized according to the options provided by Mercado Pago.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-texts Wallet Brick# Additional Settings # Change Texts} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-texts Wallet Brick# Visual Customizations # Change Texts} documentation.
    */
   texts?: IWalletBrickTexts;
   /**
    * Optional. Wallet Brick offers some levels of visual customization:
    * {buttonBackground, buttonHeight, borderRadius, valuePropColor, verticalPadding, horizontalPadding}
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-appearance Wallet Brick# Additional Settings # Change appearance} documentation.
+   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-appearance Wallet Brick# Visual Customizations # Change appearance} documentation.
    */
   visual?: IWalletBrickVisual;
   /**
@@ -121,7 +121,7 @@ export interface PreferenceOnSubmit extends IBrickSettings {
     /**
      * Optional. The opening scheme allows you to define how the checkout will open for the user. For example blank. Default 'self'
      *
-     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/advanced-features/opening-mode#editor_2 Redirect Mode} documentation.
+     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/advanced-features/opening-mode Redirect Mode} documentation.
      * */
     redirectMode?: 'blank' | 'self';
   };
@@ -158,7 +158,7 @@ export interface PreferenceOnInitialization extends IBrickSettings {
     /**
      * Optional. The opening scheme allows you to define how the checkout will open for the user. For example blank. Default 'self'
      *
-     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/advanced-features/opening-mode#editor_2 Redirect Mode} documentation.
+     * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/advanced-features/opening-mode Redirect Mode} documentation.
      * */
     redirectMode?: 'blank' | 'self';
     /**
