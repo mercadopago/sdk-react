@@ -2,13 +2,13 @@ export interface IPayerIdentification {
   /**
    * Identification type which possible values vary based on siteId.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Payer data} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Payer data} documentation.
    */
   type: string;
   /**
    * Identification number which if filled correctly the Brick will prefill the identification number input.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Payer data} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Payer data} documentation.
    */
   number: string;
 }
@@ -17,19 +17,19 @@ export interface IBrickError {
   /**
    * Error type.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Payer data} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Payer data} documentation.
    */
   type: 'non_critical' | 'critical';
   /**
    * Error cause.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Payer data} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Payer data} documentation.
    */
   cause: string;
   /**
    * Error message.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Payer data} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Payer data} documentation.
    */
   message: string;
 }
@@ -88,7 +88,7 @@ export interface IBrickStyle<CustomVariablesType> {
   /**
    * Defines custom variables to be applied.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Customization} documentation.
    */
   customVariables?: CustomVariablesType;
 }
@@ -97,19 +97,19 @@ export interface IBrickVisual<TextsType, StyleType> {
   /**
    * Defines custom font URL (applies to the Secure Fields.).
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Customization} documentation.
    */
   font?: string;
   /**
    * Defines custom font URL.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Customization} documentation.
    */
   texts?: TextsType;
   /**
    * Defines custom theme and CSS variables.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Customization} documentation.
    */
   style?: StyleType;
 }
@@ -117,7 +117,7 @@ export interface IBrickVisual<TextsType, StyleType> {
 /**
  * Bricks custom variables.
  *
- * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Customization} documentation.
+ * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Customization} documentation.
  */
 export interface IBrickCustomVariables {
   textPrimaryColor?: string;
