@@ -1,6 +1,6 @@
 import { IBrickSettings } from '../util/types/common';
 
-export interface IWalletBrickVisual {
+export interface IWalletBrickBaseCustomStyle {
   /**
    * Optional. Customizing the button background. Default: 'default'. Options: default, black, blue, white.
    *
@@ -19,12 +19,6 @@ export interface IWalletBrickVisual {
    *  @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-appearance Wallet Brick# Visual Customizations # Change appearance} documentation.
    */
   borderRadius?: string;
-  /**
-   * Optional. Customizing the button vertical padding. Default: grey. Options grey or white.
-   *
-   *  @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-appearance Wallet Brick# Visual Customizations # Change appearance} documentation.
-   */
-  valuePropColor?: 'grey' | 'white';
   /**
    * Optional. Customizing the button vertical padding. Default: '16px'. Minimum: 16px. Maximum: free choice.
    *
@@ -45,19 +39,30 @@ export interface IWalletBrickVisual {
   hideValueProp?: boolean;
 }
 
-export interface IWalletBrickTexts {
+export interface IWalletBrickDarkCustomStyle extends IWalletBrickBaseCustomStyle {
   /**
-   * Optional. Call to action verb. Default: 'pay'
+   * Optional. Customizing the button vertical padding. Default: black. Only black currently available.
    *
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-texts Wallet Brick# Visual Customizations # Change Texts} documentation.
    */
-  action?: 'pay' | 'buy';
+  valuePropColor?: 'black';
+}
+
+export interface IWalletBrickDefaultCustomStyle extends IWalletBrickBaseCustomStyle {
   /**
-   * Optional. Complement to be concatenated with the call to action verb. Default: 'brand'
+   * Optional. Customizing the button vertical padding. Default: bluw. Options: blue, white.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-texts Wallet Brick# Additional Settings # Change Texts} documentation.
+   *  @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-appearance Wallet Brick# Additional Settings # Change appearance} documentation.
    */
-  actionComplement?: 'brand' | 'amount';
+  valuePropColor?: 'blue' | 'white';
+}
+
+interface IWalletBrickBaseCustomization {
+  /**
+   * Optional. Defines the visual theme of the Button.
+   *
+   */
+  theme?: 'default' | 'dark';
   /**
    * Optional. Text that will be rendered below the Wallet button
    *
@@ -75,28 +80,37 @@ export interface IWalletBrickTexts {
     | 'convenience_credits'
     | 'smart_option'
     | 'payment_methods_logos';
-}
-
-export interface IWalletBrickCustomization {
-  /**
-   * Optional. Wallet Brick offers two reading levels: the call to action (button) and the value proposition.
-   * In both cases, the text can be customized according to the options provided by Mercado Pago.
-   *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-texts Wallet Brick# Visual Customizations # Change Texts} documentation.
-   */
-  texts?: IWalletBrickTexts;
-  /**
-   * Optional. Wallet Brick offers some levels of visual customization:
-   * {buttonBackground, buttonHeight, borderRadius, valuePropColor, verticalPadding, horizontalPadding}
-   *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-appearance Wallet Brick# Visual Customizations # Change appearance} documentation.
-   */
-  visual?: IWalletBrickVisual;
   /**
    * Optional. Wallet Brick offers some customization over the Checkout Experience.
    *
    */
   checkout?: IWalletBrickCheckoutCustomization;
+}
+
+export interface IWalletBrickDarkCustomization extends IWalletBrickBaseCustomization {
+  /**
+   * Optional. Defines the visual theme of the Button.
+   *
+   */
+  theme: 'dark';
+  /**
+   * Optional. Wallet Bricks allow customization of some additional styles. The available options are dependent on the chosen theme.
+   *
+   */
+  customStyle?: IWalletBrickDarkCustomStyle;
+}
+
+export interface IWalletBrickDefaultCustomization extends IWalletBrickBaseCustomization {
+  /**
+   * Optional. Defines the visual theme of the Button.
+   *
+   */
+  theme?: 'default';
+  /**
+   * Optional. Wallet Bricks allow customization of some additional styles. The available options are dependent on the chosen theme.
+   *
+   */
+  customStyle?: IWalletBrickDefaultCustomStyle;
 }
 
 interface IWalletBrickCheckoutCustomization {
@@ -128,7 +142,7 @@ export interface PreferenceOnSubmit extends IBrickSettings {
   /**
    * Optional. An object containing customization options.
    */
-  customization?: IWalletBrickCustomization;
+  customization?: IWalletBrickDarkCustomization | IWalletBrickDefaultCustomization;
   onSubmit: () => Promise<unknown>;
   /**
    * Optional. Language selection for the Brick, options are:
@@ -170,7 +184,7 @@ export interface PreferenceOnInitialization extends IBrickSettings {
   /**
    * Optional. An object containing customization options.
    */
-  customization?: IWalletBrickCustomization;
+  customization?: IWalletBrickDarkCustomization | IWalletBrickDefaultCustomization;
   onSubmit?: never;
   /**
    * Optional. Language selection for the Brick, options are:
