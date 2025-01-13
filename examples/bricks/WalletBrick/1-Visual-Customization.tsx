@@ -10,7 +10,10 @@ const ExampleVisualCustomizationWalletBrick = () => {
   return (
     <Wallet
       initialization={{ preferenceId: 'YOUR_PREFERENCE_ID' }}
-      customization={{ visual: { buttonBackground: 'black', borderRadius: '20px' } }}
+      customization={{
+        theme: 'dark',
+        customStyle: { borderRadius: '20px' },
+      }}
     />
   );
 };

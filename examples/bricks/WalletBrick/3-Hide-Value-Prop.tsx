@@ -10,7 +10,7 @@ const ExampleVisualCustomizationWalletBrick = () => {
   return (
     <Wallet
       initialization={{ preferenceId: 'YOUR_PREFERENCE_ID' }}
-      customization={{ visual: { hideValueProp: true } }}
+      customization={{ customStyle: { hideValueProp: true } }}
     />
   );
 };
