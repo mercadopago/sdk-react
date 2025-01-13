@@ -41,7 +41,7 @@ Mercado Pago's Official React SDK.
 
 ## About
 
-This is a wrapper that allows integrate [Checkout Bricks](https://www.mercadopago.com/developers/en/docs/checkout-bricks/landing), [Secure Fields](https://github.com/mercadopago/sdk-js/blob/main/API/fields.md) and [Core Methods](https://github.com/mercadopago/sdk-js/blob/main/API/core-methods.md) easily inside React projects.
+This is a wrapper that allows integrate [Checkout Bricks](https://www.mercadopago.com/developers/en/docs/checkout-bricks/landing), [Secure Fields](https://github.com/mercadopago/sdk-js/blob/main/docs/fields.md) and [Core Methods](https://github.com/mercadopago/sdk-js/blob/main/docs/core-methods.md) easily inside React projects.
 
 <br />
 
@@ -262,7 +262,7 @@ const cardToken = await createCardToken({
 
 ## Core Methods
 
-For a full explanation of each function parameters and return, check the [SDK-JS documentation of the Core Methods](https://github.com/mercadopago/sdk-js/blob/main/API/core-methods.md)
+For a full explanation of each function parameters and return, check the [SDK-JS documentation of the Core Methods](https://github.com/mercadopago/sdk-js/blob/main/docs/core-methods.md)
 
 > **Note**
 > It's mandatory to have previously done the [Initialization step](#initialization)

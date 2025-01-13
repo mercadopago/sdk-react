@@ -56,25 +56,25 @@ export type TPaymentType = {
     /**
      * Optional. Required only for review step. Defines the ordered items.
      *
-     * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#initialization Initialization} documentation.
+     * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#initialization Initialization} documentation.
      */
     items?: IReviewConfirmItems;
     /**
      * Optional. Defines shipping data for review step.
      *
-     * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#initialization Initialization} documentation.
+     * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#initialization Initialization} documentation.
      */
     shipping?: IReviewConfirmShipping;
     /**
      * Optional. Defines billing data for review step.
      *
-     * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#initialization Initialization} documentation.
+     * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#initialization Initialization} documentation.
      */
     billing?: IReviewConfirmBilling;
     /**
      * Optional. Defines applied discounts data for review step.
      *
-     * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#initialization Initialization} documentation.
+     * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#initialization Initialization} documentation.
      */
     discounts?: IReviewConfirmDiscounts;
     /**
@@ -106,13 +106,13 @@ export interface IReviewConfirmItems {
   /**
    * Required. Sum of the values of all ordered items.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#initialization Initialization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#initialization Initialization} documentation.
    */
   totalItemsAmount: number;
   /**
    * Required. Array with the ordered items.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#initialization Initialization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#initialization Initialization} documentation.
    */
   itemsList: IListItems[];
 }
@@ -121,31 +121,31 @@ export interface IListItems {
   /**
    * Required. Quantity of a given item.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#initialization Initialization Items} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#initialization Initialization Items} documentation.
    */
   units: number;
   /**
    * Required. Value per a given item.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#initialization Initialization Items} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#initialization Initialization Items} documentation.
    */
   value: number;
   /**
    * Required. Item name.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#initialization Initialization Items} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#initialization Initialization Items} documentation.
    */
   name: string;
   /**
    * Optional. Item description.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#initialization Initialization Items} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#initialization Initialization Items} documentation.
    */
   description?: string;
   /**
    * Optional. Item image.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#initialization Initialization Items} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#initialization Initialization Items} documentation.
    */
   imageURL?: string;
 }
@@ -154,26 +154,26 @@ export interface IReviewConfirmShipping {
   /**
    * Optional. The shipping cost.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#initialization Initialization Shipping} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#initialization Initialization Shipping} documentation.
    */
   costs?: number;
   /**
    * Required. The type of shipping.
    *
    * @example shippingMode: 'Express'
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#initialization Initialization Shipping} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#initialization Initialization Shipping} documentation.
    */
   shippingMode: string;
   /**
    * Optional. Shipping description.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#initialization Initialization Shipping} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#initialization Initialization Shipping} documentation.
    */
   description?: string;
   /**
    * Required. Shipping address.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#initialization Initialization Shipping} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#initialization Initialization Shipping} documentation.
    */
   receiverAddress: IDefaultAddress;
 }
@@ -228,38 +228,38 @@ export interface IReviewConfirmBilling {
   /**
    * Optional. The first name under which the payment should be issued.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#initialization Initialization Billing} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#initialization Initialization Billing} documentation.
    */
   firstName?: string;
   /**
    * Optional. The last name under which the payment should be issued.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#initialization Initialization Billing} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#initialization Initialization Billing} documentation.
    */
   lastName?: string;
   /**
    * Optional. The tax regime.
    *
    * @example taxRegime?: 'Simplified Trust Regime'
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#initialization Initialization Billing} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#initialization Initialization Billing} documentation.
    */
   taxRegime?: string;
   /**
    * Required. The tax identification number.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#initialization Initialization Billing} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#initialization Initialization Billing} documentation.
    */
   taxIdentificationNumber: string;
   /**
    * Optional. Defines payer identification.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#initialization Initialization Billing} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#initialization Initialization Billing} documentation.
    */
   identification?: IPayerIdentification;
   /**
    * Optional. The payer's address under which the payment should be issued.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#initialization Initialization Billing} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#initialization Initialization Billing} documentation.
    */
   billingAddress?: IDefaultAddress;
 }
@@ -268,13 +268,13 @@ export interface IReviewConfirmDiscounts {
   /**
    * Required. Sum of the values of all applied discounts	.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#initialization Initialization Discounts} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#initialization Initialization Discounts} documentation.
    */
   totalDiscountsAmount: number;
   /**
    * Required. The payer's address under which the payment should be issued.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#initialization Initialization Discounts} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#initialization Initialization Discounts} documentation.
    */
   discountsList: IDiscountsList[];
 }
@@ -283,14 +283,14 @@ export interface IDiscountsList {
    * Required. Discount name.
    *
    * @example name: 'BLACKFRIDAY10'
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#initialization Initialization Discounts} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#initialization Initialization Discounts} documentation.
    */
   name: string;
   /**
    * Required. Discount value.
    *
    * @example value: 10
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#initialization Initialization Discounts} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#initialization Initialization Discounts} documentation.
    */
   value: number;
 }
@@ -362,25 +362,25 @@ export interface TicketFormData {
   /**
    * Required. Ticket transaction amount.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Data customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Data customization} documentation.
    */
   transaction_amount: number;
   /**
    * Required. Ticket payment method id.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Data customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Data customization} documentation.
    */
   payment_method_id: string;
   /**
    * Required. Ticket payer data.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Data customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Data customization} documentation.
    */
   payer: IPayerAPI;
   /**
    * Optional. Transaction details is returned for PSE payment method only (Colombia)
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md} documentation.
    */
   transaction_details?: TransactionDetails;
   /**
@@ -401,13 +401,13 @@ export interface IAdditionalInfo {
   /**
    * Optional. Items information returned at onSubmit.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#callbacks Callbacks} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#callbacks Callbacks} documentation.
    */
   items?: IAdditionalInfoItems[];
   /**
    * Optional. Shipments information returned at onSubmit.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#callbacks Callbacks} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#callbacks Callbacks} documentation.
    */
   shipments?: IAdditionalInfoShipments;
 }
@@ -416,31 +416,31 @@ export interface IAdditionalInfoItems {
   /**
    * Required. Item price returned at onSubmit.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#callbacks Callbacks} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#callbacks Callbacks} documentation.
    */
   unit_price: number;
   /**
    * Required. Item quantity returned at onSubmit.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#callbacks Callbacks} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#callbacks Callbacks} documentation.
    */
   quantity: number;
   /**
    * Required. Item title returned at onSubmit.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#callbacks Callbacks} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#callbacks Callbacks} documentation.
    */
   title: string;
   /**
    * Optional. Item description returned at onSubmit.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#callbacks Callbacks} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#callbacks Callbacks} documentation.
    */
   description?: string;
   /**
    * Optional. Item url image returned at onSubmit.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#callbacks Callbacks} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#callbacks Callbacks} documentation.
    */
   picture_url?: string;
 }
@@ -449,7 +449,7 @@ export interface IAdditionalInfoShipments {
   /**
    * Required. Receiver address returned at onSubmit.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#callbacks Callbacks} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#callbacks Callbacks} documentation.
    */
   receiver_address: {
     /**
@@ -489,25 +489,25 @@ export interface IPaymentBrickCustomization {
   /**
    * Optional. Control visual aspects of brick.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Data customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Data customization} documentation.
    */
   visual?: TPaymentBrickVisual;
   /**
    * Required. Object that allow payment methods configuration.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Data customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Data customization} documentation.
    */
   paymentMethods: TPaymentBrickPaymentMethods;
   /**
    * Optional. Enable review and confirm feature.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#full-example-with-review-and-confirmation-steps} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#full-example-with-review-and-confirmation-steps} documentation.
    */
   enableReviewStep?: boolean;
   /**
    * Optional. Object that organizes review and confirm visual elements.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/paymentReview.md#full-example-with-review-and-confirmation-steps} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/paymentReview.md#full-example-with-review-and-confirmation-steps} documentation.
    */
   reviewCardsOrder?: string[];
 }
@@ -517,7 +517,7 @@ type TPaymentBrickVisual = IPaymentBrickBaseVisual & IPaymentBrickVisual;
 /**
  * Control the visual aspects of the brick.
  *
- * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Data customization} documentation.
+ * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Data customization} documentation.
  */
 export interface IPaymentBrickBaseVisual
   extends IBrickVisual<IPaymentBrickCustomizableTexts, IPaymentBrickStyle>,
@@ -532,55 +532,55 @@ export interface IPaymentBrickVisual {
   /**
    * Optional. Maintaining saved cards order established in the property initialization.payer.cardsIds.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Data customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Data customization} documentation.
    */
   preserveSavedCardsOrder?: boolean;
   /**
    * Optional. Define a single payment method as default, so the form will load with this option already selected.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Data customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Data customization} documentation.
    */
   defaultPaymentOption?: {
     /**
      * Optional. Form loads with credit card selected
      *
-     * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Data customization} documentation.
+     * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Data customization} documentation.
      */
     creditCardForm?: boolean;
     /**
      * Optional. Form loads with debit card selected
      *
-     * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Data customization} documentation.
+     * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Data customization} documentation.
      */
     debitCardForm?: boolean;
     /**
      * Optional. Form loads with saved card
      *
-     * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Data customization} documentation.
+     * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Data customization} documentation.
      */
     savedCardForm?: string;
     /**
      * Optional. Form loads with ticket selected
      *
-     * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Data customization} documentation.
+     * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Data customization} documentation.
      */
     ticketForm?: boolean;
     /**
      * Optional. Form loads bank transfer selected
      *
-     * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Data customization} documentation.
+     * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Data customization} documentation.
      */
     bankTransferForm?: boolean;
     /**
      * Optional. Form loads with Mercado Pago Wallet selected.
      *
-     * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Data customization} documentation.
+     * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Data customization} documentation.
      */
     walletForm?: boolean;
     /**
      * Optional. Form loads with Mercado Pago Credits selected.
      *
-     * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Data customization} documentation.
+     * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Data customization} documentation.
      */
     creditForm?: boolean;
   };
@@ -607,31 +607,31 @@ export interface IPaymentBrickPaymentMethods {
   /**
    * Optional. Customizable maximum number of installments to be offered to the user.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Data customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Data customization} documentation.
    */
   maxInstallments?: number;
   /**
    * Optional. Customizable minimum number of installments to be offered to the user.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Data customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Data customization} documentation.
    */
   minInstallments?: number;
   /**
    * Optional. Define which payment methods will be accepted or not.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Data customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Data customization} documentation.
    */
   types?: {
     /**
      * Optional. Define which payment methods will not be accepted.
      *
-     * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Data customization} documentation.
+     * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Data customization} documentation.
      */
     excluded?: TPaymentBrickPaymentType[];
     /**
      * Optional. Define which payment methods will be accepted.
      *
-     * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Data customization} documentation.
+     * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Data customization} documentation.
      */
     included?: TPaymentBrickPaymentType[];
   };
@@ -641,13 +641,13 @@ export interface ILabelPlaceholder {
   /**
    * Optional. Define custom label text.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Text customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Text customization} documentation.
    */
   label?: string;
   /**
    * Optional. Define custom placeholder text.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Text customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Text customization} documentation.
    */
   placeholder?: string;
 }
@@ -656,55 +656,55 @@ export interface IPaymentBrickCustomizableTexts {
   /**
    * Optional. Custom payer label or placeholder first name.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md  Text customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md  Text customization} documentation.
    */
   payerFirstName?: ILabelPlaceholder;
   /**
    * Optional. Custom payer label or placeholder last name.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Text customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Text customization} documentation.
    */
   payerLastName?: ILabelPlaceholder;
   /**
    * Optional. Custom payer label or placeholder zip code.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Text customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Text customization} documentation.
    */
   zipCode?: ILabelPlaceholder;
   /**
    * Optional. Custom payer label or placeholder state.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Text customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Text customization} documentation.
    */
   addressState?: ILabelPlaceholder;
   /**
    * Optional. Custom payer label or placeholder address city.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Text customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Text customization} documentation.
    */
   addressCity?: ILabelPlaceholder;
   /**
    * Optional. Custom payer label or placeholder address neighborhood.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Text customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Text customization} documentation.
    */
   addressNeighborhood?: ILabelPlaceholder;
   /**
    * Optional. Custom payer label or placeholder address street.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Text customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Text customization} documentation.
    */
   addressStreet?: ILabelPlaceholder;
   /**
    * Optional. Custom payer label or placeholder address number.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Text customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Text customization} documentation.
    */
   addressNumber?: { label?: string };
   /**
    * Optional. Custom payer label or placeholder address complement.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Text customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Text customization} documentation.
    */
   addressComplement?: { label?: string };
 }
@@ -715,13 +715,13 @@ export interface IPaymentBrickCustomVariables extends IBrickCustomVariables {
   /**
    * Optional. Custom variable
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Text customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Text customization} documentation.
    */
   secondaryColor?: string;
   /**
    * Optional. Custom variable
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md Text customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md Text customization} documentation.
    */
   secondaryColorListItem?: string;
 }
@@ -875,13 +875,13 @@ export interface IAdditionalData {
   /**
    *  Required. Bin of card entered by user.
    *
-   * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/advanced-features/additional-data Data customization} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md#brick-controllergetadditionaldata AdditionalData } documentation.
    */
   bin: string;
   /**
    *  Required. Last four digits of card entered by user.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md#callbacks Callbacks} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md#brick-controllergetadditionaldata AdditionalData } documentation.
    */
   lastFourDigits: string;
 }
@@ -890,7 +890,13 @@ export interface IAdditionalCardFormData extends IAdditionalData {
   /**
    *  Optional. Cardholder name of card entered by user.
    *
-   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/API/bricks/payment.md#callbacks Callbacks} documentation.
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md#brick-controllergetadditionaldata AdditionalData } documentation.
    */
   cardholderName?: string;
+  /**
+   *  Optional. Payment Type Id associated with the payment method.
+   *
+   * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment.md#brick-controllergetadditionaldata AdditionalData } documentation.
+   */
+  paymentTypeId?: string;
 }
