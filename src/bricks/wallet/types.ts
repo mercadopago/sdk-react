@@ -41,7 +41,7 @@ export interface IWalletBrickBaseCustomStyle {
 
 export interface IWalletBrickDarkCustomStyle extends IWalletBrickBaseCustomStyle {
   /**
-   * Optional. Customizing the button vertical padding. Default: black. Only black currently available.
+   * Optional. Customizing the value prop text color. Default: black. Only black currently available.
    *
    * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-texts Wallet Brick# Visual Customizations # Change Texts} documentation.
    */
@@ -50,7 +50,7 @@ export interface IWalletBrickDarkCustomStyle extends IWalletBrickBaseCustomStyle
 
 export interface IWalletBrickDefaultCustomStyle extends IWalletBrickBaseCustomStyle {
   /**
-   * Optional. Customizing the button vertical padding. Default: bluw. Options: blue, white.
+   * Optional. Customizing the value prop text color. Default: blue. Options: blue, white.
    *
    *  @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/wallet-brick/visual-customizations/change-appearance Wallet Brick# Additional Settings # Change appearance} documentation.
    */
