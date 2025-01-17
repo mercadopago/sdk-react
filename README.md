@@ -47,7 +47,7 @@ This is a wrapper that allows integrate [Checkout Bricks](https://www.mercadopag
 
 ## Prerequisites
 
-Before starts verify if you have installed Node version `14.18.0` or superior.
+Before starts verify if you have installed Node version `v16.20.2` or superior.
 
 <br/>
 
@@ -315,7 +315,7 @@ const installments = await getInstallments({
 Return a token card
 
 ```javascript
-import { createCardToken } from '@mercadopago/sdk-react/coreMethods';
+import { createCardToken } from '@mercadopago/sdk-react/esm/coreMethods';
 const cardToken = await createCardToken({
   cardNumber: '<CREDIT_CARD_NUMBER>',
   cardholderName: '<CARDHOLDER_NAME>',
@@ -326,6 +326,8 @@ const cardToken = await createCardToken({
   identificationNumber: '<BUYER_IDENTIFICATION_NUMBER>',
 });
 ```
+
+> When importing directly from `/coreMethods`, you have to explicitly choose between the `/esm` or `/cjs` export formats. For example, use `import { createCardToken } from '@mercadopago/sdk-react/esm/coreMethods';` for ECMAScript modules, or `const { createCardToken } = require('@mercadopago/sdk-react/cjs/coreMethods');` for CommonJS modules. For root imports, this selection is not necessary.
 
 ## Run SDK project
 
