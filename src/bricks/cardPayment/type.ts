@@ -204,7 +204,7 @@ export interface IAdditionalData {
  *
  * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/card-payment-brick/advanced-features/configure-payment-methods Card Payment Brick # Advanced features # Configure accepted payment methods} documentation.
  */
-type TCardPaymentBrickPaymentType = 'credit_card' | 'debit_card';
+type TCardPaymentBrickPaymentType = 'credit_card' | 'debit_card' | 'prepaid_card';
 
 export interface ICardPaymentBrickVisual {
   /**

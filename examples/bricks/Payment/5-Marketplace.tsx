@@ -21,6 +21,7 @@ const ExamplePaymentBrickMarketplace = () => {
           bankTransfer: 'all',
           creditCard: 'all',
           debitCard: 'all',
+          prepaidCard: 'all',
           mercadoPago: 'all',
         },
       }}

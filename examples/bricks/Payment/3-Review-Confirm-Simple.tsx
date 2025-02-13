@@ -34,7 +34,9 @@ const App = () => {
           ticket: 'all',
           bankTransfer: 'all',
           debitCard: 'all',
+          creditCard: 'all',
           mercadoPago: 'all',
+          prepaidCard: 'all',
         },
       }}
       onSubmit={onSubmit}
