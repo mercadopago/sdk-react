@@ -599,6 +599,7 @@ type TPaymentBrickPaymentMethods = IPaymentBrickPaymentMethods &
     | { bankTransfer: AllOrArray }
     | { atm: AllOrArray }
     | { mercadoPago: AllOrArray }
+    | { prepaidCard: AllOrArray }
   );
 
 type AllOrArray = 'all' | string[];
@@ -789,6 +790,7 @@ type TPaymentBrickPaymentType =
   | 'ticket'
   | 'bank_transfer'
   | 'creditCard'
+  | 'prepaidCard'
   | 'debitCard'
   | 'wallet_purchase'
   | 'onboarding_credits';

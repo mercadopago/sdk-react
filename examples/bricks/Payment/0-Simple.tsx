@@ -18,6 +18,7 @@ const App = () => {
       ticket: 'all',
       bankTransfer: ['pix'],
       creditCard: 'all',
+      prepaidCard: 'all',
       debitCard: 'all',
       mercadoPago: 'all',
     },

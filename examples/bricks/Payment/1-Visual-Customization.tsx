@@ -21,6 +21,7 @@ const App = () => {
       ticket: ['bolbradesco'],
       bankTransfer: ['pix'],
       creditCard: 'all',
+      prepaidCard: 'all',
       debitCard: 'all',
       maxInstallments: 2,
       mercadoPago: ['onboarding_credits'],
