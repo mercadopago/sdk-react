@@ -30,7 +30,6 @@ const Wallet = ({
   onSubmit = onSubmitDefault as () => Promise<unknown>,
   customization,
   initialization,
-  brand,
   locale,
   id = 'walletBrick_container',
 }: TWallet) => {
@@ -39,7 +38,6 @@ const Wallet = ({
 
     const WalletBrickConfig = {
       settings: {
-        brand,
         initialization,
         customization,
         locale,
