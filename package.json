@@ -61,7 +61,7 @@
     "prettier": "2.8.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0 ",
-    "storybook": "^8.4.7",
+    "storybook": "^8.6.8",
     "ts-loader": "^9.4.2",
     "ts-node": "^10.9.1",
     "tslib": "^2.4.1",
