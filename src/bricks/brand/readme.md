@@ -1,4 +1,5 @@
 # Brand Brick
+
 This Brick is temporarily exclusive for MLA (Argentina) 🇦🇷
 
 ## Content
@@ -27,7 +28,7 @@ This is like a wrapper for the Brick. It breaks the main characteristics - custo
 ## How to use
 
 ```ts
-import Brand, { initMercadoPago } from '@mercadopago/sdk-react';
+import { Brand, initMercadoPago } from '@mercadopago/sdk-react';
 
 initMercadoPago('YOUR_PUBLIC_KEY');
 

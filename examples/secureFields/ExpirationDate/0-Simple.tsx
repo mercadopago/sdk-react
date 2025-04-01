@@ -1,8 +1,6 @@
 import React from 'react';
-
 import { PUBLIC_KEY } from '../../constants';
-import initMercadoPago from '../../../src/mercadoPago/initMercadoPago';
-import ExpirationDate from '../../../src/secureFields/expirationDate';
+import { initMercadoPago, ExpirationDate } from '../../../src/index';
 
 initMercadoPago(PUBLIC_KEY, { locale: 'pt-BR' });
 

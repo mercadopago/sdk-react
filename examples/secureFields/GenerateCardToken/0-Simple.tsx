@@ -5,7 +5,7 @@ import {
   SecurityCode,
   ExpirationDate,
   createCardToken,
-} from '../../../src';
+} from '../../../src/index';
 import { PUBLIC_KEY } from '../../constants';
 
 initMercadoPago(PUBLIC_KEY);

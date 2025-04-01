@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { MercadoPagoInstance } from '../../mercadoPago/initMercadoPago';
-import Brand from './index';
+import { Brand } from '../../index';
 
 describe('Test Brand Brick Component', () => {
   test('should found the id of Brand Brick div', async () => {

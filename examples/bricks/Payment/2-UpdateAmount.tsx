@@ -1,7 +1,5 @@
 import React from 'react';
-import Payment, { usePaymentBrick } from '../../../src/bricks/payment';
-
-import initMercadoPago from '../../../src/mercadoPago/initMercadoPago';
+import { initMercadoPago, Payment, usePaymentBrick } from '../../../src/index';
 import { PUBLIC_KEY } from '../../constants';
 
 initMercadoPago(PUBLIC_KEY, { locale: 'pt-BR' });
@@ -35,7 +33,7 @@ const App = () => {
       <Payment
         initialization={initialization}
         customization={customization}
-        onSubmit={async (param) => {
+        onSubmit={async (param: unknown) => {
           console.log(param);
         }}
       />

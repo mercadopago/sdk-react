@@ -1,8 +1,6 @@
 import React from 'react';
-import Brand from '../../../src/bricks/brand';
+import { initMercadoPago, Brand } from '../../../src/index';
 import { PUBLIC_KEY } from '../../constants';
-
-import initMercadoPago from '../../../src/mercadoPago/initMercadoPago';
 
 initMercadoPago(PUBLIC_KEY, {
   locale: 'es-AR',

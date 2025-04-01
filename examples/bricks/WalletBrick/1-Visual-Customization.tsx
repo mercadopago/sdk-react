@@ -1,8 +1,6 @@
 import React from 'react';
-import Wallet from '../../../src/bricks/wallet';
+import { initMercadoPago, Wallet } from '../../../src/index';
 import { PUBLIC_KEY } from '../../constants';
-
-import initMercadoPago from '../../../src/mercadoPago/initMercadoPago';
 
 initMercadoPago(PUBLIC_KEY);
 

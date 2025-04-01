@@ -1,9 +1,7 @@
 import React from 'react';
-import StatusScreen from '../../../src/bricks/statusScreen';
-import { PUBLIC_KEY } from '../../constants';
-
-import initMercadoPago from '../../../src/mercadoPago/initMercadoPago';
+import { initMercadoPago, StatusScreen } from '../../../src/index';
 import { IStatusScreenBrickInitialization } from '../../../src/bricks/statusScreen/types';
+import { PUBLIC_KEY } from '../../constants';
 
 initMercadoPago(PUBLIC_KEY, { locale: 'pt-BR' });
 

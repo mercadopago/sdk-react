@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
-
 import { PUBLIC_KEY } from '../../constants';
-import initMercadoPago from '../../../src/mercadoPago/initMercadoPago';
-import CardNumber from '../../../src/secureFields/cardNumber';
+import { initMercadoPago, CardNumber } from '../../../src/index';
 
 initMercadoPago(PUBLIC_KEY, { locale: 'pt-BR' });
 
