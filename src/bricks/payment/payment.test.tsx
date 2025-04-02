@@ -1,13 +1,13 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import BrickPayment from './index';
+import { Payment } from '../../index';
 import { MercadoPagoInstance } from '../../mercadoPago/initMercadoPago';
 
 describe('Test Payment Brick Component', () => {
   test('should found the id of Payment Brick div', async () => {
     MercadoPagoInstance.publicKey = 'PUBLIC_KEY';
     const element = await render(
-      <BrickPayment
+      <Payment
         initialization={{ amount: 100 }}
         customization={{
           paymentMethods: {
@@ -31,7 +31,7 @@ describe('Test Payment Brick Component', () => {
   test('should found the id of Payment Brick divif specified', async () => {
     MercadoPagoInstance.publicKey = 'PUBLIC_KEY';
     const element = await render(
-      <BrickPayment
+      <Payment
         initialization={{ amount: 100 }}
         customization={{
           paymentMethods: {

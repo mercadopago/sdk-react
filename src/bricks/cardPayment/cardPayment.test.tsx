@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import CardPayment from './index';
+import { CardPayment } from '../../index';
 import { MercadoPagoInstance } from '../../mercadoPago/initMercadoPago';
 
 describe('Test Card Payment Brick Component', () => {

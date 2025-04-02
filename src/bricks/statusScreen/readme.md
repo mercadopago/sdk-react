@@ -27,7 +27,7 @@ This is like a wrapper for the Brick. It breaks the main characteristics - initi
 ## How to use
 
 ```ts
-import StatusScreen, { initMercadoPago } from '@mercadopago/sdk-react';
+import { StatusScreen, initMercadoPago } from '@mercadopago/sdk-react';
 
 initMercadoPago('YOUR_PUBLIC_KEY');
 
