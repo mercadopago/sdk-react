@@ -27,9 +27,9 @@ Mercado Pago's Official React SDK.
     - [Expiration Date](#expiration-date)
     - [Expiration Month](#expiration-month)
     - [Expiration Year](#expiration-year)
-  - [Core Methods](#core-methods)
     - [createCardToken](#createcardtoken)
     - [updateCardToken](#updatecardtoken)
+  - [Core Methods](#core-methods)
     - [getIdentificationTypes](#getidentificationtypes)
     - [getPaymentMethods](#getpaymentmethods)
     - [getIssuers](#getissuers)
@@ -178,7 +178,9 @@ The Secure Fields module also provides a method to get the card token safely wit
 > **Note**
 > It's mandatory to have previously done the [Initialization step](#initialization)
 
-### Card Number
+### Components
+
+#### Card Number
 
 ```jsx
 import { CardNumber } from '@mercadopago/sdk-react';
@@ -191,7 +193,7 @@ export default App;
 
 <br/>
 
-### Security Code
+#### Security Code
 
 ```jsx
 import { SecurityCode } from '@mercadopago/sdk-react';
@@ -204,7 +206,7 @@ export default App;
 
 <br/>
 
-### Expiration Date
+#### Expiration Date
 
 > Note: Expiration Date cannot coexist with Expiration Month or Expiration Year
 
@@ -219,7 +221,7 @@ export default App;
 
 <br/>
 
-### Expiration Month
+#### Expiration Month
 
 ```jsx
 import { ExpirationMonth } from '@mercadopago/sdk-react';
@@ -232,7 +234,7 @@ export default App;
 
 <br/>
 
-### Expiration Year
+#### Expiration Year
 
 ```jsx
 import { ExpirationYear } from '@mercadopago/sdk-react';
@@ -245,14 +247,9 @@ export default App;
 
 <br/>
 
-## Core Methods
+### Methods
 
-For a full explanation of each function parameters and return, check the [SDK-JS documentation of the Core Methods](https://github.com/mercadopago/sdk-js/blob/main/docs/core-methods.md)
-
-> **Note**
-> It's mandatory to have previously done the [Initialization step](#initialization)
-
-### createCardToken
+#### createCardToken
 
 Return a token card
 
@@ -265,7 +262,7 @@ const cardToken = await createCardToken({
 });
 ```
 
-### updateCardToken
+#### updateCardToken
 
 Update a token card
 
@@ -273,6 +270,13 @@ Update a token card
 import { updateCardToken } from '@mercadopago/sdk-react';
 const cardToken = await updateCardToken('<OLD_CARD_TOKEN>');
 ```
+
+## Core Methods
+
+For a full explanation of each function parameters and return, check the [SDK-JS documentation of the Core Methods](https://github.com/mercadopago/sdk-js/blob/main/docs/core-methods.md)
+
+> **Note**
+> It's mandatory to have previously done the [Initialization step](#initialization)
 
 ### getIdentificationTypes
 
