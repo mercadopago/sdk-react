@@ -28,12 +28,12 @@ Mercado Pago's Official React SDK.
     - [Expiration Month](#expiration-month)
     - [Expiration Year](#expiration-year)
     - [createCardToken](#createcardtoken)
+    - [updateCardToken](#updatecardtoken)
   - [Core Methods](#core-methods)
     - [getIdentificationTypes](#getidentificationtypes)
     - [getPaymentMethods](#getpaymentmethods)
     - [getIssuers](#getissuers)
     - [getInstallments](#getinstallments)
-    - [createCardToken](#createcardtoken-1)
   - [Run SDK project](#run-sdk-project)
   - [License](#license)
 
@@ -178,7 +178,9 @@ The Secure Fields module also provides a method to get the card token safely wit
 > **Note**
 > It's mandatory to have previously done the [Initialization step](#initialization)
 
-### Card Number
+### Components
+
+#### Card Number
 
 ```jsx
 import { CardNumber } from '@mercadopago/sdk-react';
@@ -191,7 +193,7 @@ export default App;
 
 <br/>
 
-### Security Code
+#### Security Code
 
 ```jsx
 import { SecurityCode } from '@mercadopago/sdk-react';
@@ -204,7 +206,7 @@ export default App;
 
 <br/>
 
-### Expiration Date
+#### Expiration Date
 
 > Note: Expiration Date cannot coexist with Expiration Month or Expiration Year
 
@@ -219,7 +221,7 @@ export default App;
 
 <br/>
 
-### Expiration Month
+#### Expiration Month
 
 ```jsx
 import { ExpirationMonth } from '@mercadopago/sdk-react';
@@ -232,7 +234,7 @@ export default App;
 
 <br/>
 
-### Expiration Year
+#### Expiration Year
 
 ```jsx
 import { ExpirationYear } from '@mercadopago/sdk-react';
@@ -245,7 +247,9 @@ export default App;
 
 <br/>
 
-### createCardToken
+### Methods
+
+#### createCardToken
 
 Return a token card
 
@@ -258,7 +262,14 @@ const cardToken = await createCardToken({
 });
 ```
 
-<br/>
+#### updateCardToken
+
+Update a token card
+
+```javascript
+import { updateCardToken } from '@mercadopago/sdk-react';
+const cardToken = await updateCardToken('<OLD_CARD_TOKEN>');
+```
 
 ## Core Methods
 
@@ -310,24 +321,7 @@ const installments = await getInstallments({
 });
 ```
 
-### createCardToken
-
-Return a token card
-
-```javascript
-import { createCardToken } from '@mercadopago/sdk-react/esm/coreMethods';
-const cardToken = await createCardToken({
-  cardNumber: '<CREDIT_CARD_NUMBER>',
-  cardholderName: '<CARDHOLDER_NAME>',
-  cardExpirationMonth: '<CARD_EXPIRATION_MONTH>',
-  cardExpirationYear: '<CARD_EXPIRATION_YEAR>',
-  securityCode: '<CARD_SECURITY_CODE>',
-  identificationType: '<BUYER_IDENTIFICATION_TYPE>',
-  identificationNumber: '<BUYER_IDENTIFICATION_NUMBER>',
-});
-```
-
-> When importing directly from `/coreMethods`, you have to explicitly choose between the `/esm` or `/cjs` export formats. For example, use `import { createCardToken } from '@mercadopago/sdk-react/esm/coreMethods';` for ECMAScript modules, or `const { createCardToken } = require('@mercadopago/sdk-react/cjs/coreMethods');` for CommonJS modules. For root imports, this selection is not necessary.
+> By default, your bundler should select the appropriate module format. However, if you need to explicitly use ECMAScript Modules (ESM) or CommonJS (CJS), you can specify. For example, use `import createCardToken from '@mercadopago/sdk-react/esm/secureFields/createCardToken/index';` for ECMAScript modules, or `const createCardToken = require('@mercadopago/sdk-react/cjs/secureFields/createCardToken/index');` for CommonJS modules.
 
 ## Run SDK project
 
