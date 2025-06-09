@@ -1,5 +1,4 @@
 export interface ShowAuthenticatorOptions {
-  /** Whether to hide user confirmation dialog */
   hideUserConfirmation?: boolean;
 }
 

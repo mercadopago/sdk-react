@@ -10,6 +10,8 @@ import type {
 import type { CardToken } from '../../coreMethods/util/types';
 import type { FieldName, Field, FieldsOptions } from '../../secureFields/util/types';
 import type { IAuthenticator } from '../../authenticator/types';
+import { AccountPaymentMethodsResponse } from '../../coreMethods/getAccountPaymentMethods/types';
+import { CardIdResponse } from '../../coreMethods/getCardId/types';
 
 export type TOptions = {
   /**
@@ -46,6 +48,9 @@ export type TInstanceMercadoPago = {
   getInstallments: (installmentsParams: InstallmentsParams) => Promise<Installments[]>;
   createCardToken: (cardTokenParams: CardTokenParams) => Promise<CardToken>;
   updateCardToken: (paymentMethodsParams: CardTokenUpdateParams) => Promise<CardToken>;
+  getAccountPaymentMethods: (fastPaymentToken: string) => Promise<AccountPaymentMethodsResponse>;
+  getCardId: (fastPaymentToken: string, pseudotoken: string) => Promise<CardIdResponse>;
+  updatePseudotoken: (fastPaymentToken: string, pseudotoken: string, cardToken: string) => Promise<void>;
   authenticator: (amount: string, payerEmail: string) => Promise<IAuthenticator>;
   fields: {
     createCardToken: (fieldsCardTokenParams: FieldsCardTokenParams) => Promise<CardToken>;
