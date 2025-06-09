@@ -19,6 +19,9 @@ import ExpirationDate from './secureFields/expirationDate';
 import ExpirationMonth from './secureFields/expirationMonth';
 import ExpirationYear from './secureFields/expirationYear';
 
+import createAuthenticator from './authenticator';
+
+
 export {
   initMercadoPago,
   Brand,
@@ -39,4 +42,5 @@ export {
   getInstallments,
   getIssuers,
   getPaymentMethods,
+  createAuthenticator
 };
