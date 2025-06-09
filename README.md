@@ -29,9 +29,15 @@ Mercado Pago's Official React SDK.
     - [Expiration Year](#expiration-year)
     - [createCardToken](#createcardtoken)
     - [updateCardToken](#updatecardtoken)
+  - [Fast Payment](#fast-payment)
+    - [createAuthenticator](#createauthenticator)
+    - [Complete Fast Payment Flow](#complete-fast-payment-flow)
   - [Core Methods](#core-methods)
     - [getIdentificationTypes](#getidentificationtypes)
     - [getPaymentMethods](#getpaymentmethods)
+    - [getAccountPaymentMethods](#getaccountpaymentmethods)
+    - [getCardId](#getcardid)
+    - [updatePseudotoken](#updatepseudotoken)
     - [getIssuers](#getissuers)
     - [getInstallments](#getinstallments)
   - [Run SDK project](#run-sdk-project)
@@ -41,7 +47,7 @@ Mercado Pago's Official React SDK.
 
 ## About
 
-This is a wrapper that allows integrate [Checkout Bricks](https://www.mercadopago.com/developers/en/docs/checkout-bricks/landing), [Secure Fields](https://github.com/mercadopago/sdk-js/blob/main/docs/fields.md) and [Core Methods](https://github.com/mercadopago/sdk-js/blob/main/docs/core-methods.md) easily inside React projects.
+This is a wrapper that allows integrate [Checkout Bricks](https://www.mercadopago.com/developers/en/docs/checkout-bricks/landing), [Secure Fields](https://github.com/mercadopago/sdk-js/blob/main/docs/fields.md) and [Core Methods](https://github.com/mercadopago/sdk-js/blob/main/docs/core-methods.md), and **Fast Payment authentication** easily inside React projects.
 
 <br />
 
@@ -178,6 +184,100 @@ The Secure Fields module also provides a method to get the card token safely wit
 > **Note**
 > It's mandatory to have previously done the [Initialization step](#initialization)
 
+## Fast Payment
+
+Fast Payment allows users to authenticate using their MercadoPago/MercadoLibre account and quickly access their saved payment methods for streamlined checkout experiences.
+
+> **Note**
+> It's mandatory to have previously done the [Initialization step](#initialization)
+
+### createAuthenticator
+
+Creates an authenticator instance for Fast Payments authentication flow.
+
+```javascript
+import { createAuthenticator } from '@mercadopago/sdk-react';
+
+const authenticator = await createAuthenticator('100.00', 'user@example.com');
+
+// Show authentication UI and get FastPaymentToken
+try {
+  const fastPaymentToken = await authenticator.show({
+    hideUserConfirmation: false
+  });
+  console.log('FastPaymentToken:', fastPaymentToken);
+} catch (error) {
+  console.error('Authentication failed:', error);
+}
+```
+
+### Complete Fast Payment Flow
+
+Here's a complete example demonstrating the full authentication and payment flow:
+
+```jsx
+import React, { useState, useEffect } from 'react';
+import {
+  initMercadoPago,
+  createAuthenticator,
+  getAccountPaymentMethods,
+  getCardId,
+  updatePseudotoken,
+  SecurityCode,
+} from '@mercadopago/sdk-react';
+
+const FastPaymentFlow = () => {
+  const [authenticator, setAuthenticator] = useState(null);
+  const [superToken, setSuperToken] = useState(null);
+  const [paymentMethods, setPaymentMethods] = useState([]);
+
+  useEffect(() => {
+    initMercadoPago('YOUR_PUBLIC_KEY');
+  }, []);
+
+  // Step 1: Create authenticator
+  const initializeAuth = async () => {
+    const auth = await createAuthenticator('100.00', 'user@example.com');
+    setAuthenticator(auth);
+  };
+
+  // Step 2: Authenticate and get SuperToken
+  const authenticate = async () => {
+    const token = await authenticator.show();
+    setSuperToken(token);
+  };
+
+  // Step 3: Get payment methods
+  const getPaymentMethods = async () => {
+    const methods = await getAccountPaymentMethods(superToken);
+    setPaymentMethods(methods.data);
+  };
+
+  // Step 4: Create card token
+  const createToken = async (selectedMethod) => {
+    const cardId = await getCardId(superToken, selectedMethod.token);
+    // Create token with fields API and security code
+    const token = await createCardToken({ cardId: cardId.card_id });
+    await updatePseudotoken(superToken, selectedMethod.token, token.id);
+    return token;
+  };
+
+  return (
+    <div>
+      <button onClick={initializeAuth}>Initialize</button>
+      <button onClick={authenticate}>Authenticate</button>
+      <button onClick={getPaymentMethods}>Get Payment Methods</button>
+      {/* Payment method selection and token creation UI */}
+    </div>
+  );
+};
+```
+
+For a complete working example, see the `examples/fastPaymentFlow/` directory.
+
+<br/>
+
+
 ### Components
 
 #### Card Number
@@ -294,6 +394,34 @@ Returns a payment methods list
 ```javascript
 import { getPaymentMethods } from '@mercadopago/sdk-react';
 const paymentMethods = await getPaymentMethods({ bin: '<CARD_BIN>' });
+```
+
+### getAccountPaymentMethods
+
+Returns account payment methods for authenticated users using FastPaymentToken
+
+```javascript
+import { getAccountPaymentMethods } from '@mercadopago/sdk-react';
+const accountPaymentMethods = await getAccountPaymentMethods('<FAST_PAYMENT_TOKEN>');
+```
+
+### getCardId
+
+Retrieves card ID from a pseudotoken using FastPaymentToken authentication
+
+```javascript
+import { getCardId } from '@mercadopago/sdk-react';
+const cardIdResponse = await getCardId('<FAST_PAYMENT_TOKEN>', '<PSEUDOTOKEN>');
+console.log(cardIdResponse.card_id);
+```
+
+### updatePseudotoken
+
+Updates a pseudotoken with card token information
+
+```javascript
+import { updatePseudotoken } from '@mercadopago/sdk-react';
+await updatePseudotoken('<FAST_PAYMENT_TOKEN>', '<PSEUDOTOKEN>', '<CARD_TOKEN>');
 ```
 
 ### getIssuers
