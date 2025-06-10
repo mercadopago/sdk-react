@@ -11,22 +11,13 @@ import type {
  * @param payerEmail - The email of the payer
  * @returns Promise that resolves to an authenticator instance
  */
-const createAuthenticator = async (
-  amount: string,
-  payerEmail: string,
-): Promise<IAuthenticator | null> => {
-  try {
-    const mp = await MercadoPagoInstance.getInstance();
-    if (!mp) {
-      console.error('MercadoPago instance not found. Make sure to call initMercadoPago first.');
-      return null;
-    }
-
-    return await mp.authenticator(amount, payerEmail);
-  } catch (error) {
-    console.error('Error creating authenticator:', error);
-    return null;
+const createAuthenticator = async (amount: string, payerEmail: string): Promise<IAuthenticator> => {
+  const mp = await MercadoPagoInstance.getInstance();
+  if (!mp) {
+    throw new Error('MercadoPago instance not found. Make sure to call initMercadoPago first.');
   }
+
+  return await mp.authenticator(amount, payerEmail);
 };
 
 export default createAuthenticator;

@@ -17,55 +17,58 @@ describe('createAuthenticator', () => {
   };
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    mockAuthenticator.show.mockClear();
+    mockAuthenticator.getApplication.mockClear();
+    mockMP.authenticator.mockClear();
+
+    mockMP.authenticator.mockResolvedValue(mockAuthenticator);
     mockMercadoPagoInstance.getInstance.mockResolvedValue(mockMP as any);
   });
 
   it('should create authenticator successfully', async () => {
     const authenticator = await createAuthenticator('100.00', 'test@example.com');
-    
+
     expect(authenticator).toBeDefined();
     expect(authenticator).toBe(mockAuthenticator);
     expect(mockMP.authenticator).toHaveBeenCalledWith('100.00', 'test@example.com');
   });
 
-  it('should return null if MercadoPago instance is not available', async () => {
+  it('should throw error if MercadoPago instance is not available', async () => {
     mockMercadoPagoInstance.getInstance.mockResolvedValue(undefined);
-    
-    const authenticator = await createAuthenticator('100.00', 'test@example.com');
-    
-    expect(authenticator).toBeNull();
+
+    await expect(createAuthenticator('100.00', 'test@example.com')).rejects.toThrow(
+      'MercadoPago instance not found. Make sure to call initMercadoPago first.',
+    );
   });
 
-  it('should handle errors gracefully', async () => {
-    mockMP.authenticator.mockRejectedValue(new Error('Test error'));
-    
-    const authenticator = await createAuthenticator('100.00', 'test@example.com');
-    
-    expect(authenticator).toBeNull();
+  it('should let authenticator errors propagate', async () => {
+    const testError = new Error('Test error');
+    mockMP.authenticator.mockRejectedValue(testError);
+
+    await expect(createAuthenticator('100.00', 'test@example.com')).rejects.toThrow('Test error');
   });
 
   it('should return authenticator with correct methods', async () => {
     const authenticator = await createAuthenticator('100.00', 'test@example.com');
-    
-    expect(authenticator?.show).toBeDefined();
-    expect(authenticator?.getApplication).toBeDefined();
+
+    expect(authenticator.show).toBeDefined();
+    expect(authenticator.getApplication).toBeDefined();
   });
 
   it('should call show method correctly', async () => {
     const authenticator = await createAuthenticator('100.00', 'test@example.com');
     const showOptions = { hideUserConfirmation: true };
-    
-    await authenticator?.show(showOptions);
-    
+
+    await authenticator.show(showOptions);
+
     expect(mockAuthenticator.show).toHaveBeenCalledWith(showOptions);
   });
 
   it('should call getApplication method correctly', async () => {
     const authenticator = await createAuthenticator('100.00', 'test@example.com');
-    
-    authenticator?.getApplication();
-    
+
+    authenticator.getApplication();
+
     expect(mockAuthenticator.getApplication).toHaveBeenCalled();
   });
 });
