@@ -211,68 +211,6 @@ try {
 }
 ```
 
-### Complete Fast Payment Flow
-
-Here's a complete example demonstrating the full authentication and payment flow:
-
-```jsx
-import React, { useState, useEffect } from 'react';
-import {
-  initMercadoPago,
-  createAuthenticator,
-  getAccountPaymentMethods,
-  getCardId,
-  updatePseudotoken,
-  SecurityCode,
-} from '@mercadopago/sdk-react';
-
-const FastPaymentFlow = () => {
-  const [authenticator, setAuthenticator] = useState(null);
-  const [superToken, setSuperToken] = useState(null);
-  const [paymentMethods, setPaymentMethods] = useState([]);
-
-  useEffect(() => {
-    initMercadoPago('YOUR_PUBLIC_KEY');
-  }, []);
-
-  // Step 1: Create authenticator
-  const initializeAuth = async () => {
-    const auth = await createAuthenticator('100.00', 'user@example.com');
-    setAuthenticator(auth);
-  };
-
-  // Step 2: Authenticate and get SuperToken
-  const authenticate = async () => {
-    const token = await authenticator.show();
-    setSuperToken(token);
-  };
-
-  // Step 3: Get payment methods
-  const getPaymentMethods = async () => {
-    const methods = await getAccountPaymentMethods(superToken);
-    setPaymentMethods(methods.data);
-  };
-
-  // Step 4: Create card token
-  const createToken = async (selectedMethod) => {
-    const cardId = await getCardId(superToken, selectedMethod.token);
-    // Create token with fields API and security code
-    const token = await createCardToken({ cardId: cardId.card_id });
-    await updatePseudotoken(superToken, selectedMethod.token, token.id);
-    return token;
-  };
-
-  return (
-    <div>
-      <button onClick={initializeAuth}>Initialize</button>
-      <button onClick={authenticate}>Authenticate</button>
-      <button onClick={getPaymentMethods}>Get Payment Methods</button>
-      {/* Payment method selection and token creation UI */}
-    </div>
-  );
-};
-```
-
 For a complete working example, see the `examples/fastPaymentFlow/` directory.
 
 <br/>
