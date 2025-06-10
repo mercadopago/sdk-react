@@ -207,7 +207,7 @@ try {
   });
   console.log('FastPaymentToken:', fastPaymentToken);
 } catch (error) {
-  console.error('Authentication failed:', error);
+  console.error(error.message, "Error code:", error?.errorCode);
 }
 ```
 
