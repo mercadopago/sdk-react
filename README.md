@@ -198,10 +198,9 @@ Creates an authenticator instance for Fast Payments authentication flow.
 ```javascript
 import { createAuthenticator } from '@mercadopago/sdk-react';
 
-const authenticator = await createAuthenticator('100.00', 'user@example.com');
-
 // Show authentication UI and get FastPaymentToken
 try {
+  const authenticator = await createAuthenticator('100.00', 'user@example.com');
   const fastPaymentToken = await authenticator.show({
     hideUserConfirmation: false
   });
