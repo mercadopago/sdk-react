@@ -7,6 +7,7 @@ import type {
 
 /**
  * Creates a new authenticator instance for SuperToken authentication
+ * This feature is disabled by deafult, to enable it, please contact the offical *Mercado Pago* support via developer's website: www.mercadopago.com/developers
  * @param amount - The amount to be processed on the payment request
  * @param payerEmail - The email of the payer
  * @returns Promise that resolves to an authenticator instance
