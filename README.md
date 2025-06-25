@@ -186,6 +186,8 @@ The Secure Fields module also provides a method to get the card token safely wit
 
 ## Fast Payment
 
+> This feature is disabled by default, to enable, please contact the offical *Mercado Pago* support via developer's website: www.mercadopago.com/developers
+
 Fast Payment allows users to authenticate using their MercadoPago/MercadoLibre account and quickly access their saved payment methods for streamlined checkout experiences.
 
 > **Note**
