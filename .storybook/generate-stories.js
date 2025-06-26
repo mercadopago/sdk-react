@@ -43,7 +43,7 @@ const processDirectory = (currentDir) => {
     const fullPath = path.join(currentDir, entry.name);
     if (entry.isDirectory()) {
       processDirectory(fullPath);
-    } else if (entry.isFile() && fullPath.includes('/bricks/')) {
+    } else if (entry.isFile() && entry.name.endsWith('.tsx')) {
       const relativePath = path.relative(examplesDir, fullPath).replace(/\\/g, '/');
       const storyName = path.basename(entry.name, '.tsx').replace(/^\d+-|-/g, '');
       const storyFileName = `${relativePath.split('/')[1]}-${storyName}.stories.tsx`;
