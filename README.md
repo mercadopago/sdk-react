@@ -31,7 +31,6 @@ Mercado Pago's Official React SDK.
     - [updateCardToken](#updatecardtoken)
   - [Fast Payment](#fast-payment)
     - [createAuthenticator](#createauthenticator)
-    - [Complete Fast Payment Flow](#complete-fast-payment-flow)
   - [Core Methods](#core-methods)
     - [getIdentificationTypes](#getidentificationtypes)
     - [getPaymentMethods](#getpaymentmethods)
