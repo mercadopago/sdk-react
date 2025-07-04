@@ -186,7 +186,7 @@ The Secure Fields module also provides a method to get the card token safely wit
 
 ## Fast Payment
 
-> This feature is disabled by default, to enable, please contact the offical *Mercado Pago* support via developer's website: www.mercadopago.com/developers
+> This feature is disabled by default, to enable, please contact the offical _Mercado Pago_ support via developer's website: www.mercadopago.com/developers
 
 Fast Payment allows users to authenticate using their MercadoPago/MercadoLibre account and quickly access their saved payment methods for streamlined checkout experiences.
 
@@ -203,19 +203,16 @@ import { createAuthenticator } from '@mercadopago/sdk-react';
 // Show authentication UI and get FastPaymentToken
 try {
   const authenticator = await createAuthenticator('100.00', 'user@example.com');
-  const fastPaymentToken = await authenticator.show({
-    hideUserConfirmation: false
-  });
+  const fastPaymentToken = await authenticator.show();
   console.log('FastPaymentToken:', fastPaymentToken);
 } catch (error) {
-  console.error(error.message, "Error code:", error?.errorCode);
+  console.error(error.message, 'Error code:', error?.errorCode);
 }
 ```
 
 For a complete working example, see the `examples/fastPaymentFlow/` directory.
 
 <br/>
-
 
 ### Components
 
