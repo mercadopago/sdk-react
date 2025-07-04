@@ -1,5 +1,5 @@
 export interface ShowAuthenticatorOptions {
-  hideUserConfirmation?: boolean;
+  [key: string]: unknown;
 }
 
 export enum PaymentRequestHandlerApplication {
@@ -36,7 +36,7 @@ export enum AuthenticatorErrors {
 
 export class AuthenticationError extends Error {
   public readonly code: AuthenticatorErrors;
-  
+
   constructor(message: string, code: AuthenticatorErrors) {
     super(message);
     this.name = 'AuthenticationError';

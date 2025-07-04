@@ -57,7 +57,7 @@ describe('createAuthenticator', () => {
 
   it('should call show method correctly', async () => {
     const authenticator = await createAuthenticator('100.00', 'test@example.com');
-    const showOptions = { hideUserConfirmation: true };
+    const showOptions = {};
 
     await authenticator.show(showOptions);
 
