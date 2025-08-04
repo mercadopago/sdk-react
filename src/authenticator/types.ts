@@ -1,5 +1,5 @@
 export interface ShowAuthenticatorOptions {
-  [key: string]: unknown;
+  confirmationLocation?: 'web' | 'app';
 }
 
 export enum PaymentRequestHandlerApplication {
@@ -26,7 +26,7 @@ export enum AuthenticatorErrors {
   ApiRequestFailed = 'API_REQUEST_FAILED',
   BottomsheetLoadingFailed = 'BOTTOMSHEET_LOADING_FAILED',
   BottomsheetCloseFailed = 'BOTTOMSHEET_CLOSE_FAILED',
-  NoBottomsheetConfirmation = 'NO_BOTTOMSHEET_CONFIRMATION',
+  NoUserConfirmation = 'NO_USER_CONFIRMATION',
   UnreachableApplication = 'UNREACHABLE_APPLICATION',
   SecurityBlocked = 'SECURITY_BLOCKED',
   PublicKeyNotSet = 'PUBLIC_KEY_NOT_SET',
