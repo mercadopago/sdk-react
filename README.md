@@ -202,7 +202,9 @@ import { createAuthenticator } from '@mercadopago/sdk-react';
 // Show authentication UI and get FastPaymentToken
 try {
   const authenticator = await createAuthenticator('100.00', 'user@example.com');
-  const fastPaymentToken = await authenticator.show();
+  const fastPaymentToken = await authenticator.show({
+    confirmationLocation: 'web',
+  });
   console.log('FastPaymentToken:', fastPaymentToken);
 } catch (error) {
   console.error(error.message, 'Error code:', error?.errorCode);
