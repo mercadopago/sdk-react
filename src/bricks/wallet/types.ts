@@ -81,7 +81,9 @@ interface IWalletBrickBaseCustomization {
   | 'security_safety'
   | 'convenience_credits'
   | 'smart_option'
-  | 'payment_methods_logos';
+  | 'payment_methods_logos'
+  | 'free_shipping'
+  | 'ml_shipping';
   /**
    * Optional. Wallet Brick offers some customization over the Checkout Experience.
    *
