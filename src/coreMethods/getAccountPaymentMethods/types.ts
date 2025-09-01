@@ -36,6 +36,7 @@ type TCardResponseData = TBaseResponseData & {
     max_allowed_amount: number;
     min_allowed_amount: number;
     total_amount: string;
+    labels: string[];
   };
 };
 
