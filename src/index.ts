@@ -23,6 +23,7 @@ import createAuthenticator from './authenticator';
 import getAccountPaymentMethods from './coreMethods/getAccountPaymentMethods';
 import getCardId from './coreMethods/getCardId';
 import updatePseudotoken from './coreMethods/updatePseudotoken';
+import renderCreditsContract from './coreMethods/renderCreditsContract';
 
 
 export {
@@ -48,5 +49,6 @@ export {
   getAccountPaymentMethods,
   getCardId,
   updatePseudotoken,
-  createAuthenticator
+  createAuthenticator,
+  renderCreditsContract
 };

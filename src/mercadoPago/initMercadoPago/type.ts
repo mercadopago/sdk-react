@@ -12,6 +12,7 @@ import type { FieldName, Field, FieldsOptions } from '../../secureFields/util/ty
 import type { IAuthenticator } from '../../authenticator/types';
 import { AccountPaymentMethodsResponse } from '../../coreMethods/getAccountPaymentMethods/types';
 import { CardIdResponse } from '../../coreMethods/getCardId/types';
+import { CreditsContractOptions, CreditsContractController } from '../../coreMethods/renderCreditsContract/types';
 
 export type TOptions = {
   /**
@@ -52,6 +53,7 @@ export type TInstanceMercadoPago = {
   getCardId: (fastPaymentToken: string, pseudotoken: string) => Promise<CardIdResponse>;
   updatePseudotoken: (fastPaymentToken: string, pseudotoken: string, cardToken: string) => Promise<void>;
   authenticator: (amount: string, payerEmail: string) => Promise<IAuthenticator>;
+  renderCreditsContract: (containerId: string, options: CreditsContractOptions) => Promise<CreditsContractController>;
   fields: {
     createCardToken: (fieldsCardTokenParams: FieldsCardTokenParams) => Promise<CardToken>;
     updateCardToken: (token: string) => Promise<CardToken>;

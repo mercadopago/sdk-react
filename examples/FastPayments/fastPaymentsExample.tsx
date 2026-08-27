@@ -7,8 +7,10 @@ import {
   updatePseudotoken,
   SecurityCode,
   createCardToken,
+  renderCreditsContract,
 } from '../../src/index';
 import { AccountPaymentMethodsResponseData } from '../../src/coreMethods/getAccountPaymentMethods/types';
+import { CreditsContractController } from '../../src/coreMethods/renderCreditsContract/types';
 import { IAuthenticator } from '../../src/authenticator';
 import { PUBLIC_KEY } from '../constants';
 
@@ -23,6 +25,9 @@ interface FastPaymentState {
   transactionReady: boolean;
   loading: boolean;
   error: string | null;
+  creditsContract: CreditsContractController | null;
+  selectedInstallments: string;
+  creditsPricingId: string | null;
 }
 
 const FastPaymentExample: React.FC = () => {
@@ -37,6 +42,9 @@ const FastPaymentExample: React.FC = () => {
     transactionReady: false,
     loading: false,
     error: null,
+    creditsContract: null,
+    selectedInstallments: '0',
+    creditsPricingId: null,
   });
   useEffect(() => {
     initMercadoPago(PUBLIC_KEY);
@@ -127,20 +135,59 @@ const FastPaymentExample: React.FC = () => {
     }
   };
 
-  const handlePaymentMethodSelect = (token: string) => {
+  const handlePaymentMethodSelect = async (token: string) => {
     setState((prev) => ({
       ...prev,
       selectedPaymentMethod: token,
       securityCodeMounted: false,
+      creditsContract: null,
     }));
 
     const selectedMethod = state.paymentMethods.find((method) => method.token === token);
-    if (
-      selectedMethod &&
-      selectedMethod.type !== 'account_money' &&
-      selectedMethod.security_code_settings.mode === 'madatory'
-    ) {
-      setState((prev) => ({ ...prev, securityCodeMounted: true }));
+    
+    if (selectedMethod) {
+      if (selectedMethod.type === 'digital_currency' && selectedMethod.id === 'consumer_credits') {
+        try {
+          const creditsMethod = selectedMethod as Extract<typeof selectedMethod, { type: 'digital_currency' }>;
+          const pricingId = creditsMethod.credits_pricing_id;
+          
+          if (state.fastPaymentToken) {
+            setState((prev) => ({ ...prev, creditsPricingId: pricingId, loading: true }));
+            
+            const creditsContract = await renderCreditsContract('credits-contract-container', {
+              fastPaymentToken: state.fastPaymentToken,
+              pseudotoken: token,
+              pricingId: pricingId,
+              customization: {
+                textColor: '#000000',
+                textSize: '14px',
+                linkColor: '#0066cc',
+              },
+            });
+            
+            setState((prev) => ({ 
+              ...prev, 
+              creditsContract: creditsContract || null,
+              loading: false,
+            }));
+            console.log('Credits contract rendered successfully');
+          }
+        } catch (error: any) {
+          console.error('Error rendering credits contract:', error);
+          setState((prev) => ({ 
+            ...prev, 
+            error: `Error rendering credits contract: ${error.message}`,
+            loading: false,
+          }));
+        }
+      } 
+      else if (
+        selectedMethod.type !== 'account_money' &&
+        'security_code_settings' in selectedMethod &&
+        selectedMethod.security_code_settings?.mode === 'mandatory'
+      ) {
+        setState((prev) => ({ ...prev, securityCodeMounted: true }));
+      }
     }
   };
 
@@ -150,45 +197,61 @@ const FastPaymentExample: React.FC = () => {
       return;
     }
 
+    const selectedMethod = state.paymentMethods.find((method) => method.token === state.selectedPaymentMethod);
+    const isCredits = selectedMethod?.type === 'digital_currency' && selectedMethod?.id === 'consumer_credits';
+
     try {
       setState((prev) => ({ ...prev, loading: true, error: null }));
 
-      // Get card ID from pseudotoken
-      if (state.securityCodeMounted) {
-        const cardIdResponse = await getCardId(state.fastPaymentToken, state.selectedPaymentMethod);
-
-        if (!cardIdResponse?.card_id) {
-          throw new Error('Failed to get card ID');
-        }
-
-        // Create card token using the secure fields API
-        const cardTokenResponse = await createCardToken({
-          cardId: cardIdResponse.card_id,
-        });
-
-        if (!cardTokenResponse?.id) {
-          throw new Error('Failed to create card token');
-        }
-
-        // Update pseudotoken with the card token
-        await updatePseudotoken(
-          state.fastPaymentToken,
-          state.selectedPaymentMethod,
-          cardTokenResponse.id,
-        );
-
+      if (isCredits) {
         setState((prev) => ({
           ...prev,
           loading: false,
-        }));
-
-        // Set transaction ready status after successful token creation
-        setState((prev) => ({
-          ...prev,
           transactionReady: true,
         }));
 
-        console.log('✅ Transaction data ready!');
+        console.log('✅ Credits transaction data ready!');
+        console.log('Selected installments:', state.selectedInstallments);
+      } else {
+        if (state.securityCodeMounted) {
+          const cardIdResponse = await getCardId(state.fastPaymentToken, state.selectedPaymentMethod);
+
+          if (!cardIdResponse?.card_id) {
+            throw new Error('Failed to get card ID');
+          }
+
+          // Create card token using the secure fields API
+          const cardTokenResponse = await createCardToken({
+            cardId: cardIdResponse.card_id,
+          });
+
+          if (!cardTokenResponse?.id) {
+            throw new Error('Failed to create card token');
+          }
+
+          // Update pseudotoken with the card token
+          await updatePseudotoken(
+            state.fastPaymentToken,
+            state.selectedPaymentMethod,
+            cardTokenResponse.id,
+          );
+
+          setState((prev) => ({
+            ...prev,
+            loading: false,
+            transactionReady: true,
+          }));
+
+          console.log('✅ Card transaction data ready!');
+        } else {
+          setState((prev) => ({
+            ...prev,
+            loading: false,
+            transactionReady: true,
+          }));
+
+          console.log('✅ Transaction data ready!');
+        }
       }
     } catch (error: any) {
       setState((prev) => ({
@@ -204,13 +267,35 @@ const FastPaymentExample: React.FC = () => {
     setState((prev) => ({ ...prev, [field]: value }));
   };
 
+  const handleInstallmentsChange = async (installments: string) => {
+    setState((prev) => ({ ...prev, selectedInstallments: installments }));
+    
+    if (state.creditsContract) {
+      try {
+        await state.creditsContract.update({ installments });
+        console.log('Credits contract updated with installments:', installments);
+      } catch (error: any) {
+        console.error('Error updating credits contract:', error);
+        setState((prev) => ({ 
+          ...prev, 
+          error: `Error updating installments: ${error.message}`,
+        }));
+      }
+    }
+  };
+
   const getPaymentMethodDisplayName = (method: AccountPaymentMethodsResponseData): string => {
     if (method.type === 'account_money') {
       return method.name;
     }
 
+    if (method.type === 'digital_currency' && method.id === 'consumer_credits') {
+      return method.name;
+    }
+
     const lastFourDigits = 'card' in method ? method.card?.card_number.last_four_digits : '';
-    return `${method.issuer.name} ending in ${lastFourDigits}`;
+    const issuerName = 'issuer' in method ? method.issuer.name : 'Unknown';
+    return `${issuerName} ending in ${lastFourDigits}`;
   };
 
   return (
@@ -356,6 +441,82 @@ const FastPaymentExample: React.FC = () => {
           </div>
         )}
       </div>
+
+      {state.selectedPaymentMethod && (() => {
+        const selectedMethod = state.paymentMethods.find(
+          (m) => m.token === state.selectedPaymentMethod,
+        );
+        const isCredits = selectedMethod?.type === 'digital_currency' && selectedMethod?.id === 'consumer_credits';
+        
+        return isCredits ? (
+          <div
+            style={{
+              marginBottom: '20px',
+              padding: '15px',
+              border: '1px solid #ddd',
+              borderRadius: '5px',
+              backgroundColor: '#f8f9fa',
+            }}
+          >
+            <h3>Mercado Crédito - Contract</h3>
+            
+            <div style={{ marginBottom: '15px' }}>
+              <label style={{ display: 'block', marginBottom: '5px', fontWeight: 'bold' }}>
+                Selecione as parcelas:
+              </label>
+              <select
+                value={state.selectedInstallments}
+                onChange={(e) => handleInstallmentsChange(e.target.value)}
+                style={{ 
+                  width: '100%', 
+                  padding: '8px',
+                  borderRadius: '4px',
+                  border: '1px solid #ddd'
+                }}
+              >
+                {selectedMethod && 'installments' in selectedMethod && 
+                  (selectedMethod as Extract<typeof selectedMethod, { type: 'digital_currency' }>).installments?.map((inst) => (
+                    <option key={inst.installments} value={inst.installments.toString()}>
+                      {inst.installments}x de R$ {inst.installment_amount} 
+                      {inst.installment_rate > 0 && ` (Taxa: ${inst.installment_rate}%)`}
+                      {` - Total: R$ ${inst.total_amount}`}
+                    </option>
+                  ))
+                }
+              </select>
+            </div>
+
+            <div style={{ marginBottom: '15px' }}>
+              <label style={{ display: 'block', marginBottom: '5px', fontWeight: 'bold' }}>
+                Contrato de Crédito:
+              </label>
+              <div
+                id="credits-contract-container"
+                style={{
+                  border: '1px solid #ddd',
+                  padding: '15px',
+                  borderRadius: '5px',
+                  backgroundColor: 'white',
+                  minHeight: '150px',
+                }}
+              />
+            </div>
+
+            {state.creditsContract && (
+              <div style={{ 
+                padding: '10px', 
+                backgroundColor: '#d4edda', 
+                borderRadius: '5px',
+                marginTop: '10px'
+              }}>
+                <span style={{ color: '#155724', fontWeight: 'bold' }}>
+                  ✅ Contrato de crédito carregado com sucesso
+                </span>
+              </div>
+            )}
+          </div>
+        ) : null;
+      })()}
 
       {state.selectedPaymentMethod && (
         <div
