@@ -27,7 +27,7 @@ import { DEBOUNCE_TIME_RENDER } from '../util/constants';
 const Wallet = ({
   onReady = onReadyDefault,
   onError = onErrorDefault,
-  onSubmit = onSubmitDefault as () => Promise<unknown>,
+  onSubmit = onSubmitDefault,
   customization,
   initialization,
   locale,
