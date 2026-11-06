@@ -23,7 +23,7 @@ const ExampleOnSubmitWalletBrick = () => {
       purpose: 'wallet_purchase',
     };
 
-    return new Promise((resolve, reject) => {
+    return new Promise<string>((resolve, reject) => {
       fetch('/create_preference', {
         method: 'POST',
         headers: {
@@ -32,13 +32,22 @@ const ExampleOnSubmitWalletBrick = () => {
         body: JSON.stringify(yourRequestBodyHere),
       })
         .then((response) => response.json())
-        .then((data) => {
+        .then((data: unknown) => {
+          if (
+            typeof data !== 'object' ||
+            data === null ||
+            !('preference_id' in data) ||
+            typeof data.preference_id !== 'string'
+          ) {
+            reject(new Error('Invalid preference response'));
+            return;
+          }
           // resolver a promise com o ID da preferência
           resolve(data.preference_id);
         })
         .catch((error) => {
           // lidar com a resposta de erro ao tentar criar a preferência
-          reject();
+          reject(error);
         });
     });
   }
