@@ -7,6 +7,7 @@
   - [Intro](#intro)
   - [How it works](#how-it-works)
   - [How to use](#how-to-use)
+  - [React lifecycle](#react-lifecycle)
   - [Screenshots](#screenshots)
   - [External Links](#external-links)
 
@@ -37,6 +38,17 @@ const Example = () => {
 
 export default Example;
 ```
+
+## React lifecycle
+
+Parent state updates and new callback references preserve the current Wallet instance. Equivalent
+`initialization` and `customization` values also preserve it, including nested objects with different
+property ordering. Callbacks use their latest committed implementation without interrupting a pending
+`onSubmit` promise.
+
+Changing initialization or customization values, `locale`, or the container `id` recreates the Brick.
+Removing the Wallet from the React tree or changing its React `key` still unmounts it and allows the
+underlying SDK to cancel pending work. Cleanup applies only to the controller created by that Wallet.
 
 ---
 

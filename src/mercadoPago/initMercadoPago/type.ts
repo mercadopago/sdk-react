@@ -37,8 +37,16 @@ export type TOptions = {
 // #############
 // CHECKOUT BRICKS
 // #############
+export type BrickController = {
+  unmount: () => void;
+};
+
 export type BricksBuilderType = {
-  create: (param: string, param2: string, settings: {}) => void;
+  create: (
+    param: string,
+    param2: string,
+    settings: Record<string, unknown>,
+  ) => Promise<BrickController>;
 };
 
 export type TInstanceMercadoPago = {
