@@ -83,6 +83,13 @@ export type TPaymentType = {
      * @see {@link https://www.mercadopago.com/developers/en/docs/checkout-bricks/payment-brick/payment-submission/wallet-credits Mercado Pago Wallet and Installments without card} documentation.
      */
     marketplace?: boolean;
+    /**
+     * Optional. Turns Fast Payments on: the buyer pays with their saved payment methods.
+     * The accepted methods come from `customization.paymentMethods` (`creditCard`, `debitCard`, `prepaidCard`, `bankTransfer`).
+     *
+     * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment-fast-payments.md Fast Payments} documentation.
+     */
+    quickCheckout?: 'fastPayment'[];
   };
   /**
    * Required. An object containing customization brick options.

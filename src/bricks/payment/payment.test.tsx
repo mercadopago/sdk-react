@@ -53,4 +53,23 @@ describe('Test Payment Brick Component', () => {
 
     expect(element.container.querySelector('#customPaymentBrick_container')).toBeTruthy();
   });
+  test('should accept initialization.quickCheckout to turn Fast Payments on', async () => {
+    MercadoPagoInstance.publicKey = 'PUBLIC_KEY';
+    const element = await render(
+      <Payment
+        initialization={{ amount: 100, quickCheckout: ['fastPayment'] }}
+        customization={{
+          paymentMethods: {
+            creditCard: 'all',
+            debitCard: 'all',
+          },
+        }}
+        onSubmit={async (param) => {
+          console.log(param);
+        }}
+      />,
+    );
+
+    expect(element.container.querySelector('#paymentBrick_container')).toBeTruthy();
+  });
 });
