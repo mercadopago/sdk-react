@@ -85,7 +85,8 @@ export type TPaymentType = {
     marketplace?: boolean;
     /**
      * Optional. Turns Fast Payments on: the buyer pays with their saved payment methods.
-     * The accepted methods come from `customization.paymentMethods` (`creditCard`, `debitCard`, `prepaidCard`, `bankTransfer`).
+     * Use `quickCheckout: ['fastPayment']`. The accepted methods come from `customization.paymentMethods` (`creditCard`, `debitCard`, `prepaidCard`, `bankTransfer`).
+     * To integrate Fast Payments, contact your Mercado Pago account executive.
      *
      * @see {@link https://github.com/mercadopago/sdk-js/blob/main/docs/bricks/payment-fast-payments.md Fast Payments} documentation.
      */
