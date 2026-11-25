@@ -43,7 +43,7 @@ const serializeSettings = (settings: Pick<TWallet, 'initialization' | 'customiza
 const Wallet = ({
   onReady = onReadyDefault,
   onError = onErrorDefault,
-  onSubmit = onSubmitDefault as () => Promise<unknown>,
+  onSubmit = onSubmitDefault,
   customization,
   initialization,
   locale,

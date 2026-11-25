@@ -25,7 +25,6 @@ import getCardId from './coreMethods/getCardId';
 import updatePseudotoken from './coreMethods/updatePseudotoken';
 import renderCreditsContract from './coreMethods/renderCreditsContract';
 
-
 export {
   initMercadoPago,
   Brand,
@@ -50,5 +49,15 @@ export {
   getCardId,
   updatePseudotoken,
   createAuthenticator,
-  renderCreditsContract
+  renderCreditsContract,
 };
+
+export type {
+  WalletOrderCredentials,
+  WalletSubmitResult,
+  WalletOnSubmit,
+  OrderOnInitialization,
+  PreferenceOnInitialization,
+  PreferenceOnSubmit,
+  TWallet,
+} from './bricks/wallet/types';
