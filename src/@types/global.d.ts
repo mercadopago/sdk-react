@@ -25,7 +25,7 @@ declare global {
        */
       update: (updateValues: UpdateValues) => boolean;
     };
-    walletBrickController: {
+    walletBrickController?: {
       unmount: () => void;
     };
     statusScreenBrickController: {
